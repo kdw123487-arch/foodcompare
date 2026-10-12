@@ -165,18 +165,19 @@
     .macro-subs li > span:last-child { font-size:13px; font-weight:700; font-variant-numeric:tabular-nums; }
     .macro-subs small { font-size:10px; color:var(--muted); font-weight:500; margin-left:1px; }
     .macro-subs .na { font-size:11px; }
-    .macro-subs li.bl { display:block; }
-    .bl-row { display:flex; justify-content:space-between; align-items:baseline; gap:6px; }
-    .bl-row > span:first-child { color:var(--text); font-size:12px; font-weight:700; letter-spacing:.02em; }
-    .bl-row > span:last-child { font-size:13px; font-weight:700; font-variant-numeric:tabular-nums; white-space:nowrap; }
-    .bl-row .na { font-size:10.5px; font-weight:500; white-space:nowrap; }
-    .bl-name { margin-top:1px; font-size:10.5px; color:var(--muted); line-height:1.35; }
     .bcaa-box { margin-top:10px; border:1px solid var(--line); border-radius:12px; padding:14px; }
     .bcaa-head { display:flex; justify-content:space-between; align-items:baseline; }
     .bcaa-head span { color:var(--accent); font-size:13px; font-weight:800; }
     .bcaa-head strong { font-size:24px; font-weight:750; letter-spacing:-.04em; font-variant-numeric:tabular-nums; }
     .bcaa-head strong small { margin-left:2px; color:var(--muted); font-size:12px; font-weight:500; letter-spacing:0; }
     .bcaa-box .macro-subs li { font-size:13px; }
+    .blend-box .bcaa-head em { font-style:normal; color:var(--muted); font-size:12px; }
+    .blend-box .macro-subs li { flex-wrap:nowrap; font-size:13px; }
+    .blend-box .macro-subs li > span:first-child { min-width:0; color:var(--muted); }
+    .blend-box .bb-abbr { color:var(--text); font-weight:700; letter-spacing:.02em; }
+    .blend-box .bb-name { margin-left:8px; font-style:normal; font-size:12px; color:var(--muted); }
+    .blend-box .macro-subs li > span:last-child { white-space:nowrap; }
+    .blend-box .na { font-size:11px; font-weight:500; }
     .chip.nodata { opacity:.5; }
     .empty-state { grid-column:1/-1; border:1px dashed #353b37; background:#0d0f10; border-radius:var(--radius); min-height:270px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:35px; }
     .empty-icon { width:48px; height:48px; border:1px solid #333a35; border-radius:15px; display:grid; place-items:center; color:var(--accent); margin-bottom:17px; }
@@ -399,18 +400,20 @@
       if (!hasNutri(f)) return `<div class="nutri-panel" data-panel="${i}"${hidden}><p class="missing">${esc(f.flavor)}맛의 영양 성분표를 아직 확인하지 못했습니다.</p></div>`;
       const sub = (label, v) => `<li><span>${label}</span><span>${val(v, 'g')}</span></li>`;
       const head = `${esc(f.flavor)}맛 · 1회 ${f.serving}g${n.kcal != null ? ` · ${num(n.kcal)}kcal` : ''}`;
-      // 단백질 배합: 약칭 + 비율 + (상세 이름). 비율을 모르면 '확인 필요'
-      const blendList = blend.length ? `<ul class="macro-subs">${blend.map(b => `<li class="bl"><div class="bl-row"><span>${esc(b.abbr || b.name)}</span><span>${b.pct != null ? `${b.pct}<small>%</small>` : NA}</span></div><div class="bl-name">(${esc(b.name)}${b.origin ? ` · ${esc(b.origin)}` : ''})</div></li>`).join('')}</ul>` : '';
+      // 단백질 배합: BCAA 박스 아래에 한 줄씩 (약칭 · 상세 이름 · 비율). 비율을 모르면 '확인 필요'
+      const blendBlock = blend.length ? `<div class="bcaa-box blend-box"><div class="bcaa-head"><span>단백질 배합</span><em>${blend.length}종 · 함량 많은 순</em></div>
+          <ul class="macro-subs">${blend.map(b => `<li><span><b class="bb-abbr">${esc(b.abbr || b.name)}</b><i class="bb-name">${esc(b.name)}${b.origin ? ` · ${esc(b.origin)}` : ''}</i></span><span>${b.pct != null ? `${b.pct}<small>%</small>` : NA}</span></li>`).join('')}</ul></div>` : '';
       return `<div class="nutri-panel" data-panel="${i}"${hidden}>
           <div class="macro-box">
             <div class="macro-box-head">${head}</div>
             <div class="macro-trio">
               <div class="macro-col"><div class="macro-label">탄수화물</div><div class="big-num">${val(n.carb, 'g')}</div><ul class="macro-subs">${sub('당류', n.sugar)}</ul></div>
-              <div class="macro-col"><div class="macro-label">단백질</div><div class="big-num">${val(f.protein, 'g')}</div>${blendList}</div>
+              <div class="macro-col"><div class="macro-label">단백질</div><div class="big-num">${val(f.protein, 'g')}</div></div>
               <div class="macro-col"><div class="macro-label">지방</div><div class="big-num">${val(n.fat, 'g')}</div><ul class="macro-subs">${sub('포화지방', n.satFat)}${sub('트랜스지방', n.transFat)}</ul></div>
             </div>
           </div>
           ${bcaaBlock(f)}
+          ${blendBlock}
         </div>`;
     }
 
