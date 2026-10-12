@@ -267,27 +267,44 @@
   <div class="toast" id="toast" role="status"></div>
 
   <script>
-    // source: 공식 판매 페이지 주소 (화면에는 표시하지 않고, 정보를 다시 확인할 때 참고용으로만 보관)
-    const sourceUrl = 'https://nsprotein.com/product/detail.html?product_no=197&cate_no=140&display_group=1';
-    const sourceUrl2 = 'https://nsprotein.com/product/detail.html?product_no=342&cate_no=186&display_group=1';
-    // 맛별 영양 성분은 제품 표기(1회 섭취량 기준)대로 숫자만 채우면 화면에 나타납니다. 비어 있으면(null) '확인 필요'로 표시됩니다.
-    // kcal 열량 · carb 탄수화물(g) · sugar 당류(g) · fat 지방(g) · satFat 포화지방(g) · sodium 나트륨(mg)
-    const products = [
-      { id:'ns-deep', productGroup:'ns-whey-1kg', category:'protein', brand:'NS PROTEIN', name:'NS 웨이 프로틴 1kg', flavor:'딥초코', weight:1000, serving:30, protein:20.6, price:41800, nutrition:{ kcal:null, carb:null, sugar:null, fat:null, satFat:null, sodium:null }, groupImage:'images/ns-deep.jpg', source:sourceUrl, checked:'2026.10.10' },
-      { id:'ns-grain', productGroup:'ns-whey-1kg', category:'protein', brand:'NS PROTEIN', name:'NS 웨이 프로틴 1kg', flavor:'곡물', weight:1000, serving:30, protein:21.5, price:41800, nutrition:{ kcal:null, carb:null, sugar:null, fat:null, satFat:null, sodium:null }, groupImage:'images/ns-deep.jpg', source:sourceUrl, checked:'2026.10.10' },
-      { id:'ns-cookie', productGroup:'ns-whey-1kg', category:'protein', brand:'NS PROTEIN', name:'NS 웨이 프로틴 1kg', flavor:'쿠키앤크림', weight:1000, serving:30, protein:20.1, price:41800, nutrition:{ kcal:null, carb:null, sugar:null, fat:null, satFat:null, sodium:null }, groupImage:'images/ns-deep.jpg', source:sourceUrl, checked:'2026.10.10' },
-      { id:'ns-strawberry', productGroup:'ns-whey-1kg', category:'protein', brand:'NS PROTEIN', name:'NS 웨이 프로틴 1kg', flavor:'딸기', weight:1000, serving:30, protein:20.8, price:41800, nutrition:{ kcal:null, carb:null, sugar:null, fat:null, satFat:null, sodium:null }, groupImage:'images/ns-deep.jpg', source:sourceUrl, checked:'2026.10.10' },
-      { id:'ns-matcha', productGroup:'ns-whey-1kg', category:'protein', brand:'NS PROTEIN', name:'NS 웨이 프로틴 1kg', flavor:'말차라떼', weight:1000, serving:30, protein:19.7, price:41800, nutrition:{ kcal:null, carb:null, sugar:null, fat:null, satFat:null, sodium:null }, groupImage:'images/ns-deep.jpg', source:sourceUrl, checked:'2026.10.10' },
-      { id:'ns-mass-rich', productGroup:'ns-massbuildup-4kg', category:'protein', brand:'NS PROTEIN', name:'NS 매스빌드업 프로틴 4kg', flavor:'리치초콜릿', weight:4000, serving:null, protein:null, price:59800, nutrition:{ kcal:null, carb:null, sugar:null, fat:null, satFat:null, sodium:null }, groupImage:'images/ns-massbuildup-4kg.png', source:sourceUrl2, checked:'2026.10.12' },
-      { id:'ns-mass-cookie', productGroup:'ns-massbuildup-4kg', category:'protein', brand:'NS PROTEIN', name:'NS 매스빌드업 프로틴 4kg', flavor:'쿠키앤밀크', weight:4000, serving:null, protein:null, price:59800, nutrition:{ kcal:null, carb:null, sugar:null, fat:null, satFat:null, sodium:null }, groupImage:'images/ns-massbuildup-4kg.png', source:sourceUrl2, checked:'2026.10.12' },
-      { id:'ns-mass-strawberry', productGroup:'ns-massbuildup-4kg', category:'protein', brand:'NS PROTEIN', name:'NS 매스빌드업 프로틴 4kg', flavor:'스트로베리크림', weight:4000, serving:null, protein:null, price:59800, nutrition:{ kcal:null, carb:null, sugar:null, fat:null, satFat:null, sodium:null }, groupImage:'images/ns-massbuildup-4kg.png', source:sourceUrl2, checked:'2026.10.12' }
-    ];
+    // 제품 데이터는 data/products.json에서 불러옵니다. 제품을 추가·수정할 때는 그 파일만 고치면 됩니다.
+    const DATA_URL = 'data/products.json';
+    let products = [];
+    let groupExtras = {};
+    let allGroups = [];
+    const emptyNutrition = { kcal:null, carb:null, sugar:null, fat:null, satFat:null, sodium:null };
+    // JSON(제품 > 맛 구조)을 화면에서 쓰는 평평한 맛 목록으로 변환
+    function flattenData(data) {
+      const flat = [];
+      const extras = {};
+      (data.groups || []).forEach(g => {
+        extras[g.id] = g.extras || {};
+        (g.flavors || []).forEach(f => flat.push({
+          id:f.id, productGroup:g.id, category:g.category, brand:g.brand, name:g.name, flavor:f.flavor,
+          weight:g.weight, serving:g.serving ?? null, protein:f.protein ?? null, price:g.price,
+          nutrition:{ ...emptyNutrition, ...(f.nutrition || {}) },
+          groupImage:g.image, source:g.source, checked:g.checked
+        }));
+      });
+      return { flat, extras };
+    }
+    async function loadData() {
+      const grid = document.getElementById('product-grid');
+      try {
+        const res = await fetch(DATA_URL, { cache:'no-cache' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const { flat, extras } = flattenData(await res.json());
+        products = flat;
+        groupExtras = extras;
+        allGroups = groupProducts(products);
+        render();
+      } catch (err) {
+        console.error('데이터 로딩 실패:', err);
+        grid.innerHTML = '<div class="empty-state"><div class="empty-title">데이터를 불러오지 못했습니다</div><div class="empty-copy">data/products.json 파일이 있는지 확인해 주세요.<br>파일을 더블클릭해서 열었다면 로컬 서버(예: python3 -m http.server)로 실행해야 합니다.</div></div>';
+      }
+    }
     // 제품 단위 추가 성분 (원재료명 기준). 비어 있으면(null) '확인 필요'로 표시됩니다.
     const extraLabels = [['proteinSource','단백질 원료'],['sweetener','감미료'],['emulsifier','유화제·증점제'],['functional','기능성 성분'],['allergen','알레르기 유발 성분']];
-    const groupExtras = {
-      'ns-whey-1kg': { proteinSource:'Protein Blend 82% (세부 배합비 확인 필요)', sweetener:null, emulsifier:null, functional:null, allergen:null },
-      'ns-massbuildup-4kg': { proteinSource:null, sweetener:null, emulsifier:null, functional:null, allergen:null }
-    };
     const categories = {
       protein: { name:'프로틴 파우더', label:'CATEGORY 01 / PROTEIN', desc:'1회 단백질 함량과 단백질 1g당 비용을 기준으로 비교', pills:[['1회 섭취량 기준',''],['단백질 1g당 가격',''],['공식 페이지 품절 표시','warn']], empty:'단백질 원료, 단백질 1g당 가격, 맛별 함량을 기준으로 비교합니다.' },
       eaa: { name:'EAA', label:'CATEGORY 02 / AMINO ACIDS', desc:'총 EAA 함량과 1g당 비용, 아미노산 배합을 기준으로 비교', pills:[['총 EAA 함량',''],['EAA 1g당 가격',''],['아미노산 배합','']], empty:'총 EAA·BCAA·류신 함량, 1회 섭취 비용, 감미료 및 맛 정보를 이곳에 정리합니다.' },
@@ -314,7 +331,6 @@
       return [...groups.values()];
     }
 
-    const allGroups = groupProducts(products);
 
     const NA = '<span class="na">확인 필요</span>';
     const weightText = w => (w >= 1000 ? `${w / 1000}kg` : `${w}g`);
@@ -442,7 +458,7 @@
     });
     document.getElementById('search').addEventListener('input', render);
     document.getElementById('sort').addEventListener('change', render);
-    render();
+    loadData();
   </script>
 </body>
 </html>

@@ -1,0 +1,55 @@
+{
+  "_readme": "제품 정보는 이 파일만 고치면 됩니다. 값이 없으면 null로 두면 화면에 '확인 필요'로 표시됩니다. groups 안에 제품(용량·가격 등 공통 정보)을 적고, flavors 안에 맛별 정보를 적습니다. nutrition 항목: kcal 열량 · carb 탄수화물(g) · sugar 당류(g) · fat 지방(g) · satFat 포화지방(g) · sodium 나트륨(mg). category 값: protein / eaa / creatine / chicken",
+  "groups": [
+    {
+      "id": "ns-whey-1kg",
+      "category": "protein",
+      "brand": "NS PROTEIN",
+      "name": "NS 웨이 프로틴 1kg",
+      "weight": 1000,
+      "serving": 30,
+      "price": 41800,
+      "image": "images/ns-deep.jpg",
+      "source": "https://nsprotein.com/product/detail.html?product_no=197&cate_no=140&display_group=1",
+      "checked": "2026.10.10",
+      "extras": {
+        "proteinSource": "Protein Blend 82% (세부 배합비 확인 필요)",
+        "sweetener": null,
+        "emulsifier": null,
+        "functional": null,
+        "allergen": null
+      },
+      "flavors": [
+        { "id": "ns-deep", "flavor": "딥초코", "protein": 20.6, "nutrition": {} },
+        { "id": "ns-grain", "flavor": "곡물", "protein": 21.5, "nutrition": {} },
+        { "id": "ns-cookie", "flavor": "쿠키앤크림", "protein": 20.1, "nutrition": {} },
+        { "id": "ns-strawberry", "flavor": "딸기", "protein": 20.8, "nutrition": {} },
+        { "id": "ns-matcha", "flavor": "말차라떼", "protein": 19.7, "nutrition": {} }
+      ]
+    },
+    {
+      "id": "ns-massbuildup-4kg",
+      "category": "protein",
+      "brand": "NS PROTEIN",
+      "name": "NS 매스빌드업 프로틴 4kg",
+      "weight": 4000,
+      "serving": null,
+      "price": 59800,
+      "image": "images/ns-massbuildup-4kg.png",
+      "source": "https://nsprotein.com/product/detail.html?product_no=342&cate_no=186&display_group=1",
+      "checked": "2026.10.12",
+      "extras": {
+        "proteinSource": null,
+        "sweetener": null,
+        "emulsifier": null,
+        "functional": null,
+        "allergen": null
+      },
+      "flavors": [
+        { "id": "ns-mass-rich", "flavor": "리치초콜릿", "protein": null, "nutrition": {} },
+        { "id": "ns-mass-cookie", "flavor": "쿠키앤밀크", "protein": null, "nutrition": {} },
+        { "id": "ns-mass-strawberry", "flavor": "스트로베리크림", "protein": null, "nutrition": {} }
+      ]
+    }
+  ]
+}
