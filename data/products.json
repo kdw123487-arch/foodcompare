@@ -101,13 +101,13 @@
         { "id": "ns-matcha", "flavor": "말차라떼", "protein": 19.7, "nutrition": {} }
       ],
       "blend": [
-        { "name": "분리대두단백(중국산)", "pct": null },
-        { "name": "농축유청단백(미국산)", "pct": null },
-        { "name": "분리우유단백", "pct": null },
-        { "name": "농축우유단백", "pct": null },
-        { "name": "미셀라카제인", "pct": null },
-        { "name": "분리유청단백", "pct": null },
-        { "name": "가수분해유청단백", "pct": null }
+        { "abbr": "SPI", "name": "분리대두단백", "origin": "중국산", "pct": null },
+        { "abbr": "WPC", "name": "농축유청단백", "origin": "미국산", "pct": null },
+        { "abbr": "MPI", "name": "분리우유단백", "origin": null, "pct": null },
+        { "abbr": "MPC", "name": "농축우유단백", "origin": null, "pct": null },
+        { "abbr": "MC", "name": "미셀라카제인", "origin": null, "pct": null },
+        { "abbr": "WPI", "name": "분리유청단백", "origin": null, "pct": null },
+        { "abbr": "WPH", "name": "가수분해유청단백", "origin": null, "pct": null }
       ]
     },
     {
