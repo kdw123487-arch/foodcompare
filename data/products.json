@@ -1,153 +1,422 @@
 {
-  "_readme": "제품 정보는 이 파일만 고치면 됩니다. 값이 없으면 null(또는 항목 생략)로 두면 화면에 '확인 필요'로 표시됩니다. groups 안에 제품 공통 정보(용량·가격·제조원 등)를, flavors 안에 맛별 정보를 적습니다. 영양성분표는 맛별 nutrition에 적습니다: kcal 열량 · carb 탄수화물(g) · sugar 당류(g) · fat 지방(g) · transFat 트랜스지방(g) · satFat 포화지방(g) · cholesterol 콜레스테롤(mg) · sodium 나트륨(mg) 은 모두 1회 섭취량 기준이고, per100g 은 100g당 수치, dv 는 1회 기준 1일 영양성분 기준치 %, dv100g 는 100g당 기준치 %, aminoAcids 는 아미노산 조성표(mg)입니다. category 값: protein / eaa / creatine / chicken. blend 는 단백질 배합(라벨 표기 순서, 비율을 알면 pct 에 숫자를 적으면 화면에 % 로 표시됩니다). 화면에는 탄수화물·단백질·지방, BCAA만 표시되며 나머지 항목은 데이터로만 보관됩니다. baseFlavor 는 카드의 대표 수치(단백질 1g당 가격, 1회·제품 전체 표)를 계산할 맛의 id이며, 비워 두면 단백질 함량이 가장 낮은 맛을 씁니다. labelFlavor 는 제품 정보·추가 성분을 확인한 맛의 이름입니다.",
-  "groups": [
+ "_generated": "이 파일은 data/products.xlsx에서 tools/build_data.py로 만들어집니다. 직접 고치지 말고 엑셀을 고치세요.",
+ "site": {
+  "help": "수치는 제품 페이지 표기 기준 · 모든 가격은 배송비 제외 · 가격과 재고는 변동 가능",
+  "footnote": "제품 수치와 표시 가격은 공식 판매 페이지 기준이며, 모든 가격은 배송비를 제외한 금액입니다. 카드의 대표 수치(단백질 1g당 가격, 1회·제품 전체 표)는 카드에 표시된 기준 맛의 라벨 수치를 따르며, 각 맛의 수치는 맛별 1회 영양에서 확인할 수 있습니다. 맛별 영양 수치와 상세 영양정보는 제품 라벨(영양성분표)의 1회 섭취량 기준이며, 맛에 따라 다를 수 있습니다. 제품 전체의 단백질·탄수화물·지방은 (총 중량 ÷ 1회 섭취량 × 1회 수치)로 계산한 추정값입니다. NS 웨이 프로틴과 NS 매스빌드업 프로틴은 공식 페이지에 품절이 표시되어 있어 가격 지표는 참고용입니다. '확인 필요'로 표시된 항목은 공식 페이지에서 확인하지 못한 정보이며 추정하지 않았습니다."
+ },
+ "fields": {
+  "protein": {
+   "label": "단백질",
+   "unit": "g",
+   "dec": [
+    1,
+    2
+   ]
+  },
+  "carb": {
+   "label": "탄수화물",
+   "unit": "g",
+   "dec": [
+    1,
+    2
+   ]
+  },
+  "sugar": {
+   "label": "당류",
+   "unit": "g",
+   "dec": [
+    1,
+    2
+   ]
+  },
+  "fat": {
+   "label": "지방",
+   "unit": "g",
+   "dec": [
+    1,
+    2
+   ]
+  },
+  "transFat": {
+   "label": "트랜스지방",
+   "unit": "g",
+   "dec": [
+    1,
+    2
+   ]
+  },
+  "satFat": {
+   "label": "포화지방",
+   "unit": "g",
+   "dec": [
+    1,
+    2
+   ]
+  },
+  "kcal": {
+   "label": "열량",
+   "unit": "kcal",
+   "dec": [
+    0,
+    0
+   ]
+  },
+  "leucine": {
+   "label": "로이신",
+   "unit": "mg",
+   "dec": [
+    0,
+    0
+   ]
+  },
+  "isoleucine": {
+   "label": "이소로이신",
+   "unit": "mg",
+   "dec": [
+    0,
+    0
+   ]
+  },
+  "valine": {
+   "label": "발린",
+   "unit": "mg",
+   "dec": [
+    0,
+    0
+   ]
+  },
+  "cholesterol": {
+   "label": "콜레스테롤",
+   "unit": "mg",
+   "dec": [
+    1,
+    1
+   ]
+  },
+  "sodium": {
+   "label": "나트륨",
+   "unit": "mg",
+   "dec": [
+    1,
+    1
+   ]
+  }
+ },
+ "categories": [
+  {
+   "id": "protein",
+   "name": "프로틴 파우더",
+   "label": "CATEGORY 01 / PROTEIN",
+   "desc": "1회 단백질 함량과 단백질 1g당 비용을 기준으로 비교",
+   "pills": [
+    [
+     "1회 섭취량 기준",
+     ""
+    ],
+    [
+     "단백질 1g당 가격",
+     ""
+    ],
+    [
+     "공식 페이지 품절 표시",
+     "warn"
+    ]
+   ],
+   "empty": "단백질 원료, 단백질 1g당 가격, 맛별 함량을 기준으로 비교합니다.",
+   "metric": {
+    "label": "단백질 1g당 가격",
+    "per": "protein",
+    "unit": "원 / g"
+   },
+   "summary": [
+    "protein",
+    "carb",
+    "fat"
+   ],
+   "header": [
+    "kcal"
+   ],
+   "boxes": [
     {
-      "id": "ns-whey-1kg",
-      "category": "protein",
-      "brand": "NS PROTEIN",
-      "name": "NS 웨이 프로틴 1kg",
-      "weight": 1000,
-      "serving": 30,
-      "price": 41800,
-      "image": "images/ns-deep.jpg",
-      "source": "https://nsprotein.com/product/detail.html?product_no=197&cate_no=140&display_group=1",
-      "checked": "2026.10.12",
-      "labelFlavor": "딥초코",
-      "baseFlavor": "ns-deep",
-      "extras": {
-        "proteinSource": "분리대두단백(중국산), 농축유청단백(미국산), 분리우유단백, 농축우유단백, 미셀라카제인, 분리유청단백, 가수분해유청단백 (엔에스올인원세븐블렌드프로틴 7종)",
-        "sweetener": "효소처리스테비아, 수크랄로스",
-        "emulsifier": "레시틴, 펙틴, 아라비아검",
-        "functional": "BCAA(L-로이신, L-발린, L-이소로이신), 아미노믹스(L-글루타민 등 9종), L-아르지닌, 멀티비타민미네랄믹스 플러스, 치커리뿌리추출물",
-        "allergen": "우유, 대두 함유 · 계란, 밀, 메밀, 복숭아를 사용한 제품과 같은 생산설비에서 제조"
+     "type": "trio",
+     "columns": [
+      {
+       "field": "carb",
+       "subs": [
+        "sugar"
+       ]
       },
-      "info": {
-        "foodType": "기타가공품",
-        "manufacturer": "뉴빅 (전북 전주시 덕진구 여의동 542-20)",
-        "distributor": "(주)뉴트로이카 (전북 전주시 반룡로 151, 5동 201호)",
-        "intake": "1회 섭취 참고량 30g(약 2스푼), 하루 2회 섭취 권장",
-        "storage": "습기, 열, 직사광선을 피해서 서늘한 장소에 실온 보관",
-        "expiry": "별도 표기일까지",
-        "packaging": "용기: HDPE, 캡: PP",
-        "caution": "특이체질 및 과다 섭취를 하면 알레르기 및 부작용 등의 발생 우려가 있으니 성분 및 섭취량을 확인하고 드십시오. 섭취량을 개인의 운동량과 신체 능력에 맞게 조절하여 섭취하십시오."
+      {
+       "field": "protein",
+       "subs": []
       },
-      "flavors": [
-        {
-          "id": "ns-deep",
-          "flavor": "딥초코",
-          "protein": 20.6,
-          "reportNo": "2021048532334",
-          "ingredients": "엔에스올인원세븐블렌드프로틴[분리대두단백(중국산), 농축유청단백(미국산), 분리우유단백, 농축우유단백, 미셀라카제인, 분리유청단백, 가수분해유청단백], 코코아분말(네덜란드산), 혼합분유(네덜란드산), 증숙현미분말, 카놀라오일파우더, 효소처리스테비아(감미료), 초코렛향 코튼(덱스트린, 유당, 정제수, 주정, 프로필렌글리콜, 합성향료, 펙틴, 글리세린, 카라멜색소Ⅰ, 빙초산, 트리아세틴), 17곡현미미숫가루(현미, 보리, 멥쌀, 옥수수, 쌀보리, 흑미, 검정콩, 발아현미, 현미찹쌀, 백태, 찹쌀, 조, 율무, 수수, 기장, 참깨, 검정깨), 치커리뿌리추출물, 볶은보리분말, BCAA(비씨에이에이)(L-로이신, L-발린, L-이소로이신, 레시틴), 아미노믹스(L-글루타민, L-로이신, L-페닐알라닌, L-라이신염산염, L-발린, L-트레오닌, L-이소로이신, L-메티오닌, L-트립토판), 멀티비타민미네랄믹스 플러스(제이인산칼슘, 비타민C, 드라이비타민E(DL-α-토코페릴아세테이트, 덱스트린, 변성전분, 이산화규소), 니코틴산아미드, 푸마르산제일철, 드라이비타민A 아세테이트(비타민A 아세테이트, 비타민E, 말토덱스트린, 아라비아검, 옥수수전분), 판토텐산칼슘, 산화아연, 비타민B6염산염, 비타민B1염산염, 비타민B2, 엽산), L-아르지닌, 수크랄로스(감미료)",
-          "nutrition": {
-            "kcal": 111,
-            "carb": 5.1,
-            "sugar": 0.2,
-            "fat": 0.9,
-            "transFat": 0,
-            "satFat": 0.3,
-            "cholesterol": 7.8,
-            "sodium": 217.9,
-            "per100g": {
-              "carb": 17.2,
-              "sugar": 0.9,
-              "fat": 3.1,
-              "transFat": 0,
-              "satFat": 1.1,
-              "cholesterol": 26.1,
-              "sodium": 726.6,
-              "protein": 68.7
-            },
-            "dv": {
-              "carb": 2,
-              "sugar": 0,
-              "fat": 2,
-              "satFat": 2,
-              "cholesterol": 3,
-              "sodium": 11,
-              "protein": 37
-            },
-            "dv100g": {
-              "carb": 5,
-              "sugar": 1,
-              "fat": 6,
-              "satFat": 7,
-              "cholesterol": 9,
-              "sodium": 36,
-              "protein": 125
-            },
-            "aminoAcids": [
-              { "name": "글루탐산", "serving": 3980, "per100g": 13268 },
-              { "name": "아스파라긴산", "serving": 2293, "per100g": 7643 },
-              { "name": "로이신", "serving": 1668, "per100g": 5559 },
-              { "name": "라이신", "serving": 1417, "per100g": 4723 },
-              { "name": "트레오닌", "serving": 1345, "per100g": 4483 },
-              { "name": "프롤린", "serving": 1094, "per100g": 3648 },
-              { "name": "세린", "serving": 1086, "per100g": 3621 },
-              { "name": "이소로이신", "serving": 1019, "per100g": 3398 },
-              { "name": "아르지닌", "serving": 969, "per100g": 3231 },
-              { "name": "발린", "serving": 918, "per100g": 3061 },
-              { "name": "알라닌", "serving": 891, "per100g": 2971 },
-              { "name": "페닐알라닌", "serving": 847, "per100g": 2822 },
-              { "name": "글리신", "serving": 798, "per100g": 2660 },
-              { "name": "티로신", "serving": 639, "per100g": 2131 },
-              { "name": "히스티딘", "serving": 521, "per100g": 1737 },
-              { "name": "메티오닌", "serving": 263, "per100g": 878 }
-            ]
-          }
-        },
-        { "id": "ns-grain", "flavor": "곡물", "protein": 21.5,
-          "nutrition": {
-            "kcal": 116, "carb": 4.9, "sugar": 0.45, "fat": 1.14, "transFat": 0, "satFat": 0.39,
-            "aminoAcids": [ { "name": "로이신", "serving": 1941 }, { "name": "이소로이신", "serving": 1018 }, { "name": "발린", "serving": 997 } ]
-          }
-        },
-        { "id": "ns-cookie", "flavor": "쿠키앤크림", "protein": 20.1,
-          "nutrition": {
-            "kcal": 114, "carb": 6.7, "sugar": 2.1, "fat": 0.9, "transFat": 0, "satFat": 0.3,
-            "aminoAcids": [ { "name": "로이신", "serving": 1772 }, { "name": "이소로이신", "serving": 1064 }, { "name": "발린", "serving": 1087 } ]
-          }
-        },
-        { "id": "ns-strawberry", "flavor": "딸기", "protein": 20.8,
-          "nutrition": {
-            "kcal": 112, "carb": 6.0, "sugar": 2.8, "fat": 0.4, "transFat": 0, "satFat": 0.2,
-            "aminoAcids": [ { "name": "로이신", "serving": 2011 }, { "name": "이소로이신", "serving": 1077 }, { "name": "발린", "serving": 1043 } ]
-          }
-        },
-        { "id": "ns-matcha", "flavor": "말차라떼", "protein": 19.7, "nutrition": {} }
-      ],
-      "blend": [
-        { "abbr": "SPI", "name": "분리대두단백", "origin": "중국산", "pct": null },
-        { "abbr": "WPC", "name": "농축유청단백", "origin": "미국산", "pct": null },
-        { "abbr": "MPI", "name": "분리우유단백", "origin": null, "pct": null },
-        { "abbr": "MPC", "name": "농축우유단백", "origin": null, "pct": null },
-        { "abbr": "MC", "name": "미셀라카제인", "origin": null, "pct": null },
-        { "abbr": "WPI", "name": "분리유청단백", "origin": null, "pct": null },
-        { "abbr": "WPH", "name": "가수분해유청단백", "origin": null, "pct": null }
-      ]
+      {
+       "field": "fat",
+       "subs": [
+        "satFat",
+        "transFat"
+       ]
+      }
+     ]
     },
     {
-      "id": "ns-massbuildup-4kg",
-      "category": "protein",
-      "brand": "NS PROTEIN",
-      "name": "NS 매스빌드업 프로틴 4kg",
-      "weight": 4000,
-      "serving": null,
-      "price": 59800,
-      "image": "images/ns-massbuildup-4kg.png",
-      "source": "https://nsprotein.com/product/detail.html?product_no=342&cate_no=186&display_group=1",
-      "checked": "2026.10.12",
-      "extras": {
-        "proteinSource": null,
-        "sweetener": null,
-        "emulsifier": null,
-        "functional": null,
-        "allergen": null
-      },
-      "flavors": [
-        { "id": "ns-mass-rich", "flavor": "리치초콜릿", "protein": null, "nutrition": {} },
-        { "id": "ns-mass-cookie", "flavor": "쿠키앤밀크", "protein": null, "nutrition": {} },
-        { "id": "ns-mass-strawberry", "flavor": "스트로베리크림", "protein": null, "nutrition": {} }
-      ]
+     "type": "sum",
+     "title": "BCAA",
+     "parts": [
+      "leucine",
+      "isoleucine",
+      "valine"
+     ]
+    },
+    {
+     "type": "list",
+     "title": "단백질 배합",
+     "note": "함량 많은 순",
+     "source": "blend"
     }
-  ]
+   ]
+  },
+  {
+   "id": "eaa",
+   "name": "EAA",
+   "label": "CATEGORY 02 / AMINO ACIDS",
+   "desc": "총 EAA 함량과 1g당 비용, 아미노산 배합을 기준으로 비교",
+   "pills": [
+    [
+     "총 EAA 함량",
+     ""
+    ],
+    [
+     "EAA 1g당 가격",
+     ""
+    ],
+    [
+     "아미노산 배합",
+     ""
+    ]
+   ],
+   "empty": "총 EAA·BCAA·류신 함량, 1회 섭취 비용, 감미료 및 맛 정보를 이곳에 정리합니다.",
+   "metric": null,
+   "summary": [],
+   "header": [],
+   "boxes": []
+  },
+  {
+   "id": "creatine",
+   "name": "크레아틴",
+   "label": "CATEGORY 03 / CREATINE",
+   "desc": "크레아틴 종류와 유효 성분량, 1g당 비용을 기준으로 비교",
+   "pills": [
+    [
+     "유효 성분량",
+     ""
+    ],
+    [
+     "크레아틴 1g당 가격",
+     ""
+    ],
+    [
+     "순도·검사 정보",
+     ""
+    ]
+   ],
+   "empty": "크레아틴 종류, 1회 함량, 총 유효 성분량, 원료 및 품질 정보를 이곳에 정리합니다.",
+   "metric": null,
+   "summary": [],
+   "header": [],
+   "boxes": []
+  },
+  {
+   "id": "chicken",
+   "name": "닭가슴살",
+   "label": "CATEGORY 04 / HIGH-PROTEIN FOOD",
+   "desc": "1팩 단백질 함량과 단백질 1g당 비용을 기준으로 비교",
+   "pills": [
+    [
+     "1팩 기준",
+     ""
+    ],
+    [
+     "단백질 1g당 가격",
+     ""
+    ],
+    [
+     "나트륨·조리 편의",
+     ""
+    ]
+   ],
+   "empty": "1팩 중량, 단백질·열량·나트륨, 맛, 조리 편의성을 기준으로 비교합니다.",
+   "metric": null,
+   "summary": [],
+   "header": [],
+   "boxes": []
+  }
+ ],
+ "products": [
+  {
+   "id": "ns-whey-1kg",
+   "category": "protein",
+   "brand": "NS PROTEIN",
+   "name": "NS 웨이 프로틴 1kg",
+   "weight": 1000,
+   "serving": 30,
+   "price": 41800,
+   "image": "images/ns-deep.jpg",
+   "source": "https://nsprotein.com/product/detail.html?product_no=197&cate_no=140&display_group=1",
+   "checked": "2026.10.12",
+   "baseFlavor": "ns-deep",
+   "lists": {
+    "blend": [
+     {
+      "name": "SPI",
+      "desc": "분리대두단백 · 중국산",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPC",
+      "desc": "농축유청단백 · 미국산",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPI",
+      "desc": "분리우유단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPC",
+      "desc": "농축우유단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MC",
+      "desc": "미셀라카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "ns-deep",
+     "name": "딥초코",
+     "values": {
+      "protein": 20.6,
+      "carb": 5.1,
+      "sugar": 0.2,
+      "fat": 0.9,
+      "transFat": 0,
+      "satFat": 0.3,
+      "kcal": 111,
+      "leucine": 1668,
+      "isoleucine": 1019,
+      "valine": 918,
+      "cholesterol": 7.8,
+      "sodium": 217.9
+     }
+    },
+    {
+     "id": "ns-grain",
+     "name": "곡물",
+     "values": {
+      "protein": 21.5,
+      "carb": 4.9,
+      "sugar": 0.45,
+      "fat": 1.14,
+      "transFat": 0,
+      "satFat": 0.39,
+      "kcal": 116,
+      "leucine": 1941,
+      "isoleucine": 1018,
+      "valine": 997
+     }
+    },
+    {
+     "id": "ns-cookie",
+     "name": "쿠키앤크림",
+     "values": {
+      "protein": 20.1,
+      "carb": 6.7,
+      "sugar": 2.1,
+      "fat": 0.9,
+      "transFat": 0,
+      "satFat": 0.3,
+      "kcal": 114,
+      "leucine": 1772,
+      "isoleucine": 1064,
+      "valine": 1087
+     }
+    },
+    {
+     "id": "ns-strawberry",
+     "name": "딸기",
+     "values": {
+      "protein": 20.8,
+      "carb": 6,
+      "sugar": 2.8,
+      "fat": 0.4,
+      "transFat": 0,
+      "satFat": 0.2,
+      "kcal": 112,
+      "leucine": 2011,
+      "isoleucine": 1077,
+      "valine": 1043
+     }
+    },
+    {
+     "id": "ns-matcha",
+     "name": "말차라떼",
+     "values": {
+      "protein": 19.7
+     }
+    }
+   ]
+  },
+  {
+   "id": "ns-massbuildup-4kg",
+   "category": "protein",
+   "brand": "NS PROTEIN",
+   "name": "NS 매스빌드업 프로틴 4kg",
+   "weight": 4000,
+   "serving": null,
+   "price": 59800,
+   "image": "images/ns-massbuildup-4kg.png",
+   "source": "https://nsprotein.com/product/detail.html?product_no=342&cate_no=186&display_group=1",
+   "checked": "2026.10.12",
+   "baseFlavor": null,
+   "lists": {},
+   "flavors": [
+    {
+     "id": "ns-mass-rich",
+     "name": "리치초콜릿",
+     "values": {}
+    },
+    {
+     "id": "ns-mass-cookie",
+     "name": "쿠키앤밀크",
+     "values": {}
+    },
+    {
+     "id": "ns-mass-strawberry",
+     "name": "스트로베리크림",
+     "values": {}
+    }
+   ]
+  }
+ ]
 }
