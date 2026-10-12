@@ -261,7 +261,7 @@
    "weight": 1000,
    "serving": 30,
    "price": 41800,
-   "image": "images/ns-deep.jpg",
+   "image": "images/ns-deep.png",
    "source": "https://nsprotein.com/product/detail.html?product_no=197&cate_no=140&display_group=1",
    "checked": "2026.10.12",
    "baseFlavor": "ns-deep",
@@ -344,6 +344,25 @@
       "leucine": 1941,
       "isoleucine": 1018,
       "valine": 997
+     },
+     "lists": {
+      "blend": [
+       {
+        "name": "ISP",
+        "desc": "분리대두단백",
+        "value": 46,
+        "unit": "%"
+       },
+       {
+        "name": "WPC",
+        "desc": "농축유청단백",
+        "value": 36,
+        "unit": "%"
+       }
+      ]
+     },
+     "listNotes": {
+      "blend": "복합단백질 82% · 함량 많은 순"
      }
     },
     {
@@ -360,6 +379,55 @@
       "leucine": 1772,
       "isoleucine": 1064,
       "valine": 1087
+     },
+     "lists": {
+      "blend": [
+       {
+        "name": "WPI",
+        "desc": "분리유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "WPC",
+        "desc": "농축유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "WPH",
+        "desc": "가수분해유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MPI",
+        "desc": "분리우유단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MPC",
+        "desc": "농축우유단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MCC",
+        "desc": "농축 미셀라카제인",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "ISP",
+        "desc": "분리대두단백",
+        "value": null,
+        "unit": "%"
+       }
+      ]
+     },
+     "listNotes": {
+      "blend": "복합단백질 82%"
      }
     },
     {
@@ -376,6 +444,25 @@
       "leucine": 2011,
       "isoleucine": 1077,
       "valine": 1043
+     },
+     "lists": {
+      "blend": [
+       {
+        "name": "ISP",
+        "desc": "분리대두단백",
+        "value": 46,
+        "unit": "%"
+       },
+       {
+        "name": "WPC",
+        "desc": "농축유청단백",
+        "value": 36,
+        "unit": "%"
+       }
+      ]
+     },
+     "listNotes": {
+      "blend": "복합단백질 82% · 함량 많은 순"
      }
     },
     {

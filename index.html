@@ -171,7 +171,9 @@
     .bcaa-head strong { font-size:24px; font-weight:750; letter-spacing:-.04em; font-variant-numeric:tabular-nums; }
     .bcaa-head strong small { margin-left:2px; color:var(--muted); font-size:12px; font-weight:500; letter-spacing:0; }
     .bcaa-box .macro-subs li { font-size:13px; }
-    .blend-box .bcaa-head em { font-style:normal; color:var(--muted); font-size:12px; }
+    .blend-box .bcaa-head { align-items:flex-start; gap:10px; }
+    .blend-box .bcaa-head > span { white-space:nowrap; }
+    .blend-box .bcaa-head em { font-style:normal; color:var(--muted); font-size:12px; text-align:right; line-height:1.5; }
     .blend-box .macro-subs li { flex-wrap:nowrap; font-size:13px; }
     .blend-box .macro-subs li > span:first-child { min-width:0; color:var(--muted); }
     .blend-box .bb-abbr { color:var(--text); font-weight:700; letter-spacing:.02em; }
@@ -353,10 +355,13 @@
       return `<div class="bcaa-box"><div class="bcaa-head"><span>${esc(b.title)}</span><strong>${fmt(total, b.parts[0])}<small>${esc(field(b.parts[0]).unit)}</small></strong></div>
           <ul class="macro-subs">${items.map(([k, x]) => `<li><span>${esc(field(k).label)}</span><span>${withUnit(x, k)}</span></li>`).join('')}</ul></div>`;
     }
-    function listHtml(b, p) {
-      const rows = (p.lists || {})[b.source] || [];
+    function listHtml(b, p, f) {
+      // 맛 전용 목록이 있으면 그것을, 없으면 제품 기본 목록을 쓴다 (부제도 같은 규칙)
+      const own = f && f.lists && f.lists[b.source];
+      const rows = own || (p.lists || {})[b.source] || [];
       if (!rows.length) return '';
-      return `<div class="bcaa-box blend-box"><div class="bcaa-head"><span>${esc(b.title)}</span><em>${rows.length}종${b.note ? ` · ${esc(b.note)}` : ''}</em></div>
+      const note = own ? ((f.listNotes || {})[b.source] || '') : ((p.listNotes || {})[b.source] || b.note || '');
+      return `<div class="bcaa-box blend-box"><div class="bcaa-head"><span>${esc(b.title)}</span><em>${rows.length}종${note ? ` · ${esc(note)}` : ''}</em></div>
           <ul class="macro-subs">${rows.map(r => `<li><span><b class="bb-abbr">${esc(r.name)}</b>${r.desc ? `<i class="bb-name">${esc(r.desc)}</i>` : ''}</span><span>${r.value != null ? `${r.value}<small>${esc(r.unit)}</small>` : NA}</span></li>`).join('')}</ul></div>`;
     }
     function panelHtml(f, i, first, p, cat) {
@@ -364,7 +369,7 @@
       if (!hasData(f, cat)) return `<div class="nutri-panel" data-panel="${i}"${hidden}><p class="missing">${esc(f.name)}맛의 영양 성분표를 아직 확인하지 못했습니다.</p></div>`;
       const bits = cat.header.filter(k => f.values[k] != null).map(k => `${fmt(f.values[k], k)}${esc(field(k).unit)}`);
       const head = [`${esc(f.name)}맛`, p.serving ? `1회 ${p.serving}g` : null, ...bits].filter(Boolean).join(' · ');
-      const body = cat.boxes.map(b => (b.type === 'trio' ? trioHtml(b, f, head) : b.type === 'sum' ? sumHtml(b, f) : listHtml(b, p))).join('\n          ');
+      const body = cat.boxes.map(b => (b.type === 'trio' ? trioHtml(b, f, head) : b.type === 'sum' ? sumHtml(b, f) : listHtml(b, p, f))).join('\n          ');
       return `<div class="nutri-panel" data-panel="${i}"${hidden}>
           ${body}
         </div>`;

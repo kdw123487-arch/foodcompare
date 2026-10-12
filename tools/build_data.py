@@ -211,13 +211,25 @@ def main():
         p["flavors"].append({"id": fid, "name": d.get("맛"), "values": values})
 
     # ---------- 목록 ----------
-    for i, d in table(wb, "목록", ["제품id", "목록", "이름", "설명", "값", "단위"], required=["제품id", "목록", "이름"])[0]:
+    # 맛id가 있으면 그 맛 전용 목록, 비어 있으면 제품 전체 기본 목록. 부제 칸은 박스 머리 문구(목록당 하나).
+    for i, d in table(wb, "목록", ["제품id", "맛id", "목록", "이름", "설명", "값", "단위", "부제"], required=["제품id", "목록", "이름"])[0]:
         p = prod_by_id.get(d.get("제품id"))
         if not p:
             err("목록", i, f"제품id '{d.get('제품id')}'가 제품 시트에 없습니다")
             continue
-        p["lists"].setdefault(d["목록"], []).append(
+        owner = p
+        if d.get("맛id"):
+            owner = next((f for f in p["flavors"] if f["id"] == d["맛id"]), None)
+            if owner is None:
+                err("목록", i, f"맛id '{d['맛id']}'가 제품 '{p['id']}'의 맛 시트에 없습니다")
+                continue
+        owner.setdefault("lists", {}).setdefault(d["목록"], []).append(
             {"name": d["이름"], "desc": d.get("설명") or "", "value": to_num(d.get("값"), "목록", i, "값"), "unit": d.get("단위") or ""})
+        if d.get("부제"):
+            notes = owner.setdefault("listNotes", {})
+            if notes.get(d["목록"], d["부제"]) != d["부제"]:
+                err("목록", i, f"같은 목록 '{d['목록']}'에 서로 다른 부제가 있습니다")
+            notes[d["목록"]] = d["부제"]
 
     # ---------- 참조 검사 ----------
     def need(key, where):
