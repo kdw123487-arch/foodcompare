@@ -151,6 +151,55 @@
     .nutri .row:last-child { border-bottom:0; }
     .missing { margin:8px 0 0; font-size:12px; color:var(--muted); line-height:1.7; }
     .nutri-foot { margin-top:12px; padding-top:10px; border-top:1px solid var(--line-soft); font-size:12px; color:var(--subtle); }
+    .panel-basis { margin:2px 0 12px; font-size:12px; color:var(--muted); }
+    .macro-hero { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .macro-big { border:1px solid #3b4633; background:linear-gradient(160deg,#192215,#101310); border-radius:12px; padding:16px 16px 8px; min-width:0; }
+    .macro-big .macro-label { color:var(--accent); font-size:13px; font-weight:800; }
+    .big-num { margin-top:8px; font-size:40px; font-weight:750; line-height:1; letter-spacing:-.06em; font-variant-numeric:tabular-nums; }
+    .big-num small { font-size:15px; color:var(--muted); font-weight:600; letter-spacing:0; margin-left:3px; }
+    .big-num .na { font-size:15px; }
+    .macro-big .dv { margin-top:6px; min-height:18px; font-size:12px; color:var(--muted); }
+    .macro-subs { list-style:none; margin:10px 0 0; padding:0; border-top:1px solid #2a3325; }
+    .macro-subs li { display:flex; justify-content:space-between; align-items:baseline; gap:8px; padding:8px 0; border-bottom:1px solid #1f271b; font-size:12px; }
+    .macro-subs li:last-child { border-bottom:0; }
+    .macro-subs li > span:first-child { color:var(--muted); }
+    .macro-subs li > span:last-child { font-size:14px; font-weight:700; font-variant-numeric:tabular-nums; }
+    .macro-subs small { font-size:11px; color:var(--muted); font-weight:500; margin-left:2px; }
+    .macro-subs .na { font-size:11px; }
+    .macro-small { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:10px; }
+    .macro-mini { border:1px solid var(--line-soft); border-radius:10px; padding:10px 12px; min-width:0; }
+    .macro-mini .macro-label { font-size:12px; color:var(--muted); }
+    .mini-val { margin-top:4px; font-size:15px; font-weight:700; font-variant-numeric:tabular-nums; white-space:nowrap; }
+    .mini-val small { font-size:11px; color:var(--muted); font-weight:500; margin-left:2px; }
+    .mini-val .na { font-size:12px; }
+    .ntable { width:100%; border-collapse:collapse; border-top:1px solid var(--line-soft); margin-top:14px; }
+    .ntable th, .ntable td { padding:9px 0; border-bottom:1px solid var(--line-soft); font-variant-numeric:tabular-nums; }
+    .ntable thead th { font-size:12px; color:var(--muted); font-weight:500; text-align:right; padding:9px 0 7px; }
+    .ntable tbody th { text-align:left; font-size:13px; color:var(--muted); font-weight:500; }
+    .ntable td { text-align:right; font-size:14px; font-weight:650; }
+    .ntable td small { font-size:11px; color:var(--muted); font-weight:500; margin-left:2px; }
+    .ntable td .p { display:block; font-size:11px; color:var(--subtle); font-weight:500; }
+    .ntable .na { font-size:12px; }
+    .ntable tr.hl th { color:var(--text); font-weight:750; }
+    .ntable tr.hl td .v { color:var(--accent); font-size:16px; font-weight:750; }
+    .ntable tr.sub th { padding-left:12px; font-size:12px; }
+    .ntable tr.sub td { font-size:13px; font-weight:600; }
+    .ntable tr.sum th, .ntable tr.sum td { background:#151a12; }
+    .ntable tr.sum th { color:var(--accent); font-weight:750; padding-left:8px; }
+    .ntable tr.sum td { padding-right:8px; color:var(--accent); }
+    .tag { margin-left:6px; padding:1px 6px; border-radius:999px; background:var(--accent-dark); color:var(--accent); font-size:10px; font-weight:700; letter-spacing:.04em; }
+    .subd { margin-top:12px; border-top:1px solid var(--line-soft); }
+    .subd summary { cursor:pointer; list-style:none; display:flex; align-items:center; padding:12px 0; font-size:13px; font-weight:700; }
+    .subd summary::-webkit-details-marker { display:none; }
+    .subd summary span { margin:0 auto 0 6px; color:var(--muted); font-weight:500; font-size:12px; }
+    .subd summary::after { content:"+"; margin-left:auto; color:var(--muted); font-weight:500; font-size:16px; }
+    .subd[open] summary::after { content:"–"; }
+    .ingredients { margin:0 0 12px; font-size:12.5px; line-height:1.85; color:#c3c8c5; overflow-wrap:anywhere; }
+    .chip.nodata { opacity:.5; }
+    .extras .row-label { flex:0 0 auto; white-space:nowrap; }
+    .extras .row-value.text { flex:1; min-width:0; overflow-wrap:anywhere; }
+    .macro-subs li > span:first-child { white-space:nowrap; }
+    .extras-title span { margin-left:4px; color:var(--muted); font-size:12px; font-weight:500; }
     .empty-state { grid-column:1/-1; border:1px dashed #353b37; background:#0d0f10; border-radius:var(--radius); min-height:270px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:35px; }
     .empty-icon { width:48px; height:48px; border:1px solid #333a35; border-radius:15px; display:grid; place-items:center; color:var(--accent); margin-bottom:17px; }
     .empty-title { font-size:18px; font-weight:700; margin-bottom:7px; }
@@ -189,6 +238,8 @@
       .product-grid.single-product { grid-template-columns:minmax(0,1fr); }
       .product-image { height:245px; }
       .footnote { flex-direction:column; gap:10px; }
+      .macro-small { grid-template-columns:repeat(2,1fr); }
+      .big-num { font-size:34px; }
     }
   </style>
 </head>
@@ -260,7 +311,7 @@
     </section>
 
     <footer class="footnote">
-      <p>제품 수치와 표시 가격은 공식 판매 페이지 기준이며, 모든 가격은 배송비를 제외한 금액입니다. 카드의 단백질 1g당 가격과 표의 단백질 수치는 맛별 함량 중 가장 낮은 맛을 기준으로 하며, 각 맛의 수치는 맛별 1회 단백질에서 확인할 수 있습니다. 상세 영양정보는 1회 섭취량 기준이며 맛에 따라 다를 수 있습니다. 전체 단백질은 (총 중량 ÷ 1회 섭취량 × 1회 단백질)로 계산한 추정값입니다. NS 웨이 프로틴과 NS 매스빌드업 프로틴은 공식 페이지에 품절이 표시되어 있어 가격 지표는 참고용입니다. '확인 필요'로 표시된 항목은 공식 페이지에서 확인하지 못한 정보이며 추정하지 않았습니다.</p>
+      <p>제품 수치와 표시 가격은 공식 판매 페이지 기준이며, 모든 가격은 배송비를 제외한 금액입니다. 카드의 단백질 1g당 가격과 표의 단백질 수치는 맛별 함량 중 가장 낮은 맛을 기준으로 하며, 각 맛의 수치는 맛별 1회 단백질에서 확인할 수 있습니다. 상세 영양정보는 제품 라벨(영양성분표) 표기 기준으로 1회 섭취량과 100g당 수치를 함께 보여 주며, 맛에 따라 다를 수 있습니다. 전체 단백질은 (총 중량 ÷ 1회 섭취량 × 1회 단백질)로 계산한 추정값입니다. NS 웨이 프로틴과 NS 매스빌드업 프로틴은 공식 페이지에 품절이 표시되어 있어 가격 지표는 참고용입니다. '확인 필요'로 표시된 항목은 공식 페이지에서 확인하지 못한 정보이며 추정하지 않았습니다.</p>
       <div class="footer-brand">PROTEINER&nbsp; / &nbsp;NUTRITION INDEX</div>
     </footer>
   </main>
@@ -270,32 +321,33 @@
     // 제품 데이터는 data/products.json에서 불러옵니다. 제품을 추가·수정할 때는 그 파일만 고치면 됩니다.
     const DATA_URL = 'data/products.json';
     let products = [];
-    let groupExtras = {};
+    let groupMeta = {};
     let allGroups = [];
     const emptyNutrition = { kcal:null, carb:null, sugar:null, fat:null, satFat:null, sodium:null };
     // JSON(제품 > 맛 구조)을 화면에서 쓰는 평평한 맛 목록으로 변환
     function flattenData(data) {
       const flat = [];
-      const extras = {};
+      const meta = {};
       (data.groups || []).forEach(g => {
-        extras[g.id] = g.extras || {};
+        meta[g.id] = { extras:g.extras || {}, info:g.info || {}, labelFlavor:g.labelFlavor || null };
         (g.flavors || []).forEach(f => flat.push({
           id:f.id, productGroup:g.id, category:g.category, brand:g.brand, name:g.name, flavor:f.flavor,
           weight:g.weight, serving:g.serving ?? null, protein:f.protein ?? null, price:g.price,
           nutrition:{ ...emptyNutrition, ...(f.nutrition || {}) },
+          ingredients:f.ingredients ?? null, reportNo:f.reportNo ?? null,
           groupImage:g.image, source:g.source, checked:g.checked
         }));
       });
-      return { flat, extras };
+      return { flat, meta };
     }
     async function loadData() {
       const grid = document.getElementById('product-grid');
       try {
         const res = await fetch(DATA_URL, { cache:'no-cache' });
         if (!res.ok) throw new Error('HTTP ' + res.status);
-        const { flat, extras } = flattenData(await res.json());
+        const { flat, meta } = flattenData(await res.json());
         products = flat;
-        groupExtras = extras;
+        groupMeta = meta;
         allGroups = groupProducts(products);
         render();
       } catch (err) {
@@ -321,7 +373,7 @@
       const groups = new Map();
       items.forEach(p => {
         const key = p.productGroup;
-        if (!groups.has(key)) groups.set(key, { key, category:p.category, brand:p.brand, name:p.name, weight:p.weight, serving:p.serving, price:p.price, image:p.groupImage, checked:p.checked, extras:groupExtras[key] || {}, flavors:[] });
+        if (!groups.has(key)) groups.set(key, { key, category:p.category, brand:p.brand, name:p.name, weight:p.weight, serving:p.serving, price:p.price, image:p.groupImage, checked:p.checked, extras:(groupMeta[key] || {}).extras || {}, info:(groupMeta[key] || {}).info || {}, labelFlavor:(groupMeta[key] || {}).labelFlavor || null, flavors:[] });
         groups.get(key).flavors.push(p);
       });
       groups.forEach(g => {
@@ -343,31 +395,77 @@
       return `<li class="flavor-cell"><span class="flavor-name">${f.flavor}</span><span class="flavor-val">${known ? decimal(f.protein) : NA}</span></li>`;
     }
 
-    const hasNutri = f => Object.values(f.nutrition || {}).some(v => v != null);
+    const NUTRI_KEYS = ['kcal','carb','sugar','fat','transFat','satFat','cholesterol','sodium'];
+    const hasNutri = f => { const n = f.nutrition || {}; return NUTRI_KEYS.some(k => n[k] != null) || (n.aminoAcids || []).length > 0; };
+    const esc = t => String(t).replace(/[&<>"]/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c]));
+    const dash = '<span class="na">—</span>';
+    const infoLabels = [['foodType','식품유형'],['manufacturer','제조원'],['distributor','유통전문판매원'],['intake','섭취량·섭취방법'],['storage','보관방법'],['expiry','소비기한'],['packaging','포장재질'],['caution','섭취 시 주의사항']];
+    const BCAA = new Set(['로이신','이소로이신','발린']);
+    // 영양성분표 행: 탄수화물·지방은 강조(hl), 하위 항목은 들여쓰기(sub)
+    const NUTRI_ROWS = [
+      { k:'carb', label:'탄수화물', unit:'g', cls:'hl' },
+      { k:'sugar', label:'당류', unit:'g', cls:'sub' },
+      { k:'fat', label:'지방', unit:'g', cls:'hl' },
+      { k:'transFat', label:'트랜스지방', unit:'g', cls:'sub' },
+      { k:'satFat', label:'포화지방', unit:'g', cls:'sub' },
+      { k:'protein', label:'단백질', unit:'g' },
+      { k:'sodium', label:'나트륨', unit:'mg' },
+      { k:'cholesterol', label:'콜레스테롤', unit:'mg' }
+    ];
+    const tCell = (v, unit, pct) => (v == null ? `<td>${NA}</td>` : `<td><span class="v">${fmt(v)}<small>${unit}</small></span>${pct == null ? '' : `<span class="p">${pct}%</span>`}</td>`);
 
-    function nutriPanel(f, i) {
-      const n = f.nutrition || {};
-      const body = hasNutri(f) ? `
-          <div class="macro">
-            <div class="macro-item"><div class="macro-label">탄수화물</div><div class="macro-val">${val(n.carb, 'g')}</div></div>
-            <div class="macro-item"><div class="macro-label">단백질</div><div class="macro-val">${val(f.protein, 'g')}</div></div>
-            <div class="macro-item"><div class="macro-label">지방</div><div class="macro-val">${val(n.fat, 'g')}</div></div>
-          </div>
-          <ul class="rows">
-            <li class="row"><span class="row-label">열량</span><span class="row-value">${val(n.kcal, 'kcal')}</span></li>
-            <li class="row"><span class="row-label">탄수화물 중 당류</span><span class="row-value">${val(n.sugar, 'g')}</span></li>
-            <li class="row"><span class="row-label">지방 중 포화지방</span><span class="row-value">${val(n.satFat, 'g')}</span></li>
-            <li class="row"><span class="row-label">나트륨</span><span class="row-value">${val(n.sodium, 'mg')}</span></li>
-          </ul>` : `<p class="missing">영양 성분표를 아직 확인하지 못했습니다.</p>`;
-      return `<div class="nutri-panel" data-panel="${i}"${i ? ' hidden' : ''}>${body}</div>`;
+    function aminoBlock(f) {
+      const a = (f.nutrition || {}).aminoAcids || [];
+      if (!a.length) return '';
+      const bc = a.filter(x => BCAA.has(x.name));
+      const sum = k => bc.reduce((t, x) => t + x[k], 0);
+      const sumRow = bc.length === BCAA.size ? `<tr class="sum"><th scope="row">BCAA 합계</th><td>${num(sum('serving'))}<small>mg</small></td><td>${num(sum('per100g'))}<small>mg</small></td></tr>` : '';
+      const rows = a.map(x => `<tr><th scope="row">${esc(x.name)}${BCAA.has(x.name) ? '<span class="tag">BCAA</span>' : ''}</th><td>${num(x.serving)}<small>mg</small></td><td>${num(x.per100g)}<small>mg</small></td></tr>`).join('');
+      return `<details class="subd"><summary>아미노산 조성표<span>(${a.length}종)</span></summary>
+          <table class="ntable"><thead><tr><th scope="col"><span class="sr">아미노산</span></th><th scope="col">1회 (${f.serving}g)</th><th scope="col">100g당</th></tr></thead><tbody>${sumRow}${rows}</tbody></table>
+          ${sumRow ? '<p class="missing">BCAA 합계는 로이신·이소로이신·발린 표기값을 더한 값입니다.</p>' : ''}
+        </details>`;
     }
 
-    function extrasBlock(g) {
-      const e = g.extras || {};
-      const known = extraLabels.filter(([k]) => e[k]);
-      const missing = extraLabels.filter(([k]) => !e[k]).map(([, label]) => label);
-      return `<div class="extras"><div class="extras-title">추가 성분</div>
-          ${known.length ? `<ul class="rows">${known.map(([k, label]) => `<li class="row"><span class="row-label">${label}</span><span class="row-value text">${e[k]}</span></li>`).join('')}</ul>` : ''}
+    function labelBlock(f) {
+      if (!f.ingredients && !f.reportNo) return '';
+      return `<details class="subd"><summary>원재료명<span>${f.reportNo ? `품목보고번호 ${esc(f.reportNo)}` : ''}</span></summary>
+          ${f.ingredients ? `<p class="ingredients">${esc(f.ingredients)}</p>` : ''}
+        </details>`;
+    }
+
+    function nutriPanel(f, i, first) {
+      const n = f.nutrition || {};
+      const hidden = i === first ? '' : ' hidden';
+      if (!hasNutri(f)) return `<div class="nutri-panel" data-panel="${i}"${hidden}><p class="missing">${esc(f.flavor)}맛의 영양 성분표를 아직 확인하지 못했습니다.</p></div>`;
+      const p100 = n.per100g || {}, dv = n.dv || {}, dv100 = n.dv100g || {};
+      const srv = f.serving ? `${f.serving}g` : '1회';
+      const sub = (label, v) => `<li><span>${label}</span><span>${val(v, 'g')}</span></li>`;
+      const dvLine = k => (dv[k] != null ? `1일 기준치 ${dv[k]}%` : '');
+      const mini = (label, v, unit) => `<div class="macro-mini"><div class="macro-label">${label}</div><div class="mini-val">${val(v, unit)}</div></div>`;
+      const serving = k => (k === 'protein' ? f.protein : n[k]);
+      const rows = NUTRI_ROWS.map(r => `<tr class="${r.cls || ''}"><th scope="row">${r.label}</th>${tCell(serving(r.k), r.unit, dv[r.k])}${tCell(p100[r.k], r.unit, dv100[r.k])}</tr>`).join('');
+      return `<div class="nutri-panel" data-panel="${i}"${hidden}>
+          <div class="panel-basis">${esc(f.flavor)}맛 · 1회 섭취량 ${srv} 기준</div>
+          <div class="macro-hero">
+            <div class="macro-big"><div class="macro-label">탄수화물</div><div class="big-num">${val(n.carb, 'g')}</div><div class="dv">${dvLine('carb')}</div>
+              <ul class="macro-subs">${sub('당류', n.sugar)}${sub('100g 탄수', p100.carb)}${sub('100g 당류', p100.sugar)}</ul></div>
+            <div class="macro-big"><div class="macro-label">지방</div><div class="big-num">${val(n.fat, 'g')}</div><div class="dv">${dvLine('fat')}</div>
+              <ul class="macro-subs">${sub('포화지방', n.satFat)}${sub('트랜스지방', n.transFat)}${sub('100g 지방', p100.fat)}</ul></div>
+          </div>
+          <div class="macro-small">${mini('열량', n.kcal, 'kcal')}${mini('단백질', f.protein, 'g')}${mini('나트륨', n.sodium, 'mg')}${mini('콜레스테롤', n.cholesterol, 'mg')}</div>
+          <table class="ntable"><thead><tr><th scope="col"><span class="sr">항목</span></th><th scope="col">1회 (${srv})</th><th scope="col">100g당</th></tr></thead>
+            <tbody><tr><th scope="row">열량</th>${tCell(n.kcal, 'kcal')}<td>${dash}</td></tr>${rows}</tbody></table>
+          <p class="missing">작은 글씨 %는 1일 영양성분 기준치(2,000kcal 기준)에 대한 비율이며, 개인의 필요 열량에 따라 다를 수 있습니다.</p>
+          ${aminoBlock(f)}${labelBlock(f)}
+        </div>`;
+    }
+
+    function detailRows(title, labels, e, basis) {
+      const known = labels.filter(([k]) => e[k]);
+      const missing = labels.filter(([k]) => !e[k]).map(([, label]) => label);
+      return `<div class="extras"><div class="extras-title">${title}${known.length && basis ? `<span>${esc(basis)}맛 표기 기준</span>` : ''}</div>
+          ${known.length ? `<ul class="rows">${known.map(([k, label]) => `<li class="row"><span class="row-label">${label}</span><span class="row-value text">${esc(e[k])}</span></li>`).join('')}</ul>` : ''}
           ${missing.length ? `<p class="missing">확인 필요 · ${missing.join(' · ')}</p>` : ''}
         </div>`;
     }
@@ -378,6 +476,8 @@
       const base = g.base;
       const servingCount = g.serving ? g.weight / g.serving : null;
       const anyNutri = flavors.some(hasNutri);
+      const first = Math.max(0, flavors.findIndex(hasNutri));
+      const chips = anyNutri && flavors.length > 1 ? `<div class="chips" role="group" aria-label="맛 선택">${flavors.map((f, i) => `<button type="button" class="chip${i === first ? ' active' : ''}${hasNutri(f) ? '' : ' nodata'}" data-panel="${i}">${esc(f.flavor)}</button>`).join('')}</div>` : '';
       return `
         <article class="product-card" aria-labelledby="${titleId}">
           <div class="product-image" data-image-wrap>
@@ -388,7 +488,7 @@
             <div class="card-meta"><span class="brand-mini">${g.brand}</span><span class="card-size">${weightText(g.weight)} · ${flavors.length}가지 맛</span></div>
             <h3 id="${titleId}" class="product-name">${g.name}</h3>
             <div class="key">
-              <div class="key-label">단백질 1g당 가격 · 최저 함량 맛 기준</div>
+              <div class="key-label">단백질 1g당 가격${base ? ` · ${esc(base.flavor)}맛 기준` : ''}</div>
               ${base ? `<div class="key-num">${num(proteinCost(base))}<small>원 / g</small></div>` : `<div class="key-num na-text">확인 필요</div>`}
             </div>
             <table class="matrix">
@@ -398,19 +498,20 @@
                 <tr><th scope="row">제품 전체</th><td>${base ? `${decimal(totalProtein(base))}<small>g</small>` : NA}</td><td>${num(g.price)}<small>원</small></td></tr>
               </tbody>
             </table>
+            <details class="nutri"${anyNutri ? ' open' : ''}>
+              <summary><span>상세 영양정보</span><span class="nutri-chev" aria-hidden="true"></span></summary>
+              <div class="nutri-body">
+                ${chips}
+                ${anyNutri ? flavors.map((f, i) => nutriPanel(f, i, first)).join('') : '<p class="missing">영양 성분표를 아직 확인하지 못했습니다.</p>'}
+                ${detailRows('추가 성분', extraLabels, g.extras || {}, g.labelFlavor)}
+                ${detailRows('제품 정보', infoLabels, g.info || {}, g.labelFlavor)}
+                <div class="nutri-foot">${g.serving ? `1회 섭취량 ${g.serving}g 기준 · ` : ''}정보 확인 ${g.checked}</div>
+              </div>
+            </details>
             <div class="flavor-list">
               <div class="flavor-list-head">맛별 1회 단백질<span>(g)</span></div>
               <ul class="flavor-grid">${flavors.map(flavorCell).join('')}</ul>
             </div>
-            <details class="nutri">
-              <summary><span>상세 영양정보</span><span class="nutri-chev" aria-hidden="true"></span></summary>
-              <div class="nutri-body">
-                ${anyNutri && flavors.length > 1 ? `<div class="chips" role="group" aria-label="맛 선택">${flavors.map((f, i) => `<button type="button" class="chip${i ? '' : ' active'}" data-panel="${i}">${f.flavor}</button>`).join('')}</div>` : ''}
-                ${anyNutri ? flavors.map(nutriPanel).join('') : '<p class="missing">영양 성분표를 아직 확인하지 못했습니다.</p>'}
-                ${extrasBlock(g)}
-                <div class="nutri-foot">${g.serving ? `1회 섭취량 ${g.serving}g 기준 · ` : ''}정보 확인 ${g.checked}</div>
-              </div>
-            </details>
           </div>
         </article>`;
     }

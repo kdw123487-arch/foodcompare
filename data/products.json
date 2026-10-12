@@ -1,5 +1,5 @@
 {
-  "_readme": "제품 정보는 이 파일만 고치면 됩니다. 값이 없으면 null로 두면 화면에 '확인 필요'로 표시됩니다. groups 안에 제품(용량·가격 등 공통 정보)을 적고, flavors 안에 맛별 정보를 적습니다. nutrition 항목: kcal 열량 · carb 탄수화물(g) · sugar 당류(g) · fat 지방(g) · satFat 포화지방(g) · sodium 나트륨(mg). category 값: protein / eaa / creatine / chicken",
+  "_readme": "제품 정보는 이 파일만 고치면 됩니다. 값이 없으면 null(또는 항목 생략)로 두면 화면에 '확인 필요'로 표시됩니다. groups 안에 제품 공통 정보(용량·가격·제조원 등)를, flavors 안에 맛별 정보를 적습니다. 영양성분표는 맛별 nutrition에 적습니다: kcal 열량 · carb 탄수화물(g) · sugar 당류(g) · fat 지방(g) · transFat 트랜스지방(g) · satFat 포화지방(g) · cholesterol 콜레스테롤(mg) · sodium 나트륨(mg) 은 모두 1회 섭취량 기준이고, per100g 은 100g당 수치, dv 는 1회 기준 1일 영양성분 기준치 %, dv100g 는 100g당 기준치 %, aminoAcids 는 아미노산 조성표(mg)입니다. category 값: protein / eaa / creatine / chicken. labelFlavor 는 제품 정보·추가 성분을 확인한 맛의 이름입니다.",
   "groups": [
     {
       "id": "ns-whey-1kg",
@@ -11,16 +11,64 @@
       "price": 41800,
       "image": "images/ns-deep.jpg",
       "source": "https://nsprotein.com/product/detail.html?product_no=197&cate_no=140&display_group=1",
-      "checked": "2026.10.10",
+      "checked": "2026.10.12",
+      "labelFlavor": "딥초코",
       "extras": {
-        "proteinSource": "Protein Blend 82% (세부 배합비 확인 필요)",
-        "sweetener": null,
-        "emulsifier": null,
-        "functional": null,
-        "allergen": null
+        "proteinSource": "분리대두단백(중국산), 농축유청단백(미국산), 분리우유단백, 농축우유단백, 미셀라카제인, 분리유청단백, 가수분해유청단백 (엔에스올인원세븐블렌드프로틴 7종)",
+        "sweetener": "효소처리스테비아, 수크랄로스",
+        "emulsifier": "레시틴, 펙틴, 아라비아검",
+        "functional": "BCAA(L-로이신, L-발린, L-이소로이신), 아미노믹스(L-글루타민 등 9종), L-아르지닌, 멀티비타민미네랄믹스 플러스, 치커리뿌리추출물",
+        "allergen": "우유, 대두 함유 · 계란, 밀, 메밀, 복숭아를 사용한 제품과 같은 생산설비에서 제조"
+      },
+      "info": {
+        "foodType": "기타가공품",
+        "manufacturer": "뉴빅 (전북 전주시 덕진구 여의동 542-20)",
+        "distributor": "(주)뉴트로이카 (전북 전주시 반룡로 151, 5동 201호)",
+        "intake": "1회 섭취 참고량 30g(약 2스푼), 하루 2회 섭취 권장",
+        "storage": "습기, 열, 직사광선을 피해서 서늘한 장소에 실온 보관",
+        "expiry": "별도 표기일까지",
+        "packaging": "용기: HDPE, 캡: PP",
+        "caution": "특이체질 및 과다 섭취를 하면 알레르기 및 부작용 등의 발생 우려가 있으니 성분 및 섭취량을 확인하고 드십시오. 섭취량을 개인의 운동량과 신체 능력에 맞게 조절하여 섭취하십시오."
       },
       "flavors": [
-        { "id": "ns-deep", "flavor": "딥초코", "protein": 20.6, "nutrition": {} },
+        {
+          "id": "ns-deep",
+          "flavor": "딥초코",
+          "protein": 20.6,
+          "reportNo": "2021048532334",
+          "ingredients": "엔에스올인원세븐블렌드프로틴[분리대두단백(중국산), 농축유청단백(미국산), 분리우유단백, 농축우유단백, 미셀라카제인, 분리유청단백, 가수분해유청단백], 코코아분말(네덜란드산), 혼합분유(네덜란드산), 증숙현미분말, 카놀라오일파우더, 효소처리스테비아(감미료), 초코렛향 코튼(덱스트린, 유당, 정제수, 주정, 프로필렌글리콜, 합성향료, 펙틴, 글리세린, 카라멜색소Ⅰ, 빙초산, 트리아세틴), 17곡현미미숫가루(현미, 보리, 멥쌀, 옥수수, 쌀보리, 흑미, 검정콩, 발아현미, 현미찹쌀, 백태, 찹쌀, 조, 율무, 수수, 기장, 참깨, 검정깨), 치커리뿌리추출물, 볶은보리분말, BCAA(비씨에이에이)(L-로이신, L-발린, L-이소로이신, 레시틴), 아미노믹스(L-글루타민, L-로이신, L-페닐알라닌, L-라이신염산염, L-발린, L-트레오닌, L-이소로이신, L-메티오닌, L-트립토판), 멀티비타민미네랄믹스 플러스(제이인산칼슘, 비타민C, 드라이비타민E(DL-α-토코페릴아세테이트, 덱스트린, 변성전분, 이산화규소), 니코틴산아미드, 푸마르산제일철, 드라이비타민A 아세테이트(비타민A 아세테이트, 비타민E, 말토덱스트린, 아라비아검, 옥수수전분), 판토텐산칼슘, 산화아연, 비타민B6염산염, 비타민B1염산염, 비타민B2, 엽산), L-아르지닌, 수크랄로스(감미료)",
+          "nutrition": {
+            "kcal": 111,
+            "carb": 5.1,
+            "sugar": 0.2,
+            "fat": 0.9,
+            "transFat": 0,
+            "satFat": 0.3,
+            "cholesterol": 7.8,
+            "sodium": 217.9,
+            "per100g": { "carb": 17.2, "sugar": 0.9, "fat": 3.1, "transFat": 0, "satFat": 1.1, "cholesterol": 26.1, "sodium": 726.6, "protein": 68.7 },
+            "dv":      { "carb": 2, "sugar": 0, "fat": 2, "satFat": 2, "cholesterol": 3, "sodium": 11, "protein": 37 },
+            "dv100g":  { "carb": 5, "sugar": 1, "fat": 6, "satFat": 7, "cholesterol": 9, "sodium": 36, "protein": 125 },
+            "aminoAcids": [
+              { "name": "글루탐산", "serving": 3980, "per100g": 13268 },
+              { "name": "아스파라긴산", "serving": 2293, "per100g": 7643 },
+              { "name": "로이신", "serving": 1668, "per100g": 5559 },
+              { "name": "라이신", "serving": 1417, "per100g": 4723 },
+              { "name": "트레오닌", "serving": 1345, "per100g": 4483 },
+              { "name": "프롤린", "serving": 1094, "per100g": 3648 },
+              { "name": "세린", "serving": 1086, "per100g": 3621 },
+              { "name": "이소로이신", "serving": 1019, "per100g": 3398 },
+              { "name": "아르지닌", "serving": 969, "per100g": 3231 },
+              { "name": "발린", "serving": 918, "per100g": 3061 },
+              { "name": "알라닌", "serving": 891, "per100g": 2971 },
+              { "name": "페닐알라닌", "serving": 847, "per100g": 2822 },
+              { "name": "글리신", "serving": 798, "per100g": 2660 },
+              { "name": "티로신", "serving": 639, "per100g": 2131 },
+              { "name": "히스티딘", "serving": 521, "per100g": 1737 },
+              { "name": "메티오닌", "serving": 263, "per100g": 878 }
+            ]
+          }
+        },
         { "id": "ns-grain", "flavor": "곡물", "protein": 21.5, "nutrition": {} },
         { "id": "ns-cookie", "flavor": "쿠키앤크림", "protein": 20.1, "nutrition": {} },
         { "id": "ns-strawberry", "flavor": "딸기", "protein": 20.8, "nutrition": {} },
