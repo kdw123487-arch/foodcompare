@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0a0b0c" />
-  <title>FORM — Nutrition Index</title>
+  <title>proteiner — 영양 제품 비교</title>
   <style>
     :root {
       --bg: #090a0b;
@@ -42,31 +42,31 @@
     }
     .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
     .brand { display: flex; gap: 11px; align-items: center; text-decoration: none; }
-    .brand-mark { width: 31px; height: 31px; display: grid; place-items: center; border-radius: 9px; background: var(--accent); color: #11150a; font-weight: 900; font-size: 18px; }
-    .brand-name { font-size: 13px; font-weight: 800; letter-spacing: .13em; }
-    .brand-sub { color: var(--muted); font-size: 10px; letter-spacing: .14em; margin-top: 1px; }
-    .nav-note { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+    .brand-mark { width: 31px; height: 31px; display: grid; place-items: center; border-radius: 9px; background: var(--accent); color: #11150a; font-weight: 900; font-size:18px; }
+    .brand-name { font-size:15px; font-weight: 800; letter-spacing: .13em; }
+    .brand-sub { color: var(--muted); font-size:12px; letter-spacing: .14em; margin-top: 1px; }
+    .nav-note { font-size:13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
     .hero { padding: 72px 0 36px; display: grid; grid-template-columns: minmax(0,1.2fr) minmax(260px,.8fr); gap: 40px; align-items: end; }
-    .eyebrow { color: var(--accent); font-size: 11px; text-transform: uppercase; letter-spacing: .18em; font-weight: 800; display:flex; gap:10px; align-items:center; }
+    .eyebrow { color: var(--accent); font-size:13px; text-transform: uppercase; letter-spacing: .18em; font-weight: 800; display:flex; gap:10px; align-items:center; }
     .eyebrow:before { content:""; display:block; width:25px; height:1px; background:var(--accent); }
     h1 { margin: 19px 0 16px; max-width: 760px; font-size: clamp(36px, 5vw, 65px); line-height: 1.09; letter-spacing: -.065em; font-weight: 750; }
     h1 span { color: var(--accent); }
-    .hero-copy { color: #a8aeaa; font-size: 14px; max-width: 550px; line-height: 1.85; margin: 0; }
+    .hero-copy { color: #a8aeaa; font-size:14px; max-width: 550px; line-height: 1.85; margin: 0; }
     .hero-side { display: grid; grid-template-columns: repeat(2,1fr); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #0d0f10; }
     .stat { padding: 21px 20px; min-height: 103px; }
     .stat:nth-child(odd) { border-right: 1px solid var(--line); }
     .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
-    .stat-label { color: var(--muted); font-size: 11px; }
-    .stat-value { font-size: 27px; line-height: 1.2; font-weight: 700; letter-spacing: -.05em; margin-top: 8px; }
-    .stat-value small { font-size: 12px; color: var(--muted); font-weight: 500; letter-spacing: 0; margin-left: 4px; }
+    .stat-label { color: var(--muted); font-size:13px; }
+    .stat-value { font-size:27px; line-height: 1.2; font-weight: 700; letter-spacing: -.05em; margin-top: 8px; }
+    .stat-value small { font-size:14px; color: var(--muted); font-weight: 500; letter-spacing: 0; margin-left: 4px; }
     .divider { height:1px; background:var(--line-soft); }
     .section-head { display:flex; align-items: end; justify-content: space-between; gap:20px; margin: 31px 0 19px; }
-    .section-kicker { color: var(--muted); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 7px; }
-    h2 { font-size: 23px; line-height: 1.2; margin:0; letter-spacing:-.045em; }
-    .section-help { color: var(--muted); font-size: 12px; }
+    .section-kicker { color: var(--muted); font-size:12px; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 7px; }
+    h2 { font-size:23px; line-height: 1.2; margin:0; letter-spacing:-.045em; }
+    .section-help { color: var(--muted); font-size:14px; }
     .toolbar { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px; margin-bottom:19px; }
     .tabs { display:flex; flex-wrap:wrap; gap:7px; }
-    .tab { cursor:pointer; color:#b6bcba; background:#101214; border:1px solid var(--line); border-radius:999px; padding:10px 15px; font-size:12px; transition:all .16s ease; }
+    .tab { cursor:pointer; color:#b6bcba; background:#101214; border:1px solid var(--line); border-radius:999px; padding:10px 15px; font-size:14px; transition:all .16s ease; }
     .tab .count { margin-left:8px; color:var(--subtle); font-variant-numeric:tabular-nums; }
     .tab:hover { border-color:#59605b; color:var(--text); }
     .tab.active { background:var(--accent); border-color:var(--accent); color:#15190d; font-weight:800; }
@@ -74,69 +74,93 @@
     .tools { display:flex; gap:8px; align-items:center; }
     .search-wrap { display:flex; gap:8px; align-items:center; background:#101214; border:1px solid var(--line); border-radius:10px; padding:0 12px; min-width:220px; height:39px; }
     .search-wrap svg { color:var(--subtle); flex:none; }
-    .search-wrap input { width:100%; border:0; outline:0; color:var(--text); background:transparent; font-size:12px; min-width:0; }
+    .search-wrap input { width:100%; border:0; outline:0; color:var(--text); background:transparent; font-size:14px; min-width:0; }
     .search-wrap input::placeholder { color:#717875; }
-    select { height:39px; border:1px solid var(--line); border-radius:10px; color:#c3c8c5; background:#101214; padding:0 12px; font-size:12px; outline:0; }
+    select { height:39px; border:1px solid var(--line); border-radius:10px; color:#c3c8c5; background:#101214; padding:0 12px; font-size:14px; outline:0; }
     .category-banner { padding:20px 22px; border:1px solid var(--line); border-radius:var(--radius); background:linear-gradient(110deg,#151918,#0f1112 70%); display:flex; justify-content:space-between; align-items:center; gap:25px; margin-bottom:14px; }
-    .banner-label { color:var(--accent); font-size:10px; letter-spacing:.16em; text-transform:uppercase; font-weight:800; }
+    .banner-label { color:var(--accent); font-size:12px; letter-spacing:.16em; text-transform:uppercase; font-weight:800; }
     .banner-title { font-size:18px; font-weight:750; margin-top:6px; letter-spacing:-.035em; }
-    .banner-desc { color:var(--muted); font-size:12px; margin-top:4px; }
+    .banner-desc { color:var(--muted); font-size:14px; margin-top:4px; }
     .banner-right { display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
-    .pill { border:1px solid #343a35; background:#171c15; color:#c6d6ae; border-radius:999px; padding:7px 10px; font-size:10px; white-space:nowrap; }
+    .pill { border:1px solid #343a35; background:#171c15; color:#c6d6ae; border-radius:999px; padding:7px 10px; font-size:12px; white-space:nowrap; }
     .pill.warn { background:var(--warning-bg); border-color:#564626; color:var(--warning); }
     .product-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
-    .product-card { border:1px solid var(--line); border-radius:var(--radius); background:var(--panel); overflow:hidden; min-width:0; transition:transform .18s ease,border-color .18s ease; }
+    .product-grid.single-product { grid-template-columns:minmax(0,760px); justify-content:center; }
+    .product-card { border:1px solid var(--line); border-radius:var(--radius); background:var(--panel); overflow:hidden; min-width:0; align-self:start; transition:transform .18s ease,border-color .18s ease; }
     .product-card:hover { transform:translateY(-2px); border-color:#424943; }
-    .product-image { background:#e7e5df; height:228px; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative; }
+    .product-image { background:#e7e5df; height:228px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
     .product-image img { display:block; width:100%; height:100%; object-fit:contain; padding:15px; }
-    .image-fallback { display:none; width:100%; height:100%; align-items:center; justify-content:center; flex-direction:column; gap:10px; color:#555a55; font-size:12px; }
+    .image-fallback { display:none; width:100%; height:100%; align-items:center; justify-content:center; flex-direction:column; gap:10px; color:#555a55; font-size:14px; }
     .image-fallback strong { font-size:34px; color:#363b36; letter-spacing:-.08em; }
     .product-image.failed img { display:none; }
     .product-image.failed .image-fallback { display:flex; }
-    .image-chip { position:absolute; top:12px; left:12px; border:1px solid rgba(20,22,20,.12); background:rgba(245,244,239,.88); color:#272b27; border-radius:6px; padding:5px 8px; font-size:9px; font-weight:800; letter-spacing:.06em; }
-    .card-body { padding:19px; }
-    .card-topline { display:flex; justify-content:space-between; gap:10px; align-items:center; }
-    .brand-mini { color:var(--muted); font-size:10px; letter-spacing:.12em; text-transform:uppercase; }
-    .stock { color:var(--warning); font-size:10px; display:flex; gap:6px; align-items:center; white-space:nowrap; }
-    .stock:before { content:""; width:5px; height:5px; border-radius:50%; background:var(--warning); display:block; }
-    .flavor { font-size:21px; font-weight:750; margin:9px 0 2px; letter-spacing:-.05em; }
-    .base-name { color:#a9afac; font-size:11px; }
-    .protein-highlight { padding:17px 0 14px; margin-top:14px; border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft); display:flex; align-items:end; justify-content:space-between; gap:12px; }
-    .protein-number { font-size:39px; font-weight:750; line-height:.95; letter-spacing:-.07em; color:var(--accent); }
-    .protein-number small { font-size:13px; letter-spacing:0; font-weight:600; margin-left:3px; }
-    .protein-label { font-size:10px; color:var(--muted); margin-top:7px; }
-    .serving-note { font-size:10px; color:#aab0ad; text-align:right; line-height:1.7; }
-    .facts { display:grid; grid-template-columns:1fr 1fr; gap:0; margin:2px 0 0; }
-    .fact { padding:12px 0; border-bottom:1px solid var(--line-soft); min-width:0; }
-    .fact:nth-child(odd) { margin-right:10px; }
-    .fact-label { font-size:10px; color:var(--muted); }
-    .fact-value { font-size:13px; font-weight:650; margin-top:4px; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
-    .fact-value small { font-size:10px; color:var(--muted); font-weight:500; }
-    .composition { padding:13px 0 2px; }
-    .composition-title { color:var(--muted); font-size:10px; margin-bottom:5px; }
-    .composition-copy { color:#c3c8c5; font-size:11px; line-height:1.7; }
-    .taste-note { display:grid; gap:8px; background:#151817; border:1px solid #252a27; border-radius:10px; padding:12px; margin-top:13px; font-size:10px; line-height:1.65; color:#aeb5b0; }
-    .taste-head { display:flex; align-items:center; justify-content:space-between; gap:8px; }
-    .taste-note b { color:#dce2de; }
-    .review-confidence { color:#a7cb72; border:1px solid #34432a; background:#1a2115; padding:3px 6px; border-radius:5px; font-size:9px; white-space:nowrap; }
-    .taste-copy strong { color:#dce2de; font-weight:700; }
-    .taste-copy.caution strong { color:#e1bf7d; }
-    .review-links { display:flex; flex-wrap:wrap; gap:6px; padding-top:2px; }
-    .review-links a { color:#bec5bf; text-decoration:none; border:1px solid #343b36; border-radius:6px; padding:5px 7px; font-size:9px; }
-    .review-links a:hover { color:var(--accent); border-color:#63784a; }
-    .card-actions { padding-top:15px; display:flex; justify-content:space-between; gap:10px; align-items:center; }
-    .source-link { font-size:11px; color:var(--text); text-decoration:none; padding:8px 11px; border:1px solid #414743; border-radius:8px; transition:background .15s ease; }
-    .source-link:hover { background:#202522; }
-    .source-date { color:var(--subtle); font-size:9px; }
+    .card-body { padding:20px; }
+    .card-meta { display:flex; justify-content:space-between; align-items:center; gap:10px; }
+    .brand-mini { color:var(--muted); font-size:12px; letter-spacing:.12em; text-transform:uppercase; }
+    .card-size { color:#c3c8c5; font-size:13px; white-space:nowrap; }
+    .product-name { font-size:21px; font-weight:750; margin:10px 0 0; letter-spacing:-.05em; line-height:1.3; }
+    .key { margin-top:18px; padding:16px 0 18px; border-top:1px solid var(--line-soft); }
+    .key-label { font-size:12px; color:var(--muted); }
+    .key-num { margin-top:8px; font-size:48px; font-weight:750; line-height:1; letter-spacing:-.07em; color:var(--accent); font-variant-numeric:tabular-nums; }
+    .key-num small { font-size:16px; font-weight:600; letter-spacing:0; margin-left:4px; color:var(--muted); }
+    .key-num.na-text { font-size:24px; letter-spacing:-.04em; color:var(--muted); font-weight:650; }
+    .sr { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+    .matrix { width:100%; border-collapse:collapse; border-top:1px solid var(--line-soft); }
+    .matrix th, .matrix td { padding:12px 0; text-align:right; border-bottom:1px solid var(--line-soft); font-variant-numeric:tabular-nums; }
+    .matrix thead th { font-size:12px; color:var(--muted); font-weight:500; padding:11px 0 9px; }
+    .matrix tbody th { text-align:left; font-size:13px; color:var(--muted); font-weight:500; }
+    .matrix td { font-size:17px; font-weight:700; }
+    .matrix td small { font-size:12px; color:var(--muted); font-weight:500; margin-left:3px; }
+    .matrix td .na { font-size:13px; }
+    .flavor-list { margin-top:22px; }
+    .flavor-list-head { font-size:14px; font-weight:750; padding-bottom:8px; border-bottom:1px solid var(--line); }
+    .flavor-list-head span { color:var(--muted); font-weight:500; font-size:12px; margin-left:4px; }
+    .flavor-grid { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; column-gap:0; background:linear-gradient(var(--line), var(--line)) no-repeat 50% 0 / 1px 100%; }
+    .flavor-cell:nth-child(odd) { padding-right:18px; }
+    .flavor-cell:nth-child(even) { padding-left:18px; }
+    .flavor-cell { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; column-gap:8px; padding:11px 0; border-bottom:1px solid var(--line-soft); min-width:0; }
+    .flavor-name { font-size:14px; color:#c3c8c5; }
+    .flavor-val { font-size:15px; font-weight:700; font-variant-numeric:tabular-nums; }
+    .flavor-val .na { font-size:12px; }
+    .rows { list-style:none; margin:0; padding:0; }
+    .row { display:flex; justify-content:space-between; align-items:baseline; gap:14px; padding:11px 0; border-bottom:1px solid var(--line-soft); }
+    .row-label { color:var(--muted); font-size:13px; }
+    .row-value { font-size:15px; font-weight:650; text-align:right; font-variant-numeric:tabular-nums; }
+    .row-value small { font-size:12px; color:var(--muted); font-weight:500; margin-left:3px; }
+    .row-value.text { font-size:13px; font-weight:500; color:#d0d5d1; line-height:1.55; }
+    .nutri { margin-top:20px; border:1px solid var(--line); border-radius:12px; background:#0d0f10; overflow:hidden; }
+    .nutri[open] { border-color:#3b4633; background:#101310; }
+    .nutri summary { display:flex; justify-content:space-between; align-items:center; gap:10px; padding:14px 16px; cursor:pointer; list-style:none; font-size:14px; font-weight:700; }
+    .nutri summary::-webkit-details-marker { display:none; }
+    .nutri-chev { width:8px; height:8px; border-right:1.5px solid #929a93; border-bottom:1.5px solid #929a93; transform:rotate(45deg); transition:transform .15s ease; margin:-4px 3px 0 0; }
+    .nutri[open] .nutri-chev { transform:rotate(225deg); margin-top:4px; }
+    .nutri-body { padding:2px 16px 16px; }
+    .nutri [hidden] { display:none; }
+    .chips { display:flex; flex-wrap:wrap; gap:6px; margin:2px 0 14px; }
+    .chip { cursor:pointer; border:1px solid var(--line); background:#101214; color:#b6bcba; border-radius:999px; padding:6px 12px; font-size:13px; }
+    .chip:hover { border-color:#59605b; color:var(--text); }
+    .chip.active { background:#f2f3ef; border-color:#f2f3ef; color:#111412; font-weight:700; }
+    .macro { display:grid; grid-template-columns:repeat(3,1fr); padding:4px 0 14px; border-bottom:1px solid var(--line-soft); }
+    .macro-item + .macro-item { padding-left:14px; border-left:1px solid var(--line-soft); }
+    .macro-label { font-size:12px; color:var(--muted); }
+    .macro-val { margin-top:6px; font-size:22px; font-weight:750; letter-spacing:-.04em; font-variant-numeric:tabular-nums; }
+    .macro-val small { font-size:12px; color:var(--muted); font-weight:500; margin-left:2px; letter-spacing:0; }
+    .macro-val .na, .row-value .na { font-size:13px; }
+    .extras { margin-top:16px; }
+    .extras-title { font-size:13px; font-weight:750; padding-bottom:4px; }
+    .nutri .row:last-child { border-bottom:0; }
+    .missing { margin:8px 0 0; font-size:12px; color:var(--muted); line-height:1.7; }
+    .nutri-foot { margin-top:12px; padding-top:10px; border-top:1px solid var(--line-soft); font-size:12px; color:var(--subtle); }
     .empty-state { grid-column:1/-1; border:1px dashed #353b37; background:#0d0f10; border-radius:var(--radius); min-height:270px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:35px; }
     .empty-icon { width:48px; height:48px; border:1px solid #333a35; border-radius:15px; display:grid; place-items:center; color:var(--accent); margin-bottom:17px; }
     .empty-title { font-size:18px; font-weight:700; margin-bottom:7px; }
-    .empty-copy { color:var(--muted); font-size:12px; line-height:1.8; max-width:430px; }
-    .footnote { margin:25px 0 0; padding:18px 0 34px; border-top:1px solid var(--line-soft); color:#7d8480; font-size:10px; display:flex; align-items:flex-start; justify-content:space-between; gap:25px; }
+    .empty-copy { color:var(--muted); font-size:14px; line-height:1.8; max-width:430px; }
+    .footnote { margin:25px 0 0; padding:18px 0 34px; border-top:1px solid var(--line-soft); color:#7d8480; font-size:12px; display:flex; align-items:flex-start; justify-content:space-between; gap:25px; }
     .footnote p { max-width:770px; margin:0; line-height:1.8; }
-    .footer-brand { color:#b7bdb9; white-space:nowrap; font-size:10px; letter-spacing:.14em; }
-    .toast { position:fixed; bottom:20px; left:50%; transform:translate(-50%,20px); border:1px solid #384236; background:#171d13; color:#d8e9c1; padding:10px 15px; border-radius:999px; font-size:12px; opacity:0; pointer-events:none; transition:.2s ease; z-index:30; }
+    .footer-brand { color:#b7bdb9; white-space:nowrap; font-size:12px; letter-spacing:.14em; }
+    .toast { position:fixed; bottom:20px; left:50%; transform:translate(-50%,20px); border:1px solid #384236; background:#171d13; color:#d8e9c1; padding:10px 15px; border-radius:999px; font-size:14px; opacity:0; pointer-events:none; transition:.2s ease; z-index:30; }
     .toast.show { opacity:1; transform:translate(-50%,0); }
+    .na { color:var(--muted); font-weight:500; }
     @media (max-width: 950px) {
       .hero { grid-template-columns:1fr; gap:28px; padding-top:52px; }
       .hero-side { max-width:600px; }
@@ -149,7 +173,7 @@
       .nav-note { display:none; }
       .hero { padding:40px 0 25px; }
       h1 { font-size:39px; }
-      .hero-copy { font-size:13px; }
+      .hero-copy { font-size:15px; }
       .stat { padding:16px; min-height:88px; }
       .stat-value { font-size:24px; }
       .section-head { align-items:flex-start; flex-direction:column; gap:8px; }
@@ -162,6 +186,7 @@
       .category-banner { align-items:flex-start; flex-direction:column; gap:14px; padding:17px; }
       .banner-right { justify-content:flex-start; }
       .product-grid { grid-template-columns:1fr; }
+      .product-grid.single-product { grid-template-columns:minmax(0,1fr); }
       .product-image { height:245px; }
       .footnote { flex-direction:column; gap:10px; }
     }
@@ -170,9 +195,9 @@
 <body>
   <header class="topbar">
     <div class="shell nav">
-      <a class="brand" href="#top" aria-label="FORM Nutrition Index 홈">
-        <div class="brand-mark">F</div>
-        <div><div class="brand-name">FORM</div><div class="brand-sub">NUTRITION INDEX</div></div>
+      <a class="brand" href="#top" aria-label="proteiner 홈">
+        <div class="brand-mark">p</div>
+        <div><div class="brand-name">proteiner</div><div class="brand-sub">NUTRITION INDEX</div></div>
       </a>
       <div class="nav-note">PERSONAL PRODUCT REFERENCE&nbsp; / &nbsp;KR</div>
     </div>
@@ -183,13 +208,13 @@
       <div>
         <div class="eyebrow">Performance nutrition, simplified</div>
         <h1>좋은 선택은<br><span>숫자부터 명확하게.</span></h1>
-        <p class="hero-copy">근성장을 위한 보충제와 고단백 식품을 한곳에서 비교합니다. 함량, 실구매 비용, 원료 구성, 맛 정보를 감각적인 디자인보다 명확한 기준으로 정리합니다.</p>
+        <p class="hero-copy">근성장을 위한 보충제와 고단백 식품을 한곳에서 비교합니다. 함량, 실구매 비용, 영양 정보를 감각적인 디자인보다 명확한 기준으로 정리합니다.</p>
       </div>
       <div class="hero-side" aria-label="현재 등록 현황">
-        <div class="stat"><div class="stat-label">등록 제품 옵션</div><div class="stat-value" id="stat-options">05<small>flavors</small></div></div>
-        <div class="stat"><div class="stat-label">등록 카테고리</div><div class="stat-value">04<small>categories</small></div></div>
+        <div class="stat"><div class="stat-label">등록 제품군</div><div class="stat-value" id="stat-products">01<small>product</small></div></div>
+        <div class="stat"><div class="stat-label">등록 맛 옵션</div><div class="stat-value" id="stat-flavors">05<small>flavors</small></div></div>
         <div class="stat"><div class="stat-label">현재 비교 기준</div><div class="stat-value">₩ / g</div></div>
-        <div class="stat"><div class="stat-label">마지막 정보 확인</div><div class="stat-value" style="font-size:20px">2026.10.10</div></div>
+        <div class="stat"><div class="stat-label">마지막 정보 확인</div><div class="stat-value" id="stat-checked" style="font-size:20px">2026.10.12</div></div>
       </div>
     </section>
 
@@ -198,12 +223,12 @@
     <section aria-labelledby="list-title">
       <div class="section-head">
         <div><div class="section-kicker">Product library / 001</div><h2 id="list-title">제품 비교</h2></div>
-        <div class="section-help">수치는 제품 페이지 표기 기준 · 가격과 재고는 변동 가능</div>
+        <div class="section-help">수치는 제품 페이지 표기 기준 · 모든 가격은 배송비 제외 · 가격과 재고는 변동 가능</div>
       </div>
 
       <div class="toolbar">
         <div class="tabs" role="tablist" aria-label="제품 카테고리">
-          <button class="tab active" role="tab" aria-selected="true" data-category="protein">프로틴 파우더 <span class="count">05</span></button>
+          <button class="tab active" role="tab" aria-selected="true" data-category="protein">프로틴 파우더 <span class="count">01</span></button>
           <button class="tab" role="tab" aria-selected="false" data-category="eaa">EAA <span class="count">00</span></button>
           <button class="tab" role="tab" aria-selected="false" data-category="creatine">크레아틴 <span class="count">00</span></button>
           <button class="tab" role="tab" aria-selected="false" data-category="chicken">닭가슴살 <span class="count">00</span></button>
@@ -235,67 +260,141 @@
     </section>
 
     <footer class="footnote">
-      <p>제품 수치와 표시 가격은 공식 판매 페이지 기준이며 배송비 제외·포함 가격을 구분합니다. NS 웨이 프로틴은 공식 페이지에 품절이 표시되어 있어 가격 지표는 참고용입니다. 맛 평가는 공개된 구매자 후기의 공통점과 상반된 의견을 요약한 것으로, 개인 취향·물/우유 등 혼합 방식에 따라 달라질 수 있습니다. 맛별로 다른 용량의 동일 계열 제품 후기도 포함될 수 있으며, 원료 배합비 등 확인할 수 없는 정보는 추정하지 않았습니다. 각 카드의 후기 링크에서 원문을 확인할 수 있습니다.</p>
-      <div class="footer-brand">FORM&nbsp; / &nbsp;NUTRITION INDEX</div>
+      <p>제품 수치와 표시 가격은 공식 판매 페이지 기준이며, 모든 가격은 배송비를 제외한 금액입니다. 카드의 단백질 1g당 가격과 표의 단백질 수치는 맛별 함량 중 가장 낮은 맛을 기준으로 하며, 각 맛의 수치는 맛별 1회 단백질에서 확인할 수 있습니다. 상세 영양정보는 1회 섭취량 기준이며 맛에 따라 다를 수 있습니다. 전체 단백질은 (총 중량 ÷ 1회 섭취량 × 1회 단백질)로 계산한 추정값입니다. NS 웨이 프로틴과 NS 매스빌드업 프로틴은 공식 페이지에 품절이 표시되어 있어 가격 지표는 참고용입니다. '확인 필요'로 표시된 항목은 공식 페이지에서 확인하지 못한 정보이며 추정하지 않았습니다.</p>
+      <div class="footer-brand">PROTEINER&nbsp; / &nbsp;NUTRITION INDEX</div>
     </footer>
   </main>
   <div class="toast" id="toast" role="status"></div>
 
   <script>
+    // source: 공식 판매 페이지 주소 (화면에는 표시하지 않고, 정보를 다시 확인할 때 참고용으로만 보관)
     const sourceUrl = 'https://nsprotein.com/product/detail.html?product_no=197&cate_no=140&display_group=1';
+    const sourceUrl2 = 'https://nsprotein.com/product/detail.html?product_no=342&cate_no=186&display_group=1';
+    // 맛별 영양 성분은 제품 표기(1회 섭취량 기준)대로 숫자만 채우면 화면에 나타납니다. 비어 있으면(null) '확인 필요'로 표시됩니다.
+    // kcal 열량 · carb 탄수화물(g) · sugar 당류(g) · fat 지방(g) · satFat 포화지방(g) · sodium 나트륨(mg)
     const products = [
-      { id:'ns-deep', category:'protein', brand:'NS PROTEIN', name:'NS 웨이 프로틴 1kg', flavor:'딥초코', weight:1000, serving:30, protein:20.6, price:41800, shipping:3000, package:'플라스틱 통', composition:'제품 표기: Protein Blend 82%. 세부 단백질 원료별 배합비는 추가 확인 필요.', tastePros:'일반 초코맛 구매 후기에서는 맛이 고급스럽고, 단맛이 과하지 않아 꾸준히 먹기 좋다는 반응이 보임.', tasteCons:'딥초코 옵션 자체의 상세 평가는 제한적이라 쓴맛이나 코코아의 진한 정도는 단정하기 어려움.', reviewConfidence:'후기 일부 확인', reviews:[{label:'초코맛 후기',url:'https://nsprotein.com/article/상품-사용후기/4/37364/'},{label:'초코맛 재구매 후기',url:'https://m.nsprotein.com/article/상품-사용후기/4/39854/page/4/'},{label:'단맛 관련 후기',url:'https://nsprotein.com/board/product/read.html?board_no=4&no=39964'}], image:'https://nsprotein.com/web/product/extra/big/202604/f56bfaa1694f983b795a7b6280cc3784.jpg', source:sourceUrl, status:'품절 표시' },
-      { id:'ns-grain', category:'protein', brand:'NS PROTEIN', name:'NS 웨이 프로틴 1kg', flavor:'곡물', weight:1000, serving:30, protein:21.5, price:41800, shipping:3000, package:'플라스틱 통', composition:'제품 표기: Protein Blend 82%. 19가지 곡물 함유를 강조. 세부 단백질 원료 배합비는 추가 확인 필요.', tastePros:'미숫가루처럼 고소하고 담백하며, 단맛이 강하지 않아 질리지 않는다는 후기가 반복됨. 재구매했다는 의견도 확인됨.', tasteCons:'달고 디저트 같은 맛을 기대한다면 다소 담백하거나 심심하게 느껴질 수 있음. 곡물·미숫가루 계열의 풍미는 취향을 탈 수 있음.', reviewConfidence:'반복된 긍정 반응', reviews:[{label:'미숫가루 같은 맛',url:'https://ns-store.com/product/ns-%EC%9B%A8%EC%9D%B4-%ED%94%84%EB%A1%9C%ED%8B%B4-%EA%B3%A1%EB%AC%BC%EB%A7%9B-2kg/79/'},{label:'덜 달고 담백하다는 후기',url:'https://nsprotein.com/article/상품-사용후기/4/41687/'},{label:'반복 구매 후기',url:'https://nsprotein.com/article/상품-사용후기/4/30973/'},{label:'비린맛이 덜하다는 후기',url:'https://nsprotein.com/article/상품-사용후기/4/38511/'}], image:'https://nsprotein.com/web/product/extra/big/202604/654aa3e6b5946d1aae366b322b580185.jpg', source:sourceUrl, status:'품절 표시' },
-      { id:'ns-cookie', category:'protein', brand:'NS PROTEIN', name:'NS 웨이 프로틴 1kg', flavor:'쿠키앤크림', weight:1000, serving:30, protein:20.1, price:41800, shipping:3000, package:'플라스틱 통', composition:'제품 표기: Protein Blend 82%. 세부 단백질 원료별 배합비는 추가 확인 필요.', tastePros:'비린맛이나 텁텁함이 덜하고, 단맛이 과하지 않으면서 고소하다는 후기가 있음. 오트우유와 섞어 먹었을 때 만족도가 높았다는 의견도 확인됨.', tasteCons:'물에 타면 상대적으로 밍밍하다는 후기가 있음. 음료 베이스에 따라 맛 차이가 날 수 있으며, 확인된 후기는 일부 구매자의 경험임.', reviewConfidence:'후기 일부 확인', reviews:[{label:'비린맛·텁텁함 관련 후기',url:'https://nsprotein.com/article/상품-사용후기/4/40290/'},{label:'오트우유와 물 비교 후기',url:'https://m.nsprotein.com/article/상품-사용후기/4/41789'},{label:'1kg 구매 후기',url:'https://nsprotein.com/article/상품-사용후기/4/39673/'}], image:'https://nsprotein.com/web/product/extra/big/202606/c2b1015437fb68479d78ddafe45a1142.jpg', source:sourceUrl, status:'품절 표시' },
-      { id:'ns-strawberry', category:'protein', brand:'NS PROTEIN', name:'NS 웨이 프로틴 1kg', flavor:'딸기', weight:1000, serving:30, protein:20.8, price:41800, shipping:3000, package:'플라스틱 통', composition:'제품 표기: Protein Blend 82%. 세부 단백질 원료별 배합비는 추가 확인 필요.', tastePros:'딸기우유나 딸기 웨하스 같은 맛이라며 맛있게 먹었다는 긍정 후기가 있음.', tasteCons:'반대로 딸기향은 나지만 질감이 걸쭉하고 목에 걸리는 느낌이 불편했다는 낮은 평점 후기도 확인됨. 다섯 맛 중 호불호가 특히 갈릴 수 있어 주의가 필요함.', reviewConfidence:'상반된 후기 확인', reviews:[{label:'딸기우유 같다는 후기',url:'https://nsprotein.com/article/상품-사용후기/4/41503/'},{label:'딸기 웨하스 맛 후기',url:'https://nsprotein.com/article/상품-사용후기/4/40214'},{label:'식감이 불편했다는 후기',url:'https://nsprotein.com/article/상품-사용후기/4/40088/'}], image:'https://nsprotein.com/web/product/extra/big/202604/047430c2b0d375a8fc0f88b42b91b168.jpg', source:sourceUrl, status:'품절 표시' },
-      { id:'ns-matcha', category:'protein', brand:'NS PROTEIN', name:'NS 웨이 프로틴 1kg', flavor:'말차라떼', weight:1000, serving:30, protein:19.7, price:41800, shipping:3000, package:'플라스틱 통', composition:'제품 표기: Protein Blend 82%. 세부 단백질 원료별 배합비는 추가 확인 필요.', tastePros:'공개 후기에서는 물에 타도 맛있었다는 반응과 카페에서 파는 말차라떼 같은 맛이라는 긍정 의견이 확인됨.', tasteCons:'상세한 부정 후기와 맛의 씁쓸함·단맛 정도를 가늠할 만큼 후기 표본이 충분하지 않아 장단점 평가는 잠정적임.', reviewConfidence:'후기 표본 적음', reviews:[{label:'물에 타도 맛있다는 후기',url:'https://nsprotein.com/article/상품-사용후기/4/39161/'},{label:'카페 말차라떼 같다는 후기',url:'https://ns-store.com/article/상품-사용후기/4/38135/'}], image:'https://nsprotein.com/web/product/big/202604/9852892662c89f305ce2ff0ae98d845b.jpg', source:sourceUrl, status:'품절 표시' }
+      { id:'ns-deep', productGroup:'ns-whey-1kg', category:'protein', brand:'NS PROTEIN', name:'NS 웨이 프로틴 1kg', flavor:'딥초코', weight:1000, serving:30, protein:20.6, price:41800, nutrition:{ kcal:null, carb:null, sugar:null, fat:null, satFat:null, sodium:null }, groupImage:'images/ns-deep.jpg', source:sourceUrl, checked:'2026.10.10' },
+      { id:'ns-grain', productGroup:'ns-whey-1kg', category:'protein', brand:'NS PROTEIN', name:'NS 웨이 프로틴 1kg', flavor:'곡물', weight:1000, serving:30, protein:21.5, price:41800, nutrition:{ kcal:null, carb:null, sugar:null, fat:null, satFat:null, sodium:null }, groupImage:'images/ns-deep.jpg', source:sourceUrl, checked:'2026.10.10' },
+      { id:'ns-cookie', productGroup:'ns-whey-1kg', category:'protein', brand:'NS PROTEIN', name:'NS 웨이 프로틴 1kg', flavor:'쿠키앤크림', weight:1000, serving:30, protein:20.1, price:41800, nutrition:{ kcal:null, carb:null, sugar:null, fat:null, satFat:null, sodium:null }, groupImage:'images/ns-deep.jpg', source:sourceUrl, checked:'2026.10.10' },
+      { id:'ns-strawberry', productGroup:'ns-whey-1kg', category:'protein', brand:'NS PROTEIN', name:'NS 웨이 프로틴 1kg', flavor:'딸기', weight:1000, serving:30, protein:20.8, price:41800, nutrition:{ kcal:null, carb:null, sugar:null, fat:null, satFat:null, sodium:null }, groupImage:'images/ns-deep.jpg', source:sourceUrl, checked:'2026.10.10' },
+      { id:'ns-matcha', productGroup:'ns-whey-1kg', category:'protein', brand:'NS PROTEIN', name:'NS 웨이 프로틴 1kg', flavor:'말차라떼', weight:1000, serving:30, protein:19.7, price:41800, nutrition:{ kcal:null, carb:null, sugar:null, fat:null, satFat:null, sodium:null }, groupImage:'images/ns-deep.jpg', source:sourceUrl, checked:'2026.10.10' },
+      { id:'ns-mass-rich', productGroup:'ns-massbuildup-4kg', category:'protein', brand:'NS PROTEIN', name:'NS 매스빌드업 프로틴 4kg', flavor:'리치초콜릿', weight:4000, serving:null, protein:null, price:59800, nutrition:{ kcal:null, carb:null, sugar:null, fat:null, satFat:null, sodium:null }, groupImage:'images/ns-massbuildup-4kg.png', source:sourceUrl2, checked:'2026.10.12' },
+      { id:'ns-mass-cookie', productGroup:'ns-massbuildup-4kg', category:'protein', brand:'NS PROTEIN', name:'NS 매스빌드업 프로틴 4kg', flavor:'쿠키앤밀크', weight:4000, serving:null, protein:null, price:59800, nutrition:{ kcal:null, carb:null, sugar:null, fat:null, satFat:null, sodium:null }, groupImage:'images/ns-massbuildup-4kg.png', source:sourceUrl2, checked:'2026.10.12' },
+      { id:'ns-mass-strawberry', productGroup:'ns-massbuildup-4kg', category:'protein', brand:'NS PROTEIN', name:'NS 매스빌드업 프로틴 4kg', flavor:'스트로베리크림', weight:4000, serving:null, protein:null, price:59800, nutrition:{ kcal:null, carb:null, sugar:null, fat:null, satFat:null, sodium:null }, groupImage:'images/ns-massbuildup-4kg.png', source:sourceUrl2, checked:'2026.10.12' }
     ];
+    // 제품 단위 추가 성분 (원재료명 기준). 비어 있으면(null) '확인 필요'로 표시됩니다.
+    const extraLabels = [['proteinSource','단백질 원료'],['sweetener','감미료'],['emulsifier','유화제·증점제'],['functional','기능성 성분'],['allergen','알레르기 유발 성분']];
+    const groupExtras = {
+      'ns-whey-1kg': { proteinSource:'Protein Blend 82% (세부 배합비 확인 필요)', sweetener:null, emulsifier:null, functional:null, allergen:null },
+      'ns-massbuildup-4kg': { proteinSource:null, sweetener:null, emulsifier:null, functional:null, allergen:null }
+    };
     const categories = {
-      protein: { name:'프로틴 파우더', label:'CATEGORY 01 / PROTEIN', desc:'1회 단백질 함량과 단백질 1g당 비용을 기준으로 비교', pills:[['1kg 기준',''],['1회 30g 기준',''],['공식 페이지 품절 표시','warn']], empty:'단백질 원료, 단백질 1g당 가격, 맛별 함량을 기준으로 비교합니다.' },
+      protein: { name:'프로틴 파우더', label:'CATEGORY 01 / PROTEIN', desc:'1회 단백질 함량과 단백질 1g당 비용을 기준으로 비교', pills:[['1회 섭취량 기준',''],['단백질 1g당 가격',''],['공식 페이지 품절 표시','warn']], empty:'단백질 원료, 단백질 1g당 가격, 맛별 함량을 기준으로 비교합니다.' },
       eaa: { name:'EAA', label:'CATEGORY 02 / AMINO ACIDS', desc:'총 EAA 함량과 1g당 비용, 아미노산 배합을 기준으로 비교', pills:[['총 EAA 함량',''],['EAA 1g당 가격',''],['아미노산 배합','']], empty:'총 EAA·BCAA·류신 함량, 1회 섭취 비용, 감미료 및 맛 정보를 이곳에 정리합니다.' },
       creatine: { name:'크레아틴', label:'CATEGORY 03 / CREATINE', desc:'크레아틴 종류와 유효 성분량, 1g당 비용을 기준으로 비교', pills:[['유효 성분량',''],['크레아틴 1g당 가격',''],['순도·검사 정보','']], empty:'크레아틴 종류, 1회 함량, 총 유효 성분량, 원료 및 품질 정보를 이곳에 정리합니다.' },
       chicken: { name:'닭가슴살', label:'CATEGORY 04 / HIGH-PROTEIN FOOD', desc:'1팩 단백질 함량과 단백질 1g당 비용을 기준으로 비교', pills:[['1팩 기준',''],['단백질 1g당 가격',''],['나트륨·조리 편의','']], empty:'1팩 중량, 단백질·열량·나트륨, 맛, 조리 편의성을 기준으로 비교합니다.' }
     };
     let activeCategory = 'protein';
-    const won = n => new Intl.NumberFormat('ko-KR', {maximumFractionDigits:0}).format(n) + '원';
+    const num = n => new Intl.NumberFormat('ko-KR', {maximumFractionDigits:0}).format(n);
     const decimal = (n, digits=1) => Number(n).toLocaleString('ko-KR', {minimumFractionDigits:digits, maximumFractionDigits:digits});
     const totalProtein = p => (p.weight / p.serving) * p.protein;
-    const proteinCost = (p, inclShipping=false) => ((p.price + (inclShipping ? p.shipping : 0)) / totalProtein(p));
+    const proteinCost = p => p.price / totalProtein(p);
 
-    function cardTemplate(p) {
-      const titleId = `title-${p.id}`;
-      const servings = p.weight / p.serving;
+    function groupProducts(items) {
+      const groups = new Map();
+      items.forEach(p => {
+        const key = p.productGroup;
+        if (!groups.has(key)) groups.set(key, { key, category:p.category, brand:p.brand, name:p.name, weight:p.weight, serving:p.serving, price:p.price, image:p.groupImage, checked:p.checked, extras:groupExtras[key] || {}, flavors:[] });
+        groups.get(key).flavors.push(p);
+      });
+      groups.forEach(g => {
+        const known = g.flavors.filter(f => f.protein && f.serving);
+        g.base = known.length ? known.reduce((a, b) => (a.protein <= b.protein ? a : b)) : null;
+      });
+      return [...groups.values()];
+    }
+
+    const allGroups = groupProducts(products);
+
+    const NA = '<span class="na">확인 필요</span>';
+    const weightText = w => (w >= 1000 ? `${w / 1000}kg` : `${w}g`);
+
+    const fmt = x => (Number.isInteger(x) ? num(x) : decimal(x));
+    const val = (x, unit) => (x == null ? NA : `${fmt(x)}<small>${unit}</small>`);
+
+    function flavorCell(f) {
+      const known = Boolean(f.protein && f.serving);
+      return `<li class="flavor-cell"><span class="flavor-name">${f.flavor}</span><span class="flavor-val">${known ? decimal(f.protein) : NA}</span></li>`;
+    }
+
+    const hasNutri = f => Object.values(f.nutrition || {}).some(v => v != null);
+
+    function nutriPanel(f, i) {
+      const n = f.nutrition || {};
+      const body = hasNutri(f) ? `
+          <div class="macro">
+            <div class="macro-item"><div class="macro-label">탄수화물</div><div class="macro-val">${val(n.carb, 'g')}</div></div>
+            <div class="macro-item"><div class="macro-label">단백질</div><div class="macro-val">${val(f.protein, 'g')}</div></div>
+            <div class="macro-item"><div class="macro-label">지방</div><div class="macro-val">${val(n.fat, 'g')}</div></div>
+          </div>
+          <ul class="rows">
+            <li class="row"><span class="row-label">열량</span><span class="row-value">${val(n.kcal, 'kcal')}</span></li>
+            <li class="row"><span class="row-label">탄수화물 중 당류</span><span class="row-value">${val(n.sugar, 'g')}</span></li>
+            <li class="row"><span class="row-label">지방 중 포화지방</span><span class="row-value">${val(n.satFat, 'g')}</span></li>
+            <li class="row"><span class="row-label">나트륨</span><span class="row-value">${val(n.sodium, 'mg')}</span></li>
+          </ul>` : `<p class="missing">영양 성분표를 아직 확인하지 못했습니다.</p>`;
+      return `<div class="nutri-panel" data-panel="${i}"${i ? ' hidden' : ''}>${body}</div>`;
+    }
+
+    function extrasBlock(g) {
+      const e = g.extras || {};
+      const known = extraLabels.filter(([k]) => e[k]);
+      const missing = extraLabels.filter(([k]) => !e[k]).map(([, label]) => label);
+      return `<div class="extras"><div class="extras-title">추가 성분</div>
+          ${known.length ? `<ul class="rows">${known.map(([k, label]) => `<li class="row"><span class="row-label">${label}</span><span class="row-value text">${e[k]}</span></li>`).join('')}</ul>` : ''}
+          ${missing.length ? `<p class="missing">확인 필요 · ${missing.join(' · ')}</p>` : ''}
+        </div>`;
+    }
+
+    function cardTemplate(g) {
+      const titleId = `title-${g.key.replace(/[^a-z0-9_-]/gi, '-')}`;
+      const flavors = g.flavors;
+      const base = g.base;
+      const servingCount = g.serving ? g.weight / g.serving : null;
+      const anyNutri = flavors.some(hasNutri);
       return `
         <article class="product-card" aria-labelledby="${titleId}">
           <div class="product-image" data-image-wrap>
-            <img src="${p.image}" alt="${p.name} ${p.flavor} 제품 사진" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('[data-image-wrap]').classList.add('failed')" />
+            <img src="${g.image}" alt="${g.name} 제품 사진" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('[data-image-wrap]').classList.add('failed')" />
             <div class="image-fallback"><strong>NS</strong><span>PRODUCT IMAGE</span></div>
-            <span class="image-chip">${p.weight.toLocaleString('ko-KR')} G</span>
           </div>
           <div class="card-body">
-            <div class="card-topline"><span class="brand-mini">${p.brand}</span><span class="stock">${p.status}</span></div>
-            <h3 id="${titleId}" class="flavor">${p.flavor}</h3>
-            <div class="base-name">${p.name} · ${p.package}</div>
-            <div class="protein-highlight">
-              <div><div class="protein-number">${decimal(p.protein)}<small>g</small></div><div class="protein-label">1회 단백질 함량</div></div>
-              <div class="serving-note">1회 섭취량 ${p.serving}g<br>총 약 ${decimal(servings,1)}회 분량</div>
+            <div class="card-meta"><span class="brand-mini">${g.brand}</span><span class="card-size">${weightText(g.weight)} · ${flavors.length}가지 맛</span></div>
+            <h3 id="${titleId}" class="product-name">${g.name}</h3>
+            <div class="key">
+              <div class="key-label">단백질 1g당 가격 · 최저 함량 맛 기준</div>
+              ${base ? `<div class="key-num">${num(proteinCost(base))}<small>원 / g</small></div>` : `<div class="key-num na-text">확인 필요</div>`}
             </div>
-            <div class="facts">
-              <div class="fact"><div class="fact-label">표시 판매가</div><div class="fact-value">${won(p.price)}</div></div>
-              <div class="fact"><div class="fact-label">제품가 기준 / 1회</div><div class="fact-value">${won(p.price / servings)}</div></div>
-              <div class="fact"><div class="fact-label">단백질 1g당 · 배송 제외</div><div class="fact-value">${won(proteinCost(p))}<small> / g</small></div></div>
-              <div class="fact"><div class="fact-label">단백질 1g당 · 배송 포함</div><div class="fact-value">${won(proteinCost(p, true))}<small> / g</small></div></div>
-              <div class="fact"><div class="fact-label">배송비</div><div class="fact-value">${won(p.shipping)}</div></div>
-              <div class="fact"><div class="fact-label">1kg 기준 단백질 총량*</div><div class="fact-value">${decimal(totalProtein(p))}<small> g</small></div></div>
+            <table class="matrix">
+              <thead><tr><th scope="col"><span class="sr">구분</span></th><th scope="col">단백질</th><th scope="col">가격</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">1회${g.serving ? ` (${g.serving}g)` : ''}</th><td>${base ? `${decimal(base.protein)}<small>g</small>` : NA}</td><td>${servingCount ? `${num(g.price / servingCount)}<small>원</small>` : NA}</td></tr>
+                <tr><th scope="row">제품 전체</th><td>${base ? `${decimal(totalProtein(base))}<small>g</small>` : NA}</td><td>${num(g.price)}<small>원</small></td></tr>
+              </tbody>
+            </table>
+            <div class="flavor-list">
+              <div class="flavor-list-head">맛별 1회 단백질<span>(g)</span></div>
+              <ul class="flavor-grid">${flavors.map(flavorCell).join('')}</ul>
             </div>
-            <div class="composition"><div class="composition-title">단백질 구성 / 표기</div><div class="composition-copy">${p.composition}</div></div>
-            <div class="taste-note">
-              <div class="taste-head"><b>맛 평가 · 구매 후기 종합</b><span class="review-confidence">${p.reviewConfidence}</span></div>
-              <div class="taste-copy"><strong>장점</strong> ${p.tastePros}</div>
-              <div class="taste-copy caution"><strong>주의점</strong> ${p.tasteCons}</div>
-              <div class="review-links">${p.reviews.map((r,i) => `<a href="${r.url}" target="_blank" rel="noopener noreferrer">후기 ${i+1} ↗</a>`).join('')}</div>
-            </div>
-            <div class="card-actions"><a class="source-link" href="${p.source}" target="_blank" rel="noopener noreferrer">공식 제품 페이지 ↗</a><span class="source-date">가격 확인 기준 · 2026.10.10</span></div>
+            <details class="nutri">
+              <summary><span>상세 영양정보</span><span class="nutri-chev" aria-hidden="true"></span></summary>
+              <div class="nutri-body">
+                ${anyNutri && flavors.length > 1 ? `<div class="chips" role="group" aria-label="맛 선택">${flavors.map((f, i) => `<button type="button" class="chip${i ? '' : ' active'}" data-panel="${i}">${f.flavor}</button>`).join('')}</div>` : ''}
+                ${anyNutri ? flavors.map(nutriPanel).join('') : '<p class="missing">영양 성분표를 아직 확인하지 못했습니다.</p>'}
+                ${extrasBlock(g)}
+                <div class="nutri-foot">${g.serving ? `1회 섭취량 ${g.serving}g 기준 · ` : ''}정보 확인 ${g.checked}</div>
+              </div>
+            </details>
           </div>
         </article>`;
     }
@@ -312,20 +411,35 @@
       document.getElementById('banner-pills').innerHTML = meta.pills.map(([label, tone]) => `<span class="pill ${tone}">${label}</span>`).join('');
       const query = document.getElementById('search').value.trim().toLowerCase();
       const sort = document.getElementById('sort').value;
-      let list = products.filter(p => p.category === activeCategory && `${p.name} ${p.flavor} ${p.brand}`.toLowerCase().includes(query));
-      if (sort === 'protein') list.sort((a,b) => b.protein-a.protein);
-      if (sort === 'cost') list.sort((a,b) => proteinCost(a)-proteinCost(b));
+      let list = allGroups
+        .filter(g => g.category === activeCategory)
+        .map(g => ({...g, flavors:g.flavors.filter(f => `${f.name} ${f.flavor} ${f.brand}`.toLowerCase().includes(query))}))
+        .filter(g => g.flavors.length > 0);
+      if (sort === 'protein') list.sort((a,b) => (b.base ? b.base.protein : -1) - (a.base ? a.base.protein : -1));
+      if (sort === 'cost') list.sort((a,b) => (a.base ? proteinCost(a.base) : 1e12) - (b.base ? proteinCost(b.base) : 1e12));
       if (sort === 'price') list.sort((a,b) => a.price-b.price);
       const grid = document.getElementById('product-grid');
+      grid.classList.toggle('single-product', list.length === 1);
       grid.innerHTML = list.length ? list.map(cardTemplate).join('') : emptyTemplate(meta, Boolean(query));
       document.querySelectorAll('.tab').forEach(btn => {
         const active = btn.dataset.category === activeCategory;
         btn.classList.toggle('active', active);
         btn.setAttribute('aria-selected', String(active));
+        const groupCount = allGroups.filter(g => g.category === btn.dataset.category).length;
+        btn.querySelector('.count').textContent = String(groupCount).padStart(2,'0');
       });
-      document.getElementById('stat-options').innerHTML = `${String(products.length).padStart(2,'0')}<small>flavors</small>`;
+      document.getElementById('stat-products').innerHTML = `${String(allGroups.length).padStart(2,'0')}<small>products</small>`;
+      document.getElementById('stat-checked').textContent = products.map(p => p.checked).sort().pop();
+      document.getElementById('stat-flavors').innerHTML = `${String(products.length).padStart(2,'0')}<small>flavors</small>`;
     }
     document.querySelectorAll('.tab').forEach(btn => btn.addEventListener('click', () => { activeCategory = btn.dataset.category; render(); }));
+    document.getElementById('product-grid').addEventListener('click', e => {
+      const chip = e.target.closest('.chip');
+      if (!chip) return;
+      const root = chip.closest('.nutri');
+      root.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c === chip));
+      root.querySelectorAll('.nutri-panel').forEach(panel => { panel.hidden = panel.dataset.panel !== chip.dataset.panel; });
+    });
     document.getElementById('search').addEventListener('input', render);
     document.getElementById('sort').addEventListener('change', render);
     render();
