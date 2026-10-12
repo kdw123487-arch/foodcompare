@@ -95,9 +95,24 @@
             ]
           }
         },
-        { "id": "ns-grain", "flavor": "곡물", "protein": 21.5, "nutrition": {} },
-        { "id": "ns-cookie", "flavor": "쿠키앤크림", "protein": 20.1, "nutrition": {} },
-        { "id": "ns-strawberry", "flavor": "딸기", "protein": 20.8, "nutrition": {} },
+        { "id": "ns-grain", "flavor": "곡물", "protein": 21.5,
+          "nutrition": {
+            "kcal": 116, "carb": 4.9, "sugar": 0.45, "fat": 1.14, "transFat": 0, "satFat": 0.39,
+            "aminoAcids": [ { "name": "로이신", "serving": 1941 }, { "name": "이소로이신", "serving": 1018 }, { "name": "발린", "serving": 997 } ]
+          }
+        },
+        { "id": "ns-cookie", "flavor": "쿠키앤크림", "protein": 20.1,
+          "nutrition": {
+            "kcal": 114, "carb": 6.7, "sugar": 2.1, "fat": 0.9, "transFat": 0, "satFat": 0.3,
+            "aminoAcids": [ { "name": "로이신", "serving": 1772 }, { "name": "이소로이신", "serving": 1064 }, { "name": "발린", "serving": 1087 } ]
+          }
+        },
+        { "id": "ns-strawberry", "flavor": "딸기", "protein": 20.8,
+          "nutrition": {
+            "kcal": 112, "carb": 6.0, "sugar": 2.8, "fat": 0.4, "transFat": 0, "satFat": 0.2,
+            "aminoAcids": [ { "name": "로이신", "serving": 2011 }, { "name": "이소로이신", "serving": 1077 }, { "name": "발린", "serving": 1043 } ]
+          }
+        },
         { "id": "ns-matcha", "flavor": "말차라떼", "protein": 19.7, "nutrition": {} }
       ],
       "blend": [
