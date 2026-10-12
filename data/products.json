@@ -480,18 +480,73 @@
    "brand": "NS PROTEIN",
    "name": "NS 매스빌드업 프로틴 4kg",
    "weight": 4000,
-   "serving": null,
+   "serving": 150,
    "price": 59800,
    "image": "images/ns-massbuildup-4kg.png",
    "source": "https://nsprotein.com/product/detail.html?product_no=342&cate_no=186&display_group=1",
    "checked": "2026.10.12",
-   "baseFlavor": null,
-   "lists": {},
+   "baseFlavor": "ns-mass-rich",
+   "lists": {
+    "blend": [
+     {
+      "name": "분리대두단백",
+      "desc": "",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "농축유청단백",
+      "desc": "",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "분리유청단백",
+      "desc": "",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "가수분해유청단백",
+      "desc": "",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "농축우유단백",
+      "desc": "",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "분리유단백",
+      "desc": "",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "미셀라카제인",
+      "desc": "",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
    "flavors": [
     {
      "id": "ns-mass-rich",
      "name": "리치초콜릿",
-     "values": {}
+     "values": {
+      "protein": 44.4,
+      "carb": 89.5,
+      "sugar": 25.9,
+      "fat": 3.1,
+      "transFat": 0,
+      "satFat": 0.8,
+      "kcal": 564,
+      "cholesterol": 1.8,
+      "sodium": 381.1
+     }
     },
     {
      "id": "ns-mass-cookie",
@@ -503,7 +558,10 @@
      "name": "스트로베리크림",
      "values": {}
     }
-   ]
+   ],
+   "listNotes": {
+    "blend": "올인원 프로틴 블렌드 7 · 원재료명 표기 순서"
+   }
   }
  ]
 }
