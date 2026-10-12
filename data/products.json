@@ -1,5 +1,5 @@
 {
-  "_readme": "제품 정보는 이 파일만 고치면 됩니다. 값이 없으면 null(또는 항목 생략)로 두면 화면에 '확인 필요'로 표시됩니다. groups 안에 제품 공통 정보(용량·가격·제조원 등)를, flavors 안에 맛별 정보를 적습니다. 영양성분표는 맛별 nutrition에 적습니다: kcal 열량 · carb 탄수화물(g) · sugar 당류(g) · fat 지방(g) · transFat 트랜스지방(g) · satFat 포화지방(g) · cholesterol 콜레스테롤(mg) · sodium 나트륨(mg) 은 모두 1회 섭취량 기준이고, per100g 은 100g당 수치, dv 는 1회 기준 1일 영양성분 기준치 %, dv100g 는 100g당 기준치 %, aminoAcids 는 아미노산 조성표(mg)입니다. category 값: protein / eaa / creatine / chicken. blend 는 단백질 배합(라벨 표기 순서, 비율을 알면 pct 에 숫자를 적으면 화면에 % 로 표시됩니다). 화면에는 탄수화물·단백질·지방, BCAA만 표시되며 나머지 항목은 데이터로만 보관됩니다. labelFlavor 는 제품 정보·추가 성분을 확인한 맛의 이름입니다.",
+  "_readme": "제품 정보는 이 파일만 고치면 됩니다. 값이 없으면 null(또는 항목 생략)로 두면 화면에 '확인 필요'로 표시됩니다. groups 안에 제품 공통 정보(용량·가격·제조원 등)를, flavors 안에 맛별 정보를 적습니다. 영양성분표는 맛별 nutrition에 적습니다: kcal 열량 · carb 탄수화물(g) · sugar 당류(g) · fat 지방(g) · transFat 트랜스지방(g) · satFat 포화지방(g) · cholesterol 콜레스테롤(mg) · sodium 나트륨(mg) 은 모두 1회 섭취량 기준이고, per100g 은 100g당 수치, dv 는 1회 기준 1일 영양성분 기준치 %, dv100g 는 100g당 기준치 %, aminoAcids 는 아미노산 조성표(mg)입니다. category 값: protein / eaa / creatine / chicken. blend 는 단백질 배합(라벨 표기 순서, 비율을 알면 pct 에 숫자를 적으면 화면에 % 로 표시됩니다). 화면에는 탄수화물·단백질·지방, BCAA만 표시되며 나머지 항목은 데이터로만 보관됩니다. baseFlavor 는 카드의 대표 수치(단백질 1g당 가격, 1회·제품 전체 표)를 계산할 맛의 id이며, 비워 두면 단백질 함량이 가장 낮은 맛을 씁니다. labelFlavor 는 제품 정보·추가 성분을 확인한 맛의 이름입니다.",
   "groups": [
     {
       "id": "ns-whey-1kg",
@@ -13,6 +13,7 @@
       "source": "https://nsprotein.com/product/detail.html?product_no=197&cate_no=140&display_group=1",
       "checked": "2026.10.12",
       "labelFlavor": "딥초코",
+      "baseFlavor": "ns-deep",
       "extras": {
         "proteinSource": "분리대두단백(중국산), 농축유청단백(미국산), 분리우유단백, 농축우유단백, 미셀라카제인, 분리유청단백, 가수분해유청단백 (엔에스올인원세븐블렌드프로틴 7종)",
         "sweetener": "효소처리스테비아, 수크랄로스",
