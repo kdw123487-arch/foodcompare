@@ -189,7 +189,7 @@ def main():
         prod_by_id[pid] = p
 
     # ---------- 맛 ----------
-    f_fixed = {"제품id", "맛id", "맛"}
+    f_fixed = {"제품id", "맛id", "맛", "1회섭취량(g)"}
     rows, header = table(wb, "맛", f_fixed, required=["제품id", "맛id", "맛"], extra_ok=True)
     col_key = {}
     for h in header:
@@ -214,7 +214,11 @@ def main():
             v = to_num(d.get(h), "맛", i, h)
             if v is not None:
                 values[k] = v
-        p["flavors"].append({"id": fid, "name": d.get("맛"), "values": values})
+        fl = {"id": fid, "name": d.get("맛"), "values": values}
+        sv = to_num(d.get("1회섭취량(g)"), "맛", i, "1회섭취량(g)")
+        if sv:
+            fl["serving"] = sv   # 맛마다 1회 섭취량이 다를 때만 (비우면 제품 값 사용)
+        p["flavors"].append(fl)
 
     # ---------- 목록 ----------
     # 맛id가 있으면 그 맛 전용 목록, 비어 있으면 제품 전체 기본 목록. 부제 칸은 박스 머리 문구(목록당 하나).

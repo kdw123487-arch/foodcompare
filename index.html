@@ -327,7 +327,9 @@
     const esc = t => String(t).replace(/[&<>"]/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c]));
     const weightText = w => (w >= 1000 ? `${w / 1000}kg` : `${w}g`);
     // 총 제공 횟수: 데이터에 '회분'이 있으면 그대로, 없으면 (총 중량 ÷ 1회 섭취량)
-    const servingsOf = p => p.servings || (p.serving && p.weight ? p.weight / p.serving : null);
+    // 1회 섭취량은 맛마다 다를 수 있어 맛 값이 있으면 그것을, 없으면 제품 값을 쓴다
+    const servingOf = (p, f) => (f && f.serving) || p.serving || null;
+    const servingsOf = (p, f) => p.servings || (servingOf(p, f) && p.weight ? p.weight / servingOf(p, f) : null);
     const sizeText = p => (p.weight ? weightText(p.weight) : p.servings ? `${p.servings}회분` : '');
     const catOf = id => DB.categories.find(c => c.id === id);
 
@@ -346,13 +348,13 @@
       DB.products.forEach(p => {
         const cat = catOf(p.category);
         const per = cat && cat.metric ? cat.metric.per : null;
-        const usable = per && servingsOf(p) ? p.flavors.filter(f => f.values[per]) : [];
+        const usable = per ? p.flavors.filter(f => f.values[per] && servingsOf(p, f)) : [];
         p.base = usable.find(f => f.id === p.baseFlavor) || (usable.length ? usable.reduce((a, b) => (a.values[per] <= b.values[per] ? a : b)) : null);
       });
     }
     const metricCost = p => {
       const cat = catOf(p.category), per = cat && cat.metric ? cat.metric.per : null;
-      return per && p.base ? p.price / (servingsOf(p) * p.base.values[per]) : null;
+      return per && p.base ? p.price / (servingsOf(p, p.base) * p.base.values[per]) : null;
     };
     // 상세 영양정보 박스에 쓰이는 항목(대표지표 기준 항목은 제외) 중 하나라도 값이 있으면 '데이터 있음'
     const boxFields = cat => {
@@ -396,7 +398,7 @@
       const hidden = i === first ? '' : ' hidden';
       if (!hasData(f, cat)) return `<div class="nutri-panel" data-panel="${i}"${hidden}><p class="missing">${esc(f.name)}맛의 영양 성분표를 아직 확인하지 못했습니다.</p></div>`;
       const bits = cat.header.filter(k => f.values[k] != null).map(k => `${fmt(f.values[k], k)}${esc(field(k).unit)}`);
-      const head = [`${esc(f.name)}맛`, p.serving ? `1회 ${p.serving}g` : null, ...bits].filter(Boolean).join(' · ');
+      const head = [`${esc(f.name)}맛`, servingOf(p, f) ? `1회 ${servingOf(p, f)}g` : null, ...bits].filter(Boolean).join(' · ');
       const body = cat.boxes.map(b => (b.type === 'trio' ? trioHtml(b, f, head) : b.type === 'sum' ? sumHtml(b, f) : listHtml(b, p, f))).join('\n          ');
       return `<div class="nutri-panel" data-panel="${i}"${hidden}>
           ${body}
@@ -417,7 +419,7 @@
     function cardTemplate(p) {
       const cat = catOf(p.category), flavors = p.flavors, base = p.base, metric = cat.metric, sum = cat.summary;
       const titleId = `title-${p.id.replace(/[^a-z0-9_-]/gi, '-')}`;
-      const servingCount = servingsOf(p);
+      const servingCount = servingsOf(p, base), servingG = servingOf(p, base);
       const cost = metricCost(p);
       const anyData = flavors.some(f => hasData(f, cat));
       const first = Math.max(0, flavors.findIndex(f => hasData(f, cat)));
@@ -429,7 +431,7 @@
       const matrix = `<table class="matrix">
               <thead><tr><th scope="col"><span class="sr">구분</span></th>${sum.map(k => `<th scope="col">${esc(field(k).label)}</th>`).join('')}<th scope="col">가격</th></tr></thead>
               <tbody>
-                <tr><th scope="row">1회${p.serving ? ` (${p.serving}g)` : ''}</th>${sum.map(k => `<td>${base ? withUnit(base.values[k], k) : NA}</td>`).join('')}<td>${servingCount ? `${num(p.price / servingCount)}<small>원</small>` : NA}</td></tr>
+                <tr><th scope="row">1회${servingG ? ` (${servingG}g)` : ''}</th>${sum.map(k => `<td>${base ? withUnit(base.values[k], k) : NA}</td>`).join('')}<td>${servingCount ? `${num(p.price / servingCount)}<small>원</small>` : NA}</td></tr>
                 <tr><th scope="row">제품 전체</th>${sum.map(k => `<td>${base && servingCount && base.values[k] != null ? withUnit(servingCount * base.values[k], k, true) : NA}</td>`).join('')}<td>${num(p.price)}<small>원</small></td></tr>
               </tbody>
             </table>`;
