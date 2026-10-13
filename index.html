@@ -88,13 +88,13 @@
     .product-grid.single-product { grid-template-columns:minmax(0,760px); justify-content:center; }
     .product-card { border:1px solid var(--line); border-radius:var(--radius); background:var(--panel); overflow:hidden; min-width:0; align-self:start; transition:transform .18s ease,border-color .18s ease; }
     .product-card:hover { transform:translateY(-2px); border-color:#424943; }
-    .product-image { background:#e7e5df; height:228px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .product-image { background:radial-gradient(ellipse at 50% 38%, #4a504c 0%, #272c2a 55%, #181b1a 100%); height:228px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
     .product-image img { display:block; width:100%; height:100%; object-fit:contain; padding:15px; }
-    .image-fallback { display:none; width:100%; height:100%; align-items:center; justify-content:center; flex-direction:column; gap:10px; color:#555a55; font-size:14px; }
-    .image-fallback strong { font-size:34px; color:#363b36; letter-spacing:-.08em; }
+    .image-fallback { display:none; width:100%; height:100%; align-items:center; justify-content:center; flex-direction:column; gap:10px; color:#8b928d; font-size:14px; }
+    .image-fallback strong { font-size:34px; color:#c3c8c5; letter-spacing:-.08em; }
     .product-image.failed img { display:none; }
     .product-image.failed .image-fallback { display:flex; }
-    .card-body { padding:20px; }
+    .card-body { padding:20px; container-type:inline-size; }
     .card-meta { display:flex; justify-content:space-between; align-items:center; gap:10px; }
     .brand-mini { color:var(--muted); font-size:12px; letter-spacing:.12em; text-transform:uppercase; }
     .card-size { color:#c3c8c5; font-size:13px; white-space:nowrap; }
@@ -121,6 +121,11 @@
     .row-value { font-size:15px; font-weight:650; text-align:right; font-variant-numeric:tabular-nums; }
     .row-value small { font-size:12px; color:var(--muted); font-weight:500; margin-left:3px; }
     .row-value.text { font-size:13px; font-weight:500; color:#d0d5d1; line-height:1.55; }
+    .shop-link { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:16px; padding:13px 16px; border:1px solid var(--accent); border-radius:12px; background:var(--accent); color:#15190d; font-size:14px; font-weight:800; text-decoration:none; transition:filter .16s ease, transform .16s ease; }
+    .shop-link:hover { filter:brightness(1.08); transform:translateY(-1px); }
+    .shop-link:focus-visible { outline:2px solid #fff; outline-offset:2px; }
+    .shop-note { margin:9px 0 0; text-align:center; font-size:12px; color:var(--muted); }
+    .blend-box .macro-subs li.no-val > span { white-space:normal; }
     .nutri { margin-top:20px; border:1px solid var(--line); border-radius:12px; background:#0d0f10; overflow:hidden; }
     .nutri[open] { border-color:#3b4633; background:#101310; }
     .nutri summary { display:flex; justify-content:space-between; align-items:center; gap:10px; padding:14px 16px; cursor:pointer; list-style:none; font-size:14px; font-weight:700; }
@@ -191,6 +196,13 @@
     .toast { position:fixed; bottom:20px; left:50%; transform:translate(-50%,20px); border:1px solid #384236; background:#171d13; color:#d8e9c1; padding:10px 15px; border-radius:999px; font-size:14px; opacity:0; pointer-events:none; transition:.2s ease; z-index:30; }
     .toast.show { opacity:1; transform:translate(-50%,0); }
     .na { color:var(--muted); font-weight:500; }
+    @container (max-width: 360px) {
+      .matrix th, .matrix td { padding:11px 0; }
+      .matrix td { font-size:13.5px; letter-spacing:-.02em; white-space:nowrap; }
+      .matrix td small { font-size:10.5px; margin-left:1px; }
+      .matrix tbody th { font-size:12px; line-height:1.35; padding-right:6px; }
+      .matrix thead th { font-size:11.5px; }
+    }
     @media (max-width: 950px) {
       .hero { grid-template-columns:1fr; gap:28px; padding-top:52px; }
       .hero-side { max-width:600px; }
@@ -360,9 +372,10 @@
       const own = f && f.lists && f.lists[b.source];
       const rows = own || (p.lists || {})[b.source] || [];
       if (!rows.length) return '';
+      const hasVal = rows.some(r => r.value != null);
       const note = own ? ((f.listNotes || {})[b.source] || '') : ((p.listNotes || {})[b.source] || b.note || '');
       return `<div class="bcaa-box blend-box"><div class="bcaa-head"><span>${esc(b.title)}</span><em>${rows.length}종${note ? ` · ${esc(note)}` : ''}</em></div>
-          <ul class="macro-subs">${rows.map(r => `<li><span><b class="bb-abbr">${esc(r.name)}</b>${r.desc ? `<i class="bb-name">${esc(r.desc)}</i>` : ''}</span><span>${r.value != null ? `${r.value}<small>${esc(r.unit)}</small>` : NA}</span></li>`).join('')}</ul></div>`;
+          <ul class="macro-subs">${rows.map(r => `<li${hasVal ? '' : ' class="no-val"'}><span><b class="bb-abbr">${esc(r.name)}</b>${r.desc ? `<i class="bb-name">${esc(r.desc)}</i>` : ''}</span>${hasVal ? `<span>${r.value != null ? `${r.value}<small>${esc(r.unit)}</small>` : NA}</span>` : ''}</li>`).join('')}</ul></div>`;
     }
     function panelHtml(f, i, first, p, cat) {
       const hidden = i === first ? '' : ' hidden';
@@ -421,6 +434,8 @@
                 ${anyData ? flavors.map((f, i) => panelHtml(f, i, first, p, cat)).join('') : '<p class="missing">영양 성분표를 아직 확인하지 못했습니다.</p>'}
               </div>
             </details>
+            ${/^https?:\/\//.test(p.source || '') ? `<a class="shop-link" href="${esc(p.source)}" target="_blank" rel="noopener noreferrer">공식 판매 페이지 바로가기<span aria-hidden="true">↗</span></a>` : ''}
+            ${p.checked ? `<p class="shop-note">가격·수치 확인일 ${esc(p.checked)}</p>` : ''}
           </div>
         </article>`;
     }
