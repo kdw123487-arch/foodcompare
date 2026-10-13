@@ -403,6 +403,7 @@
     // ---- 제품 사진: 한 장이면 그대로, 여러 장이면 넘겨 보는 슬라이드 ----
     function imageHtml(p) {
       const imgs = p.images || [];
+      if (!imgs.length) return '';
       if (imgs.length <= 1) return `<img src="${esc(imgs[0] || '')}" alt="${esc(p.name)} 제품 사진" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('[data-image-wrap]').classList.add('failed')" />`;
       return `<div class="slides" tabindex="0" role="group" aria-roledescription="carousel" aria-label="${esc(p.name)} 사진">${imgs.map((src, i) => `<div class="slide" role="group" aria-label="${i + 1} / ${imgs.length}"><img src="${esc(src)}" alt="${esc(p.name)} 제품 사진 ${i + 1}" loading="${i ? 'lazy' : 'eager'}" referrerpolicy="no-referrer" onerror="this.style.visibility='hidden'" /></div>`).join('')}</div>
             <button type="button" class="slide-btn prev" aria-label="이전 사진">‹</button><button type="button" class="slide-btn next" aria-label="다음 사진">›</button>
@@ -438,7 +439,7 @@
             </div>` : '';
       return `
         <article class="product-card" aria-labelledby="${titleId}">
-          <div class="product-image" data-image-wrap>
+          <div class="product-image${(p.images || []).length ? '' : ' failed'}" data-image-wrap>
             ${imageHtml(p)}
             <div class="image-fallback"><strong>NS</strong><span>PRODUCT IMAGE</span></div>
           </div>
