@@ -551,12 +551,32 @@
     {
      "id": "ns-mass-cookie",
      "name": "쿠키앤밀크",
-     "values": {}
+     "values": {
+      "protein": 40.5,
+      "carb": 93.3,
+      "sugar": 31.3,
+      "fat": 6.1,
+      "transFat": 0.1,
+      "satFat": 2.4,
+      "kcal": 591,
+      "cholesterol": 10.5,
+      "sodium": 518.4
+     }
     },
     {
      "id": "ns-mass-strawberry",
      "name": "스트로베리크림",
-     "values": {}
+     "values": {
+      "protein": 38.7,
+      "carb": 99,
+      "sugar": 38.4,
+      "fat": 3.3,
+      "transFat": 0,
+      "satFat": 0.6,
+      "kcal": 581,
+      "cholesterol": 1.5,
+      "sodium": 465.9
+     }
     }
    ],
    "listNotes": {

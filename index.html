@@ -121,10 +121,11 @@
     .row-value { font-size:15px; font-weight:650; text-align:right; font-variant-numeric:tabular-nums; }
     .row-value small { font-size:12px; color:var(--muted); font-weight:500; margin-left:3px; }
     .row-value.text { font-size:13px; font-weight:500; color:#d0d5d1; line-height:1.55; }
-    .shop-link { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:16px; padding:13px 16px; border:1px solid var(--accent); border-radius:12px; background:var(--accent); color:#15190d; font-size:14px; font-weight:800; text-decoration:none; transition:filter .16s ease, transform .16s ease; }
-    .shop-link:hover { filter:brightness(1.08); transform:translateY(-1px); }
-    .shop-link:focus-visible { outline:2px solid #fff; outline-offset:2px; }
-    .shop-note { margin:9px 0 0; text-align:center; font-size:12px; color:var(--muted); }
+    .card-foot { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:14px; }
+    .shop-link { display:inline-flex; align-items:center; gap:6px; padding:8px 12px; border:1px solid rgba(198,243,107,.4); border-radius:9px; background:rgba(198,243,107,.07); color:var(--accent); font-size:13px; font-weight:700; text-decoration:none; white-space:nowrap; transition:background .16s ease, border-color .16s ease; }
+    .shop-link:hover { background:rgba(198,243,107,.14); border-color:rgba(198,243,107,.7); }
+    .shop-link:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+    .shop-note { margin:0 0 0 auto; font-size:11.5px; color:var(--muted); text-align:right; line-height:1.4; }
     .blend-box .macro-subs li.no-val > span { white-space:normal; }
     .nutri { margin-top:20px; border:1px solid var(--line); border-radius:12px; background:#0d0f10; overflow:hidden; }
     .nutri[open] { border-color:#3b4633; background:#101310; }
@@ -434,8 +435,7 @@
                 ${anyData ? flavors.map((f, i) => panelHtml(f, i, first, p, cat)).join('') : '<p class="missing">영양 성분표를 아직 확인하지 못했습니다.</p>'}
               </div>
             </details>
-            ${/^https?:\/\//.test(p.source || '') ? `<a class="shop-link" href="${esc(p.source)}" target="_blank" rel="noopener noreferrer">공식 판매 페이지 바로가기<span aria-hidden="true">↗</span></a>` : ''}
-            ${p.checked ? `<p class="shop-note">가격·수치 확인일 ${esc(p.checked)}</p>` : ''}
+            ${(/^https?:\/\//.test(p.source || '') || p.checked) ? `<div class="card-foot">${/^https?:\/\//.test(p.source || '') ? `<a class="shop-link" href="${esc(p.source)}" target="_blank" rel="noopener noreferrer">공식 페이지 바로가기<span aria-hidden="true">↗</span></a>` : ''}${p.checked ? `<span class="shop-note">확인일 ${esc(p.checked)}</span>` : ''}</div>` : ''}
           </div>
         </article>`;
     }
