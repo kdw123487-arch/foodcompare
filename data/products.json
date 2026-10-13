@@ -362,7 +362,7 @@
       ]
      },
      "listNotes": {
-      "blend": "복합단백질 82% · 함량 많은 순"
+      "blend": "함량 많은 순"
      }
     },
     {
@@ -427,7 +427,7 @@
       ]
      },
      "listNotes": {
-      "blend": "복합단백질 82%"
+      "blend": "표기 순서"
      }
     },
     {
@@ -462,7 +462,7 @@
       ]
      },
      "listNotes": {
-      "blend": "복합단백질 82% · 함량 많은 순"
+      "blend": "함량 많은 순"
      }
     },
     {
@@ -489,44 +489,44 @@
    "lists": {
     "blend": [
      {
-      "name": "분리대두단백",
-      "desc": "",
+      "name": "ISP",
+      "desc": "분리대두단백",
       "value": null,
       "unit": "%"
      },
      {
-      "name": "농축유청단백",
-      "desc": "",
+      "name": "WPC",
+      "desc": "농축유청단백",
       "value": null,
       "unit": "%"
      },
      {
-      "name": "분리유청단백",
-      "desc": "",
+      "name": "WPI",
+      "desc": "분리유청단백",
       "value": null,
       "unit": "%"
      },
      {
-      "name": "가수분해유청단백",
-      "desc": "",
+      "name": "WPH",
+      "desc": "가수분해유청단백",
       "value": null,
       "unit": "%"
      },
      {
-      "name": "농축우유단백",
-      "desc": "",
+      "name": "MPC",
+      "desc": "농축우유단백",
       "value": null,
       "unit": "%"
      },
      {
-      "name": "분리유단백",
-      "desc": "",
+      "name": "MPI",
+      "desc": "분리유단백",
       "value": null,
       "unit": "%"
      },
      {
-      "name": "미셀라카제인",
-      "desc": "",
+      "name": "MC",
+      "desc": "미셀라카제인",
       "value": null,
       "unit": "%"
      }
@@ -560,7 +560,7 @@
     }
    ],
    "listNotes": {
-    "blend": "올인원 프로틴 블렌드 7 · 원재료명 표기 순서"
+    "blend": "표기 순서"
    }
   }
  ]
