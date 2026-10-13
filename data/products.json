@@ -262,7 +262,10 @@
    "serving": 30,
    "price": 41800,
    "images": [
-    "images/ns-deep.png"
+    "images/ns-deep.png",
+    "images/ns-grain.png",
+    "images/ns-cookie.png",
+    "images/ns-strawberry.png"
    ],
    "source": "https://nsprotein.com/product/detail.html?product_no=197&cate_no=140&display_group=1",
    "checked": "2026.10.12",
@@ -465,13 +468,6 @@
      },
      "listNotes": {
       "blend": "함량 많은 순"
-     }
-    },
-    {
-     "id": "ns-matcha",
-     "name": "말차라떼",
-     "values": {
-      "protein": 19.7
      }
     }
    ]
