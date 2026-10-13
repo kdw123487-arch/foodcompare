@@ -261,7 +261,9 @@
    "weight": 1000,
    "serving": 30,
    "price": 41800,
-   "image": "images/ns-deep.png",
+   "images": [
+    "images/ns-deep.png"
+   ],
    "source": "https://nsprotein.com/product/detail.html?product_no=197&cate_no=140&display_group=1",
    "checked": "2026.10.12",
    "baseFlavor": "ns-deep",
@@ -482,7 +484,11 @@
    "weight": 4000,
    "serving": 150,
    "price": 59800,
-   "image": "images/ns-massbuildup-4kg.png",
+   "images": [
+    "images/ns-massbuildup-4kg.png",
+    "images/ns-massbuildup-cookie.png",
+    "images/ns-massbuildup-strawberry.png"
+   ],
    "source": "https://nsprotein.com/product/detail.html?product_no=342&cate_no=186&display_group=1",
    "checked": "2026.10.12",
    "baseFlavor": "ns-mass-rich",
@@ -591,7 +597,9 @@
    "weight": 2000,
    "serving": 55,
    "price": 59800,
-   "image": "images/ns-masswhey-2kg.png",
+   "images": [
+    "images/ns-masswhey-2kg.png"
+   ],
    "source": "https://nsprotein.com/product/detail.html?product_no=215&cate_no=218&display_group=1",
    "checked": "2026.10.13",
    "baseFlavor": "ns-masswhey-grain",
@@ -640,7 +648,9 @@
    "weight": 2000,
    "serving": 50,
    "price": 39800,
-   "image": "images/ns-standard-2kg.png",
+   "images": [
+    "images/ns-standard-2kg.png"
+   ],
    "source": "https://nsprotein.com/product/detail.html?product_no=355&cate_no=215&display_group=1",
    "checked": "2026.10.13",
    "baseFlavor": "ns-standard-mousse",

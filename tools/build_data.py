@@ -171,12 +171,17 @@ def main():
         checked = d.get("확인일")
         if hasattr(checked, "strftime"):
             checked = checked.strftime("%Y.%m.%d")
+        # 이미지 칸: 사진 경로 여러 장은 | 로 구분 (슬라이드로 넘겨 볼 수 있음)
+        images = [x.strip() for x in re.split(r"[|\n]", d.get("이미지") or "") if x.strip()]
+        for im in images:
+            if not (ROOT / im).exists():
+                err("제품", i, f"사진 파일을 찾을 수 없습니다: {im}")
         p = {
             "id": pid, "category": d.get("카테고리"), "brand": d.get("브랜드") or "", "name": d["제품명"],
             "weight": to_num(d.get("총중량(g)"), "제품", i, "총중량(g)"),
             "serving": to_num(d.get("1회섭취량(g)"), "제품", i, "1회섭취량(g)"),
             "price": to_num(d.get("가격(원)"), "제품", i, "가격(원)"),
-            "image": d.get("이미지") or "", "source": d.get("출처") or "", "checked": str(checked) if checked else "",
+            "images": images, "source": d.get("출처") or "", "checked": str(checked) if checked else "",
             "baseFlavor": d.get("기준맛"), "lists": {}, "flavors": [],
         }
         products.append(p)
