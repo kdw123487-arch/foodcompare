@@ -138,7 +138,9 @@
     .shop-link:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
     .shop-note { margin:0 0 0 auto; font-size:11.5px; color:var(--muted); text-align:right; line-height:1.4; }
     .blend-box .macro-subs li.no-val > span { white-space:normal; }
-    .nutri { margin-top:20px; border:1px solid var(--line); border-radius:12px; background:#0d0f10; overflow:hidden; }
+    .card-body > :has(+ .nutri) { margin-bottom:20px; }
+    .nutri + .card-foot { margin-top:0; }
+    .nutri { margin-top:auto; border:1px solid var(--line); border-radius:12px; background:#0d0f10; overflow:hidden; }
     .nutri[open] { border-color:#3b4633; background:#101310; }
     .nutri summary { display:flex; justify-content:space-between; align-items:center; gap:10px; padding:14px 16px; cursor:pointer; list-style:none; font-size:14px; font-weight:700; }
     .nutri summary::-webkit-details-marker { display:none; }
