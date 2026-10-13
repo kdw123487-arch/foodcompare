@@ -326,6 +326,9 @@
     const num = n => new Intl.NumberFormat('ko-KR', { maximumFractionDigits:0 }).format(n);
     const esc = t => String(t).replace(/[&<>"]/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c]));
     const weightText = w => (w >= 1000 ? `${w / 1000}kg` : `${w}g`);
+    // 총 제공 횟수: 데이터에 '회분'이 있으면 그대로, 없으면 (총 중량 ÷ 1회 섭취량)
+    const servingsOf = p => p.servings || (p.serving && p.weight ? p.weight / p.serving : null);
+    const sizeText = p => (p.weight ? weightText(p.weight) : p.servings ? `${p.servings}회분` : '');
     const catOf = id => DB.categories.find(c => c.id === id);
 
     // ---- 항목 사전: 이름·단위·소수 자릿수는 데이터의 fields에서 ----
@@ -343,13 +346,13 @@
       DB.products.forEach(p => {
         const cat = catOf(p.category);
         const per = cat && cat.metric ? cat.metric.per : null;
-        const usable = per && p.serving ? p.flavors.filter(f => f.values[per]) : [];
+        const usable = per && servingsOf(p) ? p.flavors.filter(f => f.values[per]) : [];
         p.base = usable.find(f => f.id === p.baseFlavor) || (usable.length ? usable.reduce((a, b) => (a.values[per] <= b.values[per] ? a : b)) : null);
       });
     }
     const metricCost = p => {
       const cat = catOf(p.category), per = cat && cat.metric ? cat.metric.per : null;
-      return per && p.base ? p.price / ((p.weight / p.serving) * p.base.values[per]) : null;
+      return per && p.base ? p.price / (servingsOf(p) * p.base.values[per]) : null;
     };
     // 상세 영양정보 박스에 쓰이는 항목(대표지표 기준 항목은 제외) 중 하나라도 값이 있으면 '데이터 있음'
     const boxFields = cat => {
@@ -414,7 +417,7 @@
     function cardTemplate(p) {
       const cat = catOf(p.category), flavors = p.flavors, base = p.base, metric = cat.metric, sum = cat.summary;
       const titleId = `title-${p.id.replace(/[^a-z0-9_-]/gi, '-')}`;
-      const servingCount = p.serving ? p.weight / p.serving : null;
+      const servingCount = servingsOf(p);
       const cost = metricCost(p);
       const anyData = flavors.some(f => hasData(f, cat));
       const first = Math.max(0, flavors.findIndex(f => hasData(f, cat)));
@@ -441,10 +444,10 @@
         <article class="product-card" aria-labelledby="${titleId}">
           <div class="product-image${(p.images || []).length ? '' : ' failed'}" data-image-wrap>
             ${imageHtml(p)}
-            <div class="image-fallback"><strong>NS</strong><span>PRODUCT IMAGE</span></div>
+            <div class="image-fallback"><strong>${esc((p.brand || '').split(' ')[0])}</strong><span>PRODUCT IMAGE</span></div>
           </div>
           <div class="card-body">
-            <div class="card-meta"><span class="brand-mini">${esc(p.brand)}</span><span class="card-size">${weightText(p.weight)} · ${flavors.length}가지 맛</span></div>
+            <div class="card-meta"><span class="brand-mini">${esc(p.brand)}</span><span class="card-size">${[sizeText(p), `${flavors.length}가지 맛`].filter(Boolean).join(' · ')}</span></div>
             <h3 id="${titleId}" class="product-name">${esc(p.name)}</h3>
             ${keyBlock}
             ${matrix}
