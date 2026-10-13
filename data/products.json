@@ -863,7 +863,10 @@
    "servings": null,
    "price": 49800,
    "images": [
-    "images/ns-podae-grain.png"
+    "images/ns-podae-grain.png",
+    "images/ns-podae-choco.png",
+    "images/ns-podae-cookie.png",
+    "images/ns-podae-strawberry.png"
    ],
    "source": "https://nsprotein.com/product/detail.html?product_no=200&cate_no=186&display_group=1",
    "checked": "2026.10.13",
@@ -910,17 +913,23 @@
     {
      "id": "ns-podae-choco",
      "name": "초코",
-     "values": {}
+     "values": {
+      "protein": 20.6
+     }
     },
     {
      "id": "ns-podae-cookie",
      "name": "쿠키앤크림",
-     "values": {}
+     "values": {
+      "protein": 20.1
+     }
     },
     {
      "id": "ns-podae-strawberry",
      "name": "딸기",
-     "values": {}
+     "values": {
+      "protein": 20.4
+     }
     }
    ]
   },
@@ -930,10 +939,12 @@
    "brand": "NS PROTEIN",
    "name": "NS 웨이 프로틴 1.25kg",
    "weight": 1250,
-   "serving": null,
+   "serving": 30,
    "servings": null,
    "price": 38500,
-   "images": [],
+   "images": [
+    "images/ns-whey125.png"
+   ],
    "source": "https://nsprotein.com/product/detail.html?product_no=260&cate_no=186&display_group=1",
    "checked": "2026.10.13",
    "baseFlavor": null,
@@ -947,12 +958,16 @@
     {
      "id": "ns-whey125-matcha",
      "name": "말차라떼",
-     "values": {}
+     "values": {
+      "protein": 19.7
+     }
     },
     {
      "id": "ns-whey125-choco",
      "name": "초코",
-     "values": {}
+     "values": {
+      "protein": 20.8
+     }
     }
    ]
   },
@@ -962,10 +977,12 @@
    "brand": "NS PROTEIN",
    "name": "NS 프로틴 블렌드 2kg",
    "weight": 2000,
-   "serving": null,
+   "serving": 55,
    "servings": null,
    "price": 39800,
-   "images": [],
+   "images": [
+    "images/ns-blend-deep.png"
+   ],
    "source": "https://nsprotein.com/product/detail.html?product_no=281&cate_no=186&display_group=1",
    "checked": "2026.10.13",
    "baseFlavor": null,
@@ -974,7 +991,9 @@
     {
      "id": "ns-blend-deep",
      "name": "크런치 딥초코",
-     "values": {}
+     "values": {
+      "protein": 28.4
+     }
     }
    ]
   },
