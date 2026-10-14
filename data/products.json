@@ -1143,7 +1143,37 @@
      "id": "ns-whey125-choco",
      "name": "초코",
      "values": {
-      "protein": 20.8
+      "protein": 20.8,
+      "carb": 4.56,
+      "sugar": 0.75,
+      "fat": 1.47,
+      "transFat": 0,
+      "satFat": 0.46,
+      "kcal": 115,
+      "leucine": 2055,
+      "isoleucine": 1089,
+      "valine": 1054,
+      "cholesterol": 20,
+      "sodium": 245.6
+     },
+     "lists": {
+      "blend": [
+       {
+        "name": "ISP",
+        "desc": "분리대두단백",
+        "value": 56.1,
+        "unit": "%"
+       },
+       {
+        "name": "WPC",
+        "desc": "농축유청단백",
+        "value": 43.9,
+        "unit": "%"
+       }
+      ]
+     },
+     "listNotes": {
+      "blend": "함량 많은 순"
      }
     }
    ]

@@ -361,6 +361,7 @@
         const per = cat && cat.metric ? cat.metric.per : null;
         const usable = per ? p.flavors.filter(f => f.values[per] && servingsOf(p, f)) : [];
         p.base = usable.find(f => f.id === p.baseFlavor) || (usable.length ? usable.reduce((a, b) => (a.values[per] <= b.values[per] ? a : b)) : null);
+        if (p.base) p.flavors = [p.base, ...p.flavors.filter(f => f !== p.base)];   // 기준맛을 맨 위(목록·칩 맨 앞)로
       });
     }
     const metricCost = p => {
