@@ -1615,6 +1615,7 @@
    "servings": 48,
    "price": 111050,
    "images": [
+    "images/bsn-s6-48-choc.png",
     "images/bsn-s6-48-cake.png",
     "images/bsn-s6-48-straw.png",
     "images/bsn-s6-48-vanilla.png"
@@ -1680,7 +1681,59 @@
     {
      "id": "bsn-s6-48-cake",
      "name": "초콜릿 케이크",
-     "values": {}
+     "values": {
+      "protein": 22,
+      "carb": 15,
+      "sugar": 3,
+      "fat": 5,
+      "satFat": 2,
+      "kcal": 190,
+      "cholesterol": 80,
+      "sodium": 270
+     },
+     "lists": {
+      "blend": [
+       {
+        "name": "WPC",
+        "desc": "농축유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "CC",
+        "desc": "칼슘카제인",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MPI",
+        "desc": "분리우유단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "WPH",
+        "desc": "가수분해유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "WPI",
+        "desc": "분리유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MC",
+        "desc": "미셀라카제인",
+        "value": null,
+        "unit": "%"
+       }
+      ]
+     },
+     "listNotes": {
+      "blend": "표기 순서"
+     }
     },
     {
      "id": "bsn-s6-48-straw",
@@ -1724,7 +1777,10 @@
    "serving": 47,
    "servings": 97,
    "price": 189080,
-   "images": [],
+   "images": [
+    "images/bsn-s6-97-choc.png",
+    "images/bsn-s6-97-vanilla.png"
+   ],
    "source": "https://www.bsn.co.kr/products/syntha-6-protein",
    "checked": "2026.10.14",
    "baseFlavor": "bsn-s6-97-choc",
