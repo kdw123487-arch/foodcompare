@@ -830,7 +830,7 @@
     "images/ns-balance-rich.png",
     "images/ns-balance-cookie.png"
    ],
-   "source": "https://nsprotein.com/product/detail.html?product_no=396&cate_no=186&display_group=1",
+   "source": "https://nsprotein.com/product/detail.html?product_no=397&cate_no=197&display_group=1",
    "checked": "2026.10.13",
    "baseFlavor": "ns-balance-rich",
    "lists": {},
@@ -841,7 +841,8 @@
      "values": {
       "protein": 35.8
      },
-     "serving": 50
+     "serving": 50,
+     "link": "https://nsprotein.com/product/detail.html?product_no=397&cate_no=197&display_group=1"
     },
     {
      "id": "ns-balance-cookie",
@@ -849,7 +850,8 @@
      "values": {
       "protein": 24
      },
-     "serving": 35
+     "serving": 35,
+     "link": "https://nsprotein.com/product/detail.html?product_no=396&cate_no=197&display_group=1"
     }
    ]
   },
