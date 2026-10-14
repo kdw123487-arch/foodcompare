@@ -1857,6 +1857,50 @@
    "listNotes": {
     "blend": "표기 순서"
    }
+  },
+  {
+   "id": "bsn-syntha6-isolate-48",
+   "category": "protein",
+   "brand": "BSN",
+   "name": "신타6 아이솔레이트 48회분",
+   "weight": 1820,
+   "serving": null,
+   "servings": 48,
+   "price": 135360,
+   "images": [],
+   "source": "https://www.bsn.co.kr/products/syntha-6-r-isolate",
+   "checked": "2026.10.14",
+   "baseFlavor": "bsn-iso48-choc",
+   "lists": {},
+   "flavors": [
+    {
+     "id": "bsn-iso48-choc",
+     "name": "초콜릿 밀크쉐이크",
+     "values": {
+      "protein": 25
+     }
+    },
+    {
+     "id": "bsn-iso48-pbchoc",
+     "name": "초콜릿 피넛버터",
+     "values": {}
+    },
+    {
+     "id": "bsn-iso48-pbcookie",
+     "name": "피넛 버터 쿠키",
+     "values": {}
+    },
+    {
+     "id": "bsn-iso48-straw",
+     "name": "딸기 밀크쉐이크",
+     "values": {}
+    },
+    {
+     "id": "bsn-iso48-vanilla",
+     "name": "바닐라 아이스크림",
+     "values": {}
+    }
+   ]
   }
  ]
 }
