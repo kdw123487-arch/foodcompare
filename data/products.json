@@ -833,13 +833,72 @@
    "source": "https://nsprotein.com/product/detail.html?product_no=397&cate_no=197&display_group=1",
    "checked": "2026.10.13",
    "baseFlavor": "ns-balance-rich",
-   "lists": {},
+   "lists": {
+    "blend": [
+     {
+      "name": "ISP",
+      "desc": "분리대두단백 · 중국산",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPC",
+      "desc": "농축유청단백 · 미국산",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPI",
+      "desc": "분리유청단백 · 미국산",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPC",
+      "desc": "농축우유단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPI",
+      "desc": "분리우유단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MC",
+      "desc": "미셀라카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "난백",
+      "desc": "난백분말",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
    "flavors": [
     {
      "id": "ns-balance-rich",
      "name": "리치초콜릿",
      "values": {
-      "protein": 35.8
+      "protein": 35.8,
+      "carb": 8.8,
+      "sugar": 0.9,
+      "fat": 1.7,
+      "transFat": 0,
+      "satFat": 0.6,
+      "kcal": 194,
+      "cholesterol": 0.1,
+      "sodium": 321.4
      },
      "serving": 50,
      "link": "https://nsprotein.com/product/detail.html?product_no=397&cate_no=197&display_group=1"
@@ -848,12 +907,22 @@
      "id": "ns-balance-cookie",
      "name": "쿠키앤밀크",
      "values": {
-      "protein": 24
+      "protein": 34.5,
+      "carb": 10.4,
+      "sugar": 0.7,
+      "fat": 1.4,
+      "transFat": 0,
+      "satFat": 0.5,
+      "cholesterol": 0.5,
+      "sodium": 389.4
      },
-     "serving": 35,
+     "serving": 50,
      "link": "https://nsprotein.com/product/detail.html?product_no=396&cate_no=197&display_group=1"
     }
-   ]
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
   },
   {
    "id": "ns-podae-whey-2kg",
