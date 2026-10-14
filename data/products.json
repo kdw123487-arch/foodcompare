@@ -1569,39 +1569,124 @@
    "category": "protein",
    "brand": "BSN",
    "name": "신타6 엣지 28회분",
-   "weight": 1020,
-   "serving": null,
+   "weight": 1120,
+   "serving": 40,
    "servings": 28,
    "price": 60690,
-   "images": [],
+   "images": [
+    "images/bsn-edge28-choc.png",
+    "images/bsn-edge28-cookie.png",
+    "images/bsn-edge28-straw.png",
+    "images/bsn-edge28-vanilla.png"
+   ],
    "source": "https://www.bsn.co.kr/products/syntha-6-r-edge",
-   "checked": "2026.10.13",
+   "checked": "2026.10.14",
    "baseFlavor": "bsn-edge-choc",
-   "lists": {},
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "CC",
+      "desc": "칼슘카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MC",
+      "desc": "미셀라카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPC",
+      "desc": "농축우유단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
    "flavors": [
     {
      "id": "bsn-edge-choc",
      "name": "초콜릿 밀크쉐이크",
      "values": {
-      "protein": 24
-     }
+      "protein": 24,
+      "carb": 6,
+      "sugar": 2,
+      "fat": 4,
+      "satFat": 1.5,
+      "kcal": 160,
+      "cholesterol": 60,
+      "sodium": 190
+     },
+     "serving": 40
     },
     {
      "id": "bsn-edge-cookie",
      "name": "쿠키앤크림",
-     "values": {}
+     "values": {
+      "protein": 24,
+      "carb": 7,
+      "sugar": 2,
+      "fat": 4.5,
+      "satFat": 1.5,
+      "kcal": 160,
+      "cholesterol": 60,
+      "sodium": 190
+     },
+     "serving": 40
     },
     {
      "id": "bsn-edge-straw",
      "name": "딸기 밀크쉐이크",
-     "values": {}
+     "values": {
+      "protein": 24,
+      "carb": 6,
+      "sugar": 2,
+      "fat": 4,
+      "satFat": 1.5,
+      "kcal": 160,
+      "cholesterol": 60,
+      "sodium": 160
+     },
+     "serving": 38
     },
     {
      "id": "bsn-edge-vanilla",
      "name": "바닐라 밀크쉐이크",
-     "values": {}
+     "values": {
+      "protein": 24,
+      "carb": 6,
+      "sugar": 3,
+      "fat": 4,
+      "satFat": 1.5,
+      "kcal": 160,
+      "cholesterol": 60,
+      "sodium": 170
+     },
+     "serving": 38
     }
-   ]
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
   },
   {
    "id": "bsn-syntha6-coldstone-25",
@@ -2000,6 +2085,130 @@
       "cholesterol": 15,
       "sodium": 150
      }
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "bsn-syntha6-edge-48",
+   "category": "protein",
+   "brand": "BSN",
+   "name": "신타6 엣지 48회분",
+   "weight": 1920,
+   "serving": 40,
+   "servings": 48,
+   "price": 114750,
+   "images": [
+    "images/bsn-edge48-choc.png",
+    "images/bsn-edge48-cookie.png",
+    "images/bsn-edge48-straw.png",
+    "images/bsn-edge48-vanilla.png"
+   ],
+   "source": "https://www.bsn.co.kr/products/syntha-6-r-edge",
+   "checked": "2026.10.14",
+   "baseFlavor": "bsn-edge48-choc",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "CC",
+      "desc": "칼슘카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MC",
+      "desc": "미셀라카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPC",
+      "desc": "농축우유단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "bsn-edge48-choc",
+     "name": "초콜릿 밀크쉐이크",
+     "values": {
+      "protein": 24,
+      "carb": 6,
+      "sugar": 2,
+      "fat": 4,
+      "satFat": 1.5,
+      "kcal": 160,
+      "cholesterol": 60,
+      "sodium": 190
+     },
+     "serving": 40
+    },
+    {
+     "id": "bsn-edge48-cookie",
+     "name": "쿠키앤크림",
+     "values": {
+      "protein": 24,
+      "carb": 7,
+      "sugar": 2,
+      "fat": 4.5,
+      "satFat": 1.5,
+      "kcal": 160,
+      "cholesterol": 60,
+      "sodium": 190
+     },
+     "serving": 40
+    },
+    {
+     "id": "bsn-edge48-straw",
+     "name": "딸기 밀크쉐이크",
+     "values": {
+      "protein": 24,
+      "carb": 6,
+      "sugar": 2,
+      "fat": 4,
+      "satFat": 1.5,
+      "kcal": 160,
+      "cholesterol": 60,
+      "sodium": 160
+     },
+     "serving": 38
+    },
+    {
+     "id": "bsn-edge48-vanilla",
+     "name": "바닐라 밀크쉐이크",
+     "values": {
+      "protein": 24,
+      "carb": 6,
+      "sugar": 3,
+      "fat": 4,
+      "satFat": 1.5,
+      "kcal": 160,
+      "cholesterol": 60,
+      "sodium": 170
+     },
+     "serving": 38
     }
    ],
    "listNotes": {
