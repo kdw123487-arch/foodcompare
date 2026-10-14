@@ -523,9 +523,9 @@
     // ---- 정렬: 기준(종류) + 방향(오름차순/내림차순) ----
     let sortDir = 'asc';
     const sortOptions = cat => {
-      const o = [{ v:'default', t:'기본 순서', dir:null }];
+      const o = [{ v:'default', t:'기본 (제목순)', dir:null }];
       if (cat.metric) o.push({ v:'cost', t:cat.metric.label, dir:'asc' }, { v:'per', t:`${field(cat.metric.per).label} 함량 (1회)`, dir:'desc' });
-      o.push({ v:'price', t:'제품 가격', dir:'asc' }, { v:'weight', t:'총 중량', dir:'desc' }, { v:'name', t:'이름', dir:'asc' });
+      o.push({ v:'price', t:'제품 가격', dir:'asc' }, { v:'weight', t:'총 중량', dir:'desc' });
       return o;
     };
     function syncDir() {
@@ -576,16 +576,16 @@
         cost: p => metricCost(p),
         price: p => p.price,
         weight: p => p.weight,
-        name: p => p.name
+        default: p => p.name   // 기본 순서 = 제품 제목 글자순(가나다·ABC)
       }[sort];
       if (sortVal) {
-        const sign = sortDir === 'asc' ? 1 : -1;
+        const sign = sort === 'default' || sortDir === 'asc' ? 1 : -1;
         list.sort((a, b) => {
           const x = sortVal(a), y = sortVal(b);
           if (x == null && y == null) return 0;
           if (x == null) return 1;            // 값이 없는 제품은 방향과 상관없이 맨 뒤
           if (y == null) return -1;
-          return sign * (typeof x === 'string' ? x.localeCompare(y, 'ko') : x - y);
+          return sign * (typeof x === 'string' ? x.localeCompare(y, 'ko', { numeric:true }) : x - y);
         });
       }
       const grid = document.getElementById('product-grid');
