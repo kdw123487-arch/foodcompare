@@ -1262,16 +1262,78 @@
    "source": "https://nsprotein.com/product/detail.html?product_no=281&cate_no=186&display_group=1",
    "checked": "2026.10.13",
    "baseFlavor": "ns-blend-deep",
-   "lists": {},
+   "lists": {
+    "blend": [
+     {
+      "name": "ISP",
+      "desc": "분리대두단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPI",
+      "desc": "분리우유단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MC",
+      "desc": "미셀라카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPC",
+      "desc": "농축우유단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "난백",
+      "desc": "난백분말",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
    "flavors": [
     {
      "id": "ns-blend-deep",
      "name": "크런치 딥초코",
      "values": {
-      "protein": 28.4
+      "protein": 28.4,
+      "carb": 19.8,
+      "sugar": 0.8,
+      "fat": 2.1,
+      "transFat": 0,
+      "satFat": 1.1,
+      "kcal": 213,
+      "cholesterol": 0.4,
+      "sodium": 229.2
      }
     }
-   ]
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
   },
   {
    "id": "bsn-syntha6-28",
