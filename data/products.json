@@ -870,7 +870,7 @@
    ],
    "source": "https://nsprotein.com/product/detail.html?product_no=200&cate_no=186&display_group=1",
    "checked": "2026.10.13",
-   "baseFlavor": "ns-podae-grain",
+   "baseFlavor": "ns-podae-choco",
    "lists": {},
    "flavors": [
     {
@@ -947,7 +947,7 @@
    ],
    "source": "https://nsprotein.com/product/detail.html?product_no=260&cate_no=186&display_group=1",
    "checked": "2026.10.13",
-   "baseFlavor": null,
+   "baseFlavor": "ns-whey125-choco",
    "lists": {},
    "flavors": [
     {
@@ -985,7 +985,7 @@
    ],
    "source": "https://nsprotein.com/product/detail.html?product_no=281&cate_no=186&display_group=1",
    "checked": "2026.10.13",
-   "baseFlavor": null,
+   "baseFlavor": "ns-blend-deep",
    "lists": {},
    "flavors": [
     {
