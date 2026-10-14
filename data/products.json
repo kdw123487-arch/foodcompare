@@ -1693,39 +1693,129 @@
    "category": "protein",
    "brand": "BSN",
    "name": "신타6 콜드스톤 25회분",
-   "weight": 1320,
-   "serving": null,
+   "weight": 1170,
+   "serving": 47,
    "servings": 25,
    "price": 71580,
-   "images": [],
+   "images": [
+    "images/bsn-cs-german.png",
+    "images/bsn-cs-donut.png",
+    "images/bsn-cs-mint.png"
+   ],
    "source": "https://www.bsn.co.kr/products/syntha-6-coldstone-protein",
-   "checked": "2026.10.13",
-   "baseFlavor": "bsn-cs-bday",
-   "lists": {},
+   "checked": "2026.10.14",
+   "baseFlavor": "bsn-cs-choc",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "CC",
+      "desc": "칼슘카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MC",
+      "desc": "미셀라카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPI",
+      "desc": "분리우유단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "EA",
+      "desc": "난백(계란흰자)",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "GP",
+      "desc": "글루타민 펩타이드",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
    "flavors": [
     {
      "id": "bsn-cs-bday",
      "name": "생일 케이크",
      "values": {
-      "protein": 22
-     }
+      "protein": 22,
+      "carb": 15,
+      "sugar": 4,
+      "fat": 6,
+      "satFat": 2,
+      "kcal": 200,
+      "cholesterol": 65,
+      "sodium": 170
+     },
+     "serving": 47
     },
     {
      "id": "bsn-cs-donut",
      "name": "쿠키 도넛",
-     "values": {}
+     "values": {
+      "protein": 22,
+      "carb": 15,
+      "sugar": 3,
+      "fat": 6,
+      "satFat": 2,
+      "kcal": 200,
+      "cholesterol": 60,
+      "sodium": 200
+     },
+     "serving": 47
     },
     {
      "id": "bsn-cs-choc",
-     "name": "초콜릿 케이크",
-     "values": {}
+     "name": "저먼 초콜릿 케이크",
+     "values": {
+      "protein": 22,
+      "carb": 14,
+      "sugar": 3,
+      "fat": 6,
+      "satFat": 2,
+      "kcal": 200,
+      "cholesterol": 65,
+      "sodium": 240
+     },
+     "serving": 47
     },
     {
      "id": "bsn-cs-mint",
      "name": "민트 초코칩",
-     "values": {}
+     "values": {
+      "protein": 22,
+      "carb": 15,
+      "sugar": 3,
+      "fat": 6,
+      "satFat": 2,
+      "kcal": 200,
+      "cholesterol": 65,
+      "sodium": 140
+     },
+     "serving": 47
     }
-   ]
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
   },
   {
    "id": "bsn-syntha6-48",
