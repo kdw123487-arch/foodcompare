@@ -330,8 +330,8 @@
       "satFat": 0.3,
       "kcal": 111,
       "leucine": 1668,
-      "isoleucine": 1019,
-      "valine": 918,
+      "isoleucine": 918,
+      "valine": 969,
       "cholesterol": 7.8,
       "sodium": 217.9
      }
@@ -916,21 +916,171 @@
      "id": "ns-podae-choco",
      "name": "초코",
      "values": {
-      "protein": 20.6
+      "protein": 20.6,
+      "carb": 5.1,
+      "sugar": 0.2,
+      "fat": 0.9,
+      "transFat": 0,
+      "satFat": 0.3,
+      "kcal": 111,
+      "leucine": 1668,
+      "isoleucine": 918,
+      "valine": 969,
+      "cholesterol": 7.8,
+      "sodium": 217.9
+     },
+     "lists": {
+      "blend": [
+       {
+        "name": "ISP",
+        "desc": "분리대두단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "WPC",
+        "desc": "농축유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MPI",
+        "desc": "분리우유단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MPC",
+        "desc": "농축우유단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MC",
+        "desc": "미셀라카제인",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "WPI",
+        "desc": "분리유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "WPH",
+        "desc": "가수분해유청단백",
+        "value": null,
+        "unit": "%"
+       }
+      ]
+     },
+     "listNotes": {
+      "blend": "표기 순서"
      }
     },
     {
      "id": "ns-podae-cookie",
      "name": "쿠키앤크림",
      "values": {
-      "protein": 20.1
+      "protein": 20.1,
+      "carb": 6,
+      "sugar": 2.2,
+      "fat": 1.1,
+      "transFat": 0,
+      "satFat": 0.4,
+      "kcal": 114,
+      "leucine": 1772,
+      "isoleucine": 1064,
+      "valine": 1087,
+      "cholesterol": 14.7,
+      "sodium": 229.2
+     },
+     "lists": {
+      "blend": [
+       {
+        "name": "ISP",
+        "desc": "분리대두단백",
+        "value": 56.1,
+        "unit": "%"
+       },
+       {
+        "name": "WPC",
+        "desc": "농축유청단백",
+        "value": 43.9,
+        "unit": "%"
+       }
+      ]
+     },
+     "listNotes": {
+      "blend": "함량 많은 순"
      }
     },
     {
      "id": "ns-podae-strawberry",
      "name": "딸기",
      "values": {
-      "protein": 20.4
+      "protein": 20.4,
+      "carb": 6.5,
+      "sugar": 3.6,
+      "fat": 0.7,
+      "transFat": 0,
+      "satFat": 0.2,
+      "kcal": 115,
+      "leucine": 1616,
+      "isoleucine": 820,
+      "valine": 873,
+      "cholesterol": 2.4,
+      "sodium": 239.4
+     },
+     "lists": {
+      "blend": [
+       {
+        "name": "ISP",
+        "desc": "분리대두단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "WPC",
+        "desc": "농축유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MPI",
+        "desc": "분리우유단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MPC",
+        "desc": "농축우유단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MC",
+        "desc": "미셀라카제인",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "WPI",
+        "desc": "분리유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "WPH",
+        "desc": "가수분해유청단백",
+        "value": null,
+        "unit": "%"
+       }
+      ]
+     },
+     "listNotes": {
+      "blend": "표기 순서"
      }
     }
    ]
@@ -955,13 +1105,38 @@
     {
      "id": "ns-whey125-cookie",
      "name": "쿠키앤크림",
-     "values": {}
-    },
-    {
-     "id": "ns-whey125-matcha",
-     "name": "말차라떼",
      "values": {
-      "protein": 19.7
+      "protein": 20.1,
+      "carb": 6,
+      "sugar": 2.2,
+      "fat": 1.1,
+      "transFat": 0,
+      "satFat": 0.4,
+      "kcal": 114,
+      "leucine": 1772,
+      "isoleucine": 1064,
+      "valine": 1087,
+      "cholesterol": 14.7,
+      "sodium": 229.2
+     },
+     "lists": {
+      "blend": [
+       {
+        "name": "ISP",
+        "desc": "분리대두단백",
+        "value": 56.1,
+        "unit": "%"
+       },
+       {
+        "name": "WPC",
+        "desc": "농축유청단백",
+        "value": 43.9,
+        "unit": "%"
+       }
+      ]
+     },
+     "listNotes": {
+      "blend": "함량 많은 순"
      }
     },
     {
