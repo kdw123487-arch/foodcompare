@@ -66,10 +66,10 @@
     .section-help { color: var(--muted); font-size:14px; }
     .toolbar { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px; margin-bottom:19px; }
     .tabs { display:flex; flex-wrap:wrap; gap:7px; }
-    .tab { cursor:pointer; color:#b6bcba; background:#101214; border:1px solid var(--line); border-radius:999px; padding:10px 15px; font-size:14px; transition:all .16s ease; }
+    .tab { cursor:pointer; color:#b6bcba; background:#101214; border:1px solid var(--line); border-radius:999px; padding:10px 15px; font-size:14px; font-weight:700; user-select:none; -webkit-tap-highlight-color:transparent; transition:background-color .16s ease, border-color .16s ease, color .16s ease; }
     .tab .count { margin-left:8px; color:var(--subtle); font-variant-numeric:tabular-nums; }
     .tab:hover { border-color:#59605b; color:var(--text); }
-    .tab.active { background:var(--accent); border-color:var(--accent); color:#15190d; font-weight:800; }
+    .tab.active { background:var(--accent); border-color:var(--accent); color:#15190d; }
     .tab.active .count { color:#405223; }
     .tools { display:flex; gap:8px; align-items:center; }
     .search-wrap { display:flex; gap:8px; align-items:center; background:#101214; border:1px solid var(--line); border-radius:10px; padding:0 12px; min-width:220px; height:39px; }
@@ -90,12 +90,11 @@
     .banner-desc { color:var(--muted); font-size:14px; margin-top:4px; }
     .banner-right { display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
     .brand-filter { align-items:center; }
-    .brand-label { color:var(--subtle); font-size:12px; letter-spacing:.14em; text-transform:uppercase; margin-right:4px; }
-    .brand-chip { cursor:pointer; display:inline-flex; align-items:center; gap:8px; border:1px solid #343a35; background:#101214; color:#c3c8c5; border-radius:999px; padding:9px 14px; font-size:14px; transition:all .16s ease; }
+    .brand-chip { cursor:pointer; display:inline-flex; align-items:center; gap:8px; border:1px solid #343a35; background:#101214; color:#c3c8c5; border-radius:999px; padding:9px 14px; font-size:14px; font-weight:700; user-select:none; -webkit-tap-highlight-color:transparent; transition:background-color .16s ease, border-color .16s ease, color .16s ease; }
     .brand-chip .count { color:var(--subtle); font-variant-numeric:tabular-nums; font-size:13px; }
     .brand-chip:hover { border-color:#59605b; color:var(--text); }
     .brand-chip:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
-    .brand-chip[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:#15190d; font-weight:800; }
+    .brand-chip[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:#15190d; }
     .brand-chip[aria-pressed="true"] .count { color:#405223; }
     .pill { border:1px solid #343a35; background:#171c15; color:#c6d6ae; border-radius:999px; padding:7px 10px; font-size:12px; white-space:nowrap; }
     .pill.warn { background:var(--warning-bg); border-color:#564626; color:var(--warning); }
@@ -549,9 +548,15 @@
       const inCat = DB.products.filter(p => p.category === activeCategory);
       const brands = [...new Set(inCat.map(p => p.brand))];
       if (activeBrand !== 'all' && !brands.includes(activeBrand)) activeBrand = 'all';
-      if (brands.length < 2) { el.innerHTML = ''; return; }
+      if (brands.length < 2) { el.innerHTML = ''; el.dataset.sig = ''; return; }
+      const sig = [activeCategory, ...brands].join('|');
+      if (el.dataset.sig === sig) {   // 같은 목록이면 버튼을 다시 만들지 않고 선택 표시만 바꿔서 깜빡임을 없앤다
+        el.querySelectorAll('.brand-chip').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.brand === activeBrand)));
+        return;
+      }
+      el.dataset.sig = sig;
       const chip = (v, label, n) => `<button type="button" class="brand-chip" data-brand="${esc(v)}" aria-pressed="${activeBrand === v}">${esc(label)}<span class="count">${String(n).padStart(2, '0')}</span></button>`;
-      el.innerHTML = `<span class="brand-label">기업</span>${chip('all', '전체', inCat.length)}${brands.map(b => chip(b, b, inCat.filter(p => p.brand === b).length)).join('')}`;
+      el.innerHTML = `${chip('all', '전체', inCat.length)}${brands.map(b => chip(b, b, inCat.filter(p => p.brand === b).length)).join('')}`;
     }
     function render() {
       const meta = catOf(activeCategory);

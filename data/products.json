@@ -1344,7 +1344,12 @@
    "serving": 47,
    "servings": 28,
    "price": 72690,
-   "images": [],
+   "images": [
+    "images/bsn-s6-28-choc.png",
+    "images/bsn-s6-28-cookie.png",
+    "images/bsn-s6-28-straw.png",
+    "images/bsn-s6-28-vanilla.png"
+   ],
    "source": "https://www.bsn.co.kr/products/syntha-6-protein",
    "checked": "2026.10.13",
    "baseFlavor": "bsn-s6-choc",
