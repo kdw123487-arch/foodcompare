@@ -141,14 +141,14 @@
      "type": "trio",
      "columns": [
       {
+       "field": "protein",
+       "subs": []
+      },
+      {
        "field": "carb",
        "subs": [
         "sugar"
        ]
-      },
-      {
-       "field": "protein",
-       "subs": []
       },
       {
        "field": "fat",
