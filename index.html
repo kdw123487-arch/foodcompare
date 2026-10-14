@@ -89,6 +89,14 @@
     .banner-title { font-size:18px; font-weight:750; margin-top:6px; letter-spacing:-.035em; }
     .banner-desc { color:var(--muted); font-size:14px; margin-top:4px; }
     .banner-right { display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
+    .brand-filter { align-items:center; }
+    .brand-label { color:var(--subtle); font-size:12px; letter-spacing:.14em; text-transform:uppercase; margin-right:4px; }
+    .brand-chip { cursor:pointer; display:inline-flex; align-items:center; gap:8px; border:1px solid #343a35; background:#101214; color:#c3c8c5; border-radius:999px; padding:9px 14px; font-size:14px; transition:all .16s ease; }
+    .brand-chip .count { color:var(--subtle); font-variant-numeric:tabular-nums; font-size:13px; }
+    .brand-chip:hover { border-color:#59605b; color:var(--text); }
+    .brand-chip:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+    .brand-chip[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:#15190d; font-weight:800; }
+    .brand-chip[aria-pressed="true"] .count { color:#405223; }
     .pill { border:1px solid #343a35; background:#171c15; color:#c6d6ae; border-radius:999px; padding:7px 10px; font-size:12px; white-space:nowrap; }
     .pill.warn { background:var(--warning-bg); border-color:#564626; color:var(--warning); }
     .product-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
@@ -326,7 +334,7 @@
           <div class="banner-title" id="banner-title">프로틴 파우더</div>
           <div class="banner-desc" id="banner-desc">1회 단백질 함량과 단백질 1g당 비용을 기준으로 비교</div>
         </div>
-        <div class="banner-right" id="banner-pills"></div>
+        <div class="banner-right brand-filter" id="brand-filter" role="group" aria-label="기업별 보기"></div>
       </div>
 
       <div id="product-grid" class="product-grid" aria-live="polite"></div>
@@ -534,17 +542,28 @@
       el.value = opts.some(o => o.v === prev) ? prev : 'default';
       syncDir();
     }
+    // ---- 기업별 보기 ----
+    let activeBrand = 'all';
+    function renderBrands() {
+      const el = document.getElementById('brand-filter');
+      const inCat = DB.products.filter(p => p.category === activeCategory);
+      const brands = [...new Set(inCat.map(p => p.brand))];
+      if (activeBrand !== 'all' && !brands.includes(activeBrand)) activeBrand = 'all';
+      if (brands.length < 2) { el.innerHTML = ''; return; }
+      const chip = (v, label, n) => `<button type="button" class="brand-chip" data-brand="${esc(v)}" aria-pressed="${activeBrand === v}">${esc(label)}<span class="count">${String(n).padStart(2, '0')}</span></button>`;
+      el.innerHTML = `<span class="brand-label">기업</span>${chip('all', '전체', inCat.length)}${brands.map(b => chip(b, b, inCat.filter(p => p.brand === b).length)).join('')}`;
+    }
     function render() {
       const meta = catOf(activeCategory);
       document.getElementById('banner-label').textContent = meta.label;
       document.getElementById('banner-title').textContent = meta.name;
       document.getElementById('banner-desc').textContent = meta.desc;
-      document.getElementById('banner-pills').innerHTML = meta.pills.map(([label, tone]) => `<span class="pill ${tone}">${esc(label)}</span>`).join('');
+      renderBrands();
       const query = document.getElementById('search').value.trim().toLowerCase();
       const sort = document.getElementById('sort').value;
       const per = meta.metric ? meta.metric.per : null;
       let list = DB.products
-        .filter(p => p.category === activeCategory)
+        .filter(p => p.category === activeCategory && (activeBrand === 'all' || p.brand === activeBrand))
         .map(p => ({ ...p, flavors:p.flavors.filter(f => `${p.name} ${f.name} ${p.brand}`.toLowerCase().includes(query)) }))
         .filter(p => p.flavors.length > 0);
       const sortVal = {
@@ -627,6 +646,11 @@
       const opt = sortOptions(catOf(activeCategory)).find(o => o.v === document.getElementById('sort').value);
       if (opt && opt.dir) sortDir = opt.dir;   // 기준을 바꾸면 그 기준의 자연스러운 방향으로 시작
       syncDir(); render();
+    });
+    document.getElementById('brand-filter').addEventListener('click', e => {
+      const btn = e.target.closest('button[data-brand]');
+      if (!btn) return;
+      activeBrand = btn.dataset.brand; render();
     });
     document.getElementById('sort-dir').addEventListener('click', e => {
       const btn = e.target.closest('button[data-dir]');
