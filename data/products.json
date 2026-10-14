@@ -1504,28 +1504,65 @@
    "brand": "BSN",
    "name": "신타6 아이솔레이트 24회분",
    "weight": 912,
-   "serving": null,
+   "serving": 38,
    "servings": 24,
    "price": 74760,
-   "images": [],
+   "images": [
+    "images/bsn-iso-24-choc.png",
+    "images/bsn-iso-24-vanilla.png"
+   ],
    "source": "https://www.bsn.co.kr/products/syntha-6-r-isolate",
    "checked": "2026.10.13",
    "baseFlavor": "bsn-iso-choc",
-   "lists": {},
+   "lists": {
+    "blend": [
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPI",
+      "desc": "분리우유단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
    "flavors": [
     {
      "id": "bsn-iso-choc",
      "name": "초콜릿 밀크쉐이크",
      "values": {
-      "protein": 25
+      "protein": 25,
+      "carb": 7,
+      "sugar": 2,
+      "fat": 1.5,
+      "satFat": 0.5,
+      "kcal": 140,
+      "cholesterol": 15,
+      "sodium": 160
      }
     },
     {
      "id": "bsn-iso-vanilla",
      "name": "바닐라 아이스크림",
-     "values": {}
+     "values": {
+      "protein": 25,
+      "carb": 7,
+      "sugar": 1,
+      "fat": 2,
+      "satFat": 0.5,
+      "kcal": 150,
+      "cholesterol": 15,
+      "sodium": 150
+     }
     }
-   ]
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
   },
   {
    "id": "bsn-syntha6-edge-28",
@@ -1864,43 +1901,110 @@
    "brand": "BSN",
    "name": "신타6 아이솔레이트 48회분",
    "weight": 1820,
-   "serving": null,
+   "serving": 38,
    "servings": 48,
    "price": 135360,
-   "images": [],
+   "images": [
+    "images/bsn-iso-48-choc.png",
+    "images/bsn-iso-48-pbchoc.png",
+    "images/bsn-iso-48-pbcookie.png",
+    "images/bsn-iso-48-straw.png",
+    "images/bsn-iso-48-vanilla.png"
+   ],
    "source": "https://www.bsn.co.kr/products/syntha-6-r-isolate",
    "checked": "2026.10.14",
    "baseFlavor": "bsn-iso48-choc",
-   "lists": {},
+   "lists": {
+    "blend": [
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPI",
+      "desc": "분리우유단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
    "flavors": [
     {
      "id": "bsn-iso48-choc",
      "name": "초콜릿 밀크쉐이크",
      "values": {
-      "protein": 25
+      "protein": 25,
+      "carb": 7,
+      "sugar": 2,
+      "fat": 1.5,
+      "satFat": 0.5,
+      "kcal": 140,
+      "cholesterol": 15,
+      "sodium": 160
      }
     },
     {
      "id": "bsn-iso48-pbchoc",
      "name": "초콜릿 피넛버터",
-     "values": {}
+     "values": {
+      "protein": 25,
+      "carb": 6,
+      "sugar": 1,
+      "fat": 2,
+      "satFat": 0.5,
+      "kcal": 140,
+      "cholesterol": 10,
+      "sodium": 140
+     }
     },
     {
      "id": "bsn-iso48-pbcookie",
      "name": "피넛 버터 쿠키",
-     "values": {}
+     "values": {
+      "protein": 25,
+      "carb": 6,
+      "sugar": 2,
+      "fat": 2,
+      "satFat": 0.5,
+      "kcal": 140,
+      "cholesterol": 10,
+      "sodium": 135
+     }
     },
     {
      "id": "bsn-iso48-straw",
      "name": "딸기 밀크쉐이크",
-     "values": {}
+     "values": {
+      "protein": 25,
+      "carb": 6,
+      "sugar": 1,
+      "fat": 2,
+      "satFat": 0.5,
+      "kcal": 140,
+      "cholesterol": 10,
+      "sodium": 150
+     }
     },
     {
      "id": "bsn-iso48-vanilla",
      "name": "바닐라 아이스크림",
-     "values": {}
+     "values": {
+      "protein": 25,
+      "carb": 7,
+      "sugar": 1,
+      "fat": 2,
+      "satFat": 0.5,
+      "kcal": 150,
+      "cholesterol": 15,
+      "sodium": 150
+     }
     }
-   ]
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
   }
  ]
 }
