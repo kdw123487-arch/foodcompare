@@ -76,6 +76,13 @@
     .search-wrap svg { color:var(--subtle); flex:none; }
     .search-wrap input { width:100%; border:0; outline:0; color:var(--text); background:transparent; font-size:14px; min-width:0; }
     .search-wrap input::placeholder { color:#717875; }
+    .dir { display:inline-flex; height:39px; border:1px solid var(--line); border-radius:10px; overflow:hidden; background:#101214; flex:none; }
+    .dir button { border:0; background:transparent; color:#9aa19e; padding:0 12px; font-size:13px; cursor:pointer; white-space:nowrap; transition:background .16s ease, color .16s ease; }
+    .dir button + button { border-left:1px solid var(--line); }
+    .dir button:hover:not(:disabled) { color:var(--text); }
+    .dir button[aria-pressed="true"] { background:rgba(198,243,107,.14); color:var(--accent); font-weight:700; }
+    .dir button:disabled { opacity:.4; cursor:default; }
+    .dir button:focus-visible { outline:2px solid var(--accent); outline-offset:-2px; }
     select { height:39px; border:1px solid var(--line); border-radius:10px; color:#c3c8c5; background:#101214; padding:0 12px; font-size:14px; outline:0; }
     .category-banner { padding:20px 22px; border:1px solid var(--line); border-radius:var(--radius); background:linear-gradient(110deg,#151918,#0f1112 70%); display:flex; justify-content:space-between; align-items:center; gap:25px; margin-bottom:14px; }
     .banner-label { color:var(--accent); font-size:12px; letter-spacing:.16em; text-transform:uppercase; font-weight:800; }
@@ -245,9 +252,11 @@
       .toolbar { align-items:stretch; }
       .tabs { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); width:100%; }
       .tab { text-align:left; }
-      .tools { width:100%; }
-      .search-wrap { flex:1; min-width:0; }
-      select { max-width:125px; }
+      .tools { width:100%; flex-wrap:wrap; }
+      .search-wrap { flex:1 1 100%; min-width:0; }
+      select { max-width:none; flex:1 1 140px; min-width:0; }
+      .dir { flex:1 1 140px; }
+      .dir button { flex:1; padding:0 8px; }
       .category-banner { align-items:flex-start; flex-direction:column; gap:14px; padding:17px; }
       .banner-right { justify-content:flex-start; }
       .product-grid { grid-template-columns:1fr; }
@@ -303,7 +312,11 @@
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>
             <input id="search" type="search" placeholder="제품·맛 검색" autocomplete="off" />
           </label>
-          <select id="sort" aria-label="제품 정렬"></select>
+          <select id="sort" aria-label="정렬 기준"></select>
+          <div class="dir" id="sort-dir" role="group" aria-label="정렬 방향">
+            <button type="button" data-dir="asc" aria-pressed="false">오름차순</button>
+            <button type="button" data-dir="desc" aria-pressed="false">내림차순</button>
+          </div>
         </div>
       </div>
 
@@ -500,13 +513,26 @@
     }
 
     // ---- 화면 전체 ----
+    // ---- 정렬: 기준(종류) + 방향(오름차순/내림차순) ----
+    let sortDir = 'asc';
+    const sortOptions = cat => {
+      const o = [{ v:'default', t:'기본 순서', dir:null }];
+      if (cat.metric) o.push({ v:'cost', t:cat.metric.label, dir:'asc' }, { v:'per', t:`${field(cat.metric.per).label} 함량 (1회)`, dir:'desc' });
+      o.push({ v:'price', t:'제품 가격', dir:'asc' }, { v:'weight', t:'총 중량', dir:'desc' }, { v:'name', t:'이름', dir:'asc' });
+      return o;
+    };
+    function syncDir() {
+      const opt = sortOptions(catOf(activeCategory)).find(o => o.v === document.getElementById('sort').value);
+      document.querySelectorAll('#sort-dir button').forEach(btn => {
+        btn.disabled = !opt || !opt.dir;
+        btn.setAttribute('aria-pressed', String(Boolean(opt && opt.dir) && btn.dataset.dir === sortDir));
+      });
+    }
     function fillSort() {
-      const cat = catOf(activeCategory), el = document.getElementById('sort'), prev = el.value;
-      const opts = [['default', '기본 정렬']];
-      if (cat.metric) opts.push(['per', `${field(cat.metric.per).label} 높은 순`], ['cost', cat.metric.label]);
-      opts.push(['price', '제품 가격 낮은 순']);
-      el.innerHTML = opts.map(([v, t]) => `<option value="${v}">${esc(t)}</option>`).join('');
-      el.value = opts.some(([v]) => v === prev) ? prev : 'default';
+      const el = document.getElementById('sort'), prev = el.value, opts = sortOptions(catOf(activeCategory));
+      el.innerHTML = opts.map(o => `<option value="${o.v}">${esc(o.t)}</option>`).join('');
+      el.value = opts.some(o => o.v === prev) ? prev : 'default';
+      syncDir();
     }
     function render() {
       const meta = catOf(activeCategory);
@@ -521,9 +547,23 @@
         .filter(p => p.category === activeCategory)
         .map(p => ({ ...p, flavors:p.flavors.filter(f => `${p.name} ${f.name} ${p.brand}`.toLowerCase().includes(query)) }))
         .filter(p => p.flavors.length > 0);
-      if (sort === 'per') list.sort((a, b) => (b.base ? b.base.values[per] : -1) - (a.base ? a.base.values[per] : -1));
-      if (sort === 'cost') list.sort((a, b) => (metricCost(a) ?? 1e12) - (metricCost(b) ?? 1e12));
-      if (sort === 'price') list.sort((a, b) => a.price - b.price);
+      const sortVal = {
+        per: p => (p.base ? p.base.values[per] : null),
+        cost: p => metricCost(p),
+        price: p => p.price,
+        weight: p => p.weight,
+        name: p => p.name
+      }[sort];
+      if (sortVal) {
+        const sign = sortDir === 'asc' ? 1 : -1;
+        list.sort((a, b) => {
+          const x = sortVal(a), y = sortVal(b);
+          if (x == null && y == null) return 0;
+          if (x == null) return 1;            // 값이 없는 제품은 방향과 상관없이 맨 뒤
+          if (y == null) return -1;
+          return sign * (typeof x === 'string' ? x.localeCompare(y, 'ko') : x - y);
+        });
+      }
       const grid = document.getElementById('product-grid');
       grid.classList.toggle('single-product', list.length === 1);
       grid.innerHTML = list.length ? list.map(cardTemplate).join('') : emptyTemplate(meta, Boolean(query));
@@ -583,7 +623,16 @@
       t.closest('[data-image-wrap]').querySelectorAll('.slide-dot').forEach((d, i) => d.classList.toggle('on', i === cur));
     }, true);
     document.getElementById('search').addEventListener('input', render);
-    document.getElementById('sort').addEventListener('change', render);
+    document.getElementById('sort').addEventListener('change', () => {
+      const opt = sortOptions(catOf(activeCategory)).find(o => o.v === document.getElementById('sort').value);
+      if (opt && opt.dir) sortDir = opt.dir;   // 기준을 바꾸면 그 기준의 자연스러운 방향으로 시작
+      syncDir(); render();
+    });
+    document.getElementById('sort-dir').addEventListener('click', e => {
+      const btn = e.target.closest('button[data-dir]');
+      if (!btn || btn.disabled) return;
+      sortDir = btn.dataset.dir; syncDir(); render();
+    });
     loadData();
   </script>
 </body>

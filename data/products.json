@@ -1340,46 +1340,165 @@
    "category": "protein",
    "brand": "BSN",
    "name": "신타6 28회분",
-   "weight": null,
-   "serving": null,
+   "weight": 1320,
+   "serving": 47,
    "servings": 28,
    "price": 72690,
    "images": [],
    "source": "https://www.bsn.co.kr/products/syntha-6-protein",
    "checked": "2026.10.13",
    "baseFlavor": "bsn-s6-choc",
-   "lists": {},
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "CC",
+      "desc": "칼슘카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MC",
+      "desc": "미셀라카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPI",
+      "desc": "분리우유단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
    "flavors": [
     {
      "id": "bsn-s6-choc",
      "name": "초콜릿 밀크쉐이크",
      "values": {
-      "protein": 22
+      "protein": 22,
+      "carb": 14,
+      "sugar": 3,
+      "fat": 5,
+      "satFat": 2,
+      "kcal": 190,
+      "cholesterol": 85,
+      "sodium": 240
      }
     },
     {
      "id": "bsn-s6-cookie",
      "name": "쿠키앤크림",
-     "values": {}
+     "values": {
+      "protein": 22,
+      "carb": 14,
+      "sugar": 2,
+      "fat": 5,
+      "satFat": 2,
+      "kcal": 200,
+      "cholesterol": 95,
+      "sodium": 160
+     },
+     "lists": {
+      "blend": [
+       {
+        "name": "WPC",
+        "desc": "농축유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "CC",
+        "desc": "칼슘카제인",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MPI",
+        "desc": "분리우유단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "WPH",
+        "desc": "가수분해유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "WPI",
+        "desc": "분리유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MC",
+        "desc": "미셀라카제인",
+        "value": null,
+        "unit": "%"
+       }
+      ]
+     },
+     "listNotes": {
+      "blend": "표기 순서"
+     }
     },
     {
      "id": "bsn-s6-straw",
      "name": "딸기 밀크쉐이크",
-     "values": {}
+     "values": {
+      "protein": 22,
+      "carb": 15,
+      "sugar": 4,
+      "fat": 6,
+      "satFat": 2,
+      "kcal": 200,
+      "cholesterol": 70,
+      "sodium": 160
+     }
     },
     {
      "id": "bsn-s6-vanilla",
      "name": "바닐라 아이스크림",
-     "values": {}
+     "values": {
+      "protein": 22,
+      "carb": 15,
+      "sugar": 4,
+      "fat": 5,
+      "satFat": 2,
+      "kcal": 190,
+      "cholesterol": 90,
+      "sodium": 180
+     }
     }
-   ]
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
   },
   {
    "id": "bsn-syntha6-isolate-24",
    "category": "protein",
    "brand": "BSN",
    "name": "신타6 아이솔레이트 24회분",
-   "weight": null,
+   "weight": 912,
    "serving": null,
    "servings": 24,
    "price": 74760,
@@ -1408,7 +1527,7 @@
    "category": "protein",
    "brand": "BSN",
    "name": "신타6 엣지 28회분",
-   "weight": null,
+   "weight": 1020,
    "serving": null,
    "servings": 28,
    "price": 60690,
@@ -1447,7 +1566,7 @@
    "category": "protein",
    "brand": "BSN",
    "name": "신타6 콜드스톤 25회분",
-   "weight": null,
+   "weight": 1320,
    "serving": null,
    "servings": 25,
    "price": 71580,
@@ -1480,6 +1599,199 @@
      "values": {}
     }
    ]
+  },
+  {
+   "id": "bsn-syntha6-48",
+   "category": "protein",
+   "brand": "BSN",
+   "name": "신타6 48회분",
+   "weight": 2270,
+   "serving": 47,
+   "servings": 48,
+   "price": 111050,
+   "images": [],
+   "source": "https://www.bsn.co.kr/products/syntha-6-protein",
+   "checked": "2026.10.14",
+   "baseFlavor": "bsn-s6-48-choc",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "CC",
+      "desc": "칼슘카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MC",
+      "desc": "미셀라카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPI",
+      "desc": "분리우유단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "bsn-s6-48-choc",
+     "name": "초콜릿 밀크쉐이크",
+     "values": {
+      "protein": 22,
+      "carb": 14,
+      "sugar": 3,
+      "fat": 5,
+      "satFat": 2,
+      "kcal": 190,
+      "cholesterol": 85,
+      "sodium": 240
+     }
+    },
+    {
+     "id": "bsn-s6-48-cake",
+     "name": "초콜릿 케이크",
+     "values": {}
+    },
+    {
+     "id": "bsn-s6-48-straw",
+     "name": "딸기 밀크쉐이크",
+     "values": {
+      "protein": 22,
+      "carb": 15,
+      "sugar": 4,
+      "fat": 6,
+      "satFat": 2,
+      "kcal": 200,
+      "cholesterol": 70,
+      "sodium": 160
+     }
+    },
+    {
+     "id": "bsn-s6-48-vanilla",
+     "name": "바닐라 아이스크림",
+     "values": {
+      "protein": 22,
+      "carb": 15,
+      "sugar": 4,
+      "fat": 5,
+      "satFat": 2,
+      "kcal": 190,
+      "cholesterol": 90,
+      "sodium": 180
+     }
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "bsn-syntha6-97",
+   "category": "protein",
+   "brand": "BSN",
+   "name": "신타6 97회분",
+   "weight": 4560,
+   "serving": 47,
+   "servings": 97,
+   "price": 189080,
+   "images": [],
+   "source": "https://www.bsn.co.kr/products/syntha-6-protein",
+   "checked": "2026.10.14",
+   "baseFlavor": "bsn-s6-97-choc",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "CC",
+      "desc": "칼슘카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MC",
+      "desc": "미셀라카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPI",
+      "desc": "분리우유단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "bsn-s6-97-choc",
+     "name": "초콜릿 밀크쉐이크",
+     "values": {
+      "protein": 22,
+      "carb": 14,
+      "sugar": 3,
+      "fat": 5,
+      "satFat": 2,
+      "kcal": 190,
+      "cholesterol": 85,
+      "sodium": 240
+     }
+    },
+    {
+     "id": "bsn-s6-97-vanilla",
+     "name": "바닐라 아이스크림",
+     "values": {
+      "protein": 22,
+      "carb": 15,
+      "sugar": 4,
+      "fat": 5,
+      "satFat": 2,
+      "kcal": 190,
+      "cholesterol": 90,
+      "sodium": 180
+     }
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
   }
  ]
 }
