@@ -2290,48 +2290,6 @@
    }
   },
   {
-   "id": "my-clear-whey-500",
-   "category": "protein",
-   "brand": "마이프로틴",
-   "name": "클리어 웨이 프로틴 500g",
-   "weight": 500,
-   "serving": 25,
-   "servings": 20,
-   "price": 64900,
-   "images": [],
-   "source": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/",
-   "checked": "2026.10.15",
-   "baseFlavor": "my-cw-dragon",
-   "lists": {
-    "blend": [
-     {
-      "name": "WPH",
-      "desc": "가수분해유청단백",
-      "value": null,
-      "unit": "%"
-     }
-    ]
-   },
-   "flavors": [
-    {
-     "id": "my-cw-dragon",
-     "name": "트로피컬 드래곤프루트",
-     "values": {
-      "protein": 19,
-      "carb": 2.5,
-      "sugar": 0.5,
-      "fat": 0.1,
-      "satFat": 0.1,
-      "kcal": 88
-     },
-     "serving": 25
-    }
-   ],
-   "listNotes": {
-    "blend": "표기 순서"
-   }
-  },
-  {
    "id": "my-weight-gainer-1kg",
    "category": "protein",
    "brand": "마이프로틴",
@@ -3340,6 +3298,266 @@
      "serving": 30,
      "price": 349500,
      "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=14760450"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-clear-whey-390",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "클리어 웨이 프로틴 390g",
+   "weight": 390,
+   "serving": 26,
+   "servings": 15,
+   "price": 65900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-clear-whey-390-f1",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPH",
+      "desc": "가수분해분리유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-clear-whey-390-f1",
+     "name": "파인애플 (Less Sweet)",
+     "values": {
+      "protein": 20,
+      "carb": 1.3,
+      "sugar": 0.2,
+      "fat": 0.1,
+      "satFat": 0,
+      "kcal": 86,
+      "sodium": 290
+     },
+     "serving": 26,
+     "price": 65900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/?variation=16111662"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-clear-whey-500",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "클리어 웨이 프로틴 500g",
+   "weight": 500,
+   "serving": 25,
+   "servings": 20,
+   "price": 64900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-clear-whey-500-f5",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPH",
+      "desc": "가수분해분리유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-clear-whey-500-f1",
+     "name": "매실 스파클링",
+     "values": {
+      "protein": 19,
+      "carb": 2.5,
+      "sugar": 0.2,
+      "fat": 0.1,
+      "satFat": 0,
+      "kcal": 86,
+      "sodium": 20
+     },
+     "serving": 25,
+     "price": 64900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/?variation=15952591"
+    },
+    {
+     "id": "my-clear-whey-500-f2",
+     "name": "요거트",
+     "values": {
+      "protein": 20,
+      "carb": 0,
+      "sugar": 0,
+      "fat": 0,
+      "satFat": 0,
+      "kcal": 84,
+      "sodium": 8
+     },
+     "serving": 25,
+     "price": 68900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/?variation=14013524"
+    },
+    {
+     "id": "my-clear-whey-500-f3",
+     "name": "유자 그린티",
+     "values": {
+      "protein": 20,
+      "carb": 1,
+      "sugar": 0.3,
+      "fat": 0.1,
+      "satFat": 0.1,
+      "kcal": 87,
+      "sodium": 80
+     },
+     "serving": 25,
+     "price": 68900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/?variation=12873041"
+    },
+    {
+     "id": "my-clear-whey-500-f4",
+     "name": "츄파춥스 스트로베리",
+     "values": {
+      "protein": 21,
+      "carb": 0.3,
+      "sugar": 0,
+      "fat": 0.1,
+      "satFat": 0,
+      "kcal": 85,
+      "sodium": 30
+     },
+     "serving": 25,
+     "price": 64900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/?variation=14867356"
+    },
+    {
+     "id": "my-clear-whey-500-f5",
+     "name": "트로피컬 드래곤프룻",
+     "values": {
+      "protein": 19,
+      "carb": 2.5,
+      "sugar": 0.5,
+      "fat": 0.1,
+      "satFat": 0.1,
+      "kcal": 88,
+      "sodium": 8
+     },
+     "serving": 25,
+     "price": 64900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/?variation=12660041"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-clear-whey-520",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "클리어 웨이 프로틴 520g",
+   "weight": 520,
+   "serving": 26,
+   "servings": 20,
+   "price": 68900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-clear-whey-520-f1",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPH",
+      "desc": "가수분해분리유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-clear-whey-520-f1",
+     "name": "아사이베리",
+     "values": {
+      "protein": 20,
+      "carb": 0.7,
+      "sugar": 0.2,
+      "fat": 0.3,
+      "satFat": 0.1,
+      "kcal": 87,
+      "sodium": 20
+     },
+     "serving": 26,
+     "price": 68900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/?variation=16619041"
+    },
+    {
+     "id": "my-clear-whey-520-f2",
+     "name": "츄파춥스 콜라",
+     "values": {
+      "protein": 20,
+      "carb": 1.6,
+      "sugar": 0.2,
+      "fat": 0.1,
+      "satFat": 0,
+      "kcal": 88,
+      "sodium": 20
+     },
+     "serving": 26,
+     "price": 64900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/?variation=15404869"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-clear-whey-560",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "클리어 웨이 프로틴 560g",
+   "weight": 560,
+   "serving": 28,
+   "servings": 20,
+   "price": 68900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-clear-whey-560-f1",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPH",
+      "desc": "가수분해분리유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-clear-whey-560-f1",
+     "name": "망고 아이스티",
+     "values": {
+      "protein": 20,
+      "carb": 3.2,
+      "sugar": 1,
+      "fat": 0.1,
+      "satFat": 0.1,
+      "kcal": 94,
+      "sodium": 40
+     },
+     "serving": 28,
+     "price": 68900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/?variation=17536447"
     }
    ],
    "listNotes": {
