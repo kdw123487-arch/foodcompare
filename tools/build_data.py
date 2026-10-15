@@ -189,7 +189,7 @@ def main():
         prod_by_id[pid] = p
 
     # ---------- 맛 ----------
-    f_fixed = {"제품id", "맛id", "맛", "1회섭취량(g)", "링크"}
+    f_fixed = {"제품id", "맛id", "맛", "1회섭취량(g)", "가격(원)", "링크"}
     rows, header = table(wb, "맛", f_fixed, required=["제품id", "맛id", "맛"], extra_ok=True)
     col_key = {}
     for h in header:
@@ -218,6 +218,9 @@ def main():
         sv = to_num(d.get("1회섭취량(g)"), "맛", i, "1회섭취량(g)")
         if sv:
             fl["serving"] = sv   # 맛마다 1회 섭취량이 다를 때만 (비우면 제품 값 사용)
+        pr = to_num(d.get("가격(원)"), "맛", i, "가격(원)")
+        if pr:
+            fl["price"] = pr   # 맛마다 가격이 다를 때만 (비우면 제품 가격 사용)
         lk = (d.get("링크") or "").strip()
         if lk:
             if not lk.startswith(("http://", "https://")):

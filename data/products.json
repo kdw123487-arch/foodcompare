@@ -2307,49 +2307,6 @@
    }
   },
   {
-   "id": "my-impact-whey-250",
-   "category": "protein",
-   "brand": "마이프로틴",
-   "name": "임팩트 웨이 프로틴 250g",
-   "weight": 250,
-   "serving": 30,
-   "servings": 8,
-   "price": 17900,
-   "images": [],
-   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/",
-   "checked": "2026.10.15",
-   "baseFlavor": "my-iw-fruit",
-   "lists": {
-    "blend": [
-     {
-      "name": "WPC",
-      "desc": "농축유청단백",
-      "value": null,
-      "unit": "%"
-     }
-    ]
-   },
-   "flavors": [
-    {
-     "id": "my-iw-fruit",
-     "name": "골든 후르츠 믹스",
-     "values": {
-      "protein": 20,
-      "carb": 3.7,
-      "sugar": 1.9,
-      "fat": 1.7,
-      "satFat": 1,
-      "kcal": 111,
-      "sodium": 130
-     },
-     "serving": 30
-    }
-   ],
-   "listNotes": {
-    "blend": "표기 순서"
-   }
-  },
-  {
    "id": "my-impact-isolate-870",
    "category": "protein",
    "brand": "마이프로틴",
@@ -2544,7 +2501,7 @@
    "flavors": [
     {
      "id": "my-tb-plain",
-     "name": "플레인(무맛)",
+     "name": "플레인",
      "values": {
       "protein": 25,
       "carb": 1.2,
@@ -2580,6 +2537,869 @@
      "id": "my-tb-vanilla",
      "name": "바닐라",
      "values": {}
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-impact-whey-250",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 프로틴 250g",
+   "weight": 250,
+   "serving": 30,
+   "servings": null,
+   "price": 17900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-impact-whey-250-f1",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-impact-whey-250-f1",
+     "name": "골든 프룻 믹스",
+     "values": {
+      "protein": 20,
+      "carb": 3.7,
+      "sugar": 1.9,
+      "fat": 1.7,
+      "satFat": 1,
+      "kcal": 111,
+      "sodium": 130
+     },
+     "serving": 30,
+     "price": 17900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17074124"
+    },
+    {
+     "id": "my-impact-whey-250-f2",
+     "name": "레이즌 아이스크림",
+     "values": {
+      "protein": 21,
+      "carb": 2.7,
+      "sugar": 1.5,
+      "fat": 1.7,
+      "satFat": 1.1,
+      "kcal": 113,
+      "sodium": 130
+     },
+     "serving": 30,
+     "price": 19900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=15964031"
+    },
+    {
+     "id": "my-impact-whey-250-f3",
+     "name": "통단팥",
+     "values": {
+      "protein": 19,
+      "carb": 2.1,
+      "sugar": 0.9,
+      "fat": 2,
+      "satFat": 1.3,
+      "kcal": 102,
+      "sodium": 60
+     },
+     "serving": 25,
+     "price": 19900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=13043419"
+    },
+    {
+     "id": "my-impact-whey-250-f4",
+     "name": "리얼티 컬렉션 - 현미녹차 라떼",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 23900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=12506072"
+    },
+    {
+     "id": "my-impact-whey-250-f5",
+     "name": "요거트",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 30900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=13043420"
+    },
+    {
+     "id": "my-impact-whey-250-f6",
+     "name": "흑당 밀크티",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 30900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=12525919"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-impact-whey-500",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 프로틴 500g",
+   "weight": 500,
+   "serving": 30,
+   "servings": null,
+   "price": 57900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-impact-whey-500-f1",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-impact-whey-500-f1",
+     "name": "요거트",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 57900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=13653896"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-impact-whey-625",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 프로틴 625g",
+   "weight": 625,
+   "serving": 30,
+   "servings": null,
+   "price": 77900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-impact-whey-625-f1",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-impact-whey-625-f1",
+     "name": "토르 에디션 믹스드 베리",
+     "values": {
+      "protein": 21,
+      "carb": 2.4,
+      "sugar": 1.4,
+      "fat": 1.7,
+      "satFat": 1,
+      "kcal": 107,
+      "sodium": 120
+     },
+     "serving": 30,
+     "price": 77900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17529133"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-impact-whey-900",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 프로틴 900g",
+   "weight": 900,
+   "serving": 30,
+   "servings": null,
+   "price": 110900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-impact-whey-900-f1",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-impact-whey-900-f1",
+     "name": "내추럴 초콜렛",
+     "values": {
+      "protein": 21,
+      "carb": 2.1,
+      "sugar": 1.4,
+      "fat": 2,
+      "satFat": 1.2,
+      "kcal": 111,
+      "sodium": 130
+     },
+     "serving": 30,
+     "price": 110900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17712292"
+    },
+    {
+     "id": "my-impact-whey-900-f2",
+     "name": "무맛",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 110900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17712272"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-impact-whey-960",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 프로틴 960g",
+   "weight": 960,
+   "serving": 32,
+   "servings": null,
+   "price": 110900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-impact-whey-960-f1",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-impact-whey-960-f1",
+     "name": "초콜렛 카라멜 크런치",
+     "values": {
+      "protein": 20,
+      "carb": 4.9,
+      "sugar": 2.3,
+      "fat": 2.6,
+      "satFat": 1.6,
+      "kcal": 124,
+      "sodium": 230
+     },
+     "serving": 32,
+     "price": 110900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=15644754"
+    },
+    {
+     "id": "my-impact-whey-960-f2",
+     "name": "임팩트 웨이 크런치 - 바닐라 허니콤보",
+     "values": {
+      "protein": 20,
+      "carb": 5.6,
+      "sugar": 2.4,
+      "fat": 2.7,
+      "satFat": 1.7,
+      "kcal": 127,
+      "sodium": 130
+     },
+     "serving": 32,
+     "price": 110900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=15644753"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-impact-whey-1000",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 프로틴 1kg",
+   "weight": 1000,
+   "serving": 30,
+   "servings": null,
+   "price": 110900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-impact-whey-1000-f1",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-impact-whey-1000-f1",
+     "name": "초콜렛 오렌지",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 110900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=10878643"
+    },
+    {
+     "id": "my-impact-whey-1000-f2",
+     "name": "무맛",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 110900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=10531012"
+    },
+    {
+     "id": "my-impact-whey-1000-f3",
+     "name": "내추럴 바나나",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 110900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=12309355"
+    },
+    {
+     "id": "my-impact-whey-1000-f4",
+     "name": "바나나",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 110900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=12309358"
+    },
+    {
+     "id": "my-impact-whey-1000-f5",
+     "name": "바닐라 & 라즈베리",
+     "values": {
+      "protein": 21,
+      "carb": 3.4,
+      "sugar": 1.6,
+      "fat": 1.7,
+      "satFat": 1.1,
+      "kcal": 113,
+      "sodium": 130
+     },
+     "serving": 30,
+     "price": 110900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=10648434"
+    },
+    {
+     "id": "my-impact-whey-1000-f6",
+     "name": "리얼티 컬렉션 - 현미녹차 라떼",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 110900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=12506073"
+    },
+    {
+     "id": "my-impact-whey-1000-f7",
+     "name": "마일드 스위트 - 스트로베리 크림",
+     "values": {
+      "protein": 22,
+      "carb": 2.3,
+      "sugar": 1.5,
+      "fat": 2.2,
+      "satFat": 1.1,
+      "kcal": 115,
+      "sodium": 130
+     },
+     "serving": 30,
+     "price": 69900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=15964030"
+    },
+    {
+     "id": "my-impact-whey-1000-f8",
+     "name": "체리블라썸 밀크티",
+     "values": {
+      "protein": 21,
+      "carb": 2.7,
+      "sugar": 1.6,
+      "fat": 1.7,
+      "satFat": 1.1,
+      "kcal": 112,
+      "sodium": 130
+     },
+     "serving": 30,
+     "price": 65900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=16442317"
+    },
+    {
+     "id": "my-impact-whey-1000-f9",
+     "name": "통단팥",
+     "values": {
+      "protein": 19,
+      "carb": 2.1,
+      "sugar": 0.9,
+      "fat": 2,
+      "satFat": 1.3,
+      "kcal": 102,
+      "sodium": 60
+     },
+     "serving": 25,
+     "price": 59900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=12970012"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-impact-whey-1800",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 프로틴 1.8kg",
+   "weight": 1800,
+   "serving": 30,
+   "servings": null,
+   "price": 229900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-impact-whey-1800-f1",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-impact-whey-1800-f1",
+     "name": "내추럴 초콜렛",
+     "values": {
+      "protein": 21,
+      "carb": 2.1,
+      "sugar": 1.4,
+      "fat": 2,
+      "satFat": 1.2,
+      "kcal": 111,
+      "sodium": 130
+     },
+     "serving": 30,
+     "price": 229900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17712282"
+    },
+    {
+     "id": "my-impact-whey-1800-f2",
+     "name": "무맛",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 229900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17712263"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-impact-whey-2500",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 프로틴 2.5kg",
+   "weight": 2500,
+   "serving": 30,
+   "servings": null,
+   "price": 225900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-impact-whey-2500-f1",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-impact-whey-2500-f1",
+     "name": "무맛",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 225900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=10530986"
+    },
+    {
+     "id": "my-impact-whey-2500-f2",
+     "name": "골든 시럽",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 225900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=11030047"
+    },
+    {
+     "id": "my-impact-whey-2500-f3",
+     "name": "바닐라 & 라즈베리",
+     "values": {
+      "protein": 21,
+      "carb": 3.4,
+      "sugar": 1.6,
+      "fat": 1.7,
+      "satFat": 1.1,
+      "kcal": 113,
+      "sodium": 130
+     },
+     "serving": 30,
+     "price": 225900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=10786593"
+    },
+    {
+     "id": "my-impact-whey-2500-f4",
+     "name": "클래식 말차라떼",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 225900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=14760449"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-impact-whey-2610",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 프로틴 2.61kg",
+   "weight": 2610,
+   "serving": 30,
+   "servings": null,
+   "price": 225900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-impact-whey-2610-f1",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-impact-whey-2610-f1",
+     "name": "흑당 밀크티",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 225900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17712276"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-impact-whey-2700",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 프로틴 2.7kg",
+   "weight": 2700,
+   "serving": 30,
+   "servings": null,
+   "price": 225900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-impact-whey-2700-f1",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-impact-whey-2700-f1",
+     "name": "초콜렛 스무스",
+     "values": {
+      "protein": 22,
+      "carb": 2,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.2,
+      "kcal": 113,
+      "sodium": 130
+     },
+     "serving": 30,
+     "price": 225900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17712168"
+    },
+    {
+     "id": "my-impact-whey-2700-f2",
+     "name": "내추럴 초콜렛",
+     "values": {
+      "protein": 21,
+      "carb": 2.1,
+      "sugar": 1.4,
+      "fat": 2,
+      "satFat": 1.2,
+      "kcal": 111,
+      "sodium": 130
+     },
+     "serving": 30,
+     "price": 225900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17712220"
+    },
+    {
+     "id": "my-impact-whey-2700-f3",
+     "name": "무맛",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 225900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17712185"
+    },
+    {
+     "id": "my-impact-whey-2700-f4",
+     "name": "스트로베리 크림",
+     "values": {
+      "protein": 22,
+      "carb": 2.1,
+      "sugar": 1.6,
+      "fat": 1.8,
+      "satFat": 1.1,
+      "kcal": 113,
+      "sodium": 130
+     },
+     "serving": 30,
+     "price": 225900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17712180"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-impact-whey-5000",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 프로틴 5kg (2×2.5kg)",
+   "weight": 5000,
+   "serving": 30,
+   "servings": null,
+   "price": 349500,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-impact-whey-5000-f1",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-impact-whey-5000-f1",
+     "name": "무맛",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 349500,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=14302236"
+    },
+    {
+     "id": "my-impact-whey-5000-f2",
+     "name": "말차라떼",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 349500,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=14760450"
     }
    ],
    "listNotes": {

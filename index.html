@@ -128,6 +128,7 @@
     .key-label { font-size:12px; color:var(--muted); }
     .key-num { margin-top:8px; font-size:48px; font-weight:750; line-height:1; letter-spacing:-.07em; color:var(--accent); font-variant-numeric:tabular-nums; }
     .key-num small { font-size:16px; font-weight:600; letter-spacing:0; margin-left:4px; color:var(--muted); }
+    .key-range { margin-top:6px; font-size:12px; color:var(--muted); letter-spacing:-.01em; }
     .key-num.na-text { font-size:24px; letter-spacing:-.04em; color:var(--muted); font-weight:650; }
     .sr { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
     .matrix { width:100%; border-collapse:collapse; border-top:1px solid var(--line-soft); }
@@ -190,7 +191,10 @@
     .ftable th, .ftable td { padding:11px 0; border-bottom:1px solid var(--line-soft); text-align:right; font-variant-numeric:tabular-nums; }
     .ftable thead th { padding:9px 0 7px; font-size:12px; color:var(--muted); font-weight:500; }
     .ftable tbody th { text-align:left; font-size:14px; color:#c3c8c5; font-weight:400; }
-    .ftable td { font-size:15px; font-weight:700; }
+    .ftable td { font-size:15px; font-weight:700; padding-left:10px; white-space:nowrap; }
+    .ftable thead th:not(:first-child) { padding-left:10px; white-space:nowrap; }
+    .ftable td.pcol { font-size:13px; font-weight:500; color:var(--muted); }
+    @media (max-width:480px) { .ftable td { font-size:14px; padding-left:8px; } .ftable td.pcol { font-size:12px; } .ftable tbody th { font-size:13px; } }
     .ftable td .na { font-size:12px; }
     .macro-box { border:1px solid #3b4633; background:linear-gradient(160deg,#192215,#101310); border-radius:12px; padding:14px 0 6px; }
     .macro-box-head { padding:0 14px 12px; font-size:12px; color:var(--muted); }
@@ -361,6 +365,7 @@
     // 1회 섭취량은 맛마다 다를 수 있어 맛 값이 있으면 그것을, 없으면 제품 값을 쓴다
     const servingOf = (p, f) => (f && f.serving) || p.serving || null;
     const servingsOf = (p, f) => p.servings || (servingOf(p, f) && p.weight ? p.weight / servingOf(p, f) : null);
+    const priceOf = (p, f) => (f && f.price) || p.price;
     const sizeText = p => (p.weight ? weightText(p.weight) : p.servings ? `${p.servings}회분` : '');
     const catOf = id => DB.categories.find(c => c.id === id);
 
@@ -384,9 +389,18 @@
         if (p.base) p.flavors = [p.base, ...p.flavors.filter(f => f !== p.base)];   // 기준맛을 맨 위(목록·칩 맨 앞)로
       });
     }
+    // 맛마다 가격·1회 섭취량이 다를 수 있으므로 맛 단위로 계산 (기준맛 값이 카드 대표값)
+    const costOf = (p, f) => {
+      const cat = catOf(p.category), per = cat && cat.metric ? cat.metric.per : null, sv = servingsOf(p, f);
+      return per && f && f.values[per] && sv ? priceOf(p, f) / (sv * f.values[per]) : null;
+    };
+    const costRange = p => {
+      const c = p.flavors.map(f => costOf(p, f)).filter(v => v != null);
+      return c.length > 1 && Math.max(...c) - Math.min(...c) >= 1 ? [Math.min(...c), Math.max(...c)] : null;
+    };
     const metricCost = p => {
       const cat = catOf(p.category), per = cat && cat.metric ? cat.metric.per : null;
-      return per && p.base ? p.price / (servingsOf(p, p.base) * p.base.values[per]) : null;
+      return per && p.base ? costOf(p, p.base) : null;
     };
     // 상세 영양정보 박스에 쓰이는 항목(대표지표 기준 항목은 제외) 중 하나라도 값이 있으면 '데이터 있음'
     const boxFields = cat => {
@@ -468,26 +482,27 @@
       const cat = catOf(p.category), flavors = p.flavors, base = p.base, metric = cat.metric, sum = cat.summary;
       const titleId = `title-${p.id.replace(/[^a-z0-9_-]/gi, '-')}`;
       const servingCount = servingsOf(p, base), servingG = servingOf(p, base);
-      const cost = metricCost(p);
+      const cost = metricCost(p), range = costRange(p);
       const anyData = flavors.some(f => hasData(f, cat));
       const first = Math.max(0, flavors.findIndex(f => hasData(f, cat)));
       const chips = anyData && flavors.length > 1 ? `<div class="chips" role="group" aria-label="맛 선택">${flavors.map((f, i) => `<button type="button" class="chip${i === first ? ' active' : ''}${hasData(f, cat) ? '' : ' nodata'}" data-panel="${i}">${esc(f.name)}</button>`).join('')}</div>` : '';
       const keyBlock = metric ? `<div class="key">
               <div class="key-label">${esc(metric.label)}${base ? ` · ${esc(base.name)}맛 기준` : ''}</div>
               ${cost != null ? `<div class="key-num">${num(cost)}<small>${esc(metric.unit)}</small></div>` : `<div class="key-num na-text">확인 필요</div>`}
+              ${range ? `<div class="key-range">맛에 따라 ${num(range[0])}~${num(range[1])}${esc(metric.unit)}</div>` : ''}
             </div>` : '';
       const matrix = `<table class="matrix">
               <thead><tr><th scope="col"><span class="sr">구분</span></th>${sum.map(k => `<th scope="col">${esc(field(k).label)}</th>`).join('')}<th scope="col">가격</th></tr></thead>
               <tbody>
-                <tr><th scope="row">1회${servingG ? ` (${servingG}g)` : ''}</th>${sum.map(k => `<td>${base ? withUnit(base.values[k], k) : NA}</td>`).join('')}<td>${servingCount ? `${num(p.price / servingCount)}<small>원</small>` : NA}</td></tr>
-                <tr><th scope="row">제품 전체</th>${sum.map(k => `<td>${base && servingCount && base.values[k] != null ? withUnit(servingCount * base.values[k], k, true) : NA}</td>`).join('')}<td>${num(p.price)}<small>원</small></td></tr>
+                <tr><th scope="row">1회${servingG ? ` (${servingG}g)` : ''}</th>${sum.map(k => `<td>${base ? withUnit(base.values[k], k) : NA}</td>`).join('')}<td>${servingCount ? `${num(priceOf(p, base) / servingCount)}<small>원</small>` : NA}</td></tr>
+                <tr><th scope="row">제품 전체</th>${sum.map(k => `<td>${base && servingCount && base.values[k] != null ? withUnit(servingCount * base.values[k], k, true) : NA}</td>`).join('')}<td>${num(priceOf(p, base))}<small>원</small></td></tr>
               </tbody>
             </table>`;
       const flavorTable = sum.length ? `<div class="flavor-list">
               <div class="flavor-list-head">맛별 1회 영양<span>(${esc(field(sum[0]).unit)})</span></div>
               <table class="ftable">
-                <thead><tr><th scope="col"><span class="sr">맛</span></th>${sum.map(k => `<th scope="col">${esc(field(k).label)}</th>`).join('')}</tr></thead>
-                <tbody>${flavors.map(f => `<tr><th scope="row">${esc(f.name)}</th>${sum.map(k => `<td>${plain(f.values[k], k)}</td>`).join('')}</tr>`).join('')}</tbody>
+                <thead><tr><th scope="col"><span class="sr">맛</span></th>${sum.map(k => `<th scope="col">${esc(field(k).label)}</th>`).join('')}${range ? '<th scope="col">가격</th><th scope="col">원/g</th>' : ''}</tr></thead>
+                <tbody>${flavors.map(f => `<tr><th scope="row">${esc(f.name)}</th>${sum.map(k => `<td>${plain(f.values[k], k)}</td>`).join('')}${range ? `<td class="pcol">${num(priceOf(p, f))}</td><td>${costOf(p, f) != null ? num(costOf(p, f)) : NA}</td>` : ''}</tr>`).join('')}</tbody>
               </table>
             </div>` : '';
       return `
@@ -574,7 +589,7 @@
       const sortVal = {
         per: p => (p.base ? p.base.values[per] : null),
         cost: p => metricCost(p),
-        price: p => p.price,
+        price: p => priceOf(p, p.base),
         weight: p => p.weight,
         default: p => p.name   // 기본 순서 = 제품 제목 글자순(가나다·ABC)
       }[sort];
