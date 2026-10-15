@@ -117,18 +117,12 @@ def main():
         label_to_key[fields[k]["label"]] = k
 
     # ---------- 카테고리 ----------
-    cat_cols = ["id", "이름", "라벨", "설명", "상단 표시", "빈 화면 안내", "기준 항목", "요약 항목", "머리글 항목"]
+    cat_cols = ["id", "이름", "라벨", "설명", "빈 화면 안내", "기준 항목", "요약 항목", "머리글 항목"]
     categories = []
     for i, d in table(wb, "카테고리", cat_cols, required=["id", "이름"])[0]:
-        pills = []
-        for p in (d.get("상단 표시") or "").split("|"):
-            p = p.strip()
-            if p:
-                tone = "warn" if p.endswith(":warn") else ""
-                pills.append([p[: -len(":warn")].strip() if tone else p, tone])
         categories.append({
             "id": d["id"], "name": d["이름"], "label": d.get("라벨") or "", "desc": d.get("설명") or "",
-            "pills": pills, "empty": d.get("빈 화면 안내") or "", "ref": d.get("기준 항목") or None,
+            "empty": d.get("빈 화면 안내") or "", "ref": d.get("기준 항목") or None,
             "summary": split_keys(d.get("요약 항목")), "header": split_keys(d.get("머리글 항목")), "boxes": [],
         })
     cat_by_id = {c["id"]: c for c in categories}

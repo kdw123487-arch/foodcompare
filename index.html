@@ -17,8 +17,6 @@
       --subtle: #666d6a;
       --accent: #c6f36b;
       --accent-dark: #1d2911;
-      --warning: #f2c66d;
-      --warning-bg: #2b2415;
       --radius: 18px;
       --max: 1240px;
     }
@@ -97,14 +95,11 @@
     .brand-chip:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
     .brand-chip[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:#15190d; }
     .brand-chip[aria-pressed="true"] .count { color:#405223; }
-    .pill { border:1px solid #343a35; background:#171c15; color:#c6d6ae; border-radius:999px; padding:7px 10px; font-size:12px; white-space:nowrap; }
-    .pill.warn { background:var(--warning-bg); border-color:#564626; color:var(--warning); }
     .product-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
     .product-grid.single-product { grid-template-columns:minmax(0,760px); justify-content:center; }
     .product-card { border:1px solid var(--line); border-radius:var(--radius); background:var(--panel); overflow:hidden; min-width:0; align-self:stretch; display:flex; flex-direction:column; transition:transform .18s ease,border-color .18s ease; }
     .product-card:hover { transform:translateY(-2px); border-color:#424943; }
-    .product-image { background:radial-gradient(ellipse at 50% 38%, #4a504c 0%, #272c2a 55%, #181b1a 100%); height:228px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
-    .product-image { position:relative; }
+    .product-image { background:radial-gradient(ellipse at 50% 38%, #4a504c 0%, #272c2a 55%, #181b1a 100%); height:228px; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative; }
     .product-image img { display:block; width:100%; height:100%; object-fit:contain; padding:15px; }
     .slides { display:flex; width:100%; height:100%; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; overscroll-behavior-x:contain; -webkit-overflow-scrolling:touch; }
     .slides::-webkit-scrollbar { display:none; }
@@ -136,12 +131,6 @@
     .flavor-list { margin-top:22px; }
     .flavor-list-head { font-size:14px; font-weight:750; padding-bottom:8px; border-bottom:1px solid var(--line); }
     .flavor-list-head span { color:var(--muted); font-weight:500; font-size:12px; margin-left:4px; }
-    .rows { list-style:none; margin:0; padding:0; }
-    .row { display:flex; justify-content:space-between; align-items:baseline; gap:14px; padding:11px 0; border-bottom:1px solid var(--line-soft); }
-    .row-label { color:var(--muted); font-size:13px; }
-    .row-value { font-size:15px; font-weight:650; text-align:right; font-variant-numeric:tabular-nums; }
-    .row-value small { font-size:12px; color:var(--muted); font-weight:500; margin-left:3px; }
-    .row-value.text { font-size:13px; font-weight:500; color:#d0d5d1; line-height:1.55; }
     .card-foot { display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin-top:auto; padding-top:14px; }
     .shop-link { display:inline-flex; align-items:center; gap:6px; padding:8px 12px; border:1px solid rgba(198,243,107,.4); border-radius:9px; background:rgba(198,243,107,.07); color:var(--accent); font-size:13px; font-weight:700; text-decoration:none; white-space:nowrap; transition:background .16s ease, border-color .16s ease; }
     .shop-link:hover { background:rgba(198,243,107,.14); border-color:rgba(198,243,107,.7); }
@@ -171,17 +160,7 @@
     .chip { cursor:pointer; border:1px solid var(--line); background:#101214; color:#b6bcba; border-radius:999px; padding:6px 12px; font-size:13px; }
     .chip:hover { border-color:#59605b; color:var(--text); }
     .chip.active { background:#f2f3ef; border-color:#f2f3ef; color:#111412; font-weight:700; }
-    .macro { display:grid; grid-template-columns:repeat(3,1fr); padding:4px 0 14px; border-bottom:1px solid var(--line-soft); }
-    .macro-item + .macro-item { padding-left:14px; border-left:1px solid var(--line-soft); }
-    .macro-label { font-size:12px; color:var(--muted); }
-    .macro-val { margin-top:6px; font-size:22px; font-weight:750; letter-spacing:-.04em; font-variant-numeric:tabular-nums; }
-    .macro-val small { font-size:12px; color:var(--muted); font-weight:500; margin-left:2px; letter-spacing:0; }
-    .macro-val .na, .row-value .na { font-size:13px; }
-    .extras { margin-top:16px; }
-    .extras-title { font-size:13px; font-weight:750; padding-bottom:4px; }
-    .nutri .row:last-child { border-bottom:0; }
     .missing { margin:8px 0 0; font-size:12px; color:var(--muted); line-height:1.7; }
-    .nutri-foot { margin-top:12px; padding-top:10px; border-top:1px solid var(--line-soft); font-size:12px; color:var(--subtle); }
     .ftable { width:100%; border-collapse:collapse; }
     .ftable th, .ftable td { padding:11px 0; border-bottom:1px solid var(--line-soft); text-align:right; font-variant-numeric:tabular-nums; }
     .ftable thead th { padding:9px 0 7px; font-size:12px; color:var(--muted); font-weight:500; }
@@ -190,6 +169,7 @@
     .ftable thead th:not(:first-child) { padding-left:10px; white-space:nowrap; }
     .more-btn { width:100%; margin-top:10px; padding:10px 0; background:transparent; border:1px solid var(--line); border-radius:10px; color:var(--muted); font:inherit; font-size:13px; cursor:pointer; transition:color .15s, border-color .15s; }
     .more-btn:hover { color:var(--text, #f2f4f3); border-color:#3a403d; }
+    .ftable td .na { font-size:12px; }
     .ftable td.pcol { font-size:13px; font-weight:500; color:var(--muted); }
     .key { margin-top:18px; padding:16px 0 18px; border-top:1px solid var(--line-soft); }
     .key-label { font-size:12px; color:var(--muted); }
@@ -197,7 +177,6 @@
     .key-num small { font-size:16px; font-weight:600; letter-spacing:0; margin-left:4px; color:var(--muted); }
     .key-num.na-text { font-size:24px; letter-spacing:-.04em; color:var(--muted); font-weight:650; }
     @media (max-width:480px) { .ftable td { font-size:14px; padding-left:8px; } .ftable td.pcol { font-size:12px; } .ftable tbody th { font-size:13px; } }
-    .ftable td .na { font-size:12px; }
     .macro-box { border:1px solid #3b4633; background:linear-gradient(160deg,#192215,#101310); border-radius:12px; padding:14px 0 6px; }
     .macro-box-head { padding:0 14px 12px; font-size:12px; color:var(--muted); }
     .macro-trio { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-top:1px solid #2a3325; padding-top:14px; }
@@ -236,8 +215,6 @@
     .footnote { margin:25px 0 0; padding:18px 0 34px; border-top:1px solid var(--line-soft); color:#7d8480; font-size:12px; display:flex; align-items:flex-start; justify-content:space-between; gap:25px; }
     .footnote p { max-width:770px; margin:0; line-height:1.8; }
     .footer-brand { color:#b7bdb9; white-space:nowrap; font-size:12px; letter-spacing:.14em; }
-    .toast { position:fixed; bottom:20px; left:50%; transform:translate(-50%,20px); border:1px solid #384236; background:#171d13; color:#d8e9c1; padding:10px 15px; border-radius:999px; font-size:14px; opacity:0; pointer-events:none; transition:.2s ease; z-index:30; }
-    .toast.show { opacity:1; transform:translate(-50%,0); }
     .na { color:var(--muted); font-weight:500; }
     @container (max-width: 360px) {
       .matrix th, .matrix td { padding:11px 0; }
@@ -349,7 +326,6 @@
       <div class="footer-brand">PROTEINER&nbsp; / &nbsp;NUTRITION INDEX</div>
     </footer>
   </main>
-  <div class="toast" id="toast" role="status"></div>
 
   <script>
     // 화면 코드는 data/products.json(엑셀 data/products.xlsx에서 생성)만 읽어서 그립니다.
@@ -370,6 +346,8 @@
     const FLAVOR_SHOWN = 3;  // 접힌 상태에서는 위쪽에 이 개수만 보임 (4개 이하면 전부 보임)
     const priceOf = (p, f) => (f && f.price) || p.price;
     const sizeText = p => (p.weight ? weightText(p.weight) : p.servings ? `${p.servings}회분` : '');
+    // 제목 끝의 용량 표기(250g, 1.8kg, 28회분, 5kg (2×2.5kg))를 뺀 이름 = 같은 제품 묶음
+    const baseName = name => name.replace(/\s*\d+(?:\.\d+)?\s*(?:kg|g|회분)(?:\s*\([^)]*\))?\s*$/i, '').trim();
     const catOf = id => DB.categories.find(c => c.id === id);
 
     // ---- 항목 사전: 이름·단위·소수 자릿수는 데이터의 fields에서 ----
@@ -384,6 +362,7 @@
 
     // ---- 계산 ----
     function prepare() {
+      DB.categories.forEach(c => { c.dataFields = boxFields(c); });
       DB.products.forEach(p => {
         const cat = catOf(p.category);
         const per = cat && cat.ref ? cat.ref : null;
@@ -392,9 +371,10 @@
         p.base = usable.find(f => f.id === p.baseFlavor) || usable.find(f => /무맛|플레인/.test(f.name)) || usable.find(f => /초콜|초코/.test(f.name))
           || (usable.length ? usable.reduce((a, b) => (a.values[per] <= b.values[per] ? a : b)) : null);
         if (p.base) p.flavors = [p.base, ...p.flavors.filter(f => f !== p.base)];   // 기준맛을 맨 위(목록·칩 맨 앞)로
+        p.flavors.forEach(f => { f.hasData = Boolean(cat) && cat.dataFields.some(k => f.values[k] != null); });
       });
     }
-    // 상세 영양정보 박스에 쓰이는 항목(대표지표 기준 항목은 제외) 중 하나라도 값이 있으면 '데이터 있음'
+    // 상세 영양정보 박스에 쓰이는 항목(카드 위 큰 숫자로 보이는 기준 항목은 제외) 중 하나라도 값이 있으면 '데이터 있음'
     const boxFields = cat => {
       const s = new Set(cat.header);
       cat.boxes.forEach(b => {
@@ -404,7 +384,6 @@
       if (cat.ref) s.delete(cat.ref);
       return [...s];
     };
-    const hasData = (f, cat) => boxFields(cat).some(k => f.values[k] != null);
 
     // ---- 상세 영양정보 박스 3종류: trio(큰 숫자 칸) / sum(합계+구성) / list(목록) ----
     function trioHtml(b, f, head) {
@@ -434,7 +413,7 @@
     }
     function panelHtml(f, i, first, p, cat) {
       const hidden = i === first ? '' : ' hidden';
-      if (!hasData(f, cat)) return `<div class="nutri-panel" data-panel="${i}"${hidden}><p class="missing">${esc(f.name)}맛의 영양 성분표를 아직 확인하지 못했습니다.</p></div>`;
+      if (!f.hasData) return `<div class="nutri-panel" data-panel="${i}"${hidden}><p class="missing">${esc(f.name)}맛의 영양 성분표를 아직 확인하지 못했습니다.</p></div>`;
       const bits = cat.header.filter(k => f.values[k] != null).map(k => `${fmt(f.values[k], k)}${esc(field(k).unit)}`);
       const head = [`${esc(f.name)}맛`, servingOf(p, f) ? `1회 ${servingOf(p, f)}g` : null, ...bits].filter(Boolean).join(' · ');
       const body = cat.boxes.map(b => (b.type === 'trio' ? trioHtml(b, f, head) : b.type === 'sum' ? sumHtml(b, f) : listHtml(b, p, f))).join('\n          ');
@@ -447,8 +426,8 @@
     function imageHtml(p) {
       const imgs = p.images || [];
       if (!imgs.length) return '';
-      if (imgs.length <= 1) return `<img src="${esc(imgs[0] || '')}" alt="${esc(p.name)} 제품 사진" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('[data-image-wrap]').classList.add('failed')" />`;
-      return `<div class="slides" tabindex="0" role="group" aria-roledescription="carousel" aria-label="${esc(p.name)} 사진">${imgs.map((src, i) => `<div class="slide" role="group" aria-label="${i + 1} / ${imgs.length}"><img src="${esc(src)}" alt="${esc(p.name)} 제품 사진 ${i + 1}" loading="${i ? 'lazy' : 'eager'}" referrerpolicy="no-referrer" onerror="this.style.visibility='hidden'" /></div>`).join('')}</div>
+      if (imgs.length <= 1) return `<img src="${esc(imgs[0] || '')}" alt="${esc(p.name)} 제품 사진" loading="lazy" decoding="async" onerror="this.closest('[data-image-wrap]').classList.add('failed')" />`;
+      return `<div class="slides" tabindex="0" role="group" aria-roledescription="carousel" aria-label="${esc(p.name)} 사진">${imgs.map((src, i) => `<div class="slide" role="group" aria-label="${i + 1} / ${imgs.length}"><img src="${esc(src)}" alt="${esc(p.name)} 제품 사진 ${i + 1}" loading="lazy" decoding="async" onerror="this.style.visibility='hidden'" /></div>`).join('')}</div>
             <button type="button" class="slide-btn prev" aria-label="이전 사진">‹</button><button type="button" class="slide-btn next" aria-label="다음 사진">›</button>
             <div class="slide-dots">${imgs.map((_, i) => `<button type="button" class="slide-dot${i ? '' : ' on'}" data-slide="${i}" aria-label="${i + 1}번 사진"></button>`).join('')}</div>`;
     }
@@ -475,9 +454,9 @@
       const titleId = `title-${p.id.replace(/[^a-z0-9_-]/gi, '-')}`;
       const servingCount = servingsOf(p, base), servingG = servingOf(p, base);
       const pricesVary = flavors.some(f => priceOf(p, f) !== priceOf(p, flavors[0]));
-      const anyData = flavors.some(f => hasData(f, cat));
-      const first = Math.max(0, flavors.findIndex(f => hasData(f, cat)));
-      const chips = anyData && flavors.length > 1 ? `<div class="chips" role="group" aria-label="맛 선택">${flavors.map((f, i) => `<button type="button" class="chip${i === first ? ' active' : ''}${hasData(f, cat) ? '' : ' nodata'}" data-panel="${i}">${esc(f.name)}</button>`).join('')}</div>` : '';
+      const anyData = flavors.some(f => f.hasData);
+      const first = Math.max(0, flavors.findIndex(f => f.hasData));
+      const chips = anyData && flavors.length > 1 ? `<div class="chips" role="group" aria-label="맛 선택">${flavors.map((f, i) => `<button type="button" class="chip${i === first ? ' active' : ''}${f.hasData ? '' : ' nodata'}" data-panel="${i}">${esc(f.name)}</button>`).join('')}</div>` : '';
       const refVal = base && cat.ref ? base.values[cat.ref] : null;
       const baseNote = cat.ref ? `<div class="key">
               <div class="key-label">1회 ${esc(field(cat.ref).label)}${base ? ` · ${esc(base.name)}맛 기준` : ''}</div>
@@ -527,7 +506,6 @@
       return `<div class="empty-state"><div class="empty-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 4.5h14v15H5z"/><path d="M8 8h8M8 12h8M8 16h4"/></svg></div><div class="empty-title">${title}</div><div class="empty-copy">${copy}</div></div>`;
     }
 
-    // ---- 화면 전체 ----
     // ---- 정렬: 기준(종류) + 방향(오름차순/내림차순) ----
     let sortDir = 'asc';
     const sortOptions = cat => {
@@ -583,7 +561,7 @@
         per: p => (p.base ? p.base.values[per] : null),
         price: p => priceOf(p, p.base),
         weight: p => p.weight,
-        default: p => p.name   // 기본 순서 = 제품 제목 글자순(가나다·ABC)
+        default: p => baseName(p.name)   // 기본 순서 = 제품 제목 글자순(가나다·ABC), 같은 제품은 아래에서 가벼운 순
       }[sort];
       if (sortVal) {
         const sign = sort === 'default' || sortDir === 'asc' ? 1 : -1;
@@ -592,7 +570,8 @@
           if (x == null && y == null) return 0;
           if (x == null) return 1;            // 값이 없는 제품은 방향과 상관없이 맨 뒤
           if (y == null) return -1;
-          return sign * (typeof x === 'string' ? x.localeCompare(y, 'ko', { numeric:true }) : x - y);
+          const d = sign * (typeof x === 'string' ? x.localeCompare(y, 'ko', { numeric:true }) : x - y);
+          return d || (sort === 'default' ? (a.weight || Infinity) - (b.weight || Infinity) : 0);
         });
       }
       const grid = document.getElementById('product-grid');
@@ -602,12 +581,7 @@
         const active = btn.dataset.category === activeCategory;
         btn.classList.toggle('active', active);
         btn.setAttribute('aria-selected', String(active));
-        btn.querySelector('.count').textContent = String(DB.products.filter(p => p.category === btn.dataset.category).length).padStart(2, '0');
       });
-      const flavorCount = DB.products.reduce((t, p) => t + p.flavors.length, 0);
-      document.getElementById('stat-products').innerHTML = `${String(DB.products.length).padStart(2, '0')}<small>products</small>`;
-      document.getElementById('stat-flavors').innerHTML = `${String(flavorCount).padStart(2, '0')}<small>flavors</small>`;
-      document.getElementById('stat-checked').textContent = DB.products.map(p => p.checked).filter(Boolean).sort().pop() || '-';
     }
     function setCategory(id) { activeCategory = id; fillSort(); render(); }
 
@@ -620,7 +594,11 @@
         prepare();
         document.getElementById('section-help').textContent = DB.site.help || '';
         document.getElementById('footnote-text').textContent = DB.site.footnote || '';
-        document.getElementById('tabs').innerHTML = DB.categories.map(c => `<button class="tab" role="tab" aria-selected="false" data-category="${esc(c.id)}">${esc(c.name)} <span class="count">00</span></button>`).join('');
+        const pad = n => String(n).padStart(2, '0');
+        document.getElementById('tabs').innerHTML = DB.categories.map(c => `<button class="tab" role="tab" aria-selected="false" data-category="${esc(c.id)}">${esc(c.name)} <span class="count">${pad(DB.products.filter(p => p.category === c.id).length)}</span></button>`).join('');
+        document.getElementById('stat-products').innerHTML = `${pad(DB.products.length)}<small>products</small>`;
+        document.getElementById('stat-flavors').innerHTML = `${pad(DB.products.reduce((t, p) => t + p.flavors.length, 0))}<small>flavors</small>`;
+        document.getElementById('stat-checked').textContent = DB.products.map(p => p.checked).filter(Boolean).sort().pop() || '-';
         setCategory(DB.categories[0].id);
       } catch (err) {
         console.error('데이터 로딩 실패:', err);
@@ -628,33 +606,30 @@
       }
     }
     document.getElementById('tabs').addEventListener('click', e => { const b = e.target.closest('.tab'); if (b) setCategory(b.dataset.category); });
+    // 카드 안 클릭: 맛 칩(상세 영양정보) / 맛별 영양 '더보기' / 사진 슬라이드 화살표·점
+    const slideTo = (t, i) => { const n = t.children.length; t.scrollTo({ left: t.clientWidth * ((i + n) % n), behavior: 'smooth' }); };
     document.getElementById('product-grid').addEventListener('click', e => {
       const chip = e.target.closest('.chip');
-      if (!chip) return;
-      const root = chip.closest('.nutri');
-      root.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c === chip));
-      root.querySelectorAll('.nutri-panel').forEach(panel => { panel.hidden = panel.dataset.panel !== chip.dataset.panel; });
-    });
-    // 맛별 영양 '더보기': 4개를 넘는 맛 행을 펼치고 접음
-    document.getElementById('product-grid').addEventListener('click', e => {
-      const btn = e.target.closest('.more-btn');
-      if (!btn) return;
-      const open = btn.getAttribute('aria-expanded') !== 'true';
-      btn.closest('.flavor-list').querySelectorAll('.more-row').forEach(r => { r.hidden = !open; });
-      btn.setAttribute('aria-expanded', String(open));
-      btn.textContent = open ? '접기' : `더보기 (${btn.dataset.more})`;
-    });
-    // 슬라이드: 화살표·점 클릭, 스크롤(스와이프) 위치에 맞춰 점 갱신
-    const slideTo = (wrap, i) => { const t = wrap.querySelector('.slides'); const n = t.children.length; t.scrollTo({ left: t.clientWidth * ((i + n) % n), behavior: 'smooth' }); };
-    document.getElementById('product-grid').addEventListener('click', e => {
-      const wrap = e.target.closest('[data-image-wrap]');
-      if (!wrap) return;
-      const t = wrap.querySelector('.slides');
+      if (chip) {
+        const root = chip.closest('.nutri');
+        root.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c === chip));
+        root.querySelectorAll('.nutri-panel').forEach(panel => { panel.hidden = panel.dataset.panel !== chip.dataset.panel; });
+        return;
+      }
+      const more = e.target.closest('.more-btn');
+      if (more) {
+        const open = more.getAttribute('aria-expanded') !== 'true';
+        more.closest('.flavor-list').querySelectorAll('.more-row').forEach(r => { r.hidden = !open; });
+        more.setAttribute('aria-expanded', String(open));
+        more.textContent = open ? '접기' : `더보기 (${more.dataset.more})`;
+        return;
+      }
+      const t = e.target.closest('[data-image-wrap]')?.querySelector('.slides');
       if (!t) return;
       const cur = Math.round(t.scrollLeft / t.clientWidth);
-      if (e.target.closest('.slide-btn.prev')) slideTo(wrap, cur - 1);
-      else if (e.target.closest('.slide-btn.next')) slideTo(wrap, cur + 1);
-      else { const d = e.target.closest('.slide-dot'); if (d) slideTo(wrap, +d.dataset.slide); }
+      if (e.target.closest('.slide-btn.prev')) slideTo(t, cur - 1);
+      else if (e.target.closest('.slide-btn.next')) slideTo(t, cur + 1);
+      else { const d = e.target.closest('.slide-dot'); if (d) slideTo(t, +d.dataset.slide); }
     });
     document.getElementById('product-grid').addEventListener('scroll', e => {
       const t = e.target;
@@ -662,7 +637,8 @@
       const cur = Math.round(t.scrollLeft / t.clientWidth);
       t.closest('[data-image-wrap]').querySelectorAll('.slide-dot').forEach((d, i) => d.classList.toggle('on', i === cur));
     }, true);
-    document.getElementById('search').addEventListener('input', render);
+    let searchTimer;
+    document.getElementById('search').addEventListener('input', () => { clearTimeout(searchTimer); searchTimer = setTimeout(render, 120); });
     document.getElementById('sort').addEventListener('change', () => {
       const opt = sortOptions(catOf(activeCategory)).find(o => o.v === document.getElementById('sort').value);
       if (opt && opt.dir) sortDir = opt.dir;   // 기준을 바꾸면 그 기준의 자연스러운 방향으로 시작

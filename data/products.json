@@ -2,7 +2,7 @@
  "_generated": "이 파일은 data/products.xlsx에서 tools/build_data.py로 만들어집니다. 직접 고치지 말고 엑셀을 고치세요.",
  "site": {
   "help": "수치는 제품 페이지 표기 기준 · 모든 가격은 배송비 제외 · 가격과 재고는 변동 가능",
-  "footnote": "제품 수치와 표시 가격은 공식 판매 페이지 기준이며, 모든 가격은 배송비를 제외한 금액입니다. 카드의 1회·제품 전체 표는 카드에 표시된 기준 맛의 라벨 수치를 따르며, 각 맛의 수치는 맛별 1회 영양에서 확인할 수 있습니다. 맛별 영양 수치와 상세 영양정보는 제품 라벨(영양성분표)의 1회 섭취량 기준이며, 맛에 따라 다를 수 있습니다. 제품 전체의 단백질·탄수화물·지방은 (총 중량 ÷ 1회 섭취량 × 1회 수치)로 계산한 추정값입니다. NS PROTEIN 제품은 모두 공식 페이지에 품절이 표시되어 있어 가격은 참고용입니다. BSN 제품은 판매 중으로 확인했으며, 가격은 가장 작은 용량(회분) 기준이고 총 제공 횟수(회분)로 계산합니다. BSN 제품의 맛별 단백질은 상품 설명에 적힌 1회 단백질량을 기준 맛에만 넣었습니다. '확인 필요'로 표시된 항목은 공식 페이지에서 확인하지 못한 정보이며 추정하지 않았습니다."
+  "footnote": "제품 수치와 표시 가격은 공식 판매 페이지 기준이며, 모든 가격은 배송비를 제외한 금액입니다. 카드의 1회·제품 전체 표는 카드에 표시된 기준 맛의 라벨 수치를 따르며, 각 맛의 수치는 맛별 1회 영양에서 확인할 수 있습니다. 맛별 영양 수치와 상세 영양정보는 제품 라벨(영양성분표)의 1회 섭취량 기준이며, 맛에 따라 다를 수 있습니다. 제품 전체의 단백질·탄수화물·지방은 (총 중량 ÷ 1회 섭취량 × 1회 수치)로 계산한 추정값입니다. NS PROTEIN 제품은 모두 공식 페이지에 품절이 표시되어 있어 가격은 참고용입니다. BSN 제품은 판매 중으로 확인했으며, 용량(회분)별로 카드를 나누고 제품 전체 수치는 총 제공 횟수(회분)로 계산합니다. 마이프로틴 제품은 맛마다 가격이 달라 맛별 1회 영양 표에 맛별 가격을 함께 표시하며, 공식 페이지에 맛별 영양정보가 없는 맛은 페이지에 적힌 무맛 기준 수치를 넣었습니다. '확인 필요'로 표시된 항목은 공식 페이지에서 확인하지 못한 정보이며 추정하지 않았습니다."
  },
  "fields": {
   "protein": {
@@ -108,20 +108,6 @@
    "name": "프로틴 파우더",
    "label": "CATEGORY 01 / PROTEIN",
    "desc": "1회 단백질 함량과 영양 구성을 기준으로 비교",
-   "pills": [
-    [
-     "1회 섭취량 기준",
-     ""
-    ],
-    [
-     "맛별 영양",
-     ""
-    ],
-    [
-     "공식 페이지 품절 표시",
-     "warn"
-    ]
-   ],
    "empty": "단백질 원료와 맛별 함량을 기준으로 비교합니다.",
    "ref": "protein",
    "summary": [
@@ -177,16 +163,6 @@
    "name": "EAA",
    "label": "CATEGORY 02 / AMINO ACIDS",
    "desc": "총 EAA 함량과 아미노산 배합을 기준으로 비교",
-   "pills": [
-    [
-     "총 EAA 함량",
-     ""
-    ],
-    [
-     "아미노산 배합",
-     ""
-    ]
-   ],
    "empty": "총 EAA·BCAA·류신 함량, 감미료 및 맛 정보를 이곳에 정리합니다.",
    "ref": null,
    "summary": [],
@@ -198,16 +174,6 @@
    "name": "크레아틴",
    "label": "CATEGORY 03 / CREATINE",
    "desc": "크레아틴 종류와 유효 성분량을 기준으로 비교",
-   "pills": [
-    [
-     "유효 성분량",
-     ""
-    ],
-    [
-     "순도·검사 정보",
-     ""
-    ]
-   ],
    "empty": "크레아틴 종류, 1회 함량, 총 유효 성분량, 원료 및 품질 정보를 이곳에 정리합니다.",
    "ref": null,
    "summary": [],
@@ -219,16 +185,6 @@
    "name": "닭가슴살",
    "label": "CATEGORY 04 / HIGH-PROTEIN FOOD",
    "desc": "1팩 단백질 함량을 기준으로 비교",
-   "pills": [
-    [
-     "1팩 기준",
-     ""
-    ],
-    [
-     "나트륨·조리 편의",
-     ""
-    ]
-   ],
    "empty": "1팩 중량, 단백질·열량·나트륨, 맛, 조리 편의성을 기준으로 비교합니다.",
    "ref": null,
    "summary": [],
@@ -247,10 +203,10 @@
    "servings": null,
    "price": 41800,
    "images": [
-    "images/ns-deep.png",
-    "images/ns-grain.png",
-    "images/ns-cookie.png",
-    "images/ns-strawberry.png"
+    "images/ns-deep.webp",
+    "images/ns-grain.webp",
+    "images/ns-cookie.webp",
+    "images/ns-strawberry.webp"
    ],
    "source": "https://nsprotein.com/product/detail.html?product_no=197&cate_no=140&display_group=1",
    "checked": "2026.10.12",
@@ -467,9 +423,9 @@
    "servings": null,
    "price": 59800,
    "images": [
-    "images/ns-massbuildup-4kg.png",
-    "images/ns-massbuildup-cookie.png",
-    "images/ns-massbuildup-strawberry.png"
+    "images/ns-massbuildup-4kg.webp",
+    "images/ns-massbuildup-cookie.webp",
+    "images/ns-massbuildup-strawberry.webp"
    ],
    "source": "https://nsprotein.com/product/detail.html?product_no=342&cate_no=186&display_group=1",
    "checked": "2026.10.12",
@@ -581,7 +537,7 @@
    "servings": null,
    "price": 59800,
    "images": [
-    "images/ns-masswhey-2kg.png"
+    "images/ns-masswhey-2kg.webp"
    ],
    "source": "https://nsprotein.com/product/detail.html?product_no=215&cate_no=218&display_group=1",
    "checked": "2026.10.13",
@@ -633,7 +589,7 @@
    "servings": null,
    "price": 39800,
    "images": [
-    "images/ns-standard-2kg.png"
+    "images/ns-standard-2kg.webp"
    ],
    "source": "https://nsprotein.com/product/detail.html?product_no=355&cate_no=215&display_group=1",
    "checked": "2026.10.13",
@@ -697,9 +653,9 @@
    "servings": null,
    "price": 39800,
    "images": [
-    "images/ns-weight-deep.png",
-    "images/ns-weight-cookie.png",
-    "images/ns-weight-strawberry.png"
+    "images/ns-weight-deep.webp",
+    "images/ns-weight-cookie.webp",
+    "images/ns-weight-strawberry.webp"
    ],
    "source": "https://nsprotein.com/product/list.html?cate_no=168",
    "checked": "2026.10.13",
@@ -811,8 +767,8 @@
    "servings": null,
    "price": 45800,
    "images": [
-    "images/ns-balance-rich.png",
-    "images/ns-balance-cookie.png"
+    "images/ns-balance-rich.webp",
+    "images/ns-balance-cookie.webp"
    ],
    "source": "https://nsprotein.com/product/detail.html?product_no=397&cate_no=197&display_group=1",
    "checked": "2026.10.13",
@@ -918,10 +874,10 @@
    "servings": null,
    "price": 49800,
    "images": [
-    "images/ns-podae-grain.png",
-    "images/ns-podae-choco.png",
-    "images/ns-podae-cookie.png",
-    "images/ns-podae-strawberry.png"
+    "images/ns-podae-grain.webp",
+    "images/ns-podae-choco.webp",
+    "images/ns-podae-cookie.webp",
+    "images/ns-podae-strawberry.webp"
    ],
    "source": "https://nsprotein.com/product/detail.html?product_no=200&cate_no=186&display_group=1",
    "checked": "2026.10.13",
@@ -1148,7 +1104,7 @@
    "servings": null,
    "price": 38500,
    "images": [
-    "images/ns-whey125.png"
+    "images/ns-whey125.webp"
    ],
    "source": "https://nsprotein.com/product/detail.html?product_no=260&cate_no=186&display_group=1",
    "checked": "2026.10.13",
@@ -1241,7 +1197,7 @@
    "servings": null,
    "price": 39800,
    "images": [
-    "images/ns-blend-deep.png"
+    "images/ns-blend-deep.webp"
    ],
    "source": "https://nsprotein.com/product/detail.html?product_no=281&cate_no=186&display_group=1",
    "checked": "2026.10.13",
@@ -1329,10 +1285,10 @@
    "servings": 28,
    "price": 72690,
    "images": [
-    "images/bsn-s6-28-choc.png",
-    "images/bsn-s6-28-cookie.png",
-    "images/bsn-s6-28-straw.png",
-    "images/bsn-s6-28-vanilla.png"
+    "images/bsn-s6-28-choc.webp",
+    "images/bsn-s6-28-cookie.webp",
+    "images/bsn-s6-28-straw.webp",
+    "images/bsn-s6-28-vanilla.webp"
    ],
    "source": "https://www.bsn.co.kr/products/syntha-6-protein",
    "checked": "2026.10.13",
@@ -1492,8 +1448,8 @@
    "servings": 24,
    "price": 74760,
    "images": [
-    "images/bsn-iso-24-choc.png",
-    "images/bsn-iso-24-vanilla.png"
+    "images/bsn-iso-24-choc.webp",
+    "images/bsn-iso-24-vanilla.webp"
    ],
    "source": "https://www.bsn.co.kr/products/syntha-6-r-isolate",
    "checked": "2026.10.13",
@@ -1558,10 +1514,10 @@
    "servings": 28,
    "price": 60690,
    "images": [
-    "images/bsn-edge28-choc.png",
-    "images/bsn-edge28-cookie.png",
-    "images/bsn-edge28-straw.png",
-    "images/bsn-edge28-vanilla.png"
+    "images/bsn-edge28-choc.webp",
+    "images/bsn-edge28-cookie.webp",
+    "images/bsn-edge28-straw.webp",
+    "images/bsn-edge28-vanilla.webp"
    ],
    "source": "https://www.bsn.co.kr/products/syntha-6-r-edge",
    "checked": "2026.10.14",
@@ -1682,10 +1638,10 @@
    "servings": 25,
    "price": 71580,
    "images": [
-    "images/bsn-cs-german.png",
-    "images/bsn-cs-bday.png",
-    "images/bsn-cs-donut.png",
-    "images/bsn-cs-mint.png"
+    "images/bsn-cs-german.webp",
+    "images/bsn-cs-bday.webp",
+    "images/bsn-cs-donut.webp",
+    "images/bsn-cs-mint.webp"
    ],
    "source": "https://www.bsn.co.kr/products/syntha-6-coldstone-protein",
    "checked": "2026.10.14",
@@ -1812,10 +1768,10 @@
    "servings": 48,
    "price": 111050,
    "images": [
-    "images/bsn-s6-48-choc.png",
-    "images/bsn-s6-48-cake.png",
-    "images/bsn-s6-48-straw.png",
-    "images/bsn-s6-48-vanilla.png"
+    "images/bsn-s6-48-choc.webp",
+    "images/bsn-s6-48-cake.webp",
+    "images/bsn-s6-48-straw.webp",
+    "images/bsn-s6-48-vanilla.webp"
    ],
    "source": "https://www.bsn.co.kr/products/syntha-6-protein",
    "checked": "2026.10.14",
@@ -1975,8 +1931,8 @@
    "servings": 97,
    "price": 189080,
    "images": [
-    "images/bsn-s6-97-choc.png",
-    "images/bsn-s6-97-vanilla.png"
+    "images/bsn-s6-97-choc.webp",
+    "images/bsn-s6-97-vanilla.webp"
    ],
    "source": "https://www.bsn.co.kr/products/syntha-6-protein",
    "checked": "2026.10.14",
@@ -2065,11 +2021,11 @@
    "servings": 48,
    "price": 135360,
    "images": [
-    "images/bsn-iso-48-choc.png",
-    "images/bsn-iso-48-pbchoc.png",
-    "images/bsn-iso-48-pbcookie.png",
-    "images/bsn-iso-48-straw.png",
-    "images/bsn-iso-48-vanilla.png"
+    "images/bsn-iso-48-choc.webp",
+    "images/bsn-iso-48-pbchoc.webp",
+    "images/bsn-iso-48-pbcookie.webp",
+    "images/bsn-iso-48-straw.webp",
+    "images/bsn-iso-48-vanilla.webp"
    ],
    "source": "https://www.bsn.co.kr/products/syntha-6-r-isolate",
    "checked": "2026.10.14",
@@ -2176,10 +2132,10 @@
    "servings": 48,
    "price": 114750,
    "images": [
-    "images/bsn-edge48-choc.png",
-    "images/bsn-edge48-cookie.png",
-    "images/bsn-edge48-straw.png",
-    "images/bsn-edge48-vanilla.png"
+    "images/bsn-edge48-choc.webp",
+    "images/bsn-edge48-cookie.webp",
+    "images/bsn-edge48-straw.webp",
+    "images/bsn-edge48-vanilla.webp"
    ],
    "source": "https://www.bsn.co.kr/products/syntha-6-r-edge",
    "checked": "2026.10.14",
