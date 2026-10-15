@@ -191,7 +191,11 @@
     .more-btn { width:100%; margin-top:10px; padding:10px 0; background:transparent; border:1px solid var(--line); border-radius:10px; color:var(--muted); font:inherit; font-size:13px; cursor:pointer; transition:color .15s, border-color .15s; }
     .more-btn:hover { color:var(--text, #f2f4f3); border-color:#3a403d; }
     .ftable td.pcol { font-size:13px; font-weight:500; color:var(--muted); }
-    .base-note { margin-top:16px; padding-top:14px; border-top:1px solid var(--line-soft); font-size:12px; color:var(--muted); }
+    .key { margin-top:18px; padding:16px 0 18px; border-top:1px solid var(--line-soft); }
+    .key-label { font-size:12px; color:var(--muted); }
+    .key-num { margin-top:8px; font-size:48px; font-weight:750; line-height:1; letter-spacing:-.07em; color:var(--accent); font-variant-numeric:tabular-nums; }
+    .key-num small { font-size:16px; font-weight:600; letter-spacing:0; margin-left:4px; color:var(--muted); }
+    .key-num.na-text { font-size:24px; letter-spacing:-.04em; color:var(--muted); font-weight:650; }
     @media (max-width:480px) { .ftable td { font-size:14px; padding-left:8px; } .ftable td.pcol { font-size:12px; } .ftable tbody th { font-size:13px; } }
     .ftable td .na { font-size:12px; }
     .macro-box { border:1px solid #3b4633; background:linear-gradient(160deg,#192215,#101310); border-radius:12px; padding:14px 0 6px; }
@@ -473,7 +477,11 @@
       const anyData = flavors.some(f => hasData(f, cat));
       const first = Math.max(0, flavors.findIndex(f => hasData(f, cat)));
       const chips = anyData && flavors.length > 1 ? `<div class="chips" role="group" aria-label="맛 선택">${flavors.map((f, i) => `<button type="button" class="chip${i === first ? ' active' : ''}${hasData(f, cat) ? '' : ' nodata'}" data-panel="${i}">${esc(f.name)}</button>`).join('')}</div>` : '';
-      const baseNote = base ? `<div class="base-note">기준 맛 · ${esc(base.name)}</div>` : '';
+      const refVal = base && cat.ref ? base.values[cat.ref] : null;
+      const baseNote = cat.ref ? `<div class="key">
+              <div class="key-label">1회 ${esc(field(cat.ref).label)}${base ? ` · ${esc(base.name)}맛 기준` : ''}</div>
+              ${refVal != null ? `<div class="key-num">${fmt(refVal, cat.ref)}<small>${esc(field(cat.ref).unit)}</small></div>` : `<div class="key-num na-text">확인 필요</div>`}
+            </div>` : '';
       const matrix = `<table class="matrix">
               <thead><tr><th scope="col"><span class="sr">구분</span></th>${sum.map(k => `<th scope="col">${esc(field(k).label)}</th>`).join('')}<th scope="col">가격</th></tr></thead>
               <tbody>
