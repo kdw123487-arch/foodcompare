@@ -185,7 +185,7 @@
     .ftable { width:100%; border-collapse:collapse; }
     .ftable th, .ftable td { padding:11px 0; border-bottom:1px solid var(--line-soft); text-align:right; font-variant-numeric:tabular-nums; }
     .ftable thead th { padding:9px 0 7px; font-size:12px; color:var(--muted); font-weight:500; }
-    .ftable tbody th { text-align:left; font-size:14px; color:#c3c8c5; font-weight:400; }
+    .ftable tbody th { text-align:left; font-size:14px; color:#c3c8c5; font-weight:400; word-break:keep-all; line-height:1.35; padding-right:6px; }
     .ftable td { font-size:15px; font-weight:700; padding-left:10px; white-space:nowrap; }
     .ftable thead th:not(:first-child) { padding-left:10px; white-space:nowrap; }
     .more-btn { width:100%; margin-top:10px; padding:10px 0; background:transparent; border:1px solid var(--line); border-radius:10px; color:var(--muted); font:inherit; font-size:13px; cursor:pointer; transition:color .15s, border-color .15s; }
@@ -366,7 +366,8 @@
     // 1회 섭취량은 맛마다 다를 수 있어 맛 값이 있으면 그것을, 없으면 제품 값을 쓴다
     const servingOf = (p, f) => (f && f.serving) || p.serving || null;
     const servingsOf = (p, f) => p.servings || (servingOf(p, f) && p.weight ? p.weight / servingOf(p, f) : null);
-    const FLAVOR_ROWS = 4;   // 맛별 영양은 이 개수까지만 보이고 나머지는 '더보기'로 펼침
+    const FLAVOR_LIMIT = 4;  // 맛이 이 개수를 넘으면 '더보기'를 쓰고,
+    const FLAVOR_SHOWN = 3;  // 접힌 상태에서는 위쪽에 이 개수만 보임 (4개 이하면 전부 보임)
     const priceOf = (p, f) => (f && f.price) || p.price;
     const sizeText = p => (p.weight ? weightText(p.weight) : p.servings ? `${p.servings}회분` : '');
     const catOf = id => DB.categories.find(c => c.id === id);
@@ -493,9 +494,9 @@
               <div class="flavor-list-head">맛별 1회 영양<span>(${esc(field(sum[0]).unit)})</span></div>
               <table class="ftable">
                 <thead><tr><th scope="col"><span class="sr">맛</span></th>${sum.map(k => `<th scope="col">${esc(field(k).label)}</th>`).join('')}${pricesVary ? '<th scope="col">가격</th>' : ''}</tr></thead>
-                <tbody>${flavors.map((f, i) => `<tr${i >= FLAVOR_ROWS ? ' class="more-row" hidden' : ''}><th scope="row">${esc(f.name)}</th>${sum.map(k => `<td>${plain(f.values[k], k)}</td>`).join('')}${pricesVary ? `<td class="pcol">${num(priceOf(p, f))}</td>` : ''}</tr>`).join('')}</tbody>
+                <tbody>${flavors.map((f, i) => `<tr${flavors.length > FLAVOR_LIMIT && i >= FLAVOR_SHOWN ? ' class="more-row" hidden' : ''}><th scope="row">${esc(f.name)}</th>${sum.map(k => `<td>${plain(f.values[k], k)}</td>`).join('')}${pricesVary ? `<td class="pcol">${num(priceOf(p, f))}</td>` : ''}</tr>`).join('')}</tbody>
               </table>
-              ${flavors.length > FLAVOR_ROWS ? `<button type="button" class="more-btn" aria-expanded="false" data-more="${flavors.length - FLAVOR_ROWS}">더보기 (${flavors.length - FLAVOR_ROWS})</button>` : ''}
+              ${flavors.length > FLAVOR_LIMIT ? `<button type="button" class="more-btn" aria-expanded="false" data-more="${flavors.length - FLAVOR_SHOWN}">더보기 (${flavors.length - FLAVOR_SHOWN})</button>` : ''}
             </div>` : '';
       return `
         <article class="product-card" aria-labelledby="${titleId}">
