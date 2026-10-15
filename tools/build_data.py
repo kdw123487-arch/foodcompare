@@ -117,7 +117,7 @@ def main():
         label_to_key[fields[k]["label"]] = k
 
     # ---------- 카테고리 ----------
-    cat_cols = ["id", "이름", "라벨", "설명", "상단 표시", "빈 화면 안내", "대표지표 이름", "대표지표 기준 항목", "대표지표 단위", "요약 항목", "머리글 항목"]
+    cat_cols = ["id", "이름", "라벨", "설명", "상단 표시", "빈 화면 안내", "기준 항목", "요약 항목", "머리글 항목"]
     categories = []
     for i, d in table(wb, "카테고리", cat_cols, required=["id", "이름"])[0]:
         pills = []
@@ -126,12 +126,9 @@ def main():
             if p:
                 tone = "warn" if p.endswith(":warn") else ""
                 pills.append([p[: -len(":warn")].strip() if tone else p, tone])
-        metric = None
-        if d.get("대표지표 기준 항목"):
-            metric = {"label": d.get("대표지표 이름") or "", "per": d["대표지표 기준 항목"], "unit": d.get("대표지표 단위") or ""}
         categories.append({
             "id": d["id"], "name": d["이름"], "label": d.get("라벨") or "", "desc": d.get("설명") or "",
-            "pills": pills, "empty": d.get("빈 화면 안내") or "", "metric": metric,
+            "pills": pills, "empty": d.get("빈 화면 안내") or "", "ref": d.get("기준 항목") or None,
             "summary": split_keys(d.get("요약 항목")), "header": split_keys(d.get("머리글 항목")), "boxes": [],
         })
     cat_by_id = {c["id"]: c for c in categories}
@@ -258,8 +255,8 @@ def main():
     for c in categories:
         for k in c["summary"] + c["header"]:
             need(k, ("카테고리", f"'{c['id']}'의 요약/머리글 항목"))
-        if c["metric"]:
-            need(c["metric"]["per"], ("카테고리", f"'{c['id']}'의 대표지표 기준 항목"))
+        if c["ref"]:
+            need(c["ref"], ("카테고리", f"'{c['id']}'의 기준 항목"))
         for b in c["boxes"]:
             if b["type"] == "trio":
                 for col in b["columns"]:
