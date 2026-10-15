@@ -2305,6 +2305,286 @@
    "listNotes": {
     "blend": "표기 순서"
    }
+  },
+  {
+   "id": "my-impact-whey-250",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 프로틴 250g",
+   "weight": 250,
+   "serving": 30,
+   "servings": 8,
+   "price": 17900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-iw-fruit",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-iw-fruit",
+     "name": "골든 후르츠 믹스",
+     "values": {
+      "protein": 20,
+      "carb": 3.7,
+      "sugar": 1.9,
+      "fat": 1.7,
+      "satFat": 1,
+      "kcal": 111,
+      "sodium": 130
+     },
+     "serving": 30
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-impact-isolate-870",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 아이솔레이트 870g",
+   "weight": 870,
+   "serving": 29,
+   "servings": 30,
+   "price": 110900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-isolate/10530911/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-ii-tea",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-ii-tea",
+     "name": "흑당 밀크티",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 0.6,
+      "fat": 0.5,
+      "satFat": 0.1,
+      "kcal": 101,
+      "sodium": 220
+     },
+     "serving": 29
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-clear-whey-500",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "클리어 웨이 프로틴 500g",
+   "weight": 500,
+   "serving": 25,
+   "servings": 20,
+   "price": 64900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-cw-dragon",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-cw-dragon",
+     "name": "트로피컬 드래곤프루트",
+     "values": {
+      "protein": 19,
+      "carb": 2.5,
+      "sugar": 0.5,
+      "fat": 0.1,
+      "satFat": 0.1,
+      "kcal": 88
+     },
+     "serving": 25
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-weight-gainer-1kg",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "Impact 웨이트 게이너 1kg",
+   "weight": 1000,
+   "serving": 100,
+   "servings": 10,
+   "price": 52900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-weight-gainer/10529988/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-wg-tea",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPC",
+      "desc": "농축우유단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-wg-tea",
+     "name": "흑당 밀크티",
+     "values": {
+      "protein": 29,
+      "carb": 51,
+      "sugar": 6.8,
+      "fat": 5.5,
+      "satFat": 1.5,
+      "kcal": 372
+     },
+     "serving": 100
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-total-blend-2500",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "토탈 프로틴 블렌드 2.5kg",
+   "weight": 2500,
+   "serving": 30,
+   "servings": 83,
+   "price": 149900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/total-protein-blend/10529951/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-tb-plain",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPC",
+      "desc": "농축우유단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MC",
+      "desc": "미셀라카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "CC",
+      "desc": "칼슘카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "EA",
+      "desc": "난백분말",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-tb-plain",
+     "name": "플레인(무맛)",
+     "values": {
+      "protein": 25,
+      "carb": 1.2,
+      "sugar": 0.9,
+      "fat": 1.4,
+      "satFat": 0.4,
+      "kcal": 118,
+      "sodium": 50
+     },
+     "serving": 30
+    },
+    {
+     "id": "my-tb-choc",
+     "name": "초콜릿 스무디",
+     "values": {}
+    },
+    {
+     "id": "my-tb-mint",
+     "name": "초코 민트",
+     "values": {}
+    },
+    {
+     "id": "my-tb-straw",
+     "name": "딸기 크림",
+     "values": {}
+    },
+    {
+     "id": "my-tb-banana",
+     "name": "내추럴 바나나",
+     "values": {}
+    },
+    {
+     "id": "my-tb-vanilla",
+     "name": "바닐라",
+     "values": {}
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
   }
  ]
 }
