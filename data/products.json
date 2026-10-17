@@ -2,7 +2,7 @@
  "_generated": "이 파일은 data/products.xlsx에서 tools/build_data.py로 만들어집니다. 직접 고치지 말고 엑셀을 고치세요.",
  "site": {
   "help": "수치는 제품 페이지 표기 기준 · 모든 가격은 배송비 제외 · 가격과 재고는 변동 가능",
-  "footnote": "제품 수치와 표시 가격은 공식 판매 페이지 기준이며, 모든 가격은 배송비를 제외한 금액입니다. 카드의 1회·제품 전체 표는 카드에 표시된 기준 맛의 라벨 수치를 따르며, 각 맛의 수치는 맛별 1회 영양에서 확인할 수 있습니다. 맛별 영양 수치와 상세 영양정보는 제품 라벨(영양성분표)의 1회 섭취량 기준이며, 맛에 따라 다를 수 있습니다. 제품 전체의 단백질·탄수화물·지방은 (총 중량 ÷ 1회 섭취량 × 1회 수치)로 계산한 추정값입니다. NS PROTEIN 제품은 모두 공식 페이지에 품절이 표시되어 있어 가격은 참고용입니다. BSN 제품은 판매 중으로 확인했으며, 용량(회분)별로 카드를 나누고 제품 전체 수치는 총 제공 횟수(회분)로 계산합니다. 마이프로틴 제품은 맛마다 가격이 달라 맛별 1회 영양 표에 맛별 가격을 함께 표시하며, 공식 페이지에 맛별 영양정보가 없는 맛은 페이지에 적힌 무맛 기준 수치를 넣었습니다. '확인 필요'로 표시된 항목은 공식 페이지에서 확인하지 못한 정보이며 추정하지 않았습니다."
+  "footnote": "제품 수치와 표시 가격은 공식 판매 페이지 기준이며, 모든 가격은 배송비를 제외한 금액입니다. 카드의 1회·제품 전체 표는 카드에 표시된 기준 맛의 라벨 수치를 따르며, 각 맛의 수치는 맛별 1회 영양에서 확인할 수 있습니다. 맛별 영양 수치와 상세 영양정보는 제품 라벨(영양성분표)의 1회 섭취량 기준이며, 맛에 따라 다를 수 있습니다. 제품 전체의 단백질·탄수화물·지방은 (총 중량 ÷ 1회 섭취량 × 1회 수치)로 계산한 추정값입니다. NS PROTEIN 제품은 2026.10.17 공식 페이지에서 판매 중이며 가격이 같음을 다시 확인했습니다(일부 맛 옵션은 품절일 수 있습니다). BSN 제품은 판매 중으로 확인했으며, 용량(회분)별로 카드를 나누고 제품 전체 수치는 총 제공 횟수(회분)로 계산합니다. 마이프로틴 제품은 맛마다 가격이 달라 맛별 1회 영양 표에 맛별 가격을 함께 표시하며, 공식 페이지에 맛별 영양정보가 없는 맛은 페이지에 적힌 무맛 기준 수치를 넣었습니다. '확인 필요'로 표시된 항목은 공식 페이지에서 확인하지 못한 정보이며 추정하지 않았습니다."
  },
  "fields": {
   "protein": {
@@ -209,7 +209,7 @@
     "images/ns-strawberry.webp"
    ],
    "source": "https://nsprotein.com/product/detail.html?product_no=197&cate_no=140&display_group=1",
-   "checked": "2026.10.12",
+   "checked": "2026.10.17",
    "baseFlavor": "ns-deep",
    "lists": {
     "blend": [
@@ -428,7 +428,7 @@
     "images/ns-massbuildup-strawberry.webp"
    ],
    "source": "https://nsprotein.com/product/detail.html?product_no=342&cate_no=186&display_group=1",
-   "checked": "2026.10.12",
+   "checked": "2026.10.17",
    "baseFlavor": "ns-mass-rich",
    "lists": {
     "blend": [
@@ -540,7 +540,7 @@
     "images/ns-masswhey-2kg.webp"
    ],
    "source": "https://nsprotein.com/product/detail.html?product_no=215&cate_no=218&display_group=1",
-   "checked": "2026.10.13",
+   "checked": "2026.10.17",
    "baseFlavor": "ns-masswhey-grain",
    "lists": {
     "blend": [
@@ -592,7 +592,7 @@
     "images/ns-standard-2kg.webp"
    ],
    "source": "https://nsprotein.com/product/detail.html?product_no=355&cate_no=215&display_group=1",
-   "checked": "2026.10.13",
+   "checked": "2026.10.17",
    "baseFlavor": "ns-standard-mousse",
    "lists": {
     "blend": [
@@ -658,7 +658,7 @@
     "images/ns-weight-strawberry.webp"
    ],
    "source": "https://nsprotein.com/product/list.html?cate_no=168",
-   "checked": "2026.10.13",
+   "checked": "2026.10.17",
    "baseFlavor": "ns-weight-deep",
    "lists": {
     "blend": [
@@ -771,7 +771,7 @@
     "images/ns-balance-cookie.webp"
    ],
    "source": "https://nsprotein.com/product/detail.html?product_no=397&cate_no=197&display_group=1",
-   "checked": "2026.10.13",
+   "checked": "2026.10.17",
    "baseFlavor": "ns-balance-rich",
    "lists": {
     "blend": [
@@ -880,7 +880,7 @@
     "images/ns-podae-strawberry.webp"
    ],
    "source": "https://nsprotein.com/product/detail.html?product_no=200&cate_no=186&display_group=1",
-   "checked": "2026.10.13",
+   "checked": "2026.10.17",
    "baseFlavor": "ns-podae-choco",
    "lists": {},
    "flavors": [
@@ -1107,7 +1107,7 @@
     "images/ns-whey125.webp"
    ],
    "source": "https://nsprotein.com/product/detail.html?product_no=260&cate_no=186&display_group=1",
-   "checked": "2026.10.13",
+   "checked": "2026.10.17",
    "baseFlavor": "ns-whey125-choco",
    "lists": {},
    "flavors": [
@@ -1200,7 +1200,7 @@
     "images/ns-blend-deep.webp"
    ],
    "source": "https://nsprotein.com/product/detail.html?product_no=281&cate_no=186&display_group=1",
-   "checked": "2026.10.13",
+   "checked": "2026.10.17",
    "baseFlavor": "ns-blend-deep",
    "lists": {
     "blend": [
@@ -2300,7 +2300,7 @@
    "id": "my-weight-gainer-1kg",
    "category": "protein",
    "brand": "마이프로틴",
-   "name": "Impact 웨이트 게이너 1kg",
+   "name": "임팩트 웨이트 게이너 1kg",
    "weight": 1000,
    "serving": 100,
    "servings": 10,
