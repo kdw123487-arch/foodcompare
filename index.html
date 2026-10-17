@@ -136,11 +136,17 @@
     .brand-mini { color:var(--muted); font-size:12px; letter-spacing:.12em; text-transform:uppercase; }
     .card-size { color:#c3c8c5; font-size:13px; white-space:nowrap; }
     .product-name { font-size:21px; font-weight:750; margin-top:10px; margin-bottom:0; letter-spacing:-.05em; line-height:1.3; }
-    .sizes { display:flex; gap:6px; margin-top:12px; overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain; }
+    .sizes-wrap { position:relative; margin-top:12px; }
+    .sizes { display:flex; gap:6px; overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain; }
     .sizes::-webkit-scrollbar { display:none; }
-    .sizes.many { --l:0px; --r:0px; -webkit-mask-image:linear-gradient(90deg,transparent,#000 var(--l),#000 calc(100% - var(--r)),transparent); mask-image:linear-gradient(90deg,transparent,#000 var(--l),#000 calc(100% - var(--r)),transparent); }
-    .sizes.many:not(.start) { --l:26px; }
-    .sizes.many:not(.end) { --r:40px; }
+    .sizes { --l:0px; --r:0px; -webkit-mask-image:linear-gradient(90deg,transparent,#000 var(--l),#000 calc(100% - var(--r)),transparent); mask-image:linear-gradient(90deg,transparent,#000 var(--l),#000 calc(100% - var(--r)),transparent); }
+    .sizes:not(.start) { --l:44px; }
+    .sizes:not(.end) { --r:44px; }
+    /* 넘치는 쪽에만 화살표: 가로 휠·터치가 없어도 클릭으로 넘김 */
+    .sizes-nav { position:absolute; top:50%; transform:translateY(-50%); width:28px; height:28px; padding:0; border-radius:50%; border:1px solid #3a403d; background:#16191b; color:var(--text); font-size:16px; line-height:1; display:grid; place-items:center; cursor:pointer; transition:background-color .16s ease, border-color .16s ease; }
+    .sizes-nav:hover { background:#22272a; border-color:#59605b; }
+    .sizes-nav.prev { left:0; } .sizes-nav.next { right:0; }
+    .sizes.start ~ .sizes-nav.prev, .sizes.end ~ .sizes-nav.next { display:none; }
     .size-opt { flex:none; display:flex; flex-direction:column; align-items:flex-start; gap:2px; min-width:64px; padding:7px 11px 6px; border:1px solid var(--line); border-radius:10px; background:#101214; color:#c3c8c5; cursor:pointer; text-align:left; -webkit-tap-highlight-color:transparent; transition:border-color .16s ease, background-color .16s ease, color .16s ease; }
     .size-opt b { font-size:13px; font-weight:700; line-height:1.2; letter-spacing:-.02em; }
     .size-opt small { font-size:11px; color:var(--muted); line-height:1.2; font-variant-numeric:tabular-nums; white-space:nowrap; }
@@ -525,7 +531,7 @@
       const cat = catOf(p.category), flavors = p.flavors, base = p.base, sum = cat.summary;
       const titleId = `title-${l.id.replace(/[^a-z0-9_-]/gi, '-')}`;
       const slot = '<div class="slot" aria-hidden="true"></div>';
-      const sizeRow = multi ? `<div class="sizes${l.sizes.length > 4 ? ' many' : ''}" role="group" aria-label="용량 선택">${l.sizes.map(s => `<button type="button" class="size-opt" data-size="${esc(s.id)}" aria-pressed="${s === p}"><b>${esc(sizeText(s))}</b><small>${sizePrice(s)}</small></button>`).join('')}</div>` : slot;
+      const sizeRow = multi ? `<div class="sizes-wrap"><div class="sizes" role="group" aria-label="용량 선택">${l.sizes.map(s => `<button type="button" class="size-opt" data-size="${esc(s.id)}" aria-pressed="${s === p}"><b>${esc(sizeText(s))}</b><small>${sizePrice(s)}</small></button>`).join('')}</div><button type="button" class="sizes-nav prev" aria-label="이전 용량 보기" tabindex="-1">‹</button><button type="button" class="sizes-nav next" aria-label="다음 용량 보기" tabindex="-1">›</button></div>` : slot;
       const servingCount = servingsOf(p, base), servingG = servingOf(p, base);
       const pricesVary = flavors.some(f => priceOf(p, f) !== priceOf(p, flavors[0]));
       const anyData = flavors.some(f => f.hasData);
@@ -692,6 +698,20 @@
     // 카드 안 클릭: 맛 칩(상세 영양정보) / 맛별 영양 '더보기' / 사진 슬라이드 화살표·점
     const slideTo = (t, i) => { const n = t.children.length; t.scrollTo({ left: t.clientWidth * ((i + n) % n), behavior: 'smooth' }); };
     document.getElementById('product-grid').addEventListener('click', e => {
+      const nav = e.target.closest('.sizes-nav');
+      if (nav) {
+        // 가려진 다음(이전) 버튼이 화살표에 걸리지 않고 통째로 보이도록 그 버튼 기준으로 넘김
+        const row = nav.parentElement.querySelector('.sizes'), r = row.getBoundingClientRect(), pad = 38;
+        const chips = [...row.querySelectorAll('.size-opt')];
+        if (nav.classList.contains('next')) {
+          const hid = chips.find(ch => ch.getBoundingClientRect().right > r.right - pad);
+          if (hid) row.scrollBy({ left:hid.getBoundingClientRect().left - r.left - pad, behavior:'smooth' });
+        } else {
+          const hid = chips.filter(ch => ch.getBoundingClientRect().left < r.left + pad).pop();
+          if (hid) row.scrollBy({ left:hid.getBoundingClientRect().right - r.right + pad, behavior:'smooth' });
+        }
+        return;
+      }
       const opt = e.target.closest('.size-opt');
       if (opt) {
         const card = opt.closest('.product-card'), l = shown.get(card.dataset.lineup);
@@ -736,6 +756,8 @@
       const cur = Math.round(t.scrollLeft / t.clientWidth);
       t.closest('[data-image-wrap]').querySelectorAll('.slide-dot').forEach((d, i) => d.classList.toggle('on', i === cur));
     }, true);
+    let resizeTimer;
+    window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => document.querySelectorAll('.sizes').forEach(edges), 150); });
     let searchTimer;
     document.getElementById('search').addEventListener('input', () => { clearTimeout(searchTimer); searchTimer = setTimeout(render, 120); });
     document.getElementById('sort').addEventListener('change', () => {
