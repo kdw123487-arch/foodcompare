@@ -5,6 +5,7 @@
 이 스크립트로 JSON을 다시 만듭니다.   사용법:  python3 tools/build_data.py
 오류가 있으면 시트 이름과 줄 번호를 알려주고 JSON은 만들지 않습니다.
 """
+import hashlib
 import json
 import re
 import sys
@@ -167,6 +168,8 @@ def main():
         for im in images:
             if not (ROOT / im).exists():
                 err("제품", i, f"사진 파일을 찾을 수 없습니다: {im}")
+        # 사진 주소 끝에 파일 내용으로 만든 버전(?v=…)을 붙임: 사진을 바꾸면 주소가 바뀌어 모든 기기가 바로 새 사진을 받음
+        images = [f"{im}?v={hashlib.md5((ROOT / im).read_bytes()).hexdigest()[:8]}" if (ROOT / im).exists() else im for im in images]
         p = {
             "id": pid, "category": d.get("카테고리"), "brand": d.get("브랜드") or "", "name": d["제품명"],
             "weight": to_num(d.get("총중량(g)"), "제품", i, "총중량(g)"),
