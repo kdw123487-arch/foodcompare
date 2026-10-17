@@ -150,7 +150,7 @@ def main():
         cat_by_id[cid]["boxes"].append(box)
 
     # ---------- 제품 ----------
-    p_cols = ["제품id", "카테고리", "브랜드", "제품명", "총중량(g)", "1회섭취량(g)", "총제공횟수(회)", "가격(원)", "이미지", "출처", "확인일", "기준맛"]
+    p_cols = ["제품id", "카테고리", "브랜드", "제품명", "총중량(g)", "1회섭취량(g)", "총제공횟수(회)", "가격(원)", "이미지", "출처", "확인일", "기준맛", "라인업"]
     products, prod_by_id = [], {}
     for i, d in table(wb, "제품", p_cols, required=["제품id", "카테고리", "제품명"])[0]:
         pid = d.get("제품id")
@@ -176,6 +176,9 @@ def main():
             "images": images, "source": d.get("출처") or "", "checked": str(checked) if checked else "",
             "baseFlavor": d.get("기준맛"), "lists": {}, "flavors": [],
         }
+        if d.get("라인업"):
+            p["lineup"] = str(d["라인업"])   # 같은 라인업(무게만 다른 같은 제품)은 사이트에서 카드 하나로 묶임
+
         products.append(p)
         prod_by_id[pid] = p
 

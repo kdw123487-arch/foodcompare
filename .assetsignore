@@ -9,3 +9,6 @@ node_modules
 # 데이터 원본(엑셀)과 변환 스크립트는 저장소에만 두고 사이트에는 올리지 않음
 tools
 data/products.xlsx
+
+# 롤백용 백업 (저장소에만 보관)
+backup

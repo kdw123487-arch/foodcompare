@@ -120,6 +120,18 @@
     .brand-mini { color:var(--muted); font-size:12px; letter-spacing:.12em; text-transform:uppercase; }
     .card-size { color:#c3c8c5; font-size:13px; white-space:nowrap; }
     .product-name { font-size:21px; font-weight:750; margin:10px 0 0; letter-spacing:-.05em; line-height:1.3; }
+    .sizes { display:flex; gap:6px; margin-top:12px; overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain; }
+    .sizes::-webkit-scrollbar { display:none; }
+    .sizes.many { --l:0px; --r:0px; -webkit-mask-image:linear-gradient(90deg,transparent,#000 var(--l),#000 calc(100% - var(--r)),transparent); mask-image:linear-gradient(90deg,transparent,#000 var(--l),#000 calc(100% - var(--r)),transparent); }
+    .sizes.many:not(.start) { --l:26px; }
+    .sizes.many:not(.end) { --r:40px; }
+    .size-opt { flex:none; display:flex; flex-direction:column; align-items:flex-start; gap:2px; min-width:64px; padding:7px 11px 6px; border:1px solid var(--line); border-radius:10px; background:#101214; color:#c3c8c5; cursor:pointer; text-align:left; -webkit-tap-highlight-color:transparent; transition:border-color .16s ease, background-color .16s ease, color .16s ease; }
+    .size-opt b { font-size:13px; font-weight:700; line-height:1.2; letter-spacing:-.02em; }
+    .size-opt small { font-size:11px; color:var(--muted); line-height:1.2; font-variant-numeric:tabular-nums; white-space:nowrap; }
+    .size-opt:hover { border-color:#59605b; color:var(--text); }
+    .size-opt[aria-pressed="true"] { border-color:rgba(198,243,107,.55); background:rgba(198,243,107,.08); color:var(--accent); }
+    .size-opt[aria-pressed="true"] small { color:#a9c27a; }
+    .size-opt:focus-visible { outline:2px solid var(--accent); outline-offset:-2px; }
     .sr { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
     .matrix { width:100%; border-collapse:collapse; border-top:1px solid var(--line-soft); }
     .matrix th, .matrix td { padding:12px 0; text-align:right; border-bottom:1px solid var(--line-soft); font-variant-numeric:tabular-nums; }
@@ -348,6 +360,7 @@
     const sizeText = p => (p.weight ? weightText(p.weight) : p.servings ? `${p.servings}회분` : '');
     // 제목 끝의 용량 표기(250g, 1.8kg, 28회분, 5kg (2×2.5kg))를 뺀 이름 = 같은 제품 묶음
     const baseName = name => name.replace(/\s*\d+(?:\.\d+)?\s*(?:kg|g|회분)(?:\s*\([^)]*\))?\s*$/i, '').trim();
+    const tasteName = n => (/맛$/.test(n) ? n : `${n}맛`);   // '초코' → '초코맛', '무맛' → '무맛'
     const catOf = id => DB.categories.find(c => c.id === id);
 
     // ---- 항목 사전: 이름·단위·소수 자릿수는 데이터의 fields에서 ----
@@ -374,6 +387,36 @@
         p.flavors.forEach(f => { f.hasData = Boolean(cat) && cat.dataFields.some(k => f.values[k] != null); });
       });
     }
+    // ---- 라인업: 무게만 다른 같은 제품(엑셀 '라인업' 칸이 같은 행)을 카드 하나로 묶고, 용량 버튼으로 바꿔 본다 ----
+    let LINEUPS = [];
+    const chosen = new Map();   // 라인업id → 사용자가 고른 용량(제품id)
+    // 기본 용량 = 맛이 가장 많은 용량(같으면 가벼운 쪽)
+    const defaultSize = sizes => sizes.reduce((a, b) => (b.flavors.length > a.flavors.length ? b : a), sizes[0]);
+    const sel = l => l.sizes.find(s => s.id === chosen.get(l.id)) || defaultSize(l.sizes);
+    function groupLineups() {
+      const map = new Map();
+      DB.products.forEach(p => {
+        const key = p.lineup ? `${p.category}|${p.lineup}` : `id|${p.id}`;
+        if (!map.has(key)) map.set(key, { id:p.id, name:p.lineup || p.name, brand:p.brand, category:p.category, sizes:[] });
+        map.get(key).sizes.push(p);
+      });
+      LINEUPS = [...map.values()];
+      LINEUPS.forEach(l => l.sizes.sort((x, y) => (x.weight || Infinity) - (y.weight || Infinity)));
+    }
+    // 용량 버튼 줄: 양 끝 흐림 표시, 고른 용량이 보이도록 가운데로
+    const edges = row => { row.classList.toggle('start', row.scrollLeft <= 2); row.classList.toggle('end', row.scrollLeft + row.clientWidth >= row.scrollWidth - 2); };
+    const centerSize = row => {
+      const on = row.querySelector('[aria-pressed="true"]');
+      if (on) { const r = row.getBoundingClientRect(), o = on.getBoundingClientRect(); row.scrollLeft += (o.left - r.left) - (r.width - o.width) / 2; }
+      edges(row);
+    };
+    // 용량 버튼 아래 가격: 그 용량의 최저가(맛마다 가격이 다르면 '~')
+    const sizePrice = s => {
+      const ps = s.flavors.map(f => priceOf(s, f)).filter(Boolean);
+      if (!ps.length) return '';
+      const lo = Math.min(...ps);
+      return `${num(lo)}원${ps.some(x => x !== lo) ? '~' : ''}`;
+    };
     // 상세 영양정보 박스에 쓰이는 항목(카드 위 큰 숫자로 보이는 기준 항목은 제외) 중 하나라도 값이 있으면 '데이터 있음'
     const boxFields = cat => {
       const s = new Set(cat.header);
@@ -413,9 +456,9 @@
     }
     function panelHtml(f, i, first, p, cat) {
       const hidden = i === first ? '' : ' hidden';
-      if (!f.hasData) return `<div class="nutri-panel" data-panel="${i}"${hidden}><p class="missing">${esc(f.name)}맛의 영양 성분표를 아직 확인하지 못했습니다.</p></div>`;
+      if (!f.hasData) return `<div class="nutri-panel" data-panel="${i}"${hidden}><p class="missing">${esc(tasteName(f.name))}의 영양 성분표를 아직 확인하지 못했습니다.</p></div>`;
       const bits = cat.header.filter(k => f.values[k] != null).map(k => `${fmt(f.values[k], k)}${esc(field(k).unit)}`);
-      const head = [`${esc(f.name)}맛`, servingOf(p, f) ? `1회 ${servingOf(p, f)}g` : null, ...bits].filter(Boolean).join(' · ');
+      const head = [esc(tasteName(f.name)), servingOf(p, f) ? `1회 ${servingOf(p, f)}g` : null, ...bits].filter(Boolean).join(' · ');
       const body = cat.boxes.map(b => (b.type === 'trio' ? trioHtml(b, f, head) : b.type === 'sum' ? sumHtml(b, f) : listHtml(b, p, f))).join('\n          ');
       return `<div class="nutri-panel" data-panel="${i}"${hidden}>
           ${body}
@@ -449,9 +492,11 @@
       return `<div class="card-foot">${shop}${p.checked ? `<span class="shop-note">확인일 ${esc(p.checked)}</span>` : ''}</div>`;
     };
 
-    function cardTemplate(p) {
+    function cardTemplate(l) {
+      const p = sel(l), multi = l.sizes.length > 1;
       const cat = catOf(p.category), flavors = p.flavors, base = p.base, sum = cat.summary;
-      const titleId = `title-${p.id.replace(/[^a-z0-9_-]/gi, '-')}`;
+      const titleId = `title-${l.id.replace(/[^a-z0-9_-]/gi, '-')}`;
+      const sizeRow = multi ? `<div class="sizes${l.sizes.length > 4 ? ' many' : ''}" role="group" aria-label="용량 선택">${l.sizes.map(s => `<button type="button" class="size-opt" data-size="${esc(s.id)}" aria-pressed="${s === p}"><b>${esc(sizeText(s))}</b><small>${sizePrice(s)}</small></button>`).join('')}</div>` : '';
       const servingCount = servingsOf(p, base), servingG = servingOf(p, base);
       const pricesVary = flavors.some(f => priceOf(p, f) !== priceOf(p, flavors[0]));
       const anyData = flavors.some(f => f.hasData);
@@ -459,7 +504,7 @@
       const chips = anyData && flavors.length > 1 ? `<div class="chips" role="group" aria-label="맛 선택">${flavors.map((f, i) => `<button type="button" class="chip${i === first ? ' active' : ''}${f.hasData ? '' : ' nodata'}" data-panel="${i}">${esc(f.name)}</button>`).join('')}</div>` : '';
       const refVal = base && cat.ref ? base.values[cat.ref] : null;
       const baseNote = cat.ref ? `<div class="key">
-              <div class="key-label">1회 ${esc(field(cat.ref).label)}${base ? ` · ${esc(base.name)}맛 기준` : ''}</div>
+              <div class="key-label">1회 ${esc(field(cat.ref).label)}${base ? ` · ${esc(tasteName(base.name))} 기준` : ''}</div>
               ${refVal != null ? `<div class="key-num">${fmt(refVal, cat.ref)}<small>${esc(field(cat.ref).unit)}</small></div>` : `<div class="key-num na-text">확인 필요</div>`}
             </div>` : '';
       const matrix = `<table class="matrix">
@@ -478,14 +523,15 @@
               ${flavors.length > FLAVOR_LIMIT ? `<button type="button" class="more-btn" aria-expanded="false" data-more="${flavors.length - FLAVOR_SHOWN}">더보기 (${flavors.length - FLAVOR_SHOWN})</button>` : ''}
             </div>` : '';
       return `
-        <article class="product-card" aria-labelledby="${titleId}">
+        <article class="product-card" data-lineup="${esc(l.id)}" aria-labelledby="${titleId}">
           <div class="product-image${(p.images || []).length ? '' : ' failed'}" data-image-wrap>
             ${imageHtml(p)}
             <div class="image-fallback"><strong>${esc((p.brand || '').split(' ')[0])}</strong><span>PRODUCT IMAGE</span></div>
           </div>
           <div class="card-body">
-            <div class="card-meta"><span class="brand-mini">${esc(p.brand)}</span><span class="card-size">${[sizeText(p), `${flavors.length}가지 맛`].filter(Boolean).join(' · ')}</span></div>
-            <h3 id="${titleId}" class="product-name">${esc(p.name)}</h3>
+            <div class="card-meta"><span class="brand-mini">${esc(p.brand)}</span><span class="card-size">${[multi ? `${l.sizes.length}가지 용량` : sizeText(p), `${flavors.length}가지 맛`].filter(Boolean).join(' · ')}</span></div>
+            <h3 id="${titleId}" class="product-name">${esc(l.name)}</h3>
+            ${sizeRow}
             ${baseNote}
             ${matrix}
             ${flavorTable}
@@ -531,7 +577,7 @@
     let activeBrand = 'all';
     function renderBrands() {
       const el = document.getElementById('brand-filter');
-      const inCat = DB.products.filter(p => p.category === activeCategory);
+      const inCat = LINEUPS.filter(l => l.category === activeCategory);
       const brands = [...new Set(inCat.map(p => p.brand))];
       if (activeBrand !== 'all' && !brands.includes(activeBrand)) activeBrand = 'all';
       if (brands.length < 2) { el.innerHTML = ''; el.dataset.sig = ''; return; }
@@ -544,6 +590,7 @@
       const chip = (v, label, n) => `<button type="button" class="brand-chip" data-brand="${esc(v)}" aria-pressed="${activeBrand === v}">${esc(label)}<span class="count">${String(n).padStart(2, '0')}</span></button>`;
       el.innerHTML = `${chip('all', '전체', inCat.length)}${brands.map(b => chip(b, b, inCat.filter(p => p.brand === b).length)).join('')}`;
     }
+    let shown = new Map();   // 지금 화면의 라인업(검색으로 맛이 걸러진 상태) — 용량 버튼을 누르면 이걸로 그 카드만 다시 그림
     function render() {
       const meta = catOf(activeCategory);
       document.getElementById('banner-label').textContent = meta.label;
@@ -553,15 +600,17 @@
       const query = document.getElementById('search').value.trim().toLowerCase();
       const sort = document.getElementById('sort').value;
       const per = meta.ref || null;
-      let list = DB.products
-        .filter(p => p.category === activeCategory && (activeBrand === 'all' || p.brand === activeBrand))
-        .map(p => ({ ...p, flavors:p.flavors.filter(f => `${p.name} ${f.name} ${p.brand}`.toLowerCase().includes(query)) }))
-        .filter(p => p.flavors.length > 0);
+      let list = LINEUPS
+        .filter(l => l.category === activeCategory && (activeBrand === 'all' || l.brand === activeBrand))
+        .map(l => ({ ...l, sizes:l.sizes
+          .map(p => ({ ...p, flavors:p.flavors.filter(f => `${l.name} ${p.name} ${f.name} ${p.brand}`.toLowerCase().includes(query)) }))
+          .filter(p => p.flavors.length > 0) }))
+        .filter(l => l.sizes.length > 0);
       const sortVal = {
-        per: p => (p.base ? p.base.values[per] : null),
-        price: p => priceOf(p, p.base),
-        weight: p => p.weight,
-        default: p => baseName(p.name)   // 기본 순서 = 제품 제목 글자순(가나다·ABC), 같은 제품은 아래에서 가벼운 순
+        per: l => (sel(l).base ? sel(l).base.values[per] : null),
+        price: l => priceOf(sel(l), sel(l).base),
+        weight: l => sel(l).weight,
+        default: l => baseName(l.name)   // 기본 순서 = 제품 제목 글자순(가나다·ABC), 같은 제품은 아래에서 가벼운 순
       }[sort];
       if (sortVal) {
         const sign = sort === 'default' || sortDir === 'asc' ? 1 : -1;
@@ -571,12 +620,14 @@
           if (x == null) return 1;            // 값이 없는 제품은 방향과 상관없이 맨 뒤
           if (y == null) return -1;
           const d = sign * (typeof x === 'string' ? x.localeCompare(y, 'ko', { numeric:true }) : x - y);
-          return d || (sort === 'default' ? (a.weight || Infinity) - (b.weight || Infinity) : 0);
+          return d || (sort === 'default' ? (sel(a).weight || Infinity) - (sel(b).weight || Infinity) : 0);
         });
       }
       const grid = document.getElementById('product-grid');
       grid.classList.toggle('single-product', list.length === 1);
+      shown = new Map(list.map(l => [l.id, l]));
       grid.innerHTML = list.length ? list.map(cardTemplate).join('') : emptyTemplate(meta, Boolean(query));
+      grid.querySelectorAll('.sizes').forEach(centerSize);
       document.querySelectorAll('.tab').forEach(btn => {
         const active = btn.dataset.category === activeCategory;
         btn.classList.toggle('active', active);
@@ -592,12 +643,13 @@
         if (!res.ok) throw new Error('HTTP ' + res.status);
         DB = await res.json();
         prepare();
+        groupLineups();
         document.getElementById('section-help').textContent = DB.site.help || '';
         document.getElementById('footnote-text').textContent = DB.site.footnote || '';
         const pad = n => String(n).padStart(2, '0');
-        document.getElementById('tabs').innerHTML = DB.categories.map(c => `<button class="tab" role="tab" aria-selected="false" data-category="${esc(c.id)}">${esc(c.name)} <span class="count">${pad(DB.products.filter(p => p.category === c.id).length)}</span></button>`).join('');
-        document.getElementById('stat-products').innerHTML = `${pad(DB.products.length)}<small>products</small>`;
-        document.getElementById('stat-flavors').innerHTML = `${pad(DB.products.reduce((t, p) => t + p.flavors.length, 0))}<small>flavors</small>`;
+        document.getElementById('tabs').innerHTML = DB.categories.map(c => `<button class="tab" role="tab" aria-selected="false" data-category="${esc(c.id)}">${esc(c.name)} <span class="count">${pad(LINEUPS.filter(l => l.category === c.id).length)}</span></button>`).join('');
+        document.getElementById('stat-products').innerHTML = `${pad(LINEUPS.length)}<small>products</small>`;
+        document.getElementById('stat-flavors').innerHTML = `${pad(LINEUPS.reduce((t, l) => t + new Set(l.sizes.flatMap(s => s.flavors.map(f => f.name))).size, 0))}<small>flavors</small>`;
         document.getElementById('stat-checked').textContent = DB.products.map(p => p.checked).filter(Boolean).sort().pop() || '-';
         setCategory(DB.categories[0].id);
       } catch (err) {
@@ -609,6 +661,21 @@
     // 카드 안 클릭: 맛 칩(상세 영양정보) / 맛별 영양 '더보기' / 사진 슬라이드 화살표·점
     const slideTo = (t, i) => { const n = t.children.length; t.scrollTo({ left: t.clientWidth * ((i + n) % n), behavior: 'smooth' }); };
     document.getElementById('product-grid').addEventListener('click', e => {
+      const opt = e.target.closest('.size-opt');
+      if (opt) {
+        const card = opt.closest('.product-card'), l = shown.get(card.dataset.lineup);
+        if (!l || opt.getAttribute('aria-pressed') === 'true') return;
+        chosen.set(l.id, opt.dataset.size);
+        const open = card.querySelector('.nutri').open, scroll = card.querySelector('.sizes').scrollLeft;
+        card.outerHTML = cardTemplate(l);
+        const fresh = document.querySelector(`.product-card[data-lineup="${CSS.escape(l.id)}"]`);
+        fresh.querySelector('.nutri').open = open;
+        const row = fresh.querySelector('.sizes');
+        row.scrollLeft = scroll;
+        edges(row);
+        fresh.querySelector(`.size-opt[data-size="${CSS.escape(opt.dataset.size)}"]`).focus({ preventScroll:true });
+        return;
+      }
       const chip = e.target.closest('.chip');
       if (chip) {
         const root = chip.closest('.nutri');
@@ -633,6 +700,7 @@
     });
     document.getElementById('product-grid').addEventListener('scroll', e => {
       const t = e.target;
+      if (t.classList && t.classList.contains('sizes')) { edges(t); return; }
       if (!t.classList || !t.classList.contains('slides')) return;
       const cur = Math.round(t.scrollLeft / t.clientWidth);
       t.closest('[data-image-wrap]').querySelectorAll('.slide-dot').forEach((d, i) => d.classList.toggle('on', i === cur));

@@ -1,0 +1,3568 @@
+{
+ "_generated": "이 파일은 data/products.xlsx에서 tools/build_data.py로 만들어집니다. 직접 고치지 말고 엑셀을 고치세요.",
+ "site": {
+  "help": "수치는 제품 페이지 표기 기준 · 모든 가격은 배송비 제외 · 가격과 재고는 변동 가능",
+  "footnote": "제품 수치와 표시 가격은 공식 판매 페이지 기준이며, 모든 가격은 배송비를 제외한 금액입니다. 카드의 1회·제품 전체 표는 카드에 표시된 기준 맛의 라벨 수치를 따르며, 각 맛의 수치는 맛별 1회 영양에서 확인할 수 있습니다. 맛별 영양 수치와 상세 영양정보는 제품 라벨(영양성분표)의 1회 섭취량 기준이며, 맛에 따라 다를 수 있습니다. 제품 전체의 단백질·탄수화물·지방은 (총 중량 ÷ 1회 섭취량 × 1회 수치)로 계산한 추정값입니다. NS PROTEIN 제품은 모두 공식 페이지에 품절이 표시되어 있어 가격은 참고용입니다. BSN 제품은 판매 중으로 확인했으며, 용량(회분)별로 카드를 나누고 제품 전체 수치는 총 제공 횟수(회분)로 계산합니다. 마이프로틴 제품은 맛마다 가격이 달라 맛별 1회 영양 표에 맛별 가격을 함께 표시하며, 공식 페이지에 맛별 영양정보가 없는 맛은 페이지에 적힌 무맛 기준 수치를 넣었습니다. '확인 필요'로 표시된 항목은 공식 페이지에서 확인하지 못한 정보이며 추정하지 않았습니다."
+ },
+ "fields": {
+  "protein": {
+   "label": "단백질",
+   "unit": "g",
+   "dec": [
+    1,
+    2
+   ]
+  },
+  "carb": {
+   "label": "탄수화물",
+   "unit": "g",
+   "dec": [
+    1,
+    2
+   ]
+  },
+  "sugar": {
+   "label": "당류",
+   "unit": "g",
+   "dec": [
+    1,
+    2
+   ]
+  },
+  "fat": {
+   "label": "지방",
+   "unit": "g",
+   "dec": [
+    1,
+    2
+   ]
+  },
+  "transFat": {
+   "label": "트랜스지방",
+   "unit": "g",
+   "dec": [
+    1,
+    2
+   ]
+  },
+  "satFat": {
+   "label": "포화지방",
+   "unit": "g",
+   "dec": [
+    1,
+    2
+   ]
+  },
+  "kcal": {
+   "label": "열량",
+   "unit": "kcal",
+   "dec": [
+    0,
+    0
+   ]
+  },
+  "leucine": {
+   "label": "로이신",
+   "unit": "mg",
+   "dec": [
+    0,
+    0
+   ]
+  },
+  "isoleucine": {
+   "label": "이소로이신",
+   "unit": "mg",
+   "dec": [
+    0,
+    0
+   ]
+  },
+  "valine": {
+   "label": "발린",
+   "unit": "mg",
+   "dec": [
+    0,
+    0
+   ]
+  },
+  "cholesterol": {
+   "label": "콜레스테롤",
+   "unit": "mg",
+   "dec": [
+    1,
+    1
+   ]
+  },
+  "sodium": {
+   "label": "나트륨",
+   "unit": "mg",
+   "dec": [
+    1,
+    1
+   ]
+  }
+ },
+ "categories": [
+  {
+   "id": "protein",
+   "name": "프로틴 파우더",
+   "label": "CATEGORY 01 / PROTEIN",
+   "desc": "1회 단백질 함량과 영양 구성을 기준으로 비교",
+   "empty": "단백질 원료와 맛별 함량을 기준으로 비교합니다.",
+   "ref": "protein",
+   "summary": [
+    "protein",
+    "carb",
+    "fat"
+   ],
+   "header": [
+    "kcal"
+   ],
+   "boxes": [
+    {
+     "type": "trio",
+     "columns": [
+      {
+       "field": "protein",
+       "subs": []
+      },
+      {
+       "field": "carb",
+       "subs": [
+        "sugar"
+       ]
+      },
+      {
+       "field": "fat",
+       "subs": [
+        "satFat",
+        "transFat"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "sum",
+     "title": "BCAA",
+     "parts": [
+      "leucine",
+      "isoleucine",
+      "valine"
+     ]
+    },
+    {
+     "type": "list",
+     "title": "단백질 배합",
+     "note": "함량 많은 순",
+     "source": "blend"
+    }
+   ]
+  },
+  {
+   "id": "eaa",
+   "name": "EAA",
+   "label": "CATEGORY 02 / AMINO ACIDS",
+   "desc": "총 EAA 함량과 아미노산 배합을 기준으로 비교",
+   "empty": "총 EAA·BCAA·류신 함량, 감미료 및 맛 정보를 이곳에 정리합니다.",
+   "ref": null,
+   "summary": [],
+   "header": [],
+   "boxes": []
+  },
+  {
+   "id": "creatine",
+   "name": "크레아틴",
+   "label": "CATEGORY 03 / CREATINE",
+   "desc": "크레아틴 종류와 유효 성분량을 기준으로 비교",
+   "empty": "크레아틴 종류, 1회 함량, 총 유효 성분량, 원료 및 품질 정보를 이곳에 정리합니다.",
+   "ref": null,
+   "summary": [],
+   "header": [],
+   "boxes": []
+  },
+  {
+   "id": "chicken",
+   "name": "닭가슴살",
+   "label": "CATEGORY 04 / HIGH-PROTEIN FOOD",
+   "desc": "1팩 단백질 함량을 기준으로 비교",
+   "empty": "1팩 중량, 단백질·열량·나트륨, 맛, 조리 편의성을 기준으로 비교합니다.",
+   "ref": null,
+   "summary": [],
+   "header": [],
+   "boxes": []
+  }
+ ],
+ "products": [
+  {
+   "id": "ns-whey-1kg",
+   "category": "protein",
+   "brand": "NS PROTEIN",
+   "name": "NS 웨이 프로틴 1kg",
+   "weight": 1000,
+   "serving": 30,
+   "servings": null,
+   "price": 41800,
+   "images": [
+    "images/ns-deep.webp",
+    "images/ns-grain.webp",
+    "images/ns-cookie.webp",
+    "images/ns-strawberry.webp"
+   ],
+   "source": "https://nsprotein.com/product/detail.html?product_no=197&cate_no=140&display_group=1",
+   "checked": "2026.10.12",
+   "baseFlavor": "ns-deep",
+   "lists": {
+    "blend": [
+     {
+      "name": "SPI",
+      "desc": "분리대두단백 · 중국산",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPC",
+      "desc": "농축유청단백 · 미국산",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPI",
+      "desc": "분리우유단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPC",
+      "desc": "농축우유단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MC",
+      "desc": "미셀라카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "ns-deep",
+     "name": "딥초코",
+     "values": {
+      "protein": 20.6,
+      "carb": 5.1,
+      "sugar": 0.2,
+      "fat": 0.9,
+      "transFat": 0,
+      "satFat": 0.3,
+      "kcal": 111,
+      "leucine": 1668,
+      "isoleucine": 918,
+      "valine": 969,
+      "cholesterol": 7.8,
+      "sodium": 217.9
+     }
+    },
+    {
+     "id": "ns-grain",
+     "name": "곡물",
+     "values": {
+      "protein": 21.5,
+      "carb": 4.9,
+      "sugar": 0.45,
+      "fat": 1.14,
+      "transFat": 0,
+      "satFat": 0.39,
+      "kcal": 116,
+      "leucine": 1941,
+      "isoleucine": 1018,
+      "valine": 997
+     },
+     "lists": {
+      "blend": [
+       {
+        "name": "ISP",
+        "desc": "분리대두단백",
+        "value": 56.1,
+        "unit": "%"
+       },
+       {
+        "name": "WPC",
+        "desc": "농축유청단백",
+        "value": 43.9,
+        "unit": "%"
+       }
+      ]
+     },
+     "listNotes": {
+      "blend": "함량 많은 순"
+     }
+    },
+    {
+     "id": "ns-cookie",
+     "name": "쿠키앤크림",
+     "values": {
+      "protein": 20.1,
+      "carb": 6.7,
+      "sugar": 2.1,
+      "fat": 0.9,
+      "transFat": 0,
+      "satFat": 0.3,
+      "kcal": 114,
+      "leucine": 1772,
+      "isoleucine": 1064,
+      "valine": 1087
+     },
+     "lists": {
+      "blend": [
+       {
+        "name": "WPI",
+        "desc": "분리유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "WPC",
+        "desc": "농축유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "WPH",
+        "desc": "가수분해유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MPI",
+        "desc": "분리우유단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MPC",
+        "desc": "농축우유단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MCC",
+        "desc": "농축 미셀라카제인",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "ISP",
+        "desc": "분리대두단백",
+        "value": null,
+        "unit": "%"
+       }
+      ]
+     },
+     "listNotes": {
+      "blend": "표기 순서"
+     }
+    },
+    {
+     "id": "ns-strawberry",
+     "name": "딸기",
+     "values": {
+      "protein": 20.8,
+      "carb": 6,
+      "sugar": 2.8,
+      "fat": 0.4,
+      "transFat": 0,
+      "satFat": 0.2,
+      "kcal": 112,
+      "leucine": 2011,
+      "isoleucine": 1077,
+      "valine": 1043
+     },
+     "lists": {
+      "blend": [
+       {
+        "name": "ISP",
+        "desc": "분리대두단백",
+        "value": 56.1,
+        "unit": "%"
+       },
+       {
+        "name": "WPC",
+        "desc": "농축유청단백",
+        "value": 43.9,
+        "unit": "%"
+       }
+      ]
+     },
+     "listNotes": {
+      "blend": "함량 많은 순"
+     }
+    }
+   ]
+  },
+  {
+   "id": "ns-massbuildup-4kg",
+   "category": "protein",
+   "brand": "NS PROTEIN",
+   "name": "NS 매스빌드업 프로틴 4kg",
+   "weight": 4000,
+   "serving": 150,
+   "servings": null,
+   "price": 59800,
+   "images": [
+    "images/ns-massbuildup-4kg.webp",
+    "images/ns-massbuildup-cookie.webp",
+    "images/ns-massbuildup-strawberry.webp"
+   ],
+   "source": "https://nsprotein.com/product/detail.html?product_no=342&cate_no=186&display_group=1",
+   "checked": "2026.10.12",
+   "baseFlavor": "ns-mass-rich",
+   "lists": {
+    "blend": [
+     {
+      "name": "ISP",
+      "desc": "분리대두단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPC",
+      "desc": "농축우유단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPI",
+      "desc": "분리유단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MC",
+      "desc": "미셀라카제인",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "ns-mass-rich",
+     "name": "리치초콜릿",
+     "values": {
+      "protein": 44.4,
+      "carb": 89.5,
+      "sugar": 25.9,
+      "fat": 3.1,
+      "transFat": 0,
+      "satFat": 0.8,
+      "kcal": 564,
+      "cholesterol": 1.8,
+      "sodium": 381.1
+     }
+    },
+    {
+     "id": "ns-mass-cookie",
+     "name": "쿠키앤밀크",
+     "values": {
+      "protein": 40.5,
+      "carb": 93.3,
+      "sugar": 31.3,
+      "fat": 6.1,
+      "transFat": 0.1,
+      "satFat": 2.4,
+      "kcal": 591,
+      "cholesterol": 10.5,
+      "sodium": 518.4
+     }
+    },
+    {
+     "id": "ns-mass-strawberry",
+     "name": "스트로베리크림",
+     "values": {
+      "protein": 38.7,
+      "carb": 99,
+      "sugar": 38.4,
+      "fat": 3.3,
+      "transFat": 0,
+      "satFat": 0.6,
+      "kcal": 581,
+      "cholesterol": 1.5,
+      "sodium": 465.9
+     }
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "ns-masswhey-2kg",
+   "category": "protein",
+   "brand": "NS PROTEIN",
+   "name": "NS 매스웨이 프로틴 2kg",
+   "weight": 2000,
+   "serving": 55,
+   "servings": null,
+   "price": 59800,
+   "images": [
+    "images/ns-masswhey-2kg.webp"
+   ],
+   "source": "https://nsprotein.com/product/detail.html?product_no=215&cate_no=218&display_group=1",
+   "checked": "2026.10.13",
+   "baseFlavor": "ns-masswhey-grain",
+   "lists": {
+    "blend": [
+     {
+      "name": "ISP",
+      "desc": "분리대두단백",
+      "value": 77.6,
+      "unit": "%"
+     },
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": 22.4,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "ns-masswhey-grain",
+     "name": "곡물",
+     "values": {
+      "protein": 31,
+      "carb": 18.2,
+      "sugar": 1.4,
+      "fat": 1.3,
+      "transFat": 0,
+      "satFat": 0.4,
+      "kcal": 209,
+      "cholesterol": 1.4,
+      "sodium": 391.3
+     }
+    }
+   ],
+   "listNotes": {
+    "blend": "함량 많은 순"
+   }
+  },
+  {
+   "id": "ns-standard-2kg",
+   "category": "protein",
+   "brand": "NS PROTEIN",
+   "name": "NS 프로틴 스탠다드 2kg",
+   "weight": 2000,
+   "serving": 50,
+   "servings": null,
+   "price": 39800,
+   "images": [
+    "images/ns-standard-2kg.webp"
+   ],
+   "source": "https://nsprotein.com/product/detail.html?product_no=355&cate_no=215&display_group=1",
+   "checked": "2026.10.13",
+   "baseFlavor": "ns-standard-mousse",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "ISP",
+      "desc": "분리대두단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "ns-standard-mousse",
+     "name": "초콜릿 무스",
+     "values": {
+      "protein": 27.2,
+      "carb": 17.5,
+      "sugar": 7,
+      "fat": 1.7,
+      "transFat": 0,
+      "satFat": 0.9,
+      "kcal": 195,
+      "cholesterol": 3.4,
+      "sodium": 307.9
+     }
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "ns-weight-2kg",
+   "category": "protein",
+   "brand": "NS PROTEIN",
+   "name": "NS 웨이트 프로틴 2kg",
+   "weight": 2000,
+   "serving": 150,
+   "servings": null,
+   "price": 39800,
+   "images": [
+    "images/ns-weight-deep.webp",
+    "images/ns-weight-cookie.webp",
+    "images/ns-weight-strawberry.webp"
+   ],
+   "source": "https://nsprotein.com/product/list.html?cate_no=168",
+   "checked": "2026.10.13",
+   "baseFlavor": "ns-weight-deep",
+   "lists": {
+    "blend": [
+     {
+      "name": "ISP",
+      "desc": "분리대두단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPC",
+      "desc": "농축우유단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPI",
+      "desc": "분리유단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MC",
+      "desc": "미셀라카제인",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "ns-weight-deep",
+     "name": "크런치 딥초코",
+     "values": {
+      "protein": 42.6,
+      "carb": 90.6,
+      "sugar": 20.1,
+      "fat": 5.5,
+      "transFat": 0,
+      "satFat": 3,
+      "kcal": 583,
+      "cholesterol": 2.1,
+      "sodium": 686.4
+     }
+    },
+    {
+     "id": "ns-weight-cookie",
+     "name": "크런치 쿠키바닐라",
+     "values": {
+      "protein": 36.7,
+      "carb": 94.6,
+      "sugar": 25.5,
+      "fat": 8.4,
+      "transFat": 0.1,
+      "satFat": 4.5,
+      "kcal": 601,
+      "cholesterol": 8.2,
+      "sodium": 569.2
+     }
+    },
+    {
+     "id": "ns-weight-strawberry",
+     "name": "크런치 딸기팝",
+     "values": {
+      "protein": 33.9,
+      "carb": 100.6,
+      "sugar": 28.6,
+      "fat": 5.4,
+      "transFat": 0,
+      "satFat": 1.9,
+      "kcal": 587,
+      "cholesterol": 2.1,
+      "sodium": 523
+     }
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "ns-balance-2kg",
+   "category": "protein",
+   "brand": "NS PROTEIN",
+   "name": "NS 프로틴 밸런스 2kg",
+   "weight": 2000,
+   "serving": null,
+   "servings": null,
+   "price": 45800,
+   "images": [
+    "images/ns-balance-rich.webp",
+    "images/ns-balance-cookie.webp"
+   ],
+   "source": "https://nsprotein.com/product/detail.html?product_no=397&cate_no=197&display_group=1",
+   "checked": "2026.10.13",
+   "baseFlavor": "ns-balance-rich",
+   "lists": {
+    "blend": [
+     {
+      "name": "ISP",
+      "desc": "분리대두단백 · 중국산",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPC",
+      "desc": "농축유청단백 · 미국산",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPI",
+      "desc": "분리유청단백 · 미국산",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPC",
+      "desc": "농축우유단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPI",
+      "desc": "분리우유단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MC",
+      "desc": "미셀라카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "난백",
+      "desc": "난백분말",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "ns-balance-rich",
+     "name": "리치초콜릿",
+     "values": {
+      "protein": 35.8,
+      "carb": 8.8,
+      "sugar": 0.9,
+      "fat": 1.7,
+      "transFat": 0,
+      "satFat": 0.6,
+      "kcal": 194,
+      "cholesterol": 0.1,
+      "sodium": 321.4
+     },
+     "serving": 50,
+     "link": "https://nsprotein.com/product/detail.html?product_no=397&cate_no=197&display_group=1"
+    },
+    {
+     "id": "ns-balance-cookie",
+     "name": "쿠키앤밀크",
+     "values": {
+      "protein": 34.5,
+      "carb": 10.4,
+      "sugar": 0.7,
+      "fat": 1.4,
+      "transFat": 0,
+      "satFat": 0.5,
+      "cholesterol": 0.5,
+      "sodium": 389.4
+     },
+     "serving": 50,
+     "link": "https://nsprotein.com/product/detail.html?product_no=396&cate_no=197&display_group=1"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "ns-podae-whey-2kg",
+   "category": "protein",
+   "brand": "NS PROTEIN",
+   "name": "NS포대유청 웨이 프로틴 2kg",
+   "weight": 2000,
+   "serving": 30,
+   "servings": null,
+   "price": 49800,
+   "images": [
+    "images/ns-podae-grain.webp",
+    "images/ns-podae-choco.webp",
+    "images/ns-podae-cookie.webp",
+    "images/ns-podae-strawberry.webp"
+   ],
+   "source": "https://nsprotein.com/product/detail.html?product_no=200&cate_no=186&display_group=1",
+   "checked": "2026.10.13",
+   "baseFlavor": "ns-podae-choco",
+   "lists": {},
+   "flavors": [
+    {
+     "id": "ns-podae-grain",
+     "name": "곡물",
+     "values": {
+      "protein": 21.5,
+      "carb": 4.9,
+      "sugar": 0.45,
+      "fat": 1.14,
+      "transFat": 0,
+      "satFat": 0.39,
+      "kcal": 116,
+      "leucine": 1941,
+      "isoleucine": 1018,
+      "valine": 997,
+      "cholesterol": 20.7,
+      "sodium": 236
+     },
+     "lists": {
+      "blend": [
+       {
+        "name": "WPC",
+        "desc": "농축유청단백",
+        "value": 43.9,
+        "unit": "%"
+       },
+       {
+        "name": "ISP",
+        "desc": "분리대두단백",
+        "value": 56.1,
+        "unit": "%"
+       }
+      ]
+     },
+     "listNotes": {
+      "blend": "표기 순서"
+     }
+    },
+    {
+     "id": "ns-podae-choco",
+     "name": "초코",
+     "values": {
+      "protein": 20.6,
+      "carb": 5.1,
+      "sugar": 0.2,
+      "fat": 0.9,
+      "transFat": 0,
+      "satFat": 0.3,
+      "kcal": 111,
+      "leucine": 1668,
+      "isoleucine": 918,
+      "valine": 969,
+      "cholesterol": 7.8,
+      "sodium": 217.9
+     },
+     "lists": {
+      "blend": [
+       {
+        "name": "ISP",
+        "desc": "분리대두단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "WPC",
+        "desc": "농축유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MPI",
+        "desc": "분리우유단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MPC",
+        "desc": "농축우유단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MC",
+        "desc": "미셀라카제인",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "WPI",
+        "desc": "분리유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "WPH",
+        "desc": "가수분해유청단백",
+        "value": null,
+        "unit": "%"
+       }
+      ]
+     },
+     "listNotes": {
+      "blend": "표기 순서"
+     }
+    },
+    {
+     "id": "ns-podae-cookie",
+     "name": "쿠키앤크림",
+     "values": {
+      "protein": 20.1,
+      "carb": 6,
+      "sugar": 2.2,
+      "fat": 1.1,
+      "transFat": 0,
+      "satFat": 0.4,
+      "kcal": 114,
+      "leucine": 1772,
+      "isoleucine": 1064,
+      "valine": 1087,
+      "cholesterol": 14.7,
+      "sodium": 229.2
+     },
+     "lists": {
+      "blend": [
+       {
+        "name": "ISP",
+        "desc": "분리대두단백",
+        "value": 56.1,
+        "unit": "%"
+       },
+       {
+        "name": "WPC",
+        "desc": "농축유청단백",
+        "value": 43.9,
+        "unit": "%"
+       }
+      ]
+     },
+     "listNotes": {
+      "blend": "함량 많은 순"
+     }
+    },
+    {
+     "id": "ns-podae-strawberry",
+     "name": "딸기",
+     "values": {
+      "protein": 20.4,
+      "carb": 6.5,
+      "sugar": 3.6,
+      "fat": 0.7,
+      "transFat": 0,
+      "satFat": 0.2,
+      "kcal": 115,
+      "leucine": 1616,
+      "isoleucine": 820,
+      "valine": 873,
+      "cholesterol": 2.4,
+      "sodium": 239.4
+     },
+     "lists": {
+      "blend": [
+       {
+        "name": "ISP",
+        "desc": "분리대두단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "WPC",
+        "desc": "농축유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MPI",
+        "desc": "분리우유단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MPC",
+        "desc": "농축우유단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MC",
+        "desc": "미셀라카제인",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "WPI",
+        "desc": "분리유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "WPH",
+        "desc": "가수분해유청단백",
+        "value": null,
+        "unit": "%"
+       }
+      ]
+     },
+     "listNotes": {
+      "blend": "표기 순서"
+     }
+    }
+   ]
+  },
+  {
+   "id": "ns-whey-1250g",
+   "category": "protein",
+   "brand": "NS PROTEIN",
+   "name": "NS 웨이 프로틴 1.25kg",
+   "weight": 1250,
+   "serving": 30,
+   "servings": null,
+   "price": 38500,
+   "images": [
+    "images/ns-whey125.webp"
+   ],
+   "source": "https://nsprotein.com/product/detail.html?product_no=260&cate_no=186&display_group=1",
+   "checked": "2026.10.13",
+   "baseFlavor": "ns-whey125-choco",
+   "lists": {},
+   "flavors": [
+    {
+     "id": "ns-whey125-cookie",
+     "name": "쿠키앤크림",
+     "values": {
+      "protein": 20.1,
+      "carb": 6,
+      "sugar": 2.2,
+      "fat": 1.1,
+      "transFat": 0,
+      "satFat": 0.4,
+      "kcal": 114,
+      "leucine": 1772,
+      "isoleucine": 1064,
+      "valine": 1087,
+      "cholesterol": 14.7,
+      "sodium": 229.2
+     },
+     "lists": {
+      "blend": [
+       {
+        "name": "ISP",
+        "desc": "분리대두단백",
+        "value": 56.1,
+        "unit": "%"
+       },
+       {
+        "name": "WPC",
+        "desc": "농축유청단백",
+        "value": 43.9,
+        "unit": "%"
+       }
+      ]
+     },
+     "listNotes": {
+      "blend": "함량 많은 순"
+     }
+    },
+    {
+     "id": "ns-whey125-choco",
+     "name": "초코",
+     "values": {
+      "protein": 20.8,
+      "carb": 4.56,
+      "sugar": 0.75,
+      "fat": 1.47,
+      "transFat": 0,
+      "satFat": 0.46,
+      "kcal": 115,
+      "leucine": 2055,
+      "isoleucine": 1089,
+      "valine": 1054,
+      "cholesterol": 20,
+      "sodium": 245.6
+     },
+     "lists": {
+      "blend": [
+       {
+        "name": "ISP",
+        "desc": "분리대두단백",
+        "value": 56.1,
+        "unit": "%"
+       },
+       {
+        "name": "WPC",
+        "desc": "농축유청단백",
+        "value": 43.9,
+        "unit": "%"
+       }
+      ]
+     },
+     "listNotes": {
+      "blend": "함량 많은 순"
+     }
+    }
+   ]
+  },
+  {
+   "id": "ns-blend-2kg",
+   "category": "protein",
+   "brand": "NS PROTEIN",
+   "name": "NS 프로틴 블렌드 2kg",
+   "weight": 2000,
+   "serving": 55,
+   "servings": null,
+   "price": 39800,
+   "images": [
+    "images/ns-blend-deep.webp"
+   ],
+   "source": "https://nsprotein.com/product/detail.html?product_no=281&cate_no=186&display_group=1",
+   "checked": "2026.10.13",
+   "baseFlavor": "ns-blend-deep",
+   "lists": {
+    "blend": [
+     {
+      "name": "ISP",
+      "desc": "분리대두단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPI",
+      "desc": "분리우유단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MC",
+      "desc": "미셀라카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPC",
+      "desc": "농축우유단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "난백",
+      "desc": "난백분말",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "ns-blend-deep",
+     "name": "크런치 딥초코",
+     "values": {
+      "protein": 28.4,
+      "carb": 19.8,
+      "sugar": 0.8,
+      "fat": 2.1,
+      "transFat": 0,
+      "satFat": 1.1,
+      "kcal": 213,
+      "cholesterol": 0.4,
+      "sodium": 229.2
+     }
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "bsn-syntha6-28",
+   "category": "protein",
+   "brand": "BSN",
+   "name": "신타6 28회분",
+   "weight": 1320,
+   "serving": 47,
+   "servings": 28,
+   "price": 72690,
+   "images": [
+    "images/bsn-s6-28-choc.webp",
+    "images/bsn-s6-28-cookie.webp",
+    "images/bsn-s6-28-straw.webp",
+    "images/bsn-s6-28-vanilla.webp"
+   ],
+   "source": "https://www.bsn.co.kr/products/syntha-6-protein",
+   "checked": "2026.10.13",
+   "baseFlavor": "bsn-s6-choc",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "CC",
+      "desc": "칼슘카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MC",
+      "desc": "미셀라카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPI",
+      "desc": "분리우유단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "bsn-s6-choc",
+     "name": "초콜릿 밀크쉐이크",
+     "values": {
+      "protein": 22,
+      "carb": 14,
+      "sugar": 3,
+      "fat": 5,
+      "satFat": 2,
+      "kcal": 190,
+      "cholesterol": 85,
+      "sodium": 240
+     }
+    },
+    {
+     "id": "bsn-s6-cookie",
+     "name": "쿠키앤크림",
+     "values": {
+      "protein": 22,
+      "carb": 14,
+      "sugar": 2,
+      "fat": 5,
+      "satFat": 2,
+      "kcal": 200,
+      "cholesterol": 95,
+      "sodium": 160
+     },
+     "lists": {
+      "blend": [
+       {
+        "name": "WPC",
+        "desc": "농축유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "CC",
+        "desc": "칼슘카제인",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MPI",
+        "desc": "분리우유단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "WPH",
+        "desc": "가수분해유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "WPI",
+        "desc": "분리유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MC",
+        "desc": "미셀라카제인",
+        "value": null,
+        "unit": "%"
+       }
+      ]
+     },
+     "listNotes": {
+      "blend": "표기 순서"
+     }
+    },
+    {
+     "id": "bsn-s6-straw",
+     "name": "딸기 밀크쉐이크",
+     "values": {
+      "protein": 22,
+      "carb": 15,
+      "sugar": 4,
+      "fat": 6,
+      "satFat": 2,
+      "kcal": 200,
+      "cholesterol": 70,
+      "sodium": 160
+     }
+    },
+    {
+     "id": "bsn-s6-vanilla",
+     "name": "바닐라 아이스크림",
+     "values": {
+      "protein": 22,
+      "carb": 15,
+      "sugar": 4,
+      "fat": 5,
+      "satFat": 2,
+      "kcal": 190,
+      "cholesterol": 90,
+      "sodium": 180
+     }
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "bsn-syntha6-isolate-24",
+   "category": "protein",
+   "brand": "BSN",
+   "name": "신타6 아이솔레이트 24회분",
+   "weight": 912,
+   "serving": 38,
+   "servings": 24,
+   "price": 74760,
+   "images": [
+    "images/bsn-iso-24-choc.webp",
+    "images/bsn-iso-24-vanilla.webp"
+   ],
+   "source": "https://www.bsn.co.kr/products/syntha-6-r-isolate",
+   "checked": "2026.10.13",
+   "baseFlavor": "bsn-iso-choc",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPI",
+      "desc": "분리우유단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "bsn-iso-choc",
+     "name": "초콜릿 밀크쉐이크",
+     "values": {
+      "protein": 25,
+      "carb": 7,
+      "sugar": 2,
+      "fat": 1.5,
+      "satFat": 0.5,
+      "kcal": 140,
+      "cholesterol": 15,
+      "sodium": 160
+     }
+    },
+    {
+     "id": "bsn-iso-vanilla",
+     "name": "바닐라 아이스크림",
+     "values": {
+      "protein": 25,
+      "carb": 7,
+      "sugar": 1,
+      "fat": 2,
+      "satFat": 0.5,
+      "kcal": 150,
+      "cholesterol": 15,
+      "sodium": 150
+     }
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "bsn-syntha6-edge-28",
+   "category": "protein",
+   "brand": "BSN",
+   "name": "신타6 엣지 28회분",
+   "weight": 1120,
+   "serving": 40,
+   "servings": 28,
+   "price": 60690,
+   "images": [
+    "images/bsn-edge28-choc.webp",
+    "images/bsn-edge28-cookie.webp",
+    "images/bsn-edge28-straw.webp",
+    "images/bsn-edge28-vanilla.webp"
+   ],
+   "source": "https://www.bsn.co.kr/products/syntha-6-r-edge",
+   "checked": "2026.10.14",
+   "baseFlavor": "bsn-edge-choc",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "CC",
+      "desc": "칼슘카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MC",
+      "desc": "미셀라카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPC",
+      "desc": "농축우유단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "bsn-edge-choc",
+     "name": "초콜릿 밀크쉐이크",
+     "values": {
+      "protein": 24,
+      "carb": 6,
+      "sugar": 2,
+      "fat": 4,
+      "satFat": 1.5,
+      "kcal": 160,
+      "cholesterol": 60,
+      "sodium": 190
+     },
+     "serving": 40
+    },
+    {
+     "id": "bsn-edge-cookie",
+     "name": "쿠키앤크림",
+     "values": {
+      "protein": 24,
+      "carb": 7,
+      "sugar": 2,
+      "fat": 4.5,
+      "satFat": 1.5,
+      "kcal": 160,
+      "cholesterol": 60,
+      "sodium": 190
+     },
+     "serving": 40
+    },
+    {
+     "id": "bsn-edge-straw",
+     "name": "딸기 밀크쉐이크",
+     "values": {
+      "protein": 24,
+      "carb": 6,
+      "sugar": 2,
+      "fat": 4,
+      "satFat": 1.5,
+      "kcal": 160,
+      "cholesterol": 60,
+      "sodium": 160
+     },
+     "serving": 38
+    },
+    {
+     "id": "bsn-edge-vanilla",
+     "name": "바닐라 밀크쉐이크",
+     "values": {
+      "protein": 24,
+      "carb": 6,
+      "sugar": 3,
+      "fat": 4,
+      "satFat": 1.5,
+      "kcal": 160,
+      "cholesterol": 60,
+      "sodium": 170
+     },
+     "serving": 38
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "bsn-syntha6-coldstone-25",
+   "category": "protein",
+   "brand": "BSN",
+   "name": "신타6 콜드스톤 25회분",
+   "weight": 1170,
+   "serving": 47,
+   "servings": 25,
+   "price": 71580,
+   "images": [
+    "images/bsn-cs-german.webp",
+    "images/bsn-cs-bday.webp",
+    "images/bsn-cs-donut.webp",
+    "images/bsn-cs-mint.webp"
+   ],
+   "source": "https://www.bsn.co.kr/products/syntha-6-coldstone-protein",
+   "checked": "2026.10.14",
+   "baseFlavor": "bsn-cs-choc",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "CC",
+      "desc": "칼슘카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MC",
+      "desc": "미셀라카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPI",
+      "desc": "분리우유단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "EA",
+      "desc": "난백(계란흰자)",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "GP",
+      "desc": "글루타민 펩타이드",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "bsn-cs-bday",
+     "name": "생일 케이크",
+     "values": {
+      "protein": 22,
+      "carb": 15,
+      "sugar": 4,
+      "fat": 6,
+      "satFat": 2,
+      "kcal": 200,
+      "cholesterol": 65,
+      "sodium": 170
+     },
+     "serving": 47
+    },
+    {
+     "id": "bsn-cs-donut",
+     "name": "쿠키 도넛",
+     "values": {
+      "protein": 22,
+      "carb": 15,
+      "sugar": 3,
+      "fat": 6,
+      "satFat": 2,
+      "kcal": 200,
+      "cholesterol": 60,
+      "sodium": 200
+     },
+     "serving": 47
+    },
+    {
+     "id": "bsn-cs-choc",
+     "name": "저먼 초콜릿 케이크",
+     "values": {
+      "protein": 22,
+      "carb": 14,
+      "sugar": 3,
+      "fat": 6,
+      "satFat": 2,
+      "kcal": 200,
+      "cholesterol": 65,
+      "sodium": 240
+     },
+     "serving": 47
+    },
+    {
+     "id": "bsn-cs-mint",
+     "name": "민트 초코칩",
+     "values": {
+      "protein": 22,
+      "carb": 15,
+      "sugar": 3,
+      "fat": 6,
+      "satFat": 2,
+      "kcal": 200,
+      "cholesterol": 65,
+      "sodium": 140
+     },
+     "serving": 47
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "bsn-syntha6-48",
+   "category": "protein",
+   "brand": "BSN",
+   "name": "신타6 48회분",
+   "weight": 2270,
+   "serving": 47,
+   "servings": 48,
+   "price": 111050,
+   "images": [
+    "images/bsn-s6-48-choc.webp",
+    "images/bsn-s6-48-cake.webp",
+    "images/bsn-s6-48-straw.webp",
+    "images/bsn-s6-48-vanilla.webp"
+   ],
+   "source": "https://www.bsn.co.kr/products/syntha-6-protein",
+   "checked": "2026.10.14",
+   "baseFlavor": "bsn-s6-48-choc",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "CC",
+      "desc": "칼슘카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MC",
+      "desc": "미셀라카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPI",
+      "desc": "분리우유단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "bsn-s6-48-choc",
+     "name": "초콜릿 밀크쉐이크",
+     "values": {
+      "protein": 22,
+      "carb": 14,
+      "sugar": 3,
+      "fat": 5,
+      "satFat": 2,
+      "kcal": 190,
+      "cholesterol": 85,
+      "sodium": 240
+     }
+    },
+    {
+     "id": "bsn-s6-48-cake",
+     "name": "초콜릿 케이크",
+     "values": {
+      "protein": 22,
+      "carb": 15,
+      "sugar": 3,
+      "fat": 5,
+      "satFat": 2,
+      "kcal": 190,
+      "cholesterol": 80,
+      "sodium": 270
+     },
+     "lists": {
+      "blend": [
+       {
+        "name": "WPC",
+        "desc": "농축유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "CC",
+        "desc": "칼슘카제인",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MPI",
+        "desc": "분리우유단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "WPH",
+        "desc": "가수분해유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "WPI",
+        "desc": "분리유청단백",
+        "value": null,
+        "unit": "%"
+       },
+       {
+        "name": "MC",
+        "desc": "미셀라카제인",
+        "value": null,
+        "unit": "%"
+       }
+      ]
+     },
+     "listNotes": {
+      "blend": "표기 순서"
+     }
+    },
+    {
+     "id": "bsn-s6-48-straw",
+     "name": "딸기 밀크쉐이크",
+     "values": {
+      "protein": 22,
+      "carb": 15,
+      "sugar": 4,
+      "fat": 6,
+      "satFat": 2,
+      "kcal": 200,
+      "cholesterol": 70,
+      "sodium": 160
+     }
+    },
+    {
+     "id": "bsn-s6-48-vanilla",
+     "name": "바닐라 아이스크림",
+     "values": {
+      "protein": 22,
+      "carb": 15,
+      "sugar": 4,
+      "fat": 5,
+      "satFat": 2,
+      "kcal": 190,
+      "cholesterol": 90,
+      "sodium": 180
+     }
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "bsn-syntha6-97",
+   "category": "protein",
+   "brand": "BSN",
+   "name": "신타6 97회분",
+   "weight": 4560,
+   "serving": 47,
+   "servings": 97,
+   "price": 189080,
+   "images": [
+    "images/bsn-s6-97-choc.webp",
+    "images/bsn-s6-97-vanilla.webp"
+   ],
+   "source": "https://www.bsn.co.kr/products/syntha-6-protein",
+   "checked": "2026.10.14",
+   "baseFlavor": "bsn-s6-97-choc",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "CC",
+      "desc": "칼슘카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MC",
+      "desc": "미셀라카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPI",
+      "desc": "분리우유단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "bsn-s6-97-choc",
+     "name": "초콜릿 밀크쉐이크",
+     "values": {
+      "protein": 22,
+      "carb": 14,
+      "sugar": 3,
+      "fat": 5,
+      "satFat": 2,
+      "kcal": 190,
+      "cholesterol": 85,
+      "sodium": 240
+     }
+    },
+    {
+     "id": "bsn-s6-97-vanilla",
+     "name": "바닐라 아이스크림",
+     "values": {
+      "protein": 22,
+      "carb": 15,
+      "sugar": 4,
+      "fat": 5,
+      "satFat": 2,
+      "kcal": 190,
+      "cholesterol": 90,
+      "sodium": 180
+     }
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "bsn-syntha6-isolate-48",
+   "category": "protein",
+   "brand": "BSN",
+   "name": "신타6 아이솔레이트 48회분",
+   "weight": 1820,
+   "serving": 38,
+   "servings": 48,
+   "price": 135360,
+   "images": [
+    "images/bsn-iso-48-choc.webp",
+    "images/bsn-iso-48-pbchoc.webp",
+    "images/bsn-iso-48-pbcookie.webp",
+    "images/bsn-iso-48-straw.webp",
+    "images/bsn-iso-48-vanilla.webp"
+   ],
+   "source": "https://www.bsn.co.kr/products/syntha-6-r-isolate",
+   "checked": "2026.10.14",
+   "baseFlavor": "bsn-iso48-choc",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPI",
+      "desc": "분리우유단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "bsn-iso48-choc",
+     "name": "초콜릿 밀크쉐이크",
+     "values": {
+      "protein": 25,
+      "carb": 7,
+      "sugar": 2,
+      "fat": 1.5,
+      "satFat": 0.5,
+      "kcal": 140,
+      "cholesterol": 15,
+      "sodium": 160
+     }
+    },
+    {
+     "id": "bsn-iso48-pbchoc",
+     "name": "초콜릿 피넛버터",
+     "values": {
+      "protein": 25,
+      "carb": 6,
+      "sugar": 1,
+      "fat": 2,
+      "satFat": 0.5,
+      "kcal": 140,
+      "cholesterol": 10,
+      "sodium": 140
+     }
+    },
+    {
+     "id": "bsn-iso48-pbcookie",
+     "name": "피넛 버터 쿠키",
+     "values": {
+      "protein": 25,
+      "carb": 6,
+      "sugar": 2,
+      "fat": 2,
+      "satFat": 0.5,
+      "kcal": 140,
+      "cholesterol": 10,
+      "sodium": 135
+     }
+    },
+    {
+     "id": "bsn-iso48-straw",
+     "name": "딸기 밀크쉐이크",
+     "values": {
+      "protein": 25,
+      "carb": 6,
+      "sugar": 1,
+      "fat": 2,
+      "satFat": 0.5,
+      "kcal": 140,
+      "cholesterol": 10,
+      "sodium": 150
+     }
+    },
+    {
+     "id": "bsn-iso48-vanilla",
+     "name": "바닐라 아이스크림",
+     "values": {
+      "protein": 25,
+      "carb": 7,
+      "sugar": 1,
+      "fat": 2,
+      "satFat": 0.5,
+      "kcal": 150,
+      "cholesterol": 15,
+      "sodium": 150
+     }
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "bsn-syntha6-edge-48",
+   "category": "protein",
+   "brand": "BSN",
+   "name": "신타6 엣지 48회분",
+   "weight": 1920,
+   "serving": 40,
+   "servings": 48,
+   "price": 114750,
+   "images": [
+    "images/bsn-edge48-choc.webp",
+    "images/bsn-edge48-cookie.webp",
+    "images/bsn-edge48-straw.webp",
+    "images/bsn-edge48-vanilla.webp"
+   ],
+   "source": "https://www.bsn.co.kr/products/syntha-6-r-edge",
+   "checked": "2026.10.14",
+   "baseFlavor": "bsn-edge48-choc",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "CC",
+      "desc": "칼슘카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MC",
+      "desc": "미셀라카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPC",
+      "desc": "농축우유단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "bsn-edge48-choc",
+     "name": "초콜릿 밀크쉐이크",
+     "values": {
+      "protein": 24,
+      "carb": 6,
+      "sugar": 2,
+      "fat": 4,
+      "satFat": 1.5,
+      "kcal": 160,
+      "cholesterol": 60,
+      "sodium": 190
+     },
+     "serving": 40
+    },
+    {
+     "id": "bsn-edge48-cookie",
+     "name": "쿠키앤크림",
+     "values": {
+      "protein": 24,
+      "carb": 7,
+      "sugar": 2,
+      "fat": 4.5,
+      "satFat": 1.5,
+      "kcal": 160,
+      "cholesterol": 60,
+      "sodium": 190
+     },
+     "serving": 40
+    },
+    {
+     "id": "bsn-edge48-straw",
+     "name": "딸기 밀크쉐이크",
+     "values": {
+      "protein": 24,
+      "carb": 6,
+      "sugar": 2,
+      "fat": 4,
+      "satFat": 1.5,
+      "kcal": 160,
+      "cholesterol": 60,
+      "sodium": 160
+     },
+     "serving": 38
+    },
+    {
+     "id": "bsn-edge48-vanilla",
+     "name": "바닐라 밀크쉐이크",
+     "values": {
+      "protein": 24,
+      "carb": 6,
+      "sugar": 3,
+      "fat": 4,
+      "satFat": 1.5,
+      "kcal": 160,
+      "cholesterol": 60,
+      "sodium": 170
+     },
+     "serving": 38
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-impact-isolate-870",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 아이솔레이트 870g",
+   "weight": 870,
+   "serving": 29,
+   "servings": 30,
+   "price": 110900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-isolate/10530911/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-ii-tea",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-ii-tea",
+     "name": "흑당 밀크티",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 0.6,
+      "fat": 0.5,
+      "satFat": 0.1,
+      "kcal": 101,
+      "sodium": 220
+     },
+     "serving": 29
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-weight-gainer-1kg",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "Impact 웨이트 게이너 1kg",
+   "weight": 1000,
+   "serving": 100,
+   "servings": 10,
+   "price": 52900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-weight-gainer/10529988/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-wg-tea",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPC",
+      "desc": "농축우유단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-wg-tea",
+     "name": "흑당 밀크티",
+     "values": {
+      "protein": 29,
+      "carb": 51,
+      "sugar": 6.8,
+      "fat": 5.5,
+      "satFat": 1.5,
+      "kcal": 372
+     },
+     "serving": 100
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-total-blend-2500",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "토탈 프로틴 블렌드 2.5kg",
+   "weight": 2500,
+   "serving": 30,
+   "servings": 83,
+   "price": 149900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/total-protein-blend/10529951/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-tb-plain",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MPC",
+      "desc": "농축우유단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "MC",
+      "desc": "미셀라카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "CC",
+      "desc": "칼슘카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "EA",
+      "desc": "난백분말",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-tb-plain",
+     "name": "플레인",
+     "values": {
+      "protein": 25,
+      "carb": 1.2,
+      "sugar": 0.9,
+      "fat": 1.4,
+      "satFat": 0.4,
+      "kcal": 118,
+      "sodium": 50
+     },
+     "serving": 30
+    },
+    {
+     "id": "my-tb-choc",
+     "name": "초콜릿 스무디",
+     "values": {}
+    },
+    {
+     "id": "my-tb-mint",
+     "name": "초코 민트",
+     "values": {}
+    },
+    {
+     "id": "my-tb-straw",
+     "name": "딸기 크림",
+     "values": {}
+    },
+    {
+     "id": "my-tb-banana",
+     "name": "내추럴 바나나",
+     "values": {}
+    },
+    {
+     "id": "my-tb-vanilla",
+     "name": "바닐라",
+     "values": {}
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-impact-whey-250",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 프로틴 250g",
+   "weight": 250,
+   "serving": 30,
+   "servings": null,
+   "price": 17900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-impact-whey-250-f1",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-impact-whey-250-f1",
+     "name": "골든 프룻 믹스",
+     "values": {
+      "protein": 20,
+      "carb": 3.7,
+      "sugar": 1.9,
+      "fat": 1.7,
+      "satFat": 1,
+      "kcal": 111,
+      "sodium": 130
+     },
+     "serving": 30,
+     "price": 17900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17074124"
+    },
+    {
+     "id": "my-impact-whey-250-f2",
+     "name": "레이즌 아이스크림",
+     "values": {
+      "protein": 21,
+      "carb": 2.7,
+      "sugar": 1.5,
+      "fat": 1.7,
+      "satFat": 1.1,
+      "kcal": 113,
+      "sodium": 130
+     },
+     "serving": 30,
+     "price": 19900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=15964031"
+    },
+    {
+     "id": "my-impact-whey-250-f3",
+     "name": "통단팥",
+     "values": {
+      "protein": 19,
+      "carb": 2.1,
+      "sugar": 0.9,
+      "fat": 2,
+      "satFat": 1.3,
+      "kcal": 102,
+      "sodium": 60
+     },
+     "serving": 25,
+     "price": 19900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=13043419"
+    },
+    {
+     "id": "my-impact-whey-250-f4",
+     "name": "현미녹차 라떼",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 23900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=12506072"
+    },
+    {
+     "id": "my-impact-whey-250-f5",
+     "name": "요거트",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 30900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=13043420"
+    },
+    {
+     "id": "my-impact-whey-250-f6",
+     "name": "흑당 밀크티",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 30900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=12525919"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-impact-whey-500",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 프로틴 500g",
+   "weight": 500,
+   "serving": 30,
+   "servings": null,
+   "price": 57900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-impact-whey-500-f1",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-impact-whey-500-f1",
+     "name": "요거트",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 57900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=13653896"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-impact-whey-625",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 프로틴 625g",
+   "weight": 625,
+   "serving": 30,
+   "servings": null,
+   "price": 77900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-impact-whey-625-f1",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-impact-whey-625-f1",
+     "name": "토르 믹스드 베리",
+     "values": {
+      "protein": 21,
+      "carb": 2.4,
+      "sugar": 1.4,
+      "fat": 1.7,
+      "satFat": 1,
+      "kcal": 107,
+      "sodium": 120
+     },
+     "serving": 30,
+     "price": 77900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17529133"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-impact-whey-900",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 프로틴 900g",
+   "weight": 900,
+   "serving": 30,
+   "servings": null,
+   "price": 110900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-impact-whey-900-f2",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-impact-whey-900-f1",
+     "name": "내추럴 초콜렛",
+     "values": {
+      "protein": 21,
+      "carb": 2.1,
+      "sugar": 1.4,
+      "fat": 2,
+      "satFat": 1.2,
+      "kcal": 111,
+      "sodium": 130
+     },
+     "serving": 30,
+     "price": 110900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17712292"
+    },
+    {
+     "id": "my-impact-whey-900-f2",
+     "name": "무맛",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 110900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17712272"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-impact-whey-960",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 프로틴 960g",
+   "weight": 960,
+   "serving": 32,
+   "servings": null,
+   "price": 110900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-impact-whey-960-f1",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-impact-whey-960-f1",
+     "name": "초콜렛 카라멜 크런치",
+     "values": {
+      "protein": 20,
+      "carb": 4.9,
+      "sugar": 2.3,
+      "fat": 2.6,
+      "satFat": 1.6,
+      "kcal": 124,
+      "sodium": 230
+     },
+     "serving": 32,
+     "price": 110900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=15644754"
+    },
+    {
+     "id": "my-impact-whey-960-f2",
+     "name": "바닐라 허니콤보",
+     "values": {
+      "protein": 20,
+      "carb": 5.6,
+      "sugar": 2.4,
+      "fat": 2.7,
+      "satFat": 1.7,
+      "kcal": 127,
+      "sodium": 130
+     },
+     "serving": 32,
+     "price": 110900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=15644753"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-impact-whey-1000",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 프로틴 1kg",
+   "weight": 1000,
+   "serving": 30,
+   "servings": null,
+   "price": 110900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-impact-whey-1000-f2",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-impact-whey-1000-f1",
+     "name": "초콜렛 오렌지",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 110900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=10878643"
+    },
+    {
+     "id": "my-impact-whey-1000-f2",
+     "name": "무맛",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 110900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=10531012"
+    },
+    {
+     "id": "my-impact-whey-1000-f3",
+     "name": "내추럴 바나나",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 110900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=12309355"
+    },
+    {
+     "id": "my-impact-whey-1000-f4",
+     "name": "바나나",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 110900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=12309358"
+    },
+    {
+     "id": "my-impact-whey-1000-f5",
+     "name": "바닐라 & 라즈베리",
+     "values": {
+      "protein": 21,
+      "carb": 3.4,
+      "sugar": 1.6,
+      "fat": 1.7,
+      "satFat": 1.1,
+      "kcal": 113,
+      "sodium": 130
+     },
+     "serving": 30,
+     "price": 110900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=10648434"
+    },
+    {
+     "id": "my-impact-whey-1000-f6",
+     "name": "현미녹차 라떼",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 110900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=12506073"
+    },
+    {
+     "id": "my-impact-whey-1000-f7",
+     "name": "마일드 스트로베리",
+     "values": {
+      "protein": 22,
+      "carb": 2.3,
+      "sugar": 1.5,
+      "fat": 2.2,
+      "satFat": 1.1,
+      "kcal": 115,
+      "sodium": 130
+     },
+     "serving": 30,
+     "price": 69900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=15964030"
+    },
+    {
+     "id": "my-impact-whey-1000-f8",
+     "name": "체리블라썸 밀크티",
+     "values": {
+      "protein": 21,
+      "carb": 2.7,
+      "sugar": 1.6,
+      "fat": 1.7,
+      "satFat": 1.1,
+      "kcal": 112,
+      "sodium": 130
+     },
+     "serving": 30,
+     "price": 65900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=16442317"
+    },
+    {
+     "id": "my-impact-whey-1000-f9",
+     "name": "통단팥",
+     "values": {
+      "protein": 19,
+      "carb": 2.1,
+      "sugar": 0.9,
+      "fat": 2,
+      "satFat": 1.3,
+      "kcal": 102,
+      "sodium": 60
+     },
+     "serving": 25,
+     "price": 59900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=12970012"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-impact-whey-1800",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 프로틴 1.8kg",
+   "weight": 1800,
+   "serving": 30,
+   "servings": null,
+   "price": 229900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-impact-whey-1800-f2",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-impact-whey-1800-f1",
+     "name": "내추럴 초콜렛",
+     "values": {
+      "protein": 21,
+      "carb": 2.1,
+      "sugar": 1.4,
+      "fat": 2,
+      "satFat": 1.2,
+      "kcal": 111,
+      "sodium": 130
+     },
+     "serving": 30,
+     "price": 229900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17712282"
+    },
+    {
+     "id": "my-impact-whey-1800-f2",
+     "name": "무맛",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 229900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17712263"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-impact-whey-2500",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 프로틴 2.5kg",
+   "weight": 2500,
+   "serving": 30,
+   "servings": null,
+   "price": 225900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-impact-whey-2500-f1",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-impact-whey-2500-f1",
+     "name": "무맛",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 225900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=10530986"
+    },
+    {
+     "id": "my-impact-whey-2500-f2",
+     "name": "골든 시럽",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 225900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=11030047"
+    },
+    {
+     "id": "my-impact-whey-2500-f3",
+     "name": "바닐라 & 라즈베리",
+     "values": {
+      "protein": 21,
+      "carb": 3.4,
+      "sugar": 1.6,
+      "fat": 1.7,
+      "satFat": 1.1,
+      "kcal": 113,
+      "sodium": 130
+     },
+     "serving": 30,
+     "price": 225900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=10786593"
+    },
+    {
+     "id": "my-impact-whey-2500-f4",
+     "name": "클래식 말차라떼",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 225900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=14760449"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-impact-whey-2610",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 프로틴 2.61kg",
+   "weight": 2610,
+   "serving": 30,
+   "servings": null,
+   "price": 225900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-impact-whey-2610-f1",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-impact-whey-2610-f1",
+     "name": "흑당 밀크티",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 225900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17712276"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-impact-whey-2700",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 프로틴 2.7kg",
+   "weight": 2700,
+   "serving": 30,
+   "servings": null,
+   "price": 225900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-impact-whey-2700-f3",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-impact-whey-2700-f1",
+     "name": "초콜렛 스무스",
+     "values": {
+      "protein": 22,
+      "carb": 2,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.2,
+      "kcal": 113,
+      "sodium": 130
+     },
+     "serving": 30,
+     "price": 225900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17712168"
+    },
+    {
+     "id": "my-impact-whey-2700-f2",
+     "name": "내추럴 초콜렛",
+     "values": {
+      "protein": 21,
+      "carb": 2.1,
+      "sugar": 1.4,
+      "fat": 2,
+      "satFat": 1.2,
+      "kcal": 111,
+      "sodium": 130
+     },
+     "serving": 30,
+     "price": 225900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17712220"
+    },
+    {
+     "id": "my-impact-whey-2700-f3",
+     "name": "무맛",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 225900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17712185"
+    },
+    {
+     "id": "my-impact-whey-2700-f4",
+     "name": "스트로베리 크림",
+     "values": {
+      "protein": 22,
+      "carb": 2.1,
+      "sugar": 1.6,
+      "fat": 1.8,
+      "satFat": 1.1,
+      "kcal": 113,
+      "sodium": 130
+     },
+     "serving": 30,
+     "price": 225900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17712180"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-impact-whey-5000",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "임팩트 웨이 프로틴 5kg (2×2.5kg)",
+   "weight": 5000,
+   "serving": 30,
+   "servings": null,
+   "price": 349500,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-impact-whey-5000-f1",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-impact-whey-5000-f1",
+     "name": "무맛",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 349500,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=14302236"
+    },
+    {
+     "id": "my-impact-whey-5000-f2",
+     "name": "말차라떼",
+     "values": {
+      "protein": 23,
+      "carb": 1.8,
+      "sugar": 1.5,
+      "fat": 1.9,
+      "satFat": 1.1,
+      "kcal": 114,
+      "sodium": 56
+     },
+     "serving": 30,
+     "price": 349500,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=14760450"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-clear-whey-390",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "클리어 웨이 프로틴 390g",
+   "weight": 390,
+   "serving": 26,
+   "servings": 15,
+   "price": 65900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-clear-whey-390-f1",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPH",
+      "desc": "가수분해분리유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-clear-whey-390-f1",
+     "name": "파인애플 (Less Sweet)",
+     "values": {
+      "protein": 20,
+      "carb": 1.3,
+      "sugar": 0.2,
+      "fat": 0.1,
+      "satFat": 0,
+      "kcal": 86,
+      "sodium": 290
+     },
+     "serving": 26,
+     "price": 65900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/?variation=16111662"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-clear-whey-500",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "클리어 웨이 프로틴 500g",
+   "weight": 500,
+   "serving": 25,
+   "servings": 20,
+   "price": 64900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-clear-whey-500-f5",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPH",
+      "desc": "가수분해분리유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-clear-whey-500-f1",
+     "name": "매실 스파클링",
+     "values": {
+      "protein": 19,
+      "carb": 2.5,
+      "sugar": 0.2,
+      "fat": 0.1,
+      "satFat": 0,
+      "kcal": 86,
+      "sodium": 20
+     },
+     "serving": 25,
+     "price": 64900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/?variation=15952591"
+    },
+    {
+     "id": "my-clear-whey-500-f2",
+     "name": "요거트",
+     "values": {
+      "protein": 20,
+      "carb": 0,
+      "sugar": 0,
+      "fat": 0,
+      "satFat": 0,
+      "kcal": 84,
+      "sodium": 8
+     },
+     "serving": 25,
+     "price": 68900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/?variation=14013524"
+    },
+    {
+     "id": "my-clear-whey-500-f3",
+     "name": "유자 그린티",
+     "values": {
+      "protein": 20,
+      "carb": 1,
+      "sugar": 0.3,
+      "fat": 0.1,
+      "satFat": 0.1,
+      "kcal": 87,
+      "sodium": 80
+     },
+     "serving": 25,
+     "price": 68900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/?variation=12873041"
+    },
+    {
+     "id": "my-clear-whey-500-f4",
+     "name": "츄파춥스 스트로베리",
+     "values": {
+      "protein": 21,
+      "carb": 0.3,
+      "sugar": 0,
+      "fat": 0.1,
+      "satFat": 0,
+      "kcal": 85,
+      "sodium": 30
+     },
+     "serving": 25,
+     "price": 64900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/?variation=14867356"
+    },
+    {
+     "id": "my-clear-whey-500-f5",
+     "name": "트로피컬 드래곤프룻",
+     "values": {
+      "protein": 19,
+      "carb": 2.5,
+      "sugar": 0.5,
+      "fat": 0.1,
+      "satFat": 0.1,
+      "kcal": 88,
+      "sodium": 8
+     },
+     "serving": 25,
+     "price": 64900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/?variation=12660041"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-clear-whey-520",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "클리어 웨이 프로틴 520g",
+   "weight": 520,
+   "serving": 26,
+   "servings": 20,
+   "price": 68900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-clear-whey-520-f1",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPH",
+      "desc": "가수분해분리유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-clear-whey-520-f1",
+     "name": "아사이베리",
+     "values": {
+      "protein": 20,
+      "carb": 0.7,
+      "sugar": 0.2,
+      "fat": 0.3,
+      "satFat": 0.1,
+      "kcal": 87,
+      "sodium": 20
+     },
+     "serving": 26,
+     "price": 68900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/?variation=16619041"
+    },
+    {
+     "id": "my-clear-whey-520-f2",
+     "name": "츄파춥스 콜라",
+     "values": {
+      "protein": 20,
+      "carb": 1.6,
+      "sugar": 0.2,
+      "fat": 0.1,
+      "satFat": 0,
+      "kcal": 88,
+      "sodium": 20
+     },
+     "serving": 26,
+     "price": 64900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/?variation=15404869"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "my-clear-whey-560",
+   "category": "protein",
+   "brand": "마이프로틴",
+   "name": "클리어 웨이 프로틴 560g",
+   "weight": 560,
+   "serving": 28,
+   "servings": 20,
+   "price": 68900,
+   "images": [],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/",
+   "checked": "2026.10.15",
+   "baseFlavor": "my-clear-whey-560-f1",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPH",
+      "desc": "가수분해분리유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-clear-whey-560-f1",
+     "name": "망고 아이스티",
+     "values": {
+      "protein": 20,
+      "carb": 3.2,
+      "sugar": 1,
+      "fat": 0.1,
+      "satFat": 0.1,
+      "kcal": 94,
+      "sodium": 40
+     },
+     "serving": 28,
+     "price": 68900,
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/?variation=17536447"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  }
+ ]
+}

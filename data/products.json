@@ -411,7 +411,8 @@
       "blend": "함량 많은 순"
      }
     }
-   ]
+   ],
+   "lineup": "NS 웨이 프로틴"
   },
   {
    "id": "ns-massbuildup-4kg",
@@ -1185,7 +1186,8 @@
       "blend": "함량 많은 순"
      }
     }
-   ]
+   ],
+   "lineup": "NS 웨이 프로틴"
   },
   {
    "id": "ns-blend-2kg",
@@ -1434,6 +1436,7 @@
      }
     }
    ],
+   "lineup": "신타6",
    "listNotes": {
     "blend": "표기 순서"
    }
@@ -1500,6 +1503,7 @@
      }
     }
    ],
+   "lineup": "신타6 아이솔레이트",
    "listNotes": {
     "blend": "표기 순서"
    }
@@ -1624,6 +1628,7 @@
      "serving": 38
     }
    ],
+   "lineup": "신타6 엣지",
    "listNotes": {
     "blend": "표기 순서"
    }
@@ -1917,6 +1922,7 @@
      }
     }
    ],
+   "lineup": "신타6",
    "listNotes": {
     "blend": "표기 순서"
    }
@@ -2007,6 +2013,7 @@
      }
     }
    ],
+   "lineup": "신타6",
    "listNotes": {
     "blend": "표기 순서"
    }
@@ -2118,6 +2125,7 @@
      }
     }
    ],
+   "lineup": "신타6 아이솔레이트",
    "listNotes": {
     "blend": "표기 순서"
    }
@@ -2242,6 +2250,7 @@
      "serving": 38
     }
    ],
+   "lineup": "신타6 엣지",
    "listNotes": {
     "blend": "표기 순서"
    }
@@ -2562,6 +2571,7 @@
      "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=12525919"
     }
    ],
+   "lineup": "임팩트 웨이 프로틴",
    "listNotes": {
     "blend": "표기 순서"
    }
@@ -2607,6 +2617,7 @@
      "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=13653896"
     }
    ],
+   "lineup": "임팩트 웨이 프로틴",
    "listNotes": {
     "blend": "표기 순서"
    }
@@ -2652,6 +2663,7 @@
      "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17529133"
     }
    ],
+   "lineup": "임팩트 웨이 프로틴",
    "listNotes": {
     "blend": "표기 순서"
    }
@@ -2713,6 +2725,7 @@
      "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17712272"
     }
    ],
+   "lineup": "임팩트 웨이 프로틴",
    "listNotes": {
     "blend": "표기 순서"
    }
@@ -2774,6 +2787,7 @@
      "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=15644753"
     }
    ],
+   "lineup": "임팩트 웨이 프로틴",
    "listNotes": {
     "blend": "표기 순서"
    }
@@ -2947,6 +2961,7 @@
      "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=12970012"
     }
    ],
+   "lineup": "임팩트 웨이 프로틴",
    "listNotes": {
     "blend": "표기 순서"
    }
@@ -3008,6 +3023,7 @@
      "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17712263"
     }
    ],
+   "lineup": "임팩트 웨이 프로틴",
    "listNotes": {
     "blend": "표기 순서"
    }
@@ -3101,6 +3117,7 @@
      "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=14760449"
     }
    ],
+   "lineup": "임팩트 웨이 프로틴",
    "listNotes": {
     "blend": "표기 순서"
    }
@@ -3146,6 +3163,7 @@
      "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17712276"
     }
    ],
+   "lineup": "임팩트 웨이 프로틴",
    "listNotes": {
     "blend": "표기 순서"
    }
@@ -3239,6 +3257,7 @@
      "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=17712180"
     }
    ],
+   "lineup": "임팩트 웨이 프로틴",
    "listNotes": {
     "blend": "표기 순서"
    }
@@ -3300,6 +3319,7 @@
      "link": "https://www.myprotein.co.kr/p/sports-nutrition/impact-whey-protein-powder/10530943/?variation=14760450"
     }
    ],
+   "lineup": "임팩트 웨이 프로틴",
    "listNotes": {
     "blend": "표기 순서"
    }
@@ -3345,6 +3365,7 @@
      "link": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/?variation=16111662"
     }
    ],
+   "lineup": "클리어 웨이 프로틴",
    "listNotes": {
     "blend": "표기 순서"
    }
@@ -3454,6 +3475,7 @@
      "link": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/?variation=12660041"
     }
    ],
+   "lineup": "클리어 웨이 프로틴",
    "listNotes": {
     "blend": "표기 순서"
    }
@@ -3515,6 +3537,7 @@
      "link": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/?variation=15404869"
     }
    ],
+   "lineup": "클리어 웨이 프로틴",
    "listNotes": {
     "blend": "표기 순서"
    }
@@ -3560,6 +3583,7 @@
      "link": "https://www.myprotein.co.kr/p/sports-nutrition/clear-whey-isolate/12081395/?variation=17536447"
     }
    ],
+   "lineup": "클리어 웨이 프로틴",
    "listNotes": {
     "blend": "표기 순서"
    }
