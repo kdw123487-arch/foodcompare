@@ -151,7 +151,7 @@
     .sizes-nav:hover { background:#22272a; border-color:#59605b; }
     .sizes-nav.prev { left:0; } .sizes-nav.next { right:0; }
     .sizes.start ~ .sizes-nav.prev, .sizes.end ~ .sizes-nav.next { display:none; }
-    .size-opt { flex:none; display:flex; flex-direction:column; align-items:flex-start; gap:2px; min-width:64px; padding:7px 11px 6px; border:1px solid var(--line); border-radius:10px; background:#101214; color:#c3c8c5; cursor:pointer; text-align:left; -webkit-tap-highlight-color:transparent; transition:border-color .16s ease, background-color .16s ease, color .16s ease; }
+    .size-opt { flex:none; display:flex; flex-direction:column; align-items:center; gap:2px; min-width:0; padding:8px 11px; border:1px solid var(--line); border-radius:10px; background:#101214; color:#c3c8c5; cursor:pointer; text-align:left; -webkit-tap-highlight-color:transparent; transition:border-color .16s ease, background-color .16s ease, color .16s ease; }
     .size-opt b { font-size:13px; font-weight:700; line-height:1.2; letter-spacing:-.02em; }
     .size-opt small { font-size:11px; color:var(--muted); line-height:1.2; font-variant-numeric:tabular-nums; white-space:nowrap; }
     .size-opt:hover { border-color:#59605b; color:var(--text); }
@@ -448,7 +448,7 @@
       if (on) { const r = row.getBoundingClientRect(), o = on.getBoundingClientRect(); row.scrollLeft += (o.left - r.left) - (r.width - o.width) / 2; }
       edges(row);
     };
-    // 용량 버튼 아래 가격: 그 용량의 최저가(맛마다 가격이 다르면 '~')
+    // 용량 버튼에 마우스를 올리면 보이는 가격: 그 용량의 최저가(맛마다 가격이 다르면 '~')
     const sizePrice = s => {
       const ps = s.flavors.map(f => priceOf(s, f)).filter(Boolean);
       if (!ps.length) return '';
@@ -535,7 +535,7 @@
       const cat = catOf(p.category), flavors = p.flavors, base = p.base, sum = cat.summary;
       const titleId = `title-${l.id.replace(/[^a-z0-9_-]/gi, '-')}`;
       const slot = '<div class="slot" aria-hidden="true"></div>';
-      const sizeRow = multi ? `<div class="sizes-wrap key-sizes"><div class="sizes" role="group" aria-label="용량 선택">${l.sizes.map(s => `<button type="button" class="size-opt" data-size="${esc(s.id)}" aria-pressed="${s === p}"><b>${esc(sizeText(s))}</b><small>${sizePrice(s)}</small></button>`).join('')}</div><button type="button" class="sizes-nav prev" aria-label="이전 용량 보기" tabindex="-1">‹</button><button type="button" class="sizes-nav next" aria-label="다음 용량 보기" tabindex="-1">›</button></div>` : slot;
+      const sizeRow = multi ? `<div class="sizes-wrap key-sizes"><div class="sizes" role="group" aria-label="용량 선택">${l.sizes.map(s => `<button type="button" class="size-opt" data-size="${esc(s.id)}" aria-pressed="${s === p}" title="${esc(sizeText(s))} · ${sizePrice(s)}"><b>${esc(sizeText(s))}</b></button>`).join('')}</div><button type="button" class="sizes-nav prev" aria-label="이전 용량 보기" tabindex="-1">‹</button><button type="button" class="sizes-nav next" aria-label="다음 용량 보기" tabindex="-1">›</button></div>` : slot;
       const servingCount = servingsOf(p, base), servingG = servingOf(p, base);
       const pricesVary = flavors.some(f => priceOf(p, f) !== priceOf(p, flavors[0]));
       const anyData = flavors.some(f => f.hasData);
