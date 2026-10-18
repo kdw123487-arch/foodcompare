@@ -151,7 +151,7 @@
     .sizes-nav:hover { background:#22272a; border-color:#59605b; }
     .sizes-nav.prev { left:0; } .sizes-nav.next { right:0; }
     .sizes.start ~ .sizes-nav.prev, .sizes.end ~ .sizes-nav.next { display:none; }
-    .size-opt { flex:none; display:flex; flex-direction:column; align-items:center; gap:2px; min-width:0; padding:8px 11px; border:1px solid var(--line); border-radius:10px; background:#101214; color:#c3c8c5; cursor:pointer; text-align:left; -webkit-tap-highlight-color:transparent; transition:border-color .16s ease, background-color .16s ease, color .16s ease; }
+    .size-opt { flex:none; display:flex; flex-direction:column; align-items:center; gap:1px; min-width:0; padding:6px 11px 5px; border:1px solid var(--line); border-radius:10px; background:#101214; color:#c3c8c5; cursor:pointer; text-align:left; -webkit-tap-highlight-color:transparent; transition:border-color .16s ease, background-color .16s ease, color .16s ease; }
     .size-opt b { font-size:13px; font-weight:700; line-height:1.2; letter-spacing:-.02em; }
     .size-opt small { font-size:11px; color:var(--muted); line-height:1.2; font-variant-numeric:tabular-nums; white-space:nowrap; }
     .size-opt:hover { border-color:#59605b; color:var(--text); }
@@ -204,6 +204,8 @@
     .ftable tbody th { text-align:left; font-size:14px; color:#c3c8c5; font-weight:400; word-break:keep-all; line-height:1.35; padding-right:6px; }
     .ftable td { font-size:15px; font-weight:700; padding-left:10px; white-space:nowrap; }
     .ftable thead th:not(:first-child) { padding-left:10px; white-space:nowrap; }
+    .more-ph { visibility:hidden; }
+    .ftable tr.filler { visibility:hidden; }
     .more-btn { width:100%; margin-top:10px; padding:10px 0; background:transparent; border:1px solid var(--line); border-radius:10px; color:var(--muted); font:inherit; font-size:13px; cursor:pointer; transition:color .15s, border-color .15s; }
     .more-btn:hover { color:var(--text, #f2f4f3); border-color:#3a403d; }
     .ftable td .na { font-size:12px; }
@@ -449,6 +451,8 @@
       edges(row);
     };
     // 용량 버튼에 마우스를 올리면 보이는 가격: 그 용량의 최저가(맛마다 가격이 다르면 '~')
+    // 용량 버튼 아래 회분: 표기된 총 제공 횟수, 없으면 기준 맛 1회 섭취량으로 나눈 값(반올림)
+    const sizeServings = s => { const n = servingsOf(s, s.base); return n ? Math.round(n) : null; };
     const sizePrice = s => {
       const ps = s.flavors.map(f => priceOf(s, f)).filter(Boolean);
       if (!ps.length) return '';
@@ -535,7 +539,7 @@
       const cat = catOf(p.category), flavors = p.flavors, base = p.base, sum = cat.summary;
       const titleId = `title-${l.id.replace(/[^a-z0-9_-]/gi, '-')}`;
       const slot = '<div class="slot" aria-hidden="true"></div>';
-      const sizeRow = multi ? `<div class="sizes-wrap key-sizes"><div class="sizes" role="group" aria-label="용량 선택">${l.sizes.map(s => `<button type="button" class="size-opt" data-size="${esc(s.id)}" aria-pressed="${s === p}" title="${esc(sizeText(s))} · ${sizePrice(s)}"><b>${esc(sizeText(s))}</b></button>`).join('')}</div><button type="button" class="sizes-nav prev" aria-label="이전 용량 보기" tabindex="-1">‹</button><button type="button" class="sizes-nav next" aria-label="다음 용량 보기" tabindex="-1">›</button></div>` : slot;
+      const sizeRow = multi ? `<div class="sizes-wrap key-sizes"><div class="sizes" role="group" aria-label="용량 선택">${l.sizes.map(s => `<button type="button" class="size-opt" data-size="${esc(s.id)}" aria-pressed="${s === p}" title="${esc(sizeText(s))} · ${sizePrice(s)}"><b>${esc(sizeText(s))}</b>${sizeServings(s) ? `<small>${sizeServings(s)}회분</small>` : ''}</button>`).join('')}</div><button type="button" class="sizes-nav prev" aria-label="이전 용량 보기" tabindex="-1">‹</button><button type="button" class="sizes-nav next" aria-label="다음 용량 보기" tabindex="-1">›</button></div>` : slot;
       const servingCount = servingsOf(p, base), servingG = servingOf(p, base);
       const pricesVary = flavors.some(f => priceOf(p, f) !== priceOf(p, flavors[0]));
       const anyData = flavors.some(f => f.hasData);
@@ -553,13 +557,18 @@
                 <tr><th scope="row">제품 전체</th>${sum.map(k => `<td>${base && servingCount && base.values[k] != null ? withUnit(servingCount * base.values[k], k, 0) : NA}</td>`).join('')}<td>${num(priceOf(p, base))}<small>원</small></td></tr>
               </tbody>
             </table></div>`;
+      // 용량을 바꿔도 카드 높이가 변하지 않도록, 같은 라인업에서 가장 긴 표에 맞춰 빈 줄·빈 '더보기' 자리를 채움
+      const visRows = fs => (fs.length > FLAVOR_LIMIT ? FLAVOR_SHOWN : fs.length);
+      const fillRows = Math.max(...l.sizes.map(s => visRows(s.flavors))) - visRows(flavors);
+      const anyMore = l.sizes.some(s => s.flavors.length > FLAVOR_LIMIT);
+      const filler = Array.from({ length: fillRows }, () => `<tr class="filler" aria-hidden="true"><th scope="row">&nbsp;</th>${sum.map(() => '<td>&nbsp;</td>').join('')}${pricesVary ? '<td class="pcol">&nbsp;</td>' : ''}</tr>`).join('');
       const flavorTable = sum.length ? `<div class="flavor-list">
               <div class="flavor-list-head">맛별 1회 영양<span>(${esc(field(sum[0]).unit)})</span></div>
               <table class="ftable">
                 <thead><tr><th scope="col"><span class="sr">맛</span></th>${sum.map(k => `<th scope="col">${esc(field(k).label)}</th>`).join('')}${pricesVary ? '<th scope="col">가격</th>' : ''}</tr></thead>
-                <tbody>${flavors.map((f, i) => `<tr${flavors.length > FLAVOR_LIMIT && i >= FLAVOR_SHOWN ? ' class="more-row" hidden' : ''}><th scope="row">${esc(f.name)}</th>${sum.map(k => `<td>${plain(f.values[k], k)}</td>`).join('')}${pricesVary ? `<td class="pcol">${num(priceOf(p, f))}</td>` : ''}</tr>`).join('')}</tbody>
+                <tbody>${flavors.map((f, i) => `<tr${flavors.length > FLAVOR_LIMIT && i >= FLAVOR_SHOWN ? ' class="more-row" hidden' : ''}><th scope="row">${esc(f.name)}</th>${sum.map(k => `<td>${plain(f.values[k], k)}</td>`).join('')}${pricesVary ? `<td class="pcol">${num(priceOf(p, f))}</td>` : ''}</tr>`).join('')}${filler}</tbody>
               </table>
-              ${flavors.length > FLAVOR_LIMIT ? `<button type="button" class="more-btn" aria-expanded="false" data-more="${flavors.length - FLAVOR_SHOWN}">더보기 (${flavors.length - FLAVOR_SHOWN})</button>` : ''}
+              ${flavors.length > FLAVOR_LIMIT ? `<button type="button" class="more-btn" aria-expanded="false" data-more="${flavors.length - FLAVOR_SHOWN}">더보기 (${flavors.length - FLAVOR_SHOWN})</button>` : anyMore ? '<div class="more-btn more-ph" aria-hidden="true">&nbsp;</div>' : ''}
             </div>` : slot;
       return `
         <article class="product-card" data-lineup="${esc(l.id)}" aria-labelledby="${titleId}">
@@ -700,7 +709,7 @@
     document.getElementById('tabs').addEventListener('click', e => { const b = e.target.closest('.tab'); if (b) setCategory(b.dataset.category); });
     // 카드 안 클릭: 맛 칩(상세 영양정보) / 맛별 영양 '더보기' / 사진 슬라이드 화살표·점
     const slideTo = (t, i) => { const n = t.children.length; t.scrollTo({ left: t.clientWidth * ((i + n) % n), behavior: 'smooth' }); };
-    document.getElementById('product-grid').addEventListener('click', e => {
+    document.getElementById('product-grid').addEventListener('click', async e => {
       const nav = e.target.closest('.sizes-nav');
       if (nav) {
         // 가려진 다음(이전) 버튼이 화살표에 걸리지 않고 통째로 보이도록 그 버튼 기준으로 넘김
@@ -721,8 +730,13 @@
         if (!l || opt.getAttribute('aria-pressed') === 'true') return;
         chosen.set(l.id, opt.dataset.size);
         const open = card.querySelector('.nutri').open, scroll = card.querySelector('.sizes').scrollLeft;
-        card.outerHTML = cardTemplate(l);
-        const fresh = document.querySelector(`.product-card[data-lineup="${CSS.escape(l.id)}"]`);
+        // 새 카드를 미리 만들고 첫 사진을 디코딩한 뒤 교체 → 사진 자리가 잠깐 비는 깜빡임 없음
+        const tpl = document.createElement('template');
+        tpl.innerHTML = cardTemplate(l).trim();
+        const fresh = tpl.content.firstElementChild, img = fresh.querySelector('.product-image img');
+        if (img) { img.loading = 'eager'; await img.decode().catch(() => {}); }
+        if (!card.isConnected) return;
+        card.replaceWith(fresh);
         fresh.querySelector('.nutri').open = open;
         const row = fresh.querySelector('.sizes');
         row.scrollLeft = scroll;
@@ -741,6 +755,7 @@
       if (more) {
         const open = more.getAttribute('aria-expanded') !== 'true';
         more.closest('.flavor-list').querySelectorAll('.more-row').forEach(r => { r.hidden = !open; });
+        more.closest('.flavor-list').querySelectorAll('.filler').forEach(r => { r.hidden = open; });
         more.setAttribute('aria-expanded', String(open));
         more.textContent = open ? '접기' : `더보기 (${more.dataset.more})`;
         return;
