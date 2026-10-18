@@ -2,7 +2,7 @@
  "_generated": "이 파일은 data/products.xlsx에서 tools/build_data.py로 만들어집니다. 직접 고치지 말고 엑셀을 고치세요.",
  "site": {
   "help": "수치는 제품 페이지 표기 기준 · 모든 가격은 배송비 제외 · 가격과 재고는 변동 가능",
-  "footnote": "제품 수치와 표시 가격은 공식 판매 페이지 기준이며, 모든 가격은 배송비를 제외한 금액입니다. 카드의 1회·제품 전체 표는 카드에 표시된 기준 맛의 라벨 수치를 따르며, 각 맛의 수치는 맛별 1회 영양에서 확인할 수 있습니다. 맛별 영양 수치와 상세 영양정보는 제품 라벨(영양성분표)의 1회 섭취량 기준이며, 맛에 따라 다를 수 있습니다. 제품 전체의 단백질·탄수화물·지방은 (총 중량 ÷ 1회 섭취량 × 1회 수치)로 계산한 추정값입니다. NS PROTEIN 제품은 2026.10.17 공식 페이지에서 판매 중이며 가격이 같음을 다시 확인했습니다(일부 맛 옵션은 품절일 수 있습니다). BSN 제품은 판매 중으로 확인했으며, 용량(회분)별로 카드를 나누고 제품 전체 수치는 총 제공 횟수(회분)로 계산합니다. 마이프로틴 제품은 맛마다 가격이 달라 맛별 1회 영양 표에 맛별 가격을 함께 표시하며, 공식 페이지에 맛별 영양정보가 없는 맛은 페이지에 적힌 무맛 기준 수치를 넣었습니다. '확인 필요'로 표시된 항목은 공식 페이지에서 확인하지 못한 정보이며 추정하지 않았습니다."
+  "footnote": "제품 수치와 표시 가격은 공식 판매 페이지 기준이며, 모든 가격은 배송비를 제외한 금액입니다. 카드의 1회·제품 전체 표는 카드에 표시된 기준 맛의 라벨 수치를 따르며, 각 맛의 수치는 맛별 1회 영양에서 확인할 수 있습니다. 맛별 영양 수치와 상세 영양정보는 제품 라벨(영양성분표)의 1회 섭취량 기준이며, 맛에 따라 다를 수 있습니다. 제품 전체의 단백질·탄수화물·지방은 (총 중량 ÷ 1회 섭취량 × 1회 수치)로 계산한 추정값입니다. NS PROTEIN 제품은 2026.10.17 공식 페이지에서 판매 중이며 가격이 같음을 다시 확인했습니다(일부 맛 옵션은 품절일 수 있습니다). BSN 제품은 판매 중으로 확인했으며, 용량(회분)별로 카드를 나누고 제품 전체 수치는 총 제공 횟수(회분)로 계산합니다. 마이프로틴 제품은 맛마다 가격이 달라 맛별 1회 영양 표에 맛별 가격을 함께 표시하며, 공식 페이지에 맛별 영양정보가 없는 맛은 페이지에 적힌 무맛 기준 수치를 넣었습니다. 옵티멈 뉴트리션 제품은 2026.10.18 한국 공식몰 가격이며, 영양 수치는 공식몰에 올라온 제품 라벨(미국 영양성분표) 기준이고 용량은 라벨의 순중량(g)으로 표시했습니다. 품절된 맛과 라벨이 없는 맛은 넣지 않았습니다. '확인 필요'로 표시된 항목은 공식 페이지에서 확인하지 못한 정보이며 추정하지 않았습니다."
  },
  "fields": {
   "protein": {
@@ -2308,7 +2308,7 @@
    "servings": 10,
    "price": 52900,
    "images": [
-    "images/mp-gainer.webp?v=4a19f80a"
+    "images/mp-gainer.webp?v=83a6b87b"
    ],
    "source": "https://www.myprotein.co.kr/p/sports-nutrition/impact-weight-gainer/10529988/",
    "checked": "2026.10.15",
@@ -3627,6 +3627,912 @@
     }
    ],
    "lineup": "클리어 웨이 프로틴",
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "on-gsw-907",
+   "category": "protein",
+   "brand": "Optimum Nutrition",
+   "name": "골드스탠다드 100% 웨이 907g",
+   "weight": 907,
+   "serving": 31,
+   "servings": null,
+   "price": 58450,
+   "images": [
+    "images/on-gsw2-drc.webp?v=d14d3ffa",
+    "images/on-gsw2-banana.webp?v=5d688d97",
+    "images/on-gsw2-chocmalt.webp?v=e62b0c5e",
+    "images/on-gsw2-cookie.webp?v=433e2cbd",
+    "images/on-gsw2-frvan.webp?v=4ab69d1d",
+    "images/on-gsw2-strban.webp?v=07709e0f"
+   ],
+   "source": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-whey-protein-powder",
+   "checked": "2026.10.18",
+   "baseFlavor": "on-gsw-907-drc",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "on-gsw-907-drc",
+     "name": "더블 리치 초콜릿",
+     "values": {
+      "protein": 24,
+      "carb": 3,
+      "sugar": 1,
+      "fat": 1.5,
+      "transFat": 0,
+      "satFat": 1,
+      "kcal": 120,
+      "cholesterol": 55,
+      "sodium": 130
+     },
+     "serving": 31,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-whey-protein-powder?variant=52138905305355"
+    },
+    {
+     "id": "on-gsw-907-banana",
+     "name": "바나나 크림",
+     "values": {
+      "protein": 24,
+      "carb": 4,
+      "sugar": 2,
+      "fat": 1.5,
+      "transFat": 0,
+      "satFat": 1,
+      "kcal": 120,
+      "cholesterol": 55,
+      "sodium": 130
+     },
+     "serving": 31,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-whey-protein-powder?variant=52138905501963"
+    },
+    {
+     "id": "on-gsw-907-chocmalt",
+     "name": "초콜릿 몰트",
+     "values": {
+      "protein": 24,
+      "carb": 3,
+      "sugar": 2,
+      "fat": 2,
+      "transFat": 0,
+      "satFat": 1,
+      "kcal": 130,
+      "cholesterol": 55,
+      "sodium": 130
+     },
+     "serving": 31,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-whey-protein-powder?variant=52138905403659"
+    },
+    {
+     "id": "on-gsw-907-cookie",
+     "name": "쿠키 앤 크림",
+     "values": {
+      "protein": 24,
+      "carb": 3,
+      "sugar": 2,
+      "fat": 1.5,
+      "transFat": 0,
+      "satFat": 1,
+      "kcal": 120,
+      "cholesterol": 55,
+      "sodium": 130
+     },
+     "serving": 31,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-whey-protein-powder?variant=52138905796875"
+    },
+    {
+     "id": "on-gsw-907-frvan",
+     "name": "프렌치 바닐라 크림",
+     "values": {
+      "protein": 24,
+      "carb": 2,
+      "sugar": 1,
+      "fat": 1.5,
+      "transFat": 0,
+      "satFat": 1,
+      "kcal": 120,
+      "cholesterol": 55,
+      "sodium": 130
+     },
+     "serving": 31,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-whey-protein-powder?variant=52138906747147"
+    },
+    {
+     "id": "on-gsw-907-strban",
+     "name": "딸기 바나나",
+     "values": {
+      "protein": 24,
+      "carb": 2,
+      "sugar": 1,
+      "fat": 1.5,
+      "transFat": 0,
+      "satFat": 1,
+      "kcal": 120,
+      "cholesterol": 60,
+      "sodium": 130
+     },
+     "serving": 30,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-whey-protein-powder?variant=52138905600267"
+    }
+   ],
+   "lineup": "골드스탠다드 100% 웨이",
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "on-gsw-1790",
+   "category": "protein",
+   "brand": "Optimum Nutrition",
+   "name": "골드스탠다드 100% 웨이 1.79kg",
+   "weight": 1790,
+   "serving": 31,
+   "servings": null,
+   "price": 137160,
+   "images": [
+    "images/on-gsw4-drc.webp?v=2b396ae8",
+    "images/on-gsw4-vic.webp?v=3e88eed4"
+   ],
+   "source": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-whey-protein-powder",
+   "checked": "2026.10.18",
+   "baseFlavor": "on-gsw-1790-drc",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "on-gsw-1790-drc",
+     "name": "더블 리치 초콜릿",
+     "values": {
+      "protein": 24,
+      "carb": 3,
+      "sugar": 1,
+      "fat": 1.5,
+      "transFat": 0,
+      "satFat": 1,
+      "kcal": 120,
+      "cholesterol": 55,
+      "sodium": 130
+     },
+     "serving": 31,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-whey-protein-powder?variant=52138905370891"
+    },
+    {
+     "id": "on-gsw-1790-vic",
+     "name": "바닐라 아이스크림",
+     "values": {
+      "protein": 24,
+      "carb": 4,
+      "sugar": 1,
+      "fat": 1.5,
+      "transFat": 0,
+      "satFat": 1,
+      "kcal": 120,
+      "cholesterol": 55,
+      "sodium": 130
+     },
+     "serving": 31,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-whey-protein-powder?variant=52347852456203"
+    }
+   ],
+   "lineup": "골드스탠다드 100% 웨이",
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "on-gsw-2270",
+   "category": "protein",
+   "brand": "Optimum Nutrition",
+   "name": "골드스탠다드 100% 웨이 2.27kg",
+   "weight": 2270,
+   "serving": 31,
+   "servings": null,
+   "price": 148490,
+   "images": [
+    "images/on-gsw5-drc.webp?v=061eb068",
+    "images/on-gsw5-banana.webp?v=a2ad745a",
+    "images/on-gsw5-choccoco.webp?v=15d7da76",
+    "images/on-gsw5-chocpb.webp?v=72b2a3e2",
+    "images/on-gsw5-coffee.webp?v=a8ce1849",
+    "images/on-gsw5-cookie.webp?v=4148cfb3",
+    "images/on-gsw5-straw.webp?v=9cecbcf3",
+    "images/on-gsw5-mocha.webp?v=21957f04",
+    "images/on-gsw5-strcream.webp?v=12dbd06b",
+    "images/on-gsw5-strban.webp?v=25379af8",
+    "images/on-gsw5-vic.webp?v=986d499f"
+   ],
+   "source": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-whey-protein-powder",
+   "checked": "2026.10.18",
+   "baseFlavor": "on-gsw-2270-drc",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "on-gsw-2270-drc",
+     "name": "더블 리치 초콜릿",
+     "values": {
+      "protein": 24,
+      "carb": 3,
+      "sugar": 1,
+      "fat": 1.5,
+      "transFat": 0,
+      "satFat": 1,
+      "kcal": 120,
+      "cholesterol": 55,
+      "sodium": 130
+     },
+     "serving": 31,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-whey-protein-powder?variant=52138906845451"
+    },
+    {
+     "id": "on-gsw-2270-banana",
+     "name": "바나나 크림",
+     "values": {
+      "protein": 24,
+      "carb": 4,
+      "sugar": 2,
+      "fat": 1.5,
+      "transFat": 0,
+      "satFat": 1,
+      "kcal": 120,
+      "cholesterol": 55,
+      "sodium": 130
+     },
+     "serving": 31,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-whey-protein-powder?variant=52138906157323"
+    },
+    {
+     "id": "on-gsw-2270-choccoco",
+     "name": "초콜릿 코코넛",
+     "values": {
+      "protein": 24,
+      "carb": 4,
+      "sugar": 1,
+      "fat": 2,
+      "transFat": 0,
+      "satFat": 1,
+      "kcal": 130,
+      "cholesterol": 55,
+      "sodium": 130
+     },
+     "serving": 32,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-whey-protein-powder?variant=52138906714379"
+    },
+    {
+     "id": "on-gsw-2270-chocpb",
+     "name": "초콜릿 피넛 버터",
+     "values": {
+      "protein": 24,
+      "carb": 4,
+      "sugar": 2,
+      "fat": 2,
+      "transFat": 0,
+      "satFat": 1,
+      "kcal": 130,
+      "cholesterol": 55,
+      "sodium": 190
+     },
+     "serving": 33,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-whey-protein-powder?variant=52138905764107"
+    },
+    {
+     "id": "on-gsw-2270-coffee",
+     "name": "커피",
+     "values": {
+      "protein": 24,
+      "carb": 4,
+      "sugar": 2,
+      "fat": 2,
+      "transFat": 0,
+      "satFat": 1,
+      "kcal": 130,
+      "cholesterol": 60,
+      "sodium": 130
+     },
+     "serving": 32,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-whey-protein-powder?variant=52138906353931"
+    },
+    {
+     "id": "on-gsw-2270-cookie",
+     "name": "쿠키 앤 크림",
+     "values": {
+      "protein": 24,
+      "carb": 3,
+      "sugar": 2,
+      "fat": 1.5,
+      "transFat": 0,
+      "satFat": 1,
+      "kcal": 120,
+      "cholesterol": 55,
+      "sodium": 130
+     },
+     "serving": 31,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-whey-protein-powder?variant=52138905567499"
+    },
+    {
+     "id": "on-gsw-2270-straw",
+     "name": "맛있는 딸기",
+     "values": {
+      "protein": 24,
+      "carb": 3,
+      "sugar": 2,
+      "fat": 1.5,
+      "transFat": 0,
+      "satFat": 1,
+      "kcal": 120,
+      "cholesterol": 60,
+      "sodium": 130
+     },
+     "serving": 31,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-whey-protein-powder?variant=52138905698571"
+    },
+    {
+     "id": "on-gsw-2270-mocha",
+     "name": "모카 카푸치노",
+     "values": {
+      "protein": 24,
+      "carb": 3,
+      "sugar": 1,
+      "fat": 2,
+      "transFat": 0,
+      "satFat": 1,
+      "kcal": 130,
+      "cholesterol": 55,
+      "sodium": 130
+     },
+     "serving": 32,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-whey-protein-powder?variant=52138906583307"
+    },
+    {
+     "id": "on-gsw-2270-strcream",
+     "name": "딸기 & 크림",
+     "values": {
+      "protein": 24,
+      "carb": 3,
+      "sugar": 2,
+      "fat": 2,
+      "transFat": 0,
+      "satFat": 1,
+      "kcal": 120,
+      "cholesterol": 60,
+      "sodium": 130
+     },
+     "serving": 31,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-whey-protein-powder?variant=52138906419467"
+    },
+    {
+     "id": "on-gsw-2270-strban",
+     "name": "딸기 바나나",
+     "values": {
+      "protein": 24,
+      "carb": 2,
+      "sugar": 1,
+      "fat": 1.5,
+      "transFat": 0,
+      "satFat": 1,
+      "kcal": 120,
+      "cholesterol": 60,
+      "sodium": 130
+     },
+     "serving": 30,
+     "price": 143280,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-whey-protein-powder?variant=52138905469195"
+    },
+    {
+     "id": "on-gsw-2270-vic",
+     "name": "바닐라 아이스크림",
+     "values": {
+      "protein": 24,
+      "carb": 4,
+      "sugar": 1,
+      "fat": 1.5,
+      "transFat": 0,
+      "satFat": 1,
+      "kcal": 120,
+      "cholesterol": 55,
+      "sodium": 130
+     },
+     "serving": 31,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-whey-protein-powder?variant=52138905141515"
+    }
+   ],
+   "lineup": "골드스탠다드 100% 웨이",
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "on-hydro-820",
+   "category": "protein",
+   "brand": "Optimum Nutrition",
+   "name": "플래티넘 하이드로웨이 820g",
+   "weight": 820,
+   "serving": 41,
+   "servings": null,
+   "price": 77290,
+   "images": [
+    "images/on-hydro20-choc.webp?v=3b4db7c0",
+    "images/on-hydro20-van.webp?v=9a4e1544"
+   ],
+   "source": "https://www.optimumnutrition.com/ko-kr/products/platinum-hydrowhey-hydrolyzed-whey-protein-powder",
+   "checked": "2026.10.18",
+   "baseFlavor": "on-hydro-820-hy-choc",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPH",
+      "desc": "가수분해 분리유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "on-hydro-820-hy-choc",
+     "name": "초콜릿",
+     "values": {
+      "protein": 30,
+      "carb": 3,
+      "sugar": 1,
+      "fat": 1,
+      "transFat": 0,
+      "satFat": 0.5,
+      "kcal": 140,
+      "cholesterol": 35,
+      "sodium": 150
+     },
+     "serving": 41,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/platinum-hydrowhey-hydrolyzed-whey-protein-powder?variant=52106232561931"
+    },
+    {
+     "id": "on-hydro-820-hy-van",
+     "name": "바닐라",
+     "values": {
+      "protein": 30,
+      "carb": 3,
+      "sugar": 1,
+      "fat": 1,
+      "transFat": 0,
+      "satFat": 0.5,
+      "kcal": 140,
+      "cholesterol": 35,
+      "sodium": 160
+     },
+     "serving": 40,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/platinum-hydrowhey-hydrolyzed-whey-protein-powder?variant=52106232627467"
+    }
+   ],
+   "lineup": "플래티넘 하이드로웨이",
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "on-hydro-1640",
+   "category": "protein",
+   "brand": "Optimum Nutrition",
+   "name": "플래티넘 하이드로웨이 1.64kg",
+   "weight": 1640,
+   "serving": 41,
+   "servings": null,
+   "price": 164700,
+   "images": [
+    "images/on-hydro40-choc.webp?v=a8aab92a",
+    "images/on-hydro40-van.webp?v=4f58bfba"
+   ],
+   "source": "https://www.optimumnutrition.com/ko-kr/products/platinum-hydrowhey-hydrolyzed-whey-protein-powder",
+   "checked": "2026.10.18",
+   "baseFlavor": "on-hydro-1640-hy-choc",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPH",
+      "desc": "가수분해 분리유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "on-hydro-1640-hy-choc",
+     "name": "초콜릿",
+     "values": {
+      "protein": 30,
+      "carb": 3,
+      "sugar": 1,
+      "fat": 1,
+      "transFat": 0,
+      "satFat": 0.5,
+      "kcal": 140,
+      "cholesterol": 35,
+      "sodium": 150
+     },
+     "serving": 41,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/platinum-hydrowhey-hydrolyzed-whey-protein-powder?variant=52106232529163"
+    },
+    {
+     "id": "on-hydro-1640-hy-van",
+     "name": "바닐라",
+     "values": {
+      "protein": 30,
+      "carb": 3,
+      "sugar": 1,
+      "fat": 1,
+      "transFat": 0,
+      "satFat": 0.5,
+      "kcal": 140,
+      "cholesterol": 35,
+      "sodium": 160
+     },
+     "serving": 40,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/platinum-hydrowhey-hydrolyzed-whey-protein-powder?variant=52106232496395"
+    }
+   ],
+   "lineup": "플래티넘 하이드로웨이",
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "on-iso-1360",
+   "category": "protein",
+   "brand": "Optimum Nutrition",
+   "name": "골드스탠다드 100% 아이솔레이트 1.36kg",
+   "weight": 1360,
+   "serving": 31,
+   "servings": null,
+   "price": 124380,
+   "images": [
+    "images/on-iso-choc.webp?v=a1a6237e",
+    "images/on-iso-van.webp?v=01347ac1"
+   ],
+   "source": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-isolate-whey-protein-powder",
+   "checked": "2026.10.18",
+   "baseFlavor": "on-iso-1360-iso-choc",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPH",
+      "desc": "가수분해 분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "on-iso-1360-iso-choc",
+     "name": "초콜릿 블리스",
+     "values": {
+      "protein": 25,
+      "carb": 1,
+      "sugar": 0,
+      "fat": 0.5,
+      "transFat": 0,
+      "satFat": 0,
+      "kcal": 110,
+      "sodium": 190
+     },
+     "serving": 31,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-isolate-whey-protein-powder?variant=52106232725771"
+    },
+    {
+     "id": "on-iso-1360-iso-van",
+     "name": "리치 바닐라",
+     "values": {
+      "protein": 25,
+      "carb": 1,
+      "sugar": 1,
+      "fat": 0,
+      "transFat": 0,
+      "satFat": 0,
+      "kcal": 100,
+      "sodium": 80
+     },
+     "serving": 30,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-isolate-whey-protein-powder?variant=52106232824075"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "on-plant-800",
+   "category": "protein",
+   "brand": "Optimum Nutrition",
+   "name": "골드스탠다드 100% 플랜트 프로틴 800g",
+   "weight": 800,
+   "serving": 40,
+   "servings": null,
+   "price": 50910,
+   "images": [
+    "images/on-plant-choc.webp?v=2de5d6b9",
+    "images/on-plant-van.webp?v=a43cc18d"
+   ],
+   "source": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-plant-based-protein-powder",
+   "checked": "2026.10.18",
+   "baseFlavor": "on-plant-800-pl-choc",
+   "lists": {
+    "blend": [
+     {
+      "name": "완두",
+      "desc": "완두 단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "잠두",
+      "desc": "잠두 분리단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "현미",
+      "desc": "현미 농축단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "on-plant-800-pl-choc",
+     "name": "리치 초콜릿 퍼지",
+     "values": {
+      "protein": 24,
+      "carb": 6,
+      "sugar": 0,
+      "fat": 3.5,
+      "transFat": 0,
+      "satFat": 2,
+      "kcal": 150,
+      "cholesterol": 0,
+      "sodium": 540
+     },
+     "serving": 40,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-plant-based-protein-powder?variant=52106232955147"
+    },
+    {
+     "id": "on-plant-800-pl-van",
+     "name": "크리미 바닐라",
+     "values": {
+      "protein": 24,
+      "carb": 5,
+      "sugar": 0,
+      "fat": 3.5,
+      "transFat": 0,
+      "satFat": 1.5,
+      "kcal": 150,
+      "cholesterol": 0,
+      "sodium": 480
+     },
+     "serving": 37,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-100-plant-based-protein-powder?variant=52106232856843"
+    }
+   ],
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "on-gainer-2310",
+   "category": "protein",
+   "brand": "Optimum Nutrition",
+   "name": "골드스탠다드 프로 게이너 2.31kg",
+   "weight": 2310,
+   "serving": 165,
+   "servings": null,
+   "price": 132090,
+   "images": [
+    "images/on-gainer5-choc.webp?v=c8fda669",
+    "images/on-gainer5-van.webp?v=b5b885e1"
+   ],
+   "source": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-pro-gainer-protein-powder",
+   "checked": "2026.10.18",
+   "baseFlavor": "on-gainer-2310-ga-choc",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "CC",
+      "desc": "칼슘카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "on-gainer-2310-ga-choc",
+     "name": "더블 초콜릿",
+     "values": {
+      "protein": 60,
+      "carb": 81,
+      "sugar": 7,
+      "fat": 9,
+      "transFat": 0,
+      "satFat": 4,
+      "kcal": 650,
+      "cholesterol": 80,
+      "sodium": 340
+     },
+     "serving": 165,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-pro-gainer-protein-powder?variant=52106368876811"
+    },
+    {
+     "id": "on-gainer-2310-ga-van",
+     "name": "바닐라 커스터드",
+     "values": {
+      "protein": 60,
+      "carb": 82,
+      "sugar": 5,
+      "fat": 9,
+      "transFat": 0,
+      "satFat": 4,
+      "kcal": 650,
+      "cholesterol": 85,
+      "sodium": 340
+     },
+     "serving": 165,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-pro-gainer-protein-powder?variant=52106368811275"
+    }
+   ],
+   "lineup": "골드스탠다드 프로 게이너",
+   "listNotes": {
+    "blend": "표기 순서"
+   }
+  },
+  {
+   "id": "on-gainer-4620",
+   "category": "protein",
+   "brand": "Optimum Nutrition",
+   "name": "골드스탠다드 프로 게이너 4.62kg",
+   "weight": 4620,
+   "serving": 165,
+   "servings": null,
+   "price": 171600,
+   "images": [
+    "images/on-gainer10-choc.webp?v=0608eeb0"
+   ],
+   "source": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-pro-gainer-protein-powder",
+   "checked": "2026.10.18",
+   "baseFlavor": "on-gainer-4620-ga-choc",
+   "lists": {
+    "blend": [
+     {
+      "name": "WPI",
+      "desc": "분리유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPC",
+      "desc": "농축유청단백",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "CC",
+      "desc": "칼슘카제인",
+      "value": null,
+      "unit": "%"
+     },
+     {
+      "name": "WPH",
+      "desc": "가수분해유청단백",
+      "value": null,
+      "unit": "%"
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "on-gainer-4620-ga-choc",
+     "name": "더블 초콜릿",
+     "values": {
+      "protein": 60,
+      "carb": 81,
+      "sugar": 7,
+      "fat": 9,
+      "transFat": 0,
+      "satFat": 4,
+      "kcal": 650,
+      "cholesterol": 80,
+      "sodium": 340
+     },
+     "serving": 165,
+     "link": "https://www.optimumnutrition.com/ko-kr/products/gold-standard-pro-gainer-protein-powder?variant=52106368778507"
+    }
+   ],
+   "lineup": "골드스탠다드 프로 게이너",
    "listNotes": {
     "blend": "표기 순서"
    }
