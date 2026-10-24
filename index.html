@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0a0b0c" />
   <title>proteiner — 영양 제품 비교</title>
-  <meta name="description" content="프로틴 파우더를 1회 단백질·탄수화물·지방과 용량별 가격으로 한눈에 비교합니다. 영양 수치는 제품 라벨, 가격은 공식 판매 페이지 기준입니다." />
+  <meta name="description" content="프로틴 파우더와 크레아틴을 1회 함량·영양 구성과 용량별 가격으로 한눈에 비교합니다. 영양 수치는 제품 라벨, 가격은 공식 판매 페이지 기준입니다." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ko_KR" />
   <meta property="og:title" content="proteiner — 영양 제품 비교" />
-  <meta property="og:description" content="프로틴 파우더를 1회 단백질·탄수화물·지방과 용량별 가격으로 한눈에 비교합니다." />
+  <meta property="og:description" content="프로틴 파우더와 크레아틴을 1회 함량·영양 구성과 용량별 가격으로 한눈에 비교합니다." />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23c6f36b'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='20' font-weight='900' text-anchor='middle' fill='%2311150a'%3Ep%3C/text%3E%3C/svg%3E" />
   <!-- #11 데이터 파일을 화면 코드보다 먼저 받기 시작 -->
   <link rel="preload" href="data/products.json" as="fetch" crossorigin="anonymous" />
@@ -243,8 +243,9 @@
     .blend-box .macro-subs li { flex-wrap:nowrap; font-size:13px; }
     .blend-box .macro-subs li > span:first-child { min-width:0; color:var(--muted); }
     .blend-box .bb-abbr { color:var(--text); font-weight:700; letter-spacing:.02em; }
-    .blend-box .bb-name { margin-left:8px; font-style:normal; font-size:12px; color:var(--muted); }
+    .blend-box .bb-name { word-break:keep-all; margin-left:8px; font-style:normal; font-size:12px; color:var(--muted); }
     .blend-box .macro-subs li > span:last-child { white-space:nowrap; }
+    .blend-box .macro-subs li.no-val > span:last-child { white-space:normal; line-height:1.6; word-break:keep-all; }   /* 값 없는 목록(설명만)은 줄바꿈 허용 */
     .blend-box .na { font-size:11px; font-weight:500; }
     .chip.nodata { opacity:.5; }
     .empty-state { grid-column:1/-1; border:1px dashed #353b37; background:#0d0f10; border-radius:var(--radius); min-height:270px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:35px; }
@@ -420,7 +421,9 @@
         p.base = usable.find(f => f.id === p.baseFlavor) || usable.find(f => /무맛|플레인/.test(f.name)) || usable.find(f => /초콜|초코/.test(f.name))
           || (usable.length ? usable.reduce((a, b) => (a.values[per] <= b.values[per] ? a : b)) : null);
         if (p.base) p.flavors = [p.base, ...p.flavors.filter(f => f !== p.base)];   // 기준맛을 맨 위(목록·칩 맨 앞)로
-        p.flavors.forEach(f => { f.hasData = Boolean(cat) && cat.dataFields.some(k => f.values[k] != null); });
+        // 상세 박스에 보일 값이 있거나(영양 항목), 목록 박스(원료·성분 등)에 넣을 내용이 있으면 '데이터 있음'
+        const listOf = (f, b) => (f.lists && f.lists[b.source]) || (p.lists || {})[b.source];
+        p.flavors.forEach(f => { f.hasData = Boolean(cat) && (cat.dataFields.some(k => f.values[k] != null) || cat.boxes.some(b => b.type === 'list' && (listOf(f, b) || []).length)); });
       });
     }
     // ---- 라인업: 무게만 다른 같은 제품(엑셀 '라인업' 칸이 같은 행)을 카드 하나로 묶고, 용량 버튼으로 바꿔 본다 ----
@@ -452,7 +455,7 @@
     };
     // 용량 버튼에 마우스를 올리면 보이는 가격: 그 용량의 최저가(맛마다 가격이 다르면 '~')
     // 용량 버튼 아래 회분: 표기된 총 제공 횟수, 없으면 기준 맛 1회 섭취량으로 나눈 값(반올림)
-    const sizeServings = s => { const n = servingsOf(s, s.base); return n ? Math.round(n) : null; };
+    const sizeServings = s => { if (!s.weight) return null; const n = servingsOf(s, s.base); return n ? Math.round(n) : null; };   // 무게가 없는 제품(캡슐 등)은 버튼 자체가 'N회분'이라 생략
     const sizePrice = s => {
       const ps = s.flavors.map(f => priceOf(s, f)).filter(Boolean);
       if (!ps.length) return '';

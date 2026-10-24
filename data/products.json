@@ -2,7 +2,7 @@
  "_generated": "이 파일은 data/products.xlsx에서 tools/build_data.py로 만들어집니다. 직접 고치지 말고 엑셀을 고치세요.",
  "site": {
   "help": "수치는 제품 페이지 표기 기준 · 모든 가격은 배송비 제외 · 가격과 재고는 변동 가능",
-  "footnote": "제품 수치와 표시 가격은 공식 판매 페이지 기준이며, 모든 가격은 배송비를 제외한 금액입니다. 카드의 1회·제품 전체 표는 카드에 표시된 기준 맛의 라벨 수치를 따르며, 각 맛의 수치는 맛별 1회 영양에서 확인할 수 있습니다. 맛별 영양 수치와 상세 영양정보는 제품 라벨(영양성분표)의 1회 섭취량 기준이며, 맛에 따라 다를 수 있습니다. 제품 전체의 단백질·탄수화물·지방은 (총 중량 ÷ 1회 섭취량 × 1회 수치)로 계산한 추정값입니다. NS PROTEIN 제품은 2026.10.17 공식 페이지에서 판매 중이며 가격이 같음을 다시 확인했습니다(일부 맛 옵션은 품절일 수 있습니다). BSN 제품은 판매 중으로 확인했으며, 용량(회분)별로 카드를 나누고 제품 전체 수치는 총 제공 횟수(회분)로 계산합니다. 마이프로틴 제품은 맛마다 가격이 달라 맛별 1회 영양 표에 맛별 가격을 함께 표시하며, 공식 페이지에 맛별 영양정보가 없는 맛은 페이지에 적힌 무맛 기준 수치를 넣었습니다. 옵티멈 뉴트리션 제품은 2026.10.18 한국 공식몰 가격이며, 영양 수치는 공식몰에 올라온 제품 라벨(미국 영양성분표) 기준이고 용량은 라벨의 순중량(g)으로 표시했습니다. 품절된 맛과 라벨이 없는 맛은 넣지 않았습니다. '확인 필요'로 표시된 항목은 공식 페이지에서 확인하지 못한 정보이며 추정하지 않았습니다."
+  "footnote": "제품 수치와 표시 가격은 공식 판매 페이지 기준이며, 모든 가격은 배송비를 제외한 금액입니다. 카드의 1회·제품 전체 표는 카드에 표시된 기준 맛의 라벨 수치를 따르며, 각 맛의 수치는 맛별 1회 영양에서 확인할 수 있습니다. 맛별 영양 수치와 상세 영양정보는 제품 라벨(영양성분표)의 1회 섭취량 기준이며, 맛에 따라 다를 수 있습니다. 제품 전체의 단백질·탄수화물·지방은 (총 중량 ÷ 1회 섭취량 × 1회 수치)로 계산한 추정값입니다. NS PROTEIN 제품은 2026.10.17 공식 페이지에서 판매 중이며 가격이 같음을 다시 확인했습니다(일부 맛 옵션은 품절일 수 있습니다). BSN 제품은 판매 중으로 확인했으며, 용량(회분)별로 카드를 나누고 제품 전체 수치는 총 제공 횟수(회분)로 계산합니다. 마이프로틴 제품은 맛마다 가격이 달라 맛별 1회 영양 표에 맛별 가격을 함께 표시하며, 공식 페이지에 맛별 영양정보가 없는 맛은 페이지에 적힌 무맛 기준 수치를 넣었습니다. 옵티멈 뉴트리션 제품은 2026.10.18 한국 공식몰 가격이며, 영양 수치는 공식몰에 올라온 제품 라벨(미국 영양성분표) 기준이고 용량은 라벨의 순중량(g)으로 표시했습니다. 품절된 맛과 라벨이 없는 맛은 넣지 않았습니다. 크레아틴은 2026.10.24 각 공식몰 기준이며, 1회 크레아틴은 라벨에 적힌 크레아틴 원료(모노하이드레이트·염산염) 양입니다. 원료 종류에 따라 실제 크레아틴 양이 달라 마이프로틴이 따로 표기한 경우 '순수 크레아틴 환산'을 함께 적었습니다. 1+1 묶음, 다른 제품과의 묶음, 품절 상품은 넣지 않았습니다. '확인 필요'로 표시된 항목은 공식 페이지에서 확인하지 못한 정보이며 추정하지 않았습니다."
  },
  "fields": {
   "protein": {
@@ -100,6 +100,14 @@
     1,
     1
    ]
+  },
+  "creatine": {
+   "label": "크레아틴",
+   "unit": "g",
+   "dec": [
+    1,
+    2
+   ]
   }
  },
  "categories": [
@@ -173,12 +181,33 @@
    "id": "creatine",
    "name": "크레아틴",
    "label": "CATEGORY 03 / CREATINE",
-   "desc": "크레아틴 종류와 유효 성분량을 기준으로 비교",
+   "desc": "1회 크레아틴 함량과 원료·제형을 기준으로 비교",
    "empty": "크레아틴 종류, 1회 함량, 총 유효 성분량, 원료 및 품질 정보를 이곳에 정리합니다.",
-   "ref": null,
-   "summary": [],
+   "ref": "creatine",
+   "summary": [
+    "creatine"
+   ],
    "header": [],
-   "boxes": []
+   "boxes": [
+    {
+     "type": "list",
+     "title": "크레아틴 원료",
+     "note": "",
+     "source": "form"
+    },
+    {
+     "type": "list",
+     "title": "제형 · 섭취 방법",
+     "note": "",
+     "source": "dose"
+    },
+    {
+     "type": "list",
+     "title": "그 외 성분",
+     "note": "",
+     "source": "others"
+    }
+   ]
   },
   {
    "id": "chicken",
@@ -4536,6 +4565,833 @@
    "listNotes": {
     "blend": "표기 순서"
    }
+  },
+  {
+   "id": "on-crplus-360",
+   "category": "creatine",
+   "brand": "Optimum Nutrition",
+   "name": "크레아틴 플러스 360g",
+   "weight": 360,
+   "serving": 9,
+   "servings": 40,
+   "price": 25790,
+   "images": [
+    "images/on-crplus.webp?v=8e4511ee"
+   ],
+   "source": "https://www.optimumnutrition.com/ko-kr/products/creatine-plus-micronized-creatine-monohydrate-powder",
+   "checked": "2026.10.24",
+   "baseFlavor": "on-crplus-op",
+   "lists": {
+    "form": [
+     {
+      "name": "크레아틴 모노하이드레이트",
+      "desc": "마이크로나이즈드",
+      "value": 5,
+      "unit": "g"
+     }
+    ],
+    "dose": [
+     {
+      "name": "파우더",
+      "desc": "1회 2티스푼(9g) · 물 350~470ml에 섞어 섭취",
+      "value": null,
+      "unit": ""
+     },
+     {
+      "name": "오렌지 패션프룻맛",
+      "desc": "인공 향료",
+      "value": null,
+      "unit": ""
+     }
+    ],
+    "others": [
+     {
+      "name": "비타민 B·C·D",
+      "desc": "C 45mg · D 10mcg · B1 1.2mg · 나이아신 16mg · B6 2mg · 엽산 425mcg DFE · B12 2.4mcg · 판토텐산 5mg",
+      "value": null,
+      "unit": ""
+     },
+     {
+      "name": "전해질 블렌드 370mg",
+      "desc": "염화나트륨 · 산화마그네슘 · 염화칼륨",
+      "value": null,
+      "unit": ""
+     },
+     {
+      "name": "감미료 · 색소",
+      "desc": "수크랄로스 · 황색 5·6호 · 적색 40호",
+      "value": null,
+      "unit": ""
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "on-crplus-op",
+     "name": "오렌지 패션프룻",
+     "values": {
+      "carb": 1,
+      "kcal": 5,
+      "sodium": 90,
+      "creatine": 5
+     },
+     "link": "https://www.optimumnutrition.com/ko-kr/products/creatine-plus-micronized-creatine-monohydrate-powder?variant=52106369171723"
+    }
+   ]
+  },
+  {
+   "id": "on-crpow-300",
+   "category": "creatine",
+   "brand": "Optimum Nutrition",
+   "name": "마이크로나이즈드 크레아틴 파우더 300g",
+   "weight": 300,
+   "serving": 5,
+   "servings": 60,
+   "price": 31390,
+   "images": [
+    "images/on-crpow60.webp?v=017e6678"
+   ],
+   "source": "https://www.optimumnutrition.com/ko-kr/products/creatine-monohydrate-micronized-powder",
+   "checked": "2026.10.24",
+   "baseFlavor": "on-crpow-300-u",
+   "lists": {
+    "form": [
+     {
+      "name": "크레아틴 모노하이드레이트",
+      "desc": "마이크로나이즈드 · 100%",
+      "value": 5,
+      "unit": "g"
+     }
+    ],
+    "dose": [
+     {
+      "name": "파우더",
+      "desc": "1회 1스쿱(5g) · 단백질 쉐이크나 음료에 섞어 섭취",
+      "value": null,
+      "unit": ""
+     },
+     {
+      "name": "무향",
+      "desc": "다른 보충제와 섞기 좋음",
+      "value": null,
+      "unit": ""
+     }
+    ],
+    "others": [
+     {
+      "name": "없음",
+      "desc": "크레아틴 단일 성분",
+      "value": null,
+      "unit": ""
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "on-crpow-300-u",
+     "name": "무향",
+     "values": {
+      "creatine": 5
+     },
+     "link": "https://www.optimumnutrition.com/ko-kr/products/creatine-monohydrate-micronized-powder?variant=52106231349515"
+    }
+   ],
+   "lineup": "마이크로나이즈드 크레아틴 파우더"
+  },
+  {
+   "id": "on-crpow-1200",
+   "category": "creatine",
+   "brand": "Optimum Nutrition",
+   "name": "마이크로나이즈드 크레아틴 파우더 1.2kg",
+   "weight": 1200,
+   "serving": 5,
+   "servings": 240,
+   "price": 51090,
+   "images": [
+    "images/on-crpow240.webp?v=33aa1758"
+   ],
+   "source": "https://www.optimumnutrition.com/ko-kr/products/creatine-monohydrate-micronized-powder",
+   "checked": "2026.10.24",
+   "baseFlavor": "on-crpow-1200-u",
+   "lists": {
+    "form": [
+     {
+      "name": "크레아틴 모노하이드레이트",
+      "desc": "마이크로나이즈드 · 100%",
+      "value": 5,
+      "unit": "g"
+     }
+    ],
+    "dose": [
+     {
+      "name": "파우더",
+      "desc": "1회 1스쿱(5g) · 단백질 쉐이크나 음료에 섞어 섭취",
+      "value": null,
+      "unit": ""
+     },
+     {
+      "name": "무향",
+      "desc": "다른 보충제와 섞기 좋음",
+      "value": null,
+      "unit": ""
+     }
+    ],
+    "others": [
+     {
+      "name": "없음",
+      "desc": "크레아틴 단일 성분",
+      "value": null,
+      "unit": ""
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "on-crpow-1200-u",
+     "name": "무향",
+     "values": {
+      "creatine": 5
+     },
+     "link": "https://www.optimumnutrition.com/ko-kr/products/creatine-monohydrate-micronized-powder?variant=52352040534283"
+    }
+   ],
+   "lineup": "마이크로나이즈드 크레아틴 파우더"
+  },
+  {
+   "id": "on-crcaps-50",
+   "category": "creatine",
+   "brand": "Optimum Nutrition",
+   "name": "마이크로나이즈드 크레아틴 캡슐 50회분",
+   "weight": null,
+   "serving": null,
+   "servings": 50,
+   "price": 30930,
+   "images": [
+    "images/on-crcaps50.webp?v=1e8afbd2"
+   ],
+   "source": "https://www.optimumnutrition.com/ko-kr/products/creatine-monohydrate-micronized-capsules",
+   "checked": "2026.10.24",
+   "baseFlavor": "on-crcaps-50-u",
+   "lists": {
+    "form": [
+     {
+      "name": "크레아틴 모노하이드레이트",
+      "desc": "마이크로나이즈드 · 100%",
+      "value": 2.5,
+      "unit": "g"
+     }
+    ],
+    "dose": [
+     {
+      "name": "캡슐",
+      "desc": "1회 2캡슐 · 식사와 함께, 하루 2회 권장(라벨 기준)",
+      "value": null,
+      "unit": ""
+     }
+    ],
+    "others": [
+     {
+      "name": "캡슐 원료",
+      "desc": "젤라틴 · 스테아르산마그네슘",
+      "value": null,
+      "unit": ""
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "on-crcaps-50-u",
+     "name": "무향 (100캡슐)",
+     "values": {
+      "creatine": 2.5
+     },
+     "link": "https://www.optimumnutrition.com/ko-kr/products/creatine-monohydrate-micronized-capsules?variant=52106231513355"
+    }
+   ],
+   "lineup": "마이크로나이즈드 크레아틴 캡슐"
+  },
+  {
+   "id": "on-crcaps-100",
+   "category": "creatine",
+   "brand": "Optimum Nutrition",
+   "name": "마이크로나이즈드 크레아틴 캡슐 100회분",
+   "weight": null,
+   "serving": null,
+   "servings": 100,
+   "price": 38850,
+   "images": [
+    "images/on-crcaps100.webp?v=6d1575bc"
+   ],
+   "source": "https://www.optimumnutrition.com/ko-kr/products/creatine-monohydrate-micronized-capsules",
+   "checked": "2026.10.24",
+   "baseFlavor": "on-crcaps-100-u",
+   "lists": {
+    "form": [
+     {
+      "name": "크레아틴 모노하이드레이트",
+      "desc": "마이크로나이즈드 · 100%",
+      "value": 2.5,
+      "unit": "g"
+     }
+    ],
+    "dose": [
+     {
+      "name": "캡슐",
+      "desc": "1회 2캡슐 · 식사와 함께, 하루 2회 권장(라벨 기준)",
+      "value": null,
+      "unit": ""
+     }
+    ],
+    "others": [
+     {
+      "name": "캡슐 원료",
+      "desc": "젤라틴 · 스테아르산마그네슘",
+      "value": null,
+      "unit": ""
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "on-crcaps-100-u",
+     "name": "무향 (200캡슐)",
+     "values": {
+      "creatine": 2.5
+     },
+     "link": "https://www.optimumnutrition.com/ko-kr/products/creatine-monohydrate-micronized-capsules?variant=52106231447819"
+    }
+   ],
+   "lineup": "마이크로나이즈드 크레아틴 캡슐"
+  },
+  {
+   "id": "on-crcaps-150",
+   "category": "creatine",
+   "brand": "Optimum Nutrition",
+   "name": "마이크로나이즈드 크레아틴 캡슐 150회분",
+   "weight": null,
+   "serving": null,
+   "servings": 150,
+   "price": 56730,
+   "images": [
+    "images/on-crcaps150.webp?v=1309c2da"
+   ],
+   "source": "https://www.optimumnutrition.com/ko-kr/products/creatine-monohydrate-micronized-capsules",
+   "checked": "2026.10.24",
+   "baseFlavor": "on-crcaps-150-u",
+   "lists": {
+    "form": [
+     {
+      "name": "크레아틴 모노하이드레이트",
+      "desc": "마이크로나이즈드 · 100%",
+      "value": 2.5,
+      "unit": "g"
+     }
+    ],
+    "dose": [
+     {
+      "name": "캡슐",
+      "desc": "1회 2캡슐 · 식사와 함께, 하루 2회 권장(라벨 기준)",
+      "value": null,
+      "unit": ""
+     }
+    ],
+    "others": [
+     {
+      "name": "캡슐 원료",
+      "desc": "젤라틴 · 스테아르산마그네슘",
+      "value": null,
+      "unit": ""
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "on-crcaps-150-u",
+     "name": "무향 (300캡슐)",
+     "values": {
+      "creatine": 2.5
+     },
+     "link": "https://www.optimumnutrition.com/ko-kr/products/creatine-monohydrate-micronized-capsules?variant=52106231480587"
+    }
+   ],
+   "lineup": "마이크로나이즈드 크레아틴 캡슐"
+  },
+  {
+   "id": "bsn-creatine-60",
+   "category": "creatine",
+   "brand": "BSN",
+   "name": "크레아틴 60회분",
+   "weight": 309,
+   "serving": 5,
+   "servings": 60,
+   "price": 25580,
+   "images": [
+    "images/bsn-creatine.webp?v=71a31f57"
+   ],
+   "source": "https://www.bsn.co.kr/products/creatine",
+   "checked": "2026.10.24",
+   "baseFlavor": "bsn-creatine-u",
+   "lists": {
+    "form": [
+     {
+      "name": "크레아틴 모노하이드레이트",
+      "desc": "마이크로나이즈드",
+      "value": 5,
+      "unit": "g"
+     }
+    ],
+    "dose": [
+     {
+      "name": "파우더",
+      "desc": "1회 1스쿱(5g) · 물이나 음료 240~350ml에 섞어 섭취",
+      "value": null,
+      "unit": ""
+     },
+     {
+      "name": "무맛",
+      "desc": "다른 보충제와 섞기 좋음",
+      "value": null,
+      "unit": ""
+     }
+    ],
+    "others": [
+     {
+      "name": "없음",
+      "desc": "크레아틴 단일 성분 (감미료·향료·필러 없음)",
+      "value": null,
+      "unit": ""
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "bsn-creatine-u",
+     "name": "무맛",
+     "values": {
+      "creatine": 5
+     },
+     "link": "https://www.bsn.co.kr/products/creatine"
+    }
+   ]
+  },
+  {
+   "id": "my-cr-impact-250",
+   "category": "creatine",
+   "brand": "마이프로틴",
+   "name": "임팩트 크레아틴 250g",
+   "weight": 250,
+   "serving": 3.4,
+   "servings": 73,
+   "price": 15900,
+   "images": [
+    "images/mp-cr-impact.webp?v=77eca78a"
+   ],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/creatine-monohydrate/10530050/",
+   "checked": "2026.10.24",
+   "baseFlavor": "my-cr-impact-250-u",
+   "lists": {
+    "form": [
+     {
+      "name": "크레아틴 모노하이드레이트",
+      "desc": "",
+      "value": 3.4,
+      "unit": "g"
+     },
+     {
+      "name": "순수 크레아틴 환산",
+      "desc": "",
+      "value": 3,
+      "unit": "g"
+     }
+    ],
+    "dose": [
+     {
+      "name": "파우더",
+      "desc": "1회 약 1스쿱(3.4g) · 물 250ml에 섞어 섭취",
+      "value": null,
+      "unit": ""
+     },
+     {
+      "name": "무맛",
+      "desc": "",
+      "value": null,
+      "unit": ""
+     }
+    ],
+    "others": [
+     {
+      "name": "없음",
+      "desc": "크레아틴 단일 성분",
+      "value": null,
+      "unit": ""
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-cr-impact-250-u",
+     "name": "무맛",
+     "values": {
+      "creatine": 3.4
+     },
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/creatine-monohydrate/10530050/?variation=10530053"
+    }
+   ],
+   "lineup": "임팩트 크레아틴"
+  },
+  {
+   "id": "my-cr-impact-1000",
+   "category": "creatine",
+   "brand": "마이프로틴",
+   "name": "임팩트 크레아틴 1kg",
+   "weight": 1000,
+   "serving": 3.4,
+   "servings": 294,
+   "price": 33900,
+   "images": [
+    "images/mp-cr-impact.webp?v=77eca78a"
+   ],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/creatine-monohydrate/10530050/",
+   "checked": "2026.10.24",
+   "baseFlavor": "my-cr-impact-1000-u",
+   "lists": {
+    "form": [
+     {
+      "name": "크레아틴 모노하이드레이트",
+      "desc": "",
+      "value": 3.4,
+      "unit": "g"
+     },
+     {
+      "name": "순수 크레아틴 환산",
+      "desc": "",
+      "value": 3,
+      "unit": "g"
+     }
+    ],
+    "dose": [
+     {
+      "name": "파우더",
+      "desc": "1회 약 1스쿱(3.4g) · 물 250ml에 섞어 섭취",
+      "value": null,
+      "unit": ""
+     },
+     {
+      "name": "무맛",
+      "desc": "",
+      "value": null,
+      "unit": ""
+     }
+    ],
+    "others": [
+     {
+      "name": "없음",
+      "desc": "크레아틴 단일 성분",
+      "value": null,
+      "unit": ""
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-cr-impact-1000-u",
+     "name": "무맛",
+     "values": {
+      "creatine": 3.4
+     },
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/creatine-monohydrate/10530050/?variation=10530051"
+    }
+   ],
+   "lineup": "임팩트 크레아틴"
+  },
+  {
+   "id": "my-cr-tablets-250",
+   "category": "creatine",
+   "brand": "마이프로틴",
+   "name": "모노 크레아틴 250정",
+   "weight": null,
+   "serving": null,
+   "servings": 83,
+   "price": 36700,
+   "images": [
+    "images/mp-cr-tablets.webp?v=562b1ba0"
+   ],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/creatine-monohydrate-tablets/10575029/",
+   "checked": "2026.10.24",
+   "baseFlavor": "my-cr-tablets-u",
+   "lists": {
+    "form": [
+     {
+      "name": "크레아틴 모노하이드레이트",
+      "desc": "",
+      "value": 3,
+      "unit": "g"
+     }
+    ],
+    "dose": [
+     {
+      "name": "정제(알약)",
+      "desc": "1회 3정 · 하루 1회",
+      "value": null,
+      "unit": ""
+     }
+    ],
+    "others": [
+     {
+      "name": "부형제",
+      "desc": "결정셀룰로스(증량제) · 스테아르산 · 스테아르산마그네슘 · 이산화규소(고결방지제)",
+      "value": null,
+      "unit": ""
+     },
+     {
+      "name": "코팅",
+      "desc": "HPMC · 글리세린 · 카나우바왁스",
+      "value": null,
+      "unit": ""
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-cr-tablets-u",
+     "name": "무맛 (250정)",
+     "values": {
+      "creatine": 3
+     },
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/creatine-monohydrate-tablets/10575029/"
+    }
+   ]
+  },
+  {
+   "id": "my-cr-gummies-90",
+   "category": "creatine",
+   "brand": "마이프로틴",
+   "name": "크레아틴 구미 90개",
+   "weight": null,
+   "serving": null,
+   "servings": 30,
+   "price": 36900,
+   "images": [
+    "images/mp-cr-gummies.webp?v=1f203638"
+   ],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/creatine-gummies/13528283/",
+   "checked": "2026.10.24",
+   "baseFlavor": "my-cr-gummies-lemon",
+   "lists": {
+    "form": [
+     {
+      "name": "모노크레아틴",
+      "desc": "",
+      "value": 3,
+      "unit": "g"
+     }
+    ],
+    "dose": [
+     {
+      "name": "구미(젤리)",
+      "desc": "1회 3개 · 하루 1회",
+      "value": null,
+      "unit": ""
+     }
+    ],
+    "others": [
+     {
+      "name": "당류",
+      "desc": "설탕 · 글루코오스시럽 (원재료 첫 번째·두 번째)",
+      "value": null,
+      "unit": ""
+     },
+     {
+      "name": "기타",
+      "desc": "글리세롤 · 펙틴 · 구연산삼나트륨 · 인산삼칼슘 · 구연산 · 천연향료 · 커큐민(색소)",
+      "value": null,
+      "unit": ""
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-cr-gummies-lemon",
+     "name": "레몬",
+     "values": {
+      "creatine": 3
+     },
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/creatine-gummies/13528283/"
+    }
+   ]
+  },
+  {
+   "id": "my-cr-hcl-500",
+   "category": "creatine",
+   "brand": "마이프로틴",
+   "name": "크레아틴 HCL 500g",
+   "weight": 500,
+   "serving": 4.1,
+   "servings": 121,
+   "price": 26900,
+   "images": [
+    "images/mp-cr-hcl.webp?v=ed92c30b"
+   ],
+   "source": "https://www.myprotein.co.kr/p/sports-nutrition/creatine-hcl/17169974/",
+   "checked": "2026.10.24",
+   "baseFlavor": "my-cr-hcl-u",
+   "lists": {
+    "form": [
+     {
+      "name": "크레아틴 염산염 (HCl)",
+      "desc": "",
+      "value": 4.1,
+      "unit": "g"
+     },
+     {
+      "name": "순수 크레아틴 환산",
+      "desc": "",
+      "value": 3,
+      "unit": "g"
+     }
+    ],
+    "dose": [
+     {
+      "name": "파우더",
+      "desc": "1회 약 1스쿱(4.1g) · 물 100ml에 섞어 섭취",
+      "value": null,
+      "unit": ""
+     }
+    ],
+    "others": [
+     {
+      "name": "고결방지제",
+      "desc": "이산화규소",
+      "value": null,
+      "unit": ""
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "my-cr-hcl-u",
+     "name": "무맛",
+     "values": {
+      "creatine": 4.1
+     },
+     "link": "https://www.myprotein.co.kr/p/sports-nutrition/creatine-hcl/17169974/"
+    }
+   ]
+  },
+  {
+   "id": "ns-creatine-essential-300",
+   "category": "creatine",
+   "brand": "NS PROTEIN",
+   "name": "NS 크레아틴 에센셜 300g",
+   "weight": 300,
+   "serving": 3,
+   "servings": 100,
+   "price": 17800,
+   "images": [
+    "images/ns-cr-essential.webp?v=fb906546"
+   ],
+   "source": "https://nsprotein.com/product/detail.html?product_no=398&cate_no=47&display_group=1",
+   "checked": "2026.10.24",
+   "baseFlavor": "ns-cr-essential-u",
+   "lists": {
+    "form": [
+     {
+      "name": "크레아틴 모노하이드레이트",
+      "desc": "100% · 중국 제조(Healthy Hangzhou)",
+      "value": 3,
+      "unit": "g"
+     }
+    ],
+    "dose": [
+     {
+      "name": "파우더",
+      "desc": "1회 1스푼(3g) · 운동 전·중·후 섭취",
+      "value": null,
+      "unit": ""
+     },
+     {
+      "name": "무맛",
+      "desc": "원료 특유의 맛이 있어 물·음료에 섞기 권장",
+      "value": null,
+      "unit": ""
+     }
+    ],
+    "others": [
+     {
+      "name": "없음",
+      "desc": "크레아틴 100% (건강기능식품)",
+      "value": null,
+      "unit": ""
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "ns-cr-essential-u",
+     "name": "무맛",
+     "values": {
+      "protein": 3,
+      "carb": 0,
+      "fat": 0,
+      "kcal": 10,
+      "sodium": 0,
+      "creatine": 3
+     },
+     "link": "https://nsprotein.com/product/detail.html?product_no=398&cate_no=47&display_group=1"
+    }
+   ]
+  },
+  {
+   "id": "ns-creatine-original-300",
+   "category": "creatine",
+   "brand": "NS PROTEIN",
+   "name": "NS 크레아틴 오리지널 300g",
+   "weight": 300,
+   "serving": 3,
+   "servings": 100,
+   "price": 16800,
+   "images": [
+    "images/ns-cr-original.webp?v=295e3905"
+   ],
+   "source": "https://nsprotein.com/product/detail.html?product_no=365&cate_no=47&display_group=1",
+   "checked": "2026.10.24",
+   "baseFlavor": "ns-cr-original-u",
+   "lists": {
+    "form": [
+     {
+      "name": "크레아틴 모노하이드레이트",
+      "desc": "100% (제품 앞면 표기)",
+      "value": 3,
+      "unit": "g"
+     }
+    ],
+    "dose": [
+     {
+      "name": "파우더",
+      "desc": "1회 3g · 100회분",
+      "value": null,
+      "unit": ""
+     }
+    ],
+    "others": [
+     {
+      "name": "없음",
+      "desc": "크레아틴 100% (건강기능식품)",
+      "value": null,
+      "unit": ""
+     }
+    ]
+   },
+   "flavors": [
+    {
+     "id": "ns-cr-original-u",
+     "name": "무맛",
+     "values": {
+      "creatine": 3
+     },
+     "link": "https://nsprotein.com/product/detail.html?product_no=365&cate_no=47&display_group=1"
+    }
+   ]
   }
  ]
 }
