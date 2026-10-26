@@ -118,13 +118,15 @@ def main():
         label_to_key[fields[k]["label"]] = k
 
     # ---------- 카테고리 ----------
-    cat_cols = ["id", "이름", "라벨", "설명", "빈 화면 안내", "기준 항목", "요약 항목", "머리글 항목"]
+    cat_cols = ["id", "이름", "라벨", "설명", "빈 화면 안내", "기준 항목", "요약 항목", "머리글 항목", "카드 목록"]
     categories = []
     for i, d in table(wb, "카테고리", cat_cols, required=["id", "이름"])[0]:
         categories.append({
             "id": d["id"], "name": d["이름"], "label": d.get("라벨") or "", "desc": d.get("설명") or "",
             "empty": d.get("빈 화면 안내") or "", "ref": d.get("기준 항목") or None,
             "summary": split_keys(d.get("요약 항목")), "header": split_keys(d.get("머리글 항목")), "boxes": [],
+            # 카드 목록: 맛별 영양 표 대신 카드 본문에 바로 보일 목록 이름(목록 시트). 비우면 맛별 영양 표
+            "cardList": d.get("카드 목록") or None,
         })
     cat_by_id = {c["id"]: c for c in categories}
 

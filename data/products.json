@@ -164,7 +164,8 @@
      "note": "함량 많은 순",
      "source": "blend"
     }
-   ]
+   ],
+   "cardList": null
   },
   {
    "id": "eaa",
@@ -175,7 +176,8 @@
    "ref": null,
    "summary": [],
    "header": [],
-   "boxes": []
+   "boxes": [],
+   "cardList": null
   },
   {
    "id": "creatine",
@@ -191,12 +193,6 @@
    "boxes": [
     {
      "type": "list",
-     "title": "크레아틴 원료",
-     "note": "",
-     "source": "form"
-    },
-    {
-     "type": "list",
      "title": "제형 · 섭취 방법",
      "note": "",
      "source": "dose"
@@ -207,7 +203,8 @@
      "note": "",
      "source": "others"
     }
-   ]
+   ],
+   "cardList": "form"
   },
   {
    "id": "chicken",
@@ -218,7 +215,8 @@
    "ref": null,
    "summary": [],
    "header": [],
-   "boxes": []
+   "boxes": [],
+   "cardList": null
   }
  ],
  "products": [
@@ -4801,7 +4799,7 @@
    "flavors": [
     {
      "id": "on-crcaps-50-u",
-     "name": "무향 (100캡슐)",
+     "name": "무향",
      "values": {
       "creatine": 2.5
      },
@@ -4854,7 +4852,7 @@
    "flavors": [
     {
      "id": "on-crcaps-100-u",
-     "name": "무향 (200캡슐)",
+     "name": "무향",
      "values": {
       "creatine": 2.5
      },
@@ -4907,7 +4905,7 @@
    "flavors": [
     {
      "id": "on-crcaps-150-u",
-     "name": "무향 (300캡슐)",
+     "name": "무향",
      "values": {
       "creatine": 2.5
      },
@@ -5154,7 +5152,7 @@
    "flavors": [
     {
      "id": "my-cr-tablets-u",
-     "name": "무맛 (250정)",
+     "name": "무맛",
      "values": {
       "creatine": 3
      },
@@ -5180,8 +5178,8 @@
    "lists": {
     "form": [
      {
-      "name": "모노크레아틴",
-      "desc": "",
+      "name": "크레아틴 모노하이드레이트",
+      "desc": "원재료명 표기: 모노크레아틴",
       "value": 3,
       "unit": "g"
      }

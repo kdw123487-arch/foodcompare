@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0a0b0c" />
-  <title>proteiner — 영양 제품 비교</title>
+  <title>BOOTH INDEX — 영양 제품 비교</title>
   <meta name="description" content="프로틴 파우더와 크레아틴을 1회 함량·영양 구성과 용량별 가격으로 한눈에 비교합니다. 영양 수치는 제품 라벨, 가격은 공식 판매 페이지 기준입니다." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ko_KR" />
-  <meta property="og:title" content="proteiner — 영양 제품 비교" />
+  <meta property="og:title" content="BOOTH INDEX — 영양 제품 비교" />
   <meta property="og:description" content="프로틴 파우더와 크레아틴을 1회 함량·영양 구성과 용량별 가격으로 한눈에 비교합니다." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23c6f36b'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='20' font-weight='900' text-anchor='middle' fill='%2311150a'%3Ep%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%22-18 0 120 120%22%3E%3Cpath fill=%22%23cff27e%22 d=%22M12 0h59v9c8 1 13 7 13 15v84a12 12 0 0 1-12 12H12A12 12 0 0 1 0 108V24c0-8 5-14 12-15V0z%22/%3E%3Cpath fill=%22%235d712c%22 fill-rule=%22evenodd%22 d=%22M19 30h36q10 0 10 12v4q0 7-5 10 12 3 12 16v8q0 17-17 17H19zM33 43h16q3 0 3 4v5q0 4-3 4H33zM33 69h21q4 0 4 4v6q0 5-4 5H33z%22/%3E%3C/svg%3E" />
   <!-- #11 데이터 파일을 화면 코드보다 먼저 받기 시작 -->
   <link rel="preload" href="data/products.json" as="fetch" crossorigin="anonymous" />
   <style>
@@ -48,9 +48,11 @@
     }
     .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
     .brand { display: flex; gap: 11px; align-items: center; text-decoration: none; }
-    .brand-mark { width: 31px; height: 31px; display: grid; place-items: center; border-radius: 9px; background: var(--accent); color: #11150a; font-weight: 900; font-size:18px; }
-    .brand-name { font-size:15px; font-weight: 800; letter-spacing: .13em; }
-    .brand-sub { color: var(--muted); font-size:12px; letter-spacing: .14em; margin-top: 1px; }
+    .brand-mark { width:24px; height:34px; flex:none; }
+    .brand-mark svg { display:block; width:100%; height:100%; }
+    .brand-text { display:flex; flex-direction:column; align-items:flex-end; line-height:1; }
+    .brand-name { font-size:17px; font-weight:800; letter-spacing:.01em; }
+    .brand-sub { color:var(--text); font-size:13px; font-weight:500; letter-spacing:.01em; margin-top:2px; }
     .nav-note { font-size:13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
     .hero { padding: 72px 0 36px; display: grid; grid-template-columns: minmax(0,1.2fr) minmax(260px,.8fr); gap: 40px; align-items: end; }
     .eyebrow { color: var(--accent); font-size:13px; text-transform: uppercase; letter-spacing: .18em; font-weight: 800; display:flex; gap:10px; align-items:center; }
@@ -199,6 +201,16 @@
     .chip.active { background:#f2f3ef; border-color:#f2f3ef; color:#111412; font-weight:700; }
     .missing { margin:8px 0 0; font-size:12px; color:var(--muted); line-height:1.7; }
     .ftable { width:100%; border-collapse:collapse; }
+    .src-list ul { list-style:none; margin:0; padding:0; }
+    .src-list li { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:14px 0; border-bottom:1px solid var(--line-soft); }
+    .src-list li > div { min-width:0; display:flex; flex-direction:column; gap:4px; }
+    .src-list li b { font-size:16px; font-weight:750; letter-spacing:-.02em; color:var(--text); word-break:keep-all; }
+    .src-list li span { font-size:12px; color:var(--muted); word-break:keep-all; }
+    .src-list li em { flex:none; font-style:normal; font-size:20px; font-weight:750; color:var(--text); font-variant-numeric:tabular-nums; }
+    .src-list li em small { font-size:12px; font-weight:600; color:var(--muted); margin-left:2px; }
+    .src-list li.sub { padding:10px 0; }
+    .src-list li.sub b { font-size:13px; font-weight:600; color:#c3c8c5; }
+    .src-list li.sub em { font-size:15px; color:#c3c8c5; }
     .ftable th, .ftable td { padding:11px 0; border-bottom:1px solid var(--line-soft); text-align:right; font-variant-numeric:tabular-nums; }
     .ftable thead th { padding:9px 0 7px; font-size:12px; color:var(--muted); font-weight:500; }
     .ftable tbody th { text-align:left; font-size:14px; color:#c3c8c5; font-weight:400; word-break:keep-all; line-height:1.35; padding-right:6px; }
@@ -312,9 +324,9 @@
 <body>
   <header class="topbar">
     <div class="shell nav">
-      <a class="brand" href="#top" aria-label="proteiner 홈">
-        <div class="brand-mark">p</div>
-        <div><div class="brand-name">proteiner</div><div class="brand-sub">NUTRITION INDEX</div></div>
+      <a class="brand" href="#top" aria-label="BOOTH INDEX 홈">
+        <div class="brand-mark" aria-hidden="true"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 120"><path fill="#cff27e" d="M12 0h59v9c8 1 13 7 13 15v84a12 12 0 0 1-12 12H12A12 12 0 0 1 0 108V24c0-8 5-14 12-15V0z"/><path fill="#5d712c" fill-rule="evenodd" d="M19 30h36q10 0 10 12v4q0 7-5 10 12 3 12 16v8q0 17-17 17H19zM33 43h16q3 0 3 4v5q0 4-3 4H33zM33 69h21q4 0 4 4v6q0 5-4 5H33z"/></svg></div>
+        <div class="brand-text"><div class="brand-name">BOOTH INDEX</div><div class="brand-sub">protein</div></div>
       </a>
       <div class="nav-note">PERSONAL PRODUCT REFERENCE&nbsp; / &nbsp;KR</div>
     </div>
@@ -371,7 +383,7 @@
 
     <footer class="footnote">
       <p id="footnote-text"></p>
-      <div class="footer-brand">PROTEINER&nbsp; / &nbsp;NUTRITION INDEX</div>
+      <div class="footer-brand">BOOTH INDEX&nbsp; / &nbsp;PROTEIN</div>
     </footer>
   </main>
 
@@ -565,7 +577,13 @@
       const fillRows = Math.max(...l.sizes.map(s => visRows(s.flavors))) - visRows(flavors);
       const anyMore = l.sizes.some(s => s.flavors.length > FLAVOR_LIMIT);
       const filler = Array.from({ length: fillRows }, () => `<tr class="filler" aria-hidden="true"><th scope="row">&nbsp;</th>${sum.map(() => '<td>&nbsp;</td>').join('')}${pricesVary ? '<td class="pcol">&nbsp;</td>' : ''}</tr>`).join('');
-      const flavorTable = sum.length ? `<div class="flavor-list">
+      // 카테고리에 '카드 목록'이 있으면(예: 크레아틴 원료) 맛별 영양 표 대신 그 목록을 카드에 크게 보여 줌
+      const cardRows = cat.cardList ? ((base && base.lists && base.lists[cat.cardList]) || (p.lists || {})[cat.cardList] || []) : [];
+      const cardListHtml = cardRows.length ? `<div class="flavor-list src-list">
+              <div class="flavor-list-head">원료</div>
+              <ul>${cardRows.map((r, i) => `<li class="${i ? 'sub' : 'main'}"><div><b>${esc(r.name)}</b>${r.desc ? `<span>${esc(r.desc)}</span>` : ''}</div>${r.value != null ? `<em>${r.unit === 'g' ? Number(r.value).toFixed(1) : r.value}<small>${esc(r.unit)}</small></em>` : ''}</li>`).join('')}</ul>
+            </div>` : slot;
+      const flavorTable = cat.cardList ? cardListHtml : sum.length ? `<div class="flavor-list">
               <div class="flavor-list-head">맛별 1회 영양<span>(${esc(field(sum[0]).unit)})</span></div>
               <table class="ftable">
                 <thead><tr><th scope="col"><span class="sr">맛</span></th>${sum.map(k => `<th scope="col">${esc(field(k).label)}</th>`).join('')}${pricesVary ? '<th scope="col">가격</th>' : ''}</tr></thead>
