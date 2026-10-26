@@ -599,13 +599,13 @@
             ${baseNote}
             ${matrix}
             ${flavorTable}
-            <details class="nutri">
+            ${cat.boxes.length ? `<details class="nutri">
               <summary><span>상세 영양정보</span><span class="nutri-chev" aria-hidden="true"></span></summary>
               <div class="nutri-body">
                 ${chips}
                 ${anyData ? flavors.map((f, i) => panelHtml(f, i, first, p, cat)).join('') : '<p class="missing">영양 성분표를 아직 확인하지 못했습니다.</p>'}
               </div>
-            </details>
+            </details>` : slot}
             ${footHtml(p) || slot}
           </div>
         </article>`;
@@ -749,7 +749,7 @@
         const card = opt.closest('.product-card'), l = shown.get(card.dataset.lineup);
         if (!l || opt.getAttribute('aria-pressed') === 'true') return;
         chosen.set(l.id, opt.dataset.size);
-        const open = card.querySelector('.nutri').open, scroll = card.querySelector('.sizes').scrollLeft;
+        const open = card.querySelector('.nutri')?.open, scroll = card.querySelector('.sizes').scrollLeft;
         // 새 카드를 미리 만들고 첫 사진을 디코딩한 뒤 교체 → 사진 자리가 잠깐 비는 깜빡임 없음
         const tpl = document.createElement('template');
         tpl.innerHTML = cardTemplate(l).trim();
@@ -757,7 +757,7 @@
         if (img) { img.loading = 'eager'; await img.decode().catch(() => {}); }
         if (!card.isConnected) return;
         card.replaceWith(fresh);
-        fresh.querySelector('.nutri').open = open;
+        if (fresh.querySelector('.nutri')) fresh.querySelector('.nutri').open = open;
         const row = fresh.querySelector('.sizes');
         row.scrollLeft = scroll;
         edges(row);

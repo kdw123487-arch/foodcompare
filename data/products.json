@@ -190,20 +190,7 @@
     "creatine"
    ],
    "header": [],
-   "boxes": [
-    {
-     "type": "list",
-     "title": "제형 · 섭취 방법",
-     "note": "",
-     "source": "dose"
-    },
-    {
-     "type": "list",
-     "title": "그 외 성분",
-     "note": "",
-     "source": "others"
-    }
-   ],
+   "boxes": [],
    "cardList": "form"
   },
   {
